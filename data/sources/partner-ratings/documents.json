@@ -1,0 +1,3262 @@
+{
+  "system": "Rating partner",
+  "simulates": "A sustainability rating provider (style of EcoVadis): scores, LkSG risk, certificates, scorecards",
+  "notice": "Demo data, fictitious",
+  "generatedFrom": "data/source/Supplier_Dummy_Data_v2.xlsx",
+  "records": [
+    {
+      "recordId": "DOC-SCORECARD-S-0001",
+      "documentId": "DOC-SCORECARD-S-0001",
+      "system": "documents",
+      "supplierId": "S-0001",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 3,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Mustermann Stahlguss GmbH",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0001.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-10-28",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Mustermann Stahlguss GmbH, supplier ID S-0001",
+            "Assessment date: 28 Oct 2026",
+            "Overall score: 62 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 9001; ISO 14001",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Sustainability report",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0002",
+      "documentId": "DOC-SCORECARD-S-0002",
+      "system": "documents",
+      "supplierId": "S-0002",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 4,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Ruhrtal Stahlwerke AG",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0002.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-09-11",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Ruhrtal Stahlwerke AG, supplier ID S-0002",
+            "Assessment date: 11 Sept 2026",
+            "Overall score: 58 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 45001; ISO 14001",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0003",
+      "documentId": "DOC-SCORECARD-S-0003",
+      "system": "documents",
+      "supplierId": "S-0003",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 5,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Harzland Flachstahl GmbH",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0003.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2025-01-28",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Harzland Flachstahl GmbH, supplier ID S-0003",
+            "Assessment date: 28 Jan 2025",
+            "Overall score: 73 / 100",
+            "LkSG country risk: Low",
+            "Certifications: SA8000; ISO 14001",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0004",
+      "documentId": "DOC-SCORECARD-S-0004",
+      "system": "documents",
+      "supplierId": "S-0004",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 6,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Odlewnia Wisła Sp. z o.o.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0004.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-10-13",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Odlewnia Wisła Sp. z o.o., supplier ID S-0004",
+            "Assessment date: 13 Oct 2026",
+            "Overall score: 59 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 9001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Sustainability report",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0005",
+      "documentId": "DOC-SCORECARD-S-0005",
+      "system": "documents",
+      "supplierId": "S-0005",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 7,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Shandong Muster Casting Co., Ltd.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0005.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2023-03-09",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Shandong Muster Casting Co., Ltd., supplier ID S-0005",
+            "Assessment date: 9 Mar 2023",
+            "Overall score: 25 / 100",
+            "LkSG country risk: High",
+            "Certifications: ISO 9001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: no",
+            "Controversies: 2024: fined by local authority for wastewater discharge; contract ended",
+            "CO2 data source used: Sustainability report",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0006",
+      "documentId": "DOC-SCORECARD-S-0006",
+      "system": "documents",
+      "supplierId": "S-0006",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 8,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Anatolia Döküm A.Ş.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0006.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2025-06-22",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Anatolia Döküm A.Ş., supplier ID S-0006",
+            "Assessment date: 22 Jun 2025",
+            "Overall score: 30 / 100",
+            "LkSG country risk: Medium",
+            "Certifications: ISO 14001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: yes",
+            "Controversies: 2025: complaint about air emissions by local residents",
+            "CO2 data source used: Estimate (industry average)",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0007",
+      "documentId": "DOC-SCORECARD-S-0007",
+      "system": "documents",
+      "supplierId": "S-0007",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 9,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Donautal Stahl GmbH",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0007.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-06-26",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Donautal Stahl GmbH, supplier ID S-0007",
+            "Assessment date: 26 Jun 2026",
+            "Overall score: 65 / 100",
+            "LkSG country risk: Low",
+            "Certifications: SA8000",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0008",
+      "documentId": "DOC-SCORECARD-S-0008",
+      "system": "documents",
+      "supplierId": "S-0008",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 10,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Moselle Acier Europe S.A.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0008.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2024-11-05",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Moselle Acier Europe S.A., supplier ID S-0008",
+            "Assessment date: 5 Nov 2024",
+            "Overall score: 55 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 14001",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Sustainability report",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0009",
+      "documentId": "DOC-SCORECARD-S-0009",
+      "system": "documents",
+      "supplierId": "S-0009",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 11,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Pune Precision Castings Pvt. Ltd.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0009.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-07-05",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Pune Precision Castings Pvt. Ltd., supplier ID S-0009",
+            "Assessment date: 5 Jul 2026",
+            "Overall score: 42 / 100",
+            "LkSG country risk: High",
+            "Certifications: none stated",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: no",
+            "Controversies: None known",
+            "CO2 data source used: Web search (AI agent)",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0010",
+      "documentId": "DOC-SCORECARD-S-0010",
+      "system": "documents",
+      "supplierId": "S-0010",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 12,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, GreenFerro Nordic AB",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0010.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-09-22",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: GreenFerro Nordic AB, supplier ID S-0010",
+            "Assessment date: 22 Sept 2026",
+            "Overall score: 77 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 50001; Cradle to Cradle; B Corp",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: not stated",
+            "Controversies: None known",
+            "CO2 data source used: Web search (AI agent)",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0011",
+      "documentId": "DOC-SCORECARD-S-0011",
+      "system": "documents",
+      "supplierId": "S-0011",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 13,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Fjordmetall Aluminium ASA",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0011.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-03-18",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Fjordmetall Aluminium ASA, supplier ID S-0011",
+            "Assessment date: 18 Mar 2026",
+            "Overall score: 68 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 14001; ISO 50001",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Sustainability report",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0012",
+      "documentId": "DOC-SCORECARD-S-0012",
+      "system": "documents",
+      "supplierId": "S-0012",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 14,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Weserland Aluminium SE",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0012.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-03-30",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Weserland Aluminium SE, supplier ID S-0012",
+            "Assessment date: 30 Mar 2026",
+            "Overall score: 48 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 14001; ISO 45001; ISO 50001",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Sustainability report",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0013",
+      "documentId": "DOC-SCORECARD-S-0013",
+      "system": "documents",
+      "supplierId": "S-0013",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 15,
+        "assumedFields": [
+          "data_source"
+        ]
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Alucast Schwaben GmbH",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0013.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-02-04",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Alucast Schwaben GmbH, supplier ID S-0013",
+            "Assessment date: 4 Feb 2026",
+            "Overall score: 47 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 14001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: no",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0014",
+      "documentId": "DOC-SCORECARD-S-0014",
+      "system": "documents",
+      "supplierId": "S-0014",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 16,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Ningbo Silverline Die Casting Co., Ltd.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0014.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2024-05-04",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Ningbo Silverline Die Casting Co., Ltd., supplier ID S-0014",
+            "Assessment date: 4 May 2024",
+            "Overall score: 33 / 100",
+            "LkSG country risk: High",
+            "Certifications: ISO 9001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: no",
+            "Controversies: None known",
+            "CO2 data source used: Estimate (industry average)",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0015",
+      "documentId": "DOC-SCORECARD-S-0015",
+      "system": "documents",
+      "supplierId": "S-0015",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 17,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Alu-Druckguss Erzgebirge GmbH",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0015.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2025-09-08",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Alu-Druckguss Erzgebirge GmbH, supplier ID S-0015",
+            "Assessment date: 8 Sept 2025",
+            "Overall score: 52 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 9001; ISO 14001; ISO 45001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: no",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0016",
+      "documentId": "DOC-SCORECARD-S-0016",
+      "system": "documents",
+      "supplierId": "S-0016",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 18,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Rheinwalz Aluminium GmbH",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0016.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2024-05-28",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Rheinwalz Aluminium GmbH, supplier ID S-0016",
+            "Assessment date: 28 May 2024",
+            "Overall score: 68 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 50001; ISO 45001",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0017",
+      "documentId": "DOC-SCORECARD-S-0017",
+      "system": "documents",
+      "supplierId": "S-0017",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 19,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Leichtmetallwerk Muster GmbH",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0017.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-05-06",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Leichtmetallwerk Muster GmbH, supplier ID S-0017",
+            "Assessment date: 6 May 2026",
+            "Overall score: 53 / 100",
+            "LkSG country risk: Low",
+            "Certifications: none stated",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: not stated",
+            "Controversies: None known",
+            "CO2 data source used: Web search (AI agent)",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0018",
+      "documentId": "DOC-SCORECARD-S-0018",
+      "system": "documents",
+      "supplierId": "S-0018",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 20,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Alu Balkan d.o.o.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0018.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-06-25",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Alu Balkan d.o.o., supplier ID S-0018",
+            "Assessment date: 25 Jun 2026",
+            "Overall score: 43 / 100",
+            "LkSG country risk: Medium",
+            "Certifications: none stated",
+            "Science-based target (SBTi): not stated",
+            "Sustainability report published: no",
+            "Controversies: None known",
+            "CO2 data source used: Web search (AI agent)",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0019",
+      "documentId": "DOC-SCORECARD-S-0019",
+      "system": "documents",
+      "supplierId": "S-0019",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 21,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Aluvallée France SAS",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0019.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2025-04-07",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Aluvallée France SAS, supplier ID S-0019",
+            "Assessment date: 7 Apr 2025",
+            "Overall score: 62 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 45001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0020",
+      "documentId": "DOC-SCORECARD-S-0020",
+      "system": "documents",
+      "supplierId": "S-0020",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 22,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Saigon Lightmetal JSC",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0020.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-10-14",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Saigon Lightmetal JSC, supplier ID S-0020",
+            "Assessment date: 14 Oct 2026",
+            "Overall score: 29 / 100",
+            "LkSG country risk: High",
+            "Certifications: ISO 9001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: no",
+            "Controversies: None known",
+            "CO2 data source used: Web search (AI agent)",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0021",
+      "documentId": "DOC-SCORECARD-S-0021",
+      "system": "documents",
+      "supplierId": "S-0021",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 23,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Elbkupfer AG",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0021.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2025-07-17",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Elbkupfer AG, supplier ID S-0021",
+            "Assessment date: 17 Jul 2025",
+            "Overall score: 65 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 50001; ISO 45001",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Sustainability report",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0022",
+      "documentId": "DOC-SCORECARD-S-0022",
+      "system": "documents",
+      "supplierId": "S-0022",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 24,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Elektrisolar Drahtwerk GmbH",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0022.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2025-02-09",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Elektrisolar Drahtwerk GmbH, supplier ID S-0022",
+            "Assessment date: 9 Feb 2025",
+            "Overall score: 57 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 45001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: no",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0023",
+      "documentId": "DOC-SCORECARD-S-0023",
+      "system": "documents",
+      "supplierId": "S-0023",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 25,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Nordwick Magnetdraht GmbH",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0023.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2025-03-13",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Nordwick Magnetdraht GmbH, supplier ID S-0023",
+            "Assessment date: 13 Mar 2025",
+            "Overall score: 53 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 45001; ISO 9001; ISO 14001",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0024",
+      "documentId": "DOC-SCORECARD-S-0024",
+      "system": "documents",
+      "supplierId": "S-0024",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 26,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Kupferwerk Mansfeld Muster GmbH",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0024.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2025-10-19",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Kupferwerk Mansfeld Muster GmbH, supplier ID S-0024",
+            "Assessment date: 19 Oct 2025",
+            "Overall score: 54 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 45001; ISO 50001; ISO 14001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0025",
+      "documentId": "DOC-SCORECARD-S-0025",
+      "system": "documents",
+      "supplierId": "S-0025",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 27,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Jiangsu Goldwire Copper Co., Ltd.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0025.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2025-10-21",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Jiangsu Goldwire Copper Co., Ltd., supplier ID S-0025",
+            "Assessment date: 21 Oct 2025",
+            "Overall score: 27 / 100",
+            "LkSG country risk: High",
+            "Certifications: ISO 9001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: no",
+            "Controversies: None known",
+            "CO2 data source used: Estimate (industry average)",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0026",
+      "documentId": "DOC-SCORECARD-S-0026",
+      "system": "documents",
+      "supplierId": "S-0026",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 28,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, MetalWire Polska Sp. z o.o.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0026.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2025-09-27",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: MetalWire Polska Sp. z o.o., supplier ID S-0026",
+            "Assessment date: 27 Sept 2025",
+            "Overall score: 55 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 9001; ISO 45001",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: no",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0028",
+      "documentId": "DOC-SCORECARD-S-0028",
+      "system": "documents",
+      "supplierId": "S-0028",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 30,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Kupferhütte Saale GmbH",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0028.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2022-11-22",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Kupferhütte Saale GmbH, supplier ID S-0028",
+            "Assessment date: 22 Nov 2022",
+            "Overall score: 61 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 50001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0029",
+      "documentId": "DOC-SCORECARD-S-0029",
+      "system": "documents",
+      "supplierId": "S-0029",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 31,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Cuprum Recycling Solutions GmbH",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0029.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-05-20",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Cuprum Recycling Solutions GmbH, supplier ID S-0029",
+            "Assessment date: 20 May 2026",
+            "Overall score: 75 / 100",
+            "LkSG country risk: Low",
+            "Certifications: none stated",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: not stated",
+            "Controversies: None known",
+            "CO2 data source used: Web search (AI agent)",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0031",
+      "documentId": "DOC-SCORECARD-S-0031",
+      "system": "documents",
+      "supplierId": "S-0031",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 33,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Isarchip Technologies AG",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0031.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2025-03-27",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Isarchip Technologies AG, supplier ID S-0031",
+            "Assessment date: 27 Mar 2025",
+            "Overall score: 69 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 14001; EMAS",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Sustainability report",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0032",
+      "documentId": "DOC-SCORECARD-S-0032",
+      "system": "documents",
+      "supplierId": "S-0032",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 34,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Neckartal Elektronik GmbH",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0032.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2025-01-20",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Neckartal Elektronik GmbH, supplier ID S-0032",
+            "Assessment date: 20 Jan 2025",
+            "Overall score: 51 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 9001; ISO 14001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0033",
+      "documentId": "DOC-SCORECARD-S-0033",
+      "system": "documents",
+      "supplierId": "S-0033",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 35,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Lippe Kontakttechnik GmbH & Co. KG",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0033.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-04-22",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Lippe Kontakttechnik GmbH & Co. KG, supplier ID S-0033",
+            "Assessment date: 22 Apr 2026",
+            "Overall score: 64 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 50001; ISO 14001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Sustainability report",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0034",
+      "documentId": "DOC-SCORECARD-S-0034",
+      "system": "documents",
+      "supplierId": "S-0034",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 36,
+        "assumedFields": [
+          "data_source"
+        ]
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Hohenlohe Elektronik GmbH",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0034.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2022-07-28",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Hohenlohe Elektronik GmbH, supplier ID S-0034",
+            "Assessment date: 28 Jul 2022",
+            "Overall score: 48 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 14001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: no",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0035",
+      "documentId": "DOC-SCORECARD-S-0035",
+      "system": "documents",
+      "supplierId": "S-0035",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 37,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Kansai Ceramic Components Co., Ltd.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0035.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-09-30",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Kansai Ceramic Components Co., Ltd., supplier ID S-0035",
+            "Assessment date: 30 Sept 2026",
+            "Overall score: 56 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 14001; ISO 45001; ISO 50001",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0037",
+      "documentId": "DOC-SCORECARD-S-0037",
+      "system": "documents",
+      "supplierId": "S-0037",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 39,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Tatra Electronics s.r.o.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0037.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2024-01-21",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Tatra Electronics s.r.o., supplier ID S-0037",
+            "Assessment date: 21 Jan 2024",
+            "Overall score: 55 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 9001; ISO 50001",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0038",
+      "documentId": "DOC-SCORECARD-S-0038",
+      "system": "documents",
+      "supplierId": "S-0038",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 40,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Brianza Microelettronica S.r.l.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0038.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2024-05-21",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Brianza Microelettronica S.r.l., supplier ID S-0038",
+            "Assessment date: 21 May 2024",
+            "Overall score: 64 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 50001; EMAS; ISO 45001",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0039",
+      "documentId": "DOC-SCORECARD-S-0039",
+      "system": "documents",
+      "supplierId": "S-0039",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 41,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Penang PCB Assembly Sdn. Bhd.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0039.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-10-20",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Penang PCB Assembly Sdn. Bhd., supplier ID S-0039",
+            "Assessment date: 20 Oct 2026",
+            "Overall score: 29 / 100",
+            "LkSG country risk: Medium",
+            "Certifications: ISO 14001; ISO 9001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: no",
+            "Controversies: None known",
+            "CO2 data source used: Web search (AI agent)",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0040",
+      "documentId": "DOC-SCORECARD-S-0040",
+      "system": "documents",
+      "supplierId": "S-0040",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 42,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Max Mustermann Kabelkonfektion e.K.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0040.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-03-06",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Max Mustermann Kabelkonfektion e.K., supplier ID S-0040",
+            "Assessment date: 6 Mar 2026",
+            "Overall score: 46 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 14001; ISO 45001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Web search (AI agent)",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0041",
+      "documentId": "DOC-SCORECARD-S-0041",
+      "system": "documents",
+      "supplierId": "S-0041",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 43,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Frankenlager AG",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0041.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-01-25",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Frankenlager AG, supplier ID S-0041",
+            "Assessment date: 25 Jan 2026",
+            "Overall score: 73 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 14001; SA8000",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Sustainability report",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0042",
+      "documentId": "DOC-SCORECARD-S-0042",
+      "system": "documents",
+      "supplierId": "S-0042",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 44,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Vänern Lager AB",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0042.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2025-01-03",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Vänern Lager AB, supplier ID S-0042",
+            "Assessment date: 3 Jan 2025",
+            "Overall score: 67 / 100",
+            "LkSG country risk: Low",
+            "Certifications: EMAS; ISO 45001; SA8000",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Sustainability report",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0043",
+      "documentId": "DOC-SCORECARD-S-0043",
+      "system": "documents",
+      "supplierId": "S-0043",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 45,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Rheinlager Europe GmbH",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0043.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2025-01-20",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Rheinlager Europe GmbH, supplier ID S-0043",
+            "Assessment date: 20 Jan 2025",
+            "Overall score: 59 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 45001; ISO 14001",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Sustainability report",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0044",
+      "documentId": "DOC-SCORECARD-S-0044",
+      "system": "documents",
+      "supplierId": "S-0044",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 46,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Carpați Rulmenți S.A.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0044.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-04-04",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Carpați Rulmenți S.A., supplier ID S-0044",
+            "Assessment date: 4 Apr 2026",
+            "Overall score: 54 / 100",
+            "LkSG country risk: Medium",
+            "Certifications: ISO 9001; ISO 14001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Estimate (industry average)",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0045",
+      "documentId": "DOC-SCORECARD-S-0045",
+      "system": "documents",
+      "supplierId": "S-0045",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 47,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Liaoning Rolltech Bearing Co., Ltd.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0045.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2024-02-12",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Liaoning Rolltech Bearing Co., Ltd., supplier ID S-0045",
+            "Assessment date: 12 Feb 2024",
+            "Overall score: 20 / 100",
+            "LkSG country risk: High",
+            "Certifications: ISO 9001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: no",
+            "Controversies: None known",
+            "CO2 data source used: Estimate (industry average)",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0046",
+      "documentId": "DOC-SCORECARD-S-0046",
+      "system": "documents",
+      "supplierId": "S-0046",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 48,
+        "assumedFields": [
+          "last_updated"
+        ]
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Kugellager Schweinfurt Muster GmbH",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0046.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2025-11-10",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Kugellager Schweinfurt Muster GmbH, supplier ID S-0046",
+            "Assessment date: 10 Nov 2025",
+            "Overall score: 47 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 50001; ISO 9001; ISO 14001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0047",
+      "documentId": "DOC-SCORECARD-S-0047",
+      "system": "documents",
+      "supplierId": "S-0047",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 49,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Savoie Roulements SAS",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0047.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2022-04-22",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Savoie Roulements SAS, supplier ID S-0047",
+            "Assessment date: 22 Apr 2022",
+            "Overall score: 48 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 14001; ISO 9001; ISO 50001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0048",
+      "documentId": "DOC-SCORECARD-S-0048",
+      "system": "documents",
+      "supplierId": "S-0048",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 50,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Rolmex Bearings Sp. z o.o.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0048.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-03-04",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Rolmex Bearings Sp. z o.o., supplier ID S-0048",
+            "Assessment date: 4 Mar 2026",
+            "Overall score: 49 / 100",
+            "LkSG country risk: Low",
+            "Certifications: none stated",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: not stated",
+            "Controversies: None known",
+            "CO2 data source used: Web search (AI agent)",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0049",
+      "documentId": "DOC-SCORECARD-S-0049",
+      "system": "documents",
+      "supplierId": "S-0049",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 51,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Ganga Bearings Pvt. Ltd.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0049.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-05-05",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Ganga Bearings Pvt. Ltd., supplier ID S-0049",
+            "Assessment date: 5 May 2026",
+            "Overall score: 34 / 100",
+            "LkSG country risk: High",
+            "Certifications: ISO 9001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: no",
+            "Controversies: None known",
+            "CO2 data source used: Web search (AI agent)",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0050",
+      "documentId": "DOC-SCORECARD-S-0050",
+      "system": "documents",
+      "supplierId": "S-0050",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 52,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Marmara Bearing A.Ş.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0050.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-08-17",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Marmara Bearing A.Ş., supplier ID S-0050",
+            "Assessment date: 17 Aug 2026",
+            "Overall score: 44 / 100",
+            "LkSG country risk: Medium",
+            "Certifications: ISO 14001; ISO 9001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: no",
+            "Controversies: None known",
+            "CO2 data source used: Web search (AI agent)",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0051",
+      "documentId": "DOC-SCORECARD-S-0051",
+      "system": "documents",
+      "supplierId": "S-0051",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 53,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Bergstraße Dichtungstechnik SE",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0051.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2025-12-06",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Bergstraße Dichtungstechnik SE, supplier ID S-0051",
+            "Assessment date: 6 Dec 2025",
+            "Overall score: 76 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 45001",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Sustainability report",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0052",
+      "documentId": "DOC-SCORECARD-S-0052",
+      "system": "documents",
+      "supplierId": "S-0052",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 54,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Skåne Sealing Solutions AB",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0052.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-03-25",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Skåne Sealing Solutions AB, supplier ID S-0052",
+            "Assessment date: 25 Mar 2026",
+            "Overall score: 68 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 14001; EMAS",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0053",
+      "documentId": "DOC-SCORECARD-S-0053",
+      "system": "documents",
+      "supplierId": "S-0053",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 55,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Schwaben Dichtsysteme GmbH",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0053.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-10-11",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Schwaben Dichtsysteme GmbH, supplier ID S-0053",
+            "Assessment date: 11 Oct 2026",
+            "Overall score: 62 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 45001; ISO 50001",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Sustainability report",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0054",
+      "documentId": "DOC-SCORECARD-S-0054",
+      "system": "documents",
+      "supplierId": "S-0054",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 56,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Leinetal Elastomer AG",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0054.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2022-06-11",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Leinetal Elastomer AG, supplier ID S-0054",
+            "Assessment date: 11 Jun 2022",
+            "Overall score: 46 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 45001",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Sustainability report",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0055",
+      "documentId": "DOC-SCORECARD-S-0055",
+      "system": "documents",
+      "supplierId": "S-0055",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 57,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Gummiwerk Musterhausen GmbH",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0055.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-08-25",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Gummiwerk Musterhausen GmbH, supplier ID S-0055",
+            "Assessment date: 25 Aug 2026",
+            "Overall score: 59 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 9001; ISO 50001; ISO 14001",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0056",
+      "documentId": "DOC-SCORECARD-S-0056",
+      "system": "documents",
+      "supplierId": "S-0056",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 58,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Lanka Rubber Compounds (Pvt) Ltd.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0056.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-10-20",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Lanka Rubber Compounds (Pvt) Ltd., supplier ID S-0056",
+            "Assessment date: 20 Oct 2026",
+            "Overall score: 41 / 100",
+            "LkSG country risk: High",
+            "Certifications: none stated",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: no",
+            "Controversies: 2025: NGO report on child labour at rubber plantations in its supply chain",
+            "CO2 data source used: Web search (AI agent)",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0057",
+      "documentId": "DOC-SCORECARD-S-0057",
+      "system": "documents",
+      "supplierId": "S-0057",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 59,
+        "assumedFields": [
+          "data_source"
+        ]
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Hebei Sealmaster Co., Ltd.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0057.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2025-07-09",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Hebei Sealmaster Co., Ltd., supplier ID S-0057",
+            "Assessment date: 9 Jul 2025",
+            "Overall score: 25 / 100",
+            "LkSG country risk: High",
+            "Certifications: ISO 9001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: no",
+            "Controversies: 2023: audit found unsafe working conditions; contract ended",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0058",
+      "documentId": "DOC-SCORECARD-S-0058",
+      "system": "documents",
+      "supplierId": "S-0058",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 60,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Elastomer Česko s.r.o.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0058.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-01-19",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Elastomer Česko s.r.o., supplier ID S-0058",
+            "Assessment date: 19 Jan 2026",
+            "Overall score: 58 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 45001; ISO 50001; ISO 14001",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Estimate (industry average)",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0060",
+      "documentId": "DOC-SCORECARD-S-0060",
+      "system": "documents",
+      "supplierId": "S-0060",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 62,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Guarnizioni Lombarde S.p.A.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0060.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-08-26",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Guarnizioni Lombarde S.p.A., supplier ID S-0060",
+            "Assessment date: 26 Aug 2026",
+            "Overall score: 55 / 100",
+            "LkSG country risk: Low",
+            "Certifications: none stated",
+            "Science-based target (SBTi): not stated",
+            "Sustainability report published: not stated",
+            "Controversies: None known",
+            "CO2 data source used: Web search (AI agent)",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0061",
+      "documentId": "DOC-SCORECARD-S-0061",
+      "system": "documents",
+      "supplierId": "S-0061",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 63,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Kocher Befestigungstechnik GmbH",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0061.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2025-04-12",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Kocher Befestigungstechnik GmbH, supplier ID S-0061",
+            "Assessment date: 12 Apr 2025",
+            "Overall score: 60 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 50001; ISO 45001; ISO 14001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: no",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0062",
+      "documentId": "DOC-SCORECARD-S-0062",
+      "system": "documents",
+      "supplierId": "S-0062",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 64,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Teutoburg Verbindungstechnik GmbH",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0062.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2025-09-07",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Teutoburg Verbindungstechnik GmbH, supplier ID S-0062",
+            "Assessment date: 7 Sept 2025",
+            "Overall score: 67 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 45001; ISO 14001; ISO 50001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0063",
+      "documentId": "DOC-SCORECARD-S-0063",
+      "system": "documents",
+      "supplierId": "S-0063",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 65,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Zugersee Fasteners AG",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0063.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2024-01-06",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Zugersee Fasteners AG, supplier ID S-0063",
+            "Assessment date: 6 Jan 2024",
+            "Overall score: 70 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 14001",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Estimate (industry average)",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0064",
+      "documentId": "DOC-SCORECARD-S-0064",
+      "system": "documents",
+      "supplierId": "S-0064",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 66,
+        "assumedFields": [
+          "data_source"
+        ]
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Ningbo Screwking Fasteners Co., Ltd.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0064.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2025-04-27",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Ningbo Screwking Fasteners Co., Ltd., supplier ID S-0064",
+            "Assessment date: 27 Apr 2025",
+            "Overall score: 22 / 100",
+            "LkSG country risk: High",
+            "Certifications: ISO 9001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: no",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0065",
+      "documentId": "DOC-SCORECARD-S-0065",
+      "system": "documents",
+      "supplierId": "S-0065",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 67,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Kaohsiung Bolt Industrial Co., Ltd.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0065.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2022-05-31",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Kaohsiung Bolt Industrial Co., Ltd., supplier ID S-0065",
+            "Assessment date: 31 May 2022",
+            "Overall score: 54 / 100",
+            "LkSG country risk: Medium",
+            "Certifications: ISO 14001; ISO 9001; ISO 50001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: no",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0066",
+      "documentId": "DOC-SCORECARD-S-0066",
+      "system": "documents",
+      "supplierId": "S-0066",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 68,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Schraubenwerk Musterberg GmbH",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0066.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-10-29",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Schraubenwerk Musterberg GmbH, supplier ID S-0066",
+            "Assessment date: 29 Oct 2026",
+            "Overall score: 55 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 14001",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Sustainability report",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0067",
+      "documentId": "DOC-SCORECARD-S-0067",
+      "system": "documents",
+      "supplierId": "S-0067",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 69,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Lowland Fasteners Europe B.V.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0067.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2025-10-02",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Lowland Fasteners Europe B.V., supplier ID S-0067",
+            "Assessment date: 2 Oct 2025",
+            "Overall score: 55 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 50001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Estimate (industry average)",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0069",
+      "documentId": "DOC-SCORECARD-S-0069",
+      "system": "documents",
+      "supplierId": "S-0069",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 71,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Göta Fasteners AB",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0069.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2024-05-28",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Göta Fasteners AB, supplier ID S-0069",
+            "Assessment date: 28 May 2024",
+            "Overall score: 68 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 45001; SA8000; ISO 14001",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Sustainability report",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0070",
+      "documentId": "DOC-SCORECARD-S-0070",
+      "system": "documents",
+      "supplierId": "S-0070",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 72,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, GreenBolt Recycling Steel GmbH",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0070.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-03-15",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: GreenBolt Recycling Steel GmbH, supplier ID S-0070",
+            "Assessment date: 15 Mar 2026",
+            "Overall score: 77 / 100",
+            "LkSG country risk: Low",
+            "Certifications: none stated",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Web search (AI agent)",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0071",
+      "documentId": "DOC-SCORECARD-S-0071",
+      "system": "documents",
+      "supplierId": "S-0071",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 73,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Niederrhein Polymere AG",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0071.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2025-04-27",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Niederrhein Polymere AG, supplier ID S-0071",
+            "Assessment date: 27 Apr 2025",
+            "Overall score: 65 / 100",
+            "LkSG country risk: Low",
+            "Certifications: SA8000; ISO 14001; EMAS",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Sustainability report",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0072",
+      "documentId": "DOC-SCORECARD-S-0072",
+      "system": "documents",
+      "supplierId": "S-0072",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 74,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Kurpfalz Performance Polymers SE",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0072.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-03-17",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Kurpfalz Performance Polymers SE, supplier ID S-0072",
+            "Assessment date: 17 Mar 2026",
+            "Overall score: 46 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 50001; ISO 45001; ISO 9001",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0073",
+      "documentId": "DOC-SCORECARD-S-0073",
+      "system": "documents",
+      "supplierId": "S-0073",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 75,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Kunststofftechnik Mustermann GmbH",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0073.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2025-04-28",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Kunststofftechnik Mustermann GmbH, supplier ID S-0073",
+            "Assessment date: 28 Apr 2025",
+            "Overall score: 58 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 9001; ISO 45001; ISO 50001",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: no",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0074",
+      "documentId": "DOC-SCORECARD-S-0074",
+      "system": "documents",
+      "supplierId": "S-0074",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 76,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Wupper Kunststoffe GmbH",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0074.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2023-11-27",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Wupper Kunststoffe GmbH, supplier ID S-0074",
+            "Assessment date: 27 Nov 2023",
+            "Overall score: 47 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 50001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0075",
+      "documentId": "DOC-SCORECARD-S-0075",
+      "system": "documents",
+      "supplierId": "S-0075",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 77,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Plast-Form Hungária Kft.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0075.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2024-10-29",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Plast-Form Hungária Kft., supplier ID S-0075",
+            "Assessment date: 29 Oct 2024",
+            "Overall score: 56 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 14001",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: no",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0076",
+      "documentId": "DOC-SCORECARD-S-0076",
+      "system": "documents",
+      "supplierId": "S-0076",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 78,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Dongguan Moldmax Plastics Co., Ltd.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0076.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2022-05-20",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Dongguan Moldmax Plastics Co., Ltd., supplier ID S-0076",
+            "Assessment date: 20 May 2022",
+            "Overall score: 40 / 100",
+            "LkSG country risk: High",
+            "Certifications: ISO 9001; ISO 14001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: no",
+            "Controversies: 2024: excessive overtime found in labour audit",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0077",
+      "documentId": "DOC-SCORECARD-S-0077",
+      "system": "documents",
+      "supplierId": "S-0077",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 79,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Moldtech Monterrey S.A. de C.V.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0077.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-02-16",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Moldtech Monterrey S.A. de C.V., supplier ID S-0077",
+            "Assessment date: 16 Feb 2026",
+            "Overall score: 59 / 100",
+            "LkSG country risk: Medium",
+            "Certifications: ISO 14001; ISO 9001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Web search (AI agent)",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0078",
+      "documentId": "DOC-SCORECARD-S-0078",
+      "system": "documents",
+      "supplierId": "S-0078",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 80,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Polymerwerk Bayern GmbH",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0078.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-06-15",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Polymerwerk Bayern GmbH, supplier ID S-0078",
+            "Assessment date: 15 Jun 2026",
+            "Overall score: 47 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 50001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Estimate (industry average)",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0081",
+      "documentId": "DOC-SCORECARD-S-0081",
+      "system": "documents",
+      "supplierId": "S-0081",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 83,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Liffey Corrugated Group plc",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0081.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-10-02",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Liffey Corrugated Group plc, supplier ID S-0081",
+            "Assessment date: 2 Oct 2026",
+            "Overall score: 80 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 45001",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Sustainability report",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0082",
+      "documentId": "DOC-SCORECARD-S-0082",
+      "system": "documents",
+      "supplierId": "S-0082",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 84,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Pennine Packaging Ltd.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0082.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2024-01-24",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Pennine Packaging Ltd., supplier ID S-0082",
+            "Assessment date: 24 Jan 2024",
+            "Overall score: 73 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 14001; EMAS",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Sustainability report",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0083",
+      "documentId": "DOC-SCORECARD-S-0083",
+      "system": "documents",
+      "supplierId": "S-0083",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 85,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Steiermark Paper Group AG",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0083.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2024-10-10",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Steiermark Paper Group AG, supplier ID S-0083",
+            "Assessment date: 10 Oct 2024",
+            "Overall score: 80 / 100",
+            "LkSG country risk: Low",
+            "Certifications: EMAS; ISO 45001",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Estimate (industry average)",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0084",
+      "documentId": "DOC-SCORECARD-S-0084",
+      "system": "documents",
+      "supplierId": "S-0084",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 86,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Wellpappe Mustermann GmbH",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0084.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-03-01",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Wellpappe Mustermann GmbH, supplier ID S-0084",
+            "Assessment date: 1 Mar 2026",
+            "Overall score: 53 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 14001; ISO 45001; ISO 50001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Sustainability report",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0085",
+      "documentId": "DOC-SCORECARD-S-0085",
+      "system": "documents",
+      "supplierId": "S-0085",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 87,
+        "assumedFields": [
+          "last_updated"
+        ]
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Holzpaletten Schwarzwald GmbH",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0085.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2025-12-14",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Holzpaletten Schwarzwald GmbH, supplier ID S-0085",
+            "Assessment date: 14 Dec 2025",
+            "Overall score: 64 / 100",
+            "LkSG country risk: Low",
+            "Certifications: EMAS",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0086",
+      "documentId": "DOC-SCORECARD-S-0086",
+      "system": "documents",
+      "supplierId": "S-0086",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 88,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Stretchfolien Polska Sp. z o.o.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0086.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-09-15",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Stretchfolien Polska Sp. z o.o., supplier ID S-0086",
+            "Assessment date: 15 Sept 2026",
+            "Overall score: 18 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 9001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: no",
+            "Controversies: None known",
+            "CO2 data source used: Estimate (industry average)",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0087",
+      "documentId": "DOC-SCORECARD-S-0087",
+      "system": "documents",
+      "supplierId": "S-0087",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 89,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Xiamen PackPro Co., Ltd.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0087.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-10-20",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Xiamen PackPro Co., Ltd., supplier ID S-0087",
+            "Assessment date: 20 Oct 2026",
+            "Overall score: 20 / 100",
+            "LkSG country risk: High",
+            "Certifications: none stated",
+            "Science-based target (SBTi): not stated",
+            "Sustainability report published: no",
+            "Controversies: None known",
+            "CO2 data source used: Web search (AI agent)",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0089",
+      "documentId": "DOC-SCORECARD-S-0089",
+      "system": "documents",
+      "supplierId": "S-0089",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 91,
+        "assumedFields": [
+          "data_source"
+        ]
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Eurobox Logistikverpackung GmbH",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0089.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2023-10-09",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Eurobox Logistikverpackung GmbH, supplier ID S-0089",
+            "Assessment date: 9 Oct 2023",
+            "Overall score: 47 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 50001; ISO 45001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: no",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0090",
+      "documentId": "DOC-SCORECARD-S-0090",
+      "system": "documents",
+      "supplierId": "S-0090",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 92,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Packaging Solutions Czech s.r.o.",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0090.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-06-19",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Packaging Solutions Czech s.r.o., supplier ID S-0090",
+            "Assessment date: 19 Jun 2026",
+            "Overall score: 54 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 50001; ISO 9001; ISO 14001",
+            "Science-based target (SBTi): not stated",
+            "Sustainability report published: no",
+            "Controversies: None known",
+            "CO2 data source used: Web search (AI agent)",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0091",
+      "documentId": "DOC-SCORECARD-S-0091",
+      "system": "documents",
+      "supplierId": "S-0091",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 93,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Hanse Freight GmbH",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0091.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2025-12-26",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Hanse Freight GmbH, supplier ID S-0091",
+            "Assessment date: 26 Dec 2025",
+            "Overall score: 62 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 45001; ISO 14001; ISO 9001",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0092",
+      "documentId": "DOC-SCORECARD-S-0092",
+      "system": "documents",
+      "supplierId": "S-0092",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 94,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Mainline Logistik AG",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0092.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-03-25",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Mainline Logistik AG, supplier ID S-0092",
+            "Assessment date: 25 Mar 2026",
+            "Overall score: 47 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 50001; ISO 9001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Sustainability report",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0093",
+      "documentId": "DOC-SCORECARD-S-0093",
+      "system": "documents",
+      "supplierId": "S-0093",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 95,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Vierwaldstätter Logistik AG",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0093.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2024-06-06",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Vierwaldstätter Logistik AG, supplier ID S-0093",
+            "Assessment date: 6 Jun 2024",
+            "Overall score: 68 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 45001; SA8000; ISO 50001",
+            "Science-based target (SBTi): yes",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0094",
+      "documentId": "DOC-SCORECARD-S-0094",
+      "system": "documents",
+      "supplierId": "S-0094",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 96,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Jutland Road A/S",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0094.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2025-11-22",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Jutland Road A/S, supplier ID S-0094",
+            "Assessment date: 22 Nov 2025",
+            "Overall score: 60 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 14001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: no",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0095",
+      "documentId": "DOC-SCORECARD-S-0095",
+      "system": "documents",
+      "supplierId": "S-0095",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 97,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Altmühl Spedition GmbH",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0095.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2025-11-04",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Altmühl Spedition GmbH, supplier ID S-0095",
+            "Assessment date: 4 Nov 2025",
+            "Overall score: 78 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 50001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Supplier self-assessment",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0096",
+      "documentId": "DOC-SCORECARD-S-0096",
+      "system": "documents",
+      "supplierId": "S-0096",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 98,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Rheinhafen Logistics SE",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0096.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2022-05-15",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Rheinhafen Logistics SE, supplier ID S-0096",
+            "Assessment date: 15 May 2022",
+            "Overall score: 52 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 9001; ISO 50001; ISO 14001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Sustainability report",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0097",
+      "documentId": "DOC-SCORECARD-S-0097",
+      "system": "documents",
+      "supplierId": "S-0097",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 99,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, Spedition Mustermann & Söhne GmbH",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0097.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2025-05-13",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: Spedition Mustermann & Söhne GmbH, supplier ID S-0097",
+            "Assessment date: 13 May 2025",
+            "Overall score: 49 / 100",
+            "LkSG country risk: Low",
+            "Certifications: ISO 50001; ISO 45001; ISO 9001",
+            "Science-based target (SBTi): no",
+            "Sustainability report published: yes",
+            "Controversies: None known",
+            "CO2 data source used: Sustainability report",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-SCORECARD-S-0100",
+      "documentId": "DOC-SCORECARD-S-0100",
+      "system": "documents",
+      "supplierId": "S-0100",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 102,
+        "assumedFields": []
+      },
+      "documentType": "rating_scorecard",
+      "title": "Sustainability scorecard, E-Haul Electric Trucking GmbH",
+      "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0100.pdf",
+      "heldBy": "ratings",
+      "issuedOn": "2026-10-20",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Sustainability scorecard",
+            "Company: E-Haul Electric Trucking GmbH, supplier ID S-0100",
+            "Assessment date: 20 Oct 2026",
+            "Overall score: 73 / 100",
+            "LkSG country risk: Low",
+            "Certifications: Cradle to Cradle; ISO 50001; B Corp",
+            "Science-based target (SBTi): not stated",
+            "Sustainability report published: not stated",
+            "Controversies: None known",
+            "CO2 data source used: Web search (AI agent)",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    }
+  ]
+}

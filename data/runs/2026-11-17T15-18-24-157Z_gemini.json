@@ -1,0 +1,781 @@
+{
+  "runId": "5140196d-8ade-4920-9836-4c485c90a051",
+  "request": {
+    "partId": "P-SEAL-01",
+    "supplierIds": [
+      "S-0055",
+      "S-0051",
+      "S-0053",
+      "S-0058",
+      "S-0059"
+    ],
+    "quantity": 20000,
+    "neededBy": null
+  },
+  "mode": {
+    "kind": "live",
+    "provider": "gemini"
+  },
+  "status": "completed",
+  "startedAt": "2026-11-17T15:18:24.157Z",
+  "finishedAt": "2026-11-17T15:18:43.469Z",
+  "steps": [
+    {
+      "index": 1,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "model",
+      "summary": "Model asks for get_erp_record, get_rating, get_pcf, list_documents, get_erp_record, get_rating, get_pcf, list_documents, get_erp_record, get_rating, get_pcf, list_documents, get_erp_record, get_rating, get_pcf, list_documents, get_erp_record, get_rating, get_pcf, list_documents"
+    },
+    {
+      "index": 2,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_call",
+      "summary": "get_erp_record(S-0055)",
+      "tool": "get_erp_record",
+      "input": {
+        "supplierId": "S-0055"
+      }
+    },
+    {
+      "index": 3,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_result",
+      "summary": "get_erp_record: received",
+      "tool": "get_erp_record"
+    },
+    {
+      "index": 4,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_call",
+      "summary": "get_rating(S-0055)",
+      "tool": "get_rating",
+      "input": {
+        "supplierId": "S-0055"
+      }
+    },
+    {
+      "index": 5,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_result",
+      "summary": "get_rating: received",
+      "tool": "get_rating"
+    },
+    {
+      "index": 6,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_call",
+      "summary": "get_pcf(P-SEAL-01, S-0055)",
+      "tool": "get_pcf",
+      "input": {
+        "partId": "P-SEAL-01",
+        "supplierId": "S-0055"
+      }
+    },
+    {
+      "index": 7,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_result",
+      "summary": "get_pcf: received",
+      "tool": "get_pcf"
+    },
+    {
+      "index": 8,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_call",
+      "summary": "list_documents(S-0055)",
+      "tool": "list_documents",
+      "input": {
+        "supplierId": "S-0055"
+      }
+    },
+    {
+      "index": 9,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_result",
+      "summary": "list_documents: received",
+      "tool": "list_documents"
+    },
+    {
+      "index": 10,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_call",
+      "summary": "get_erp_record(S-0051)",
+      "tool": "get_erp_record",
+      "input": {
+        "supplierId": "S-0051"
+      }
+    },
+    {
+      "index": 11,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_result",
+      "summary": "get_erp_record: received",
+      "tool": "get_erp_record"
+    },
+    {
+      "index": 12,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_call",
+      "summary": "get_rating(S-0051)",
+      "tool": "get_rating",
+      "input": {
+        "supplierId": "S-0051"
+      }
+    },
+    {
+      "index": 13,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_result",
+      "summary": "get_rating: received",
+      "tool": "get_rating"
+    },
+    {
+      "index": 14,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_call",
+      "summary": "get_pcf(P-SEAL-01, S-0051)",
+      "tool": "get_pcf",
+      "input": {
+        "partId": "P-SEAL-01",
+        "supplierId": "S-0051"
+      }
+    },
+    {
+      "index": 15,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_result",
+      "summary": "get_pcf: received",
+      "tool": "get_pcf"
+    },
+    {
+      "index": 16,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_call",
+      "summary": "list_documents(S-0051)",
+      "tool": "list_documents",
+      "input": {
+        "supplierId": "S-0051"
+      }
+    },
+    {
+      "index": 17,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_result",
+      "summary": "list_documents: received",
+      "tool": "list_documents"
+    },
+    {
+      "index": 18,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_call",
+      "summary": "get_erp_record(S-0053)",
+      "tool": "get_erp_record",
+      "input": {
+        "supplierId": "S-0053"
+      }
+    },
+    {
+      "index": 19,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_result",
+      "summary": "get_erp_record: received",
+      "tool": "get_erp_record"
+    },
+    {
+      "index": 20,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_call",
+      "summary": "get_rating(S-0053)",
+      "tool": "get_rating",
+      "input": {
+        "supplierId": "S-0053"
+      }
+    },
+    {
+      "index": 21,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_result",
+      "summary": "get_rating: received",
+      "tool": "get_rating"
+    },
+    {
+      "index": 22,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_call",
+      "summary": "get_pcf(P-SEAL-01, S-0053)",
+      "tool": "get_pcf",
+      "input": {
+        "partId": "P-SEAL-01",
+        "supplierId": "S-0053"
+      }
+    },
+    {
+      "index": 23,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_result",
+      "summary": "get_pcf: received",
+      "tool": "get_pcf"
+    },
+    {
+      "index": 24,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_call",
+      "summary": "list_documents(S-0053)",
+      "tool": "list_documents",
+      "input": {
+        "supplierId": "S-0053"
+      }
+    },
+    {
+      "index": 25,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_result",
+      "summary": "list_documents: received",
+      "tool": "list_documents"
+    },
+    {
+      "index": 26,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_call",
+      "summary": "get_erp_record(S-0058)",
+      "tool": "get_erp_record",
+      "input": {
+        "supplierId": "S-0058"
+      }
+    },
+    {
+      "index": 27,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_result",
+      "summary": "get_erp_record: received",
+      "tool": "get_erp_record"
+    },
+    {
+      "index": 28,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_call",
+      "summary": "get_rating(S-0058)",
+      "tool": "get_rating",
+      "input": {
+        "supplierId": "S-0058"
+      }
+    },
+    {
+      "index": 29,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_result",
+      "summary": "get_rating: received",
+      "tool": "get_rating"
+    },
+    {
+      "index": 30,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_call",
+      "summary": "get_pcf(S-0058, P-SEAL-01)",
+      "tool": "get_pcf",
+      "input": {
+        "supplierId": "S-0058",
+        "partId": "P-SEAL-01"
+      }
+    },
+    {
+      "index": 31,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_result",
+      "summary": "get_pcf: received",
+      "tool": "get_pcf"
+    },
+    {
+      "index": 32,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_call",
+      "summary": "list_documents(S-0058)",
+      "tool": "list_documents",
+      "input": {
+        "supplierId": "S-0058"
+      }
+    },
+    {
+      "index": 33,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_result",
+      "summary": "list_documents: received",
+      "tool": "list_documents"
+    },
+    {
+      "index": 34,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_call",
+      "summary": "get_erp_record(S-0059)",
+      "tool": "get_erp_record",
+      "input": {
+        "supplierId": "S-0059"
+      }
+    },
+    {
+      "index": 35,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_result",
+      "summary": "get_erp_record: received",
+      "tool": "get_erp_record"
+    },
+    {
+      "index": 36,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_call",
+      "summary": "get_rating(S-0059)",
+      "tool": "get_rating",
+      "input": {
+        "supplierId": "S-0059"
+      }
+    },
+    {
+      "index": 37,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_result",
+      "summary": "get_rating: received",
+      "tool": "get_rating"
+    },
+    {
+      "index": 38,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_call",
+      "summary": "get_pcf(P-SEAL-01, S-0059)",
+      "tool": "get_pcf",
+      "input": {
+        "partId": "P-SEAL-01",
+        "supplierId": "S-0059"
+      }
+    },
+    {
+      "index": 39,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_result",
+      "summary": "get_pcf: received",
+      "tool": "get_pcf"
+    },
+    {
+      "index": 40,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_call",
+      "summary": "list_documents(S-0059)",
+      "tool": "list_documents",
+      "input": {
+        "supplierId": "S-0059"
+      }
+    },
+    {
+      "index": 41,
+      "at": "2026-11-17T15:18:29.539Z",
+      "kind": "tool_result",
+      "summary": "list_documents: received",
+      "tool": "list_documents"
+    },
+    {
+      "index": 42,
+      "at": "2026-11-17T15:18:31.318Z",
+      "kind": "model",
+      "summary": "Model asks for read_document, read_document, read_document, read_document, read_document"
+    },
+    {
+      "index": 43,
+      "at": "2026-11-17T15:18:31.319Z",
+      "kind": "tool_call",
+      "summary": "read_document(DOC-OFFER-S-0055-P-SEAL-01)",
+      "tool": "read_document",
+      "input": {
+        "documentId": "DOC-OFFER-S-0055-P-SEAL-01"
+      }
+    },
+    {
+      "index": 44,
+      "at": "2026-11-17T15:18:31.319Z",
+      "kind": "tool_result",
+      "summary": "read_document: received",
+      "tool": "read_document"
+    },
+    {
+      "index": 45,
+      "at": "2026-11-17T15:18:31.319Z",
+      "kind": "tool_call",
+      "summary": "read_document(DOC-OFFER-S-0051-P-SEAL-01)",
+      "tool": "read_document",
+      "input": {
+        "documentId": "DOC-OFFER-S-0051-P-SEAL-01"
+      }
+    },
+    {
+      "index": 46,
+      "at": "2026-11-17T15:18:31.319Z",
+      "kind": "tool_result",
+      "summary": "read_document: received",
+      "tool": "read_document"
+    },
+    {
+      "index": 47,
+      "at": "2026-11-17T15:18:31.319Z",
+      "kind": "tool_call",
+      "summary": "read_document(DOC-OFFER-S-0053-P-SEAL-01)",
+      "tool": "read_document",
+      "input": {
+        "documentId": "DOC-OFFER-S-0053-P-SEAL-01"
+      }
+    },
+    {
+      "index": 48,
+      "at": "2026-11-17T15:18:31.319Z",
+      "kind": "tool_result",
+      "summary": "read_document: received",
+      "tool": "read_document"
+    },
+    {
+      "index": 49,
+      "at": "2026-11-17T15:18:31.319Z",
+      "kind": "tool_call",
+      "summary": "read_document(DOC-OFFER-S-0058-P-SEAL-01)",
+      "tool": "read_document",
+      "input": {
+        "documentId": "DOC-OFFER-S-0058-P-SEAL-01"
+      }
+    },
+    {
+      "index": 50,
+      "at": "2026-11-17T15:18:31.319Z",
+      "kind": "tool_result",
+      "summary": "read_document: received",
+      "tool": "read_document"
+    },
+    {
+      "index": 51,
+      "at": "2026-11-17T15:18:31.319Z",
+      "kind": "tool_call",
+      "summary": "read_document(DOC-OFFER-S-0059-P-SEAL-01)",
+      "tool": "read_document",
+      "input": {
+        "documentId": "DOC-OFFER-S-0059-P-SEAL-01"
+      }
+    },
+    {
+      "index": 52,
+      "at": "2026-11-17T15:18:31.319Z",
+      "kind": "tool_result",
+      "summary": "read_document: received",
+      "tool": "read_document"
+    },
+    {
+      "index": 53,
+      "at": "2026-11-17T15:18:35.232Z",
+      "kind": "retry",
+      "summary": "Retry 1 of 2: Gemini answered 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+    },
+    {
+      "index": 54,
+      "at": "2026-11-17T15:18:43.466Z",
+      "kind": "model",
+      "summary": "Model asks for submit_evidence"
+    },
+    {
+      "index": 55,
+      "at": "2026-11-17T15:18:43.466Z",
+      "kind": "tool_call",
+      "summary": "Agent submits its evidence",
+      "tool": "submit_evidence"
+    },
+    {
+      "index": 56,
+      "at": "2026-11-17T15:18:43.467Z",
+      "kind": "tool_result",
+      "summary": "9 pieces of evidence, 16 gaps",
+      "tool": "submit_evidence"
+    },
+    {
+      "index": 57,
+      "at": "2026-11-17T15:18:43.469Z",
+      "kind": "check",
+      "summary": "Evidence check: 9 verified, 0 not verified"
+    }
+  ],
+  "evidence": [
+    {
+      "evidenceId": "046d4d72-74b3-4a61-8696-ec17608c7fc1",
+      "supplierId": "S-0055",
+      "topic": "price",
+      "value": 1.82,
+      "unit": "EUR/piece",
+      "sentence": "The unit price offered by Gummiwerk Musterhausen GmbH for part P-SEAL-01 is EUR 1.82 per piece.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0055-P-SEAL-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Unit price: EUR 1.82 per piece"
+      },
+      "retrievedAt": "2026-11-17T15:18:31.319Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-10-21",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "2630431a-8526-445e-b402-d268e49c6d51",
+      "supplierId": "S-0055",
+      "topic": "leadTime",
+      "value": 9,
+      "unit": "days",
+      "sentence": "The lead time offered by Gummiwerk Musterhausen GmbH is 9 days.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0055-P-SEAL-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Lead time: 9 days"
+      },
+      "retrievedAt": "2026-11-17T15:18:31.319Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-10-21",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "344388df-e71d-4a3b-a88f-5d30af004507",
+      "supplierId": "S-0051",
+      "topic": "price",
+      "value": 1.94,
+      "unit": "EUR/piece",
+      "sentence": "The unit price offered by Bergstraße Dichtungstechnik SE for part P-SEAL-01 is EUR 1.94 per piece.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0051-P-SEAL-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Unit price: EUR 1.94 per piece"
+      },
+      "retrievedAt": "2026-11-17T15:18:31.319Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-10-29",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "4d716235-1986-4ebe-a4f5-aa2347db76ef",
+      "supplierId": "S-0051",
+      "topic": "leadTime",
+      "value": 4,
+      "unit": "days",
+      "sentence": "The lead time offered by Bergstraße Dichtungstechnik SE is 4 days.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0051-P-SEAL-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Lead time: 4 days"
+      },
+      "retrievedAt": "2026-11-17T15:18:31.319Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-10-29",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "3b94e1d3-21a2-4723-8d84-0794c168729d",
+      "supplierId": "S-0053",
+      "topic": "price",
+      "value": 1.91,
+      "unit": "EUR/piece",
+      "sentence": "The unit price offered by Schwaben Dichtsysteme GmbH for part P-SEAL-01 is EUR 1.91 per piece.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0053-P-SEAL-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Unit price: EUR 1.91 per piece"
+      },
+      "retrievedAt": "2026-11-17T15:18:31.319Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-10-24",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "891ffc2a-d606-4421-806d-fa3bddc67b7b",
+      "supplierId": "S-0053",
+      "topic": "leadTime",
+      "value": 3,
+      "unit": "days",
+      "sentence": "The lead time offered by Schwaben Dichtsysteme GmbH is 3 days.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0053-P-SEAL-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Lead time: 3 days"
+      },
+      "retrievedAt": "2026-11-17T15:18:31.319Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-10-24",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "a25ad84b-92b2-4606-b8da-5456ac6bc7a4",
+      "supplierId": "S-0058",
+      "topic": "price",
+      "value": 1.76,
+      "unit": "EUR/piece",
+      "sentence": "The unit price offered by Elastomer Česko s.r.o. for part P-SEAL-01 is EUR 1.76 per piece.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0058-P-SEAL-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Unit price: EUR 1.76 per piece"
+      },
+      "retrievedAt": "2026-11-17T15:18:31.319Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-10-27",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "ab206dec-8e53-461c-a763-6a9425f5c475",
+      "supplierId": "S-0058",
+      "topic": "leadTime",
+      "value": 14,
+      "unit": "days",
+      "sentence": "The lead time offered by Elastomer Česko s.r.o. is 14 days.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0058-P-SEAL-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Lead time: 14 days"
+      },
+      "retrievedAt": "2026-11-17T15:18:31.319Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-10-27",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "aeb68daa-ffb5-4da6-9598-b687d3e345ee",
+      "supplierId": "S-0059",
+      "topic": "price",
+      "value": 2.23,
+      "unit": "EUR/piece",
+      "sentence": "The indicative unit price offered by BioSeal Innovations GmbH for part P-SEAL-01 is EUR 2.23 per piece.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0059-P-SEAL-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Unit price: EUR 2.23 per piece (indicative, not binding)"
+      },
+      "retrievedAt": "2026-11-17T15:18:31.319Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-11-02",
+      "sourceBadge": null,
+      "socialAudit": null
+    }
+  ],
+  "gaps": [
+    {
+      "supplierId": "S-0055",
+      "topic": "quality",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0055",
+      "topic": "delivery",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0055",
+      "topic": "co2",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0051",
+      "topic": "quality",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0051",
+      "topic": "delivery",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0051",
+      "topic": "co2",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0053",
+      "topic": "quality",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0053",
+      "topic": "delivery",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0053",
+      "topic": "co2",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0058",
+      "topic": "co2",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0059",
+      "topic": "co2",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0058",
+      "topic": "quality",
+      "reason": "No ERP record or complaint rate available for Elastomer Česko s.r.o."
+    },
+    {
+      "supplierId": "S-0058",
+      "topic": "delivery",
+      "reason": "No ERP record or on-time delivery rate available for Elastomer Česko s.r.o."
+    },
+    {
+      "supplierId": "S-0059",
+      "topic": "quality",
+      "reason": "No ERP record available for BioSeal Innovations GmbH, hence no complaint rate."
+    },
+    {
+      "supplierId": "S-0059",
+      "topic": "delivery",
+      "reason": "No ERP record available for BioSeal Innovations GmbH, hence no on-time delivery rate."
+    },
+    {
+      "supplierId": "S-0059",
+      "topic": "leadTime",
+      "reason": "Lead time is given as 'on request' in the quotation document, not as a numeric value in days."
+    }
+  ],
+  "error": null
+}

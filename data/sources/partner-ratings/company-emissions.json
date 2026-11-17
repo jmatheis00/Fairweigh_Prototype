@@ -1,0 +1,1008 @@
+{
+  "system": "Rating partner",
+  "simulates": "A sustainability rating provider (style of EcoVadis): scores, LkSG risk, certificates, scorecards",
+  "notice": "Demo data, fictitious",
+  "generatedFrom": "data/source/Supplier_Dummy_Data_v2.xlsx",
+  "records": [
+    {
+      "supplierId": "S-0013",
+      "reportingYear": 2025,
+      "scope12Tonnes": 6022690,
+      "intensityKgPerEur": 1.748,
+      "renewableEnergyPercent": 25,
+      "transportDistanceKm": 120,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0015",
+      "reportingYear": 2024,
+      "scope12Tonnes": 2748120,
+      "intensityKgPerEur": 1.384,
+      "renewableEnergyPercent": 29,
+      "transportDistanceKm": 430,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0018",
+      "reportingYear": 2025,
+      "scope12Tonnes": 850970,
+      "intensityKgPerEur": 2.277,
+      "renewableEnergyPercent": null,
+      "transportDistanceKm": 1250,
+      "dataCompletenessPercent": 57.14,
+      "dataSource": "Web search (AI agent)"
+    },
+    {
+      "supplierId": "S-0014",
+      "reportingYear": 2023,
+      "scope12Tonnes": 8248050,
+      "intensityKgPerEur": 2.603,
+      "renewableEnergyPercent": 20,
+      "transportDistanceKm": 19500,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Estimate (industry average)"
+    },
+    {
+      "supplierId": "S-0020",
+      "reportingYear": 2025,
+      "scope12Tonnes": 513250,
+      "intensityKgPerEur": 2.844,
+      "renewableEnergyPercent": 4,
+      "transportDistanceKm": 17500,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Web search (AI agent)"
+    },
+    {
+      "supplierId": "S-0005",
+      "reportingYear": 2022,
+      "scope12Tonnes": 6065090,
+      "intensityKgPerEur": 2.051,
+      "renewableEnergyPercent": 20,
+      "transportDistanceKm": 19500,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Sustainability report"
+    },
+    {
+      "supplierId": "S-0007",
+      "reportingYear": 2025,
+      "scope12Tonnes": 2732950,
+      "intensityKgPerEur": 0.685,
+      "renewableEnergyPercent": 89,
+      "transportDistanceKm": 520,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0001",
+      "reportingYear": 2025,
+      "scope12Tonnes": 33350,
+      "intensityKgPerEur": 1.354,
+      "renewableEnergyPercent": 31,
+      "transportDistanceKm": 390,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Sustainability report"
+    },
+    {
+      "supplierId": "S-0008",
+      "reportingYear": 2023,
+      "scope12Tonnes": 2742740,
+      "intensityKgPerEur": 1.203,
+      "renewableEnergyPercent": 42,
+      "transportDistanceKm": 330,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Sustainability report"
+    },
+    {
+      "supplierId": "S-0006",
+      "reportingYear": 2024,
+      "scope12Tonnes": 5411240,
+      "intensityKgPerEur": 1.857,
+      "renewableEnergyPercent": 22,
+      "transportDistanceKm": 2300,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Estimate (industry average)"
+    },
+    {
+      "supplierId": "S-0003",
+      "reportingYear": 2024,
+      "scope12Tonnes": 210680,
+      "intensityKgPerEur": 0.664,
+      "renewableEnergyPercent": 82,
+      "transportDistanceKm": 480,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0021",
+      "reportingYear": 2024,
+      "scope12Tonnes": 830880,
+      "intensityKgPerEur": 0.224,
+      "renewableEnergyPercent": 77,
+      "transportDistanceKm": 620,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Sustainability report"
+    },
+    {
+      "supplierId": "S-0022",
+      "reportingYear": 2024,
+      "scope12Tonnes": 533060,
+      "intensityKgPerEur": 0.436,
+      "renewableEnergyPercent": 57,
+      "transportDistanceKm": 290,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0025",
+      "reportingYear": 2024,
+      "scope12Tonnes": 693720,
+      "intensityKgPerEur": 0.846,
+      "renewableEnergyPercent": 3,
+      "transportDistanceKm": 19500,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Estimate (industry average)"
+    },
+    {
+      "supplierId": "S-0024",
+      "reportingYear": 2024,
+      "scope12Tonnes": 188810,
+      "intensityKgPerEur": 0.511,
+      "renewableEnergyPercent": 57,
+      "transportDistanceKm": 430,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0026",
+      "reportingYear": 2024,
+      "scope12Tonnes": 429960,
+      "intensityKgPerEur": 0.442,
+      "renewableEnergyPercent": 57,
+      "transportDistanceKm": 950,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0023",
+      "reportingYear": 2024,
+      "scope12Tonnes": 723760,
+      "intensityKgPerEur": 0.397,
+      "renewableEnergyPercent": 37,
+      "transportDistanceKm": 300,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0046",
+      "reportingYear": 2024,
+      "scope12Tonnes": 28440,
+      "intensityKgPerEur": 0.345,
+      "renewableEnergyPercent": 56,
+      "transportDistanceKm": 170,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0041",
+      "reportingYear": 2025,
+      "scope12Tonnes": 62650,
+      "intensityKgPerEur": 0.156,
+      "renewableEnergyPercent": 90,
+      "transportDistanceKm": 170,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Sustainability report"
+    },
+    {
+      "supplierId": "S-0042",
+      "reportingYear": 2024,
+      "scope12Tonnes": 320820,
+      "intensityKgPerEur": 0.173,
+      "renewableEnergyPercent": 84,
+      "transportDistanceKm": 1350,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Sustainability report"
+    },
+    {
+      "supplierId": "S-0044",
+      "reportingYear": 2025,
+      "scope12Tonnes": 212740,
+      "intensityKgPerEur": 0.294,
+      "renewableEnergyPercent": 44,
+      "transportDistanceKm": 1550,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Estimate (industry average)"
+    },
+    {
+      "supplierId": "S-0045",
+      "reportingYear": 2023,
+      "scope12Tonnes": 1348840,
+      "intensityKgPerEur": 0.55,
+      "renewableEnergyPercent": 3,
+      "transportDistanceKm": 19500,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Estimate (industry average)"
+    },
+    {
+      "supplierId": "S-0055",
+      "reportingYear": 2025,
+      "scope12Tonnes": 46900,
+      "intensityKgPerEur": 0.289,
+      "renewableEnergyPercent": 41,
+      "transportDistanceKm": 300,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0051",
+      "reportingYear": 2024,
+      "scope12Tonnes": 445290,
+      "intensityKgPerEur": 0.142,
+      "renewableEnergyPercent": 87,
+      "transportDistanceKm": 80,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Sustainability report"
+    },
+    {
+      "supplierId": "S-0053",
+      "reportingYear": 2025,
+      "scope12Tonnes": 1072120,
+      "intensityKgPerEur": 0.31,
+      "renewableEnergyPercent": 56,
+      "transportDistanceKm": 30,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Sustainability report"
+    },
+    {
+      "supplierId": "S-0058",
+      "reportingYear": 2025,
+      "scope12Tonnes": 487650,
+      "intensityKgPerEur": 0.264,
+      "renewableEnergyPercent": 45,
+      "transportDistanceKm": 620,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Estimate (industry average)"
+    },
+    {
+      "supplierId": "S-0059",
+      "reportingYear": 2025,
+      "scope12Tonnes": 30260,
+      "intensityKgPerEur": 0.091,
+      "renewableEnergyPercent": 88,
+      "transportDistanceKm": 230,
+      "dataCompletenessPercent": 85.71,
+      "dataSource": "Web search (AI agent)"
+    },
+    {
+      "supplierId": "S-0002",
+      "reportingYear": 2025,
+      "scope12Tonnes": 2434140,
+      "intensityKgPerEur": 1.379,
+      "renewableEnergyPercent": 35,
+      "transportDistanceKm": 400,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0004",
+      "reportingYear": 2025,
+      "scope12Tonnes": 4261160,
+      "intensityKgPerEur": 1.363,
+      "renewableEnergyPercent": 42,
+      "transportDistanceKm": 950,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Sustainability report"
+    },
+    {
+      "supplierId": "S-0009",
+      "reportingYear": 2025,
+      "scope12Tonnes": null,
+      "intensityKgPerEur": null,
+      "renewableEnergyPercent": 25,
+      "transportDistanceKm": 11500,
+      "dataCompletenessPercent": 57.14,
+      "dataSource": "Web search (AI agent)"
+    },
+    {
+      "supplierId": "S-0010",
+      "reportingYear": 2025,
+      "scope12Tonnes": null,
+      "intensityKgPerEur": 0.404,
+      "renewableEnergyPercent": 91,
+      "transportDistanceKm": 1350,
+      "dataCompletenessPercent": 71.43,
+      "dataSource": "Web search (AI agent)"
+    },
+    {
+      "supplierId": "S-0011",
+      "reportingYear": 2025,
+      "scope12Tonnes": 2937780,
+      "intensityKgPerEur": 0.808,
+      "renewableEnergyPercent": 71,
+      "transportDistanceKm": 1550,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Sustainability report"
+    },
+    {
+      "supplierId": "S-0012",
+      "reportingYear": 2025,
+      "scope12Tonnes": 2651100,
+      "intensityKgPerEur": 1.53,
+      "renewableEnergyPercent": 46,
+      "transportDistanceKm": 380,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Sustainability report"
+    },
+    {
+      "supplierId": "S-0016",
+      "reportingYear": 2023,
+      "scope12Tonnes": 1950770,
+      "intensityKgPerEur": 0.902,
+      "renewableEnergyPercent": 77,
+      "transportDistanceKm": 340,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0017",
+      "reportingYear": 2025,
+      "scope12Tonnes": null,
+      "intensityKgPerEur": null,
+      "renewableEnergyPercent": null,
+      "transportDistanceKm": 80,
+      "dataCompletenessPercent": 28.57,
+      "dataSource": "Web search (AI agent)"
+    },
+    {
+      "supplierId": "S-0019",
+      "reportingYear": 2024,
+      "scope12Tonnes": 1980620,
+      "intensityKgPerEur": 1.381,
+      "renewableEnergyPercent": 53,
+      "transportDistanceKm": 650,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0027",
+      "reportingYear": 2025,
+      "scope12Tonnes": 18460,
+      "intensityKgPerEur": 0.563,
+      "renewableEnergyPercent": 26,
+      "transportDistanceKm": 11500,
+      "dataCompletenessPercent": 85.71,
+      "dataSource": "Web search (AI agent)"
+    },
+    {
+      "supplierId": "S-0028",
+      "reportingYear": 2021,
+      "scope12Tonnes": 1686470,
+      "intensityKgPerEur": 0.458,
+      "renewableEnergyPercent": 54,
+      "transportDistanceKm": 450,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0029",
+      "reportingYear": 2025,
+      "scope12Tonnes": null,
+      "intensityKgPerEur": null,
+      "renewableEnergyPercent": null,
+      "transportDistanceKm": 380,
+      "dataCompletenessPercent": 28.57,
+      "dataSource": "Web search (AI agent)"
+    },
+    {
+      "supplierId": "S-0030",
+      "reportingYear": 2025,
+      "scope12Tonnes": null,
+      "intensityKgPerEur": null,
+      "renewableEnergyPercent": 30,
+      "transportDistanceKm": 2300,
+      "dataCompletenessPercent": 57.14,
+      "dataSource": "Web search (AI agent)"
+    },
+    {
+      "supplierId": "S-0031",
+      "reportingYear": 2024,
+      "scope12Tonnes": 98470,
+      "intensityKgPerEur": 0.082,
+      "renewableEnergyPercent": 88,
+      "transportDistanceKm": 230,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Sustainability report"
+    },
+    {
+      "supplierId": "S-0032",
+      "reportingYear": 2024,
+      "scope12Tonnes": 104900,
+      "intensityKgPerEur": 0.156,
+      "renewableEnergyPercent": 45,
+      "transportDistanceKm": 90,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0033",
+      "reportingYear": 2025,
+      "scope12Tonnes": 31200,
+      "intensityKgPerEur": 0.089,
+      "renewableEnergyPercent": 89,
+      "transportDistanceKm": 370,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Sustainability report"
+    },
+    {
+      "supplierId": "S-0034",
+      "reportingYear": 2021,
+      "scope12Tonnes": 493310,
+      "intensityKgPerEur": 0.159,
+      "renewableEnergyPercent": 44,
+      "transportDistanceKm": 40,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0035",
+      "reportingYear": 2025,
+      "scope12Tonnes": 208460,
+      "intensityKgPerEur": 0.159,
+      "renewableEnergyPercent": 52,
+      "transportDistanceKm": 21000,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0036",
+      "reportingYear": 2025,
+      "scope12Tonnes": null,
+      "intensityKgPerEur": null,
+      "renewableEnergyPercent": 19,
+      "transportDistanceKm": 19500,
+      "dataCompletenessPercent": 42.86,
+      "dataSource": "Web search (AI agent)"
+    },
+    {
+      "supplierId": "S-0037",
+      "reportingYear": 2023,
+      "scope12Tonnes": 293590,
+      "intensityKgPerEur": 0.143,
+      "renewableEnergyPercent": 41,
+      "transportDistanceKm": 620,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0038",
+      "reportingYear": 2023,
+      "scope12Tonnes": 130320,
+      "intensityKgPerEur": 0.076,
+      "renewableEnergyPercent": 79,
+      "transportDistanceKm": 560,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0039",
+      "reportingYear": 2025,
+      "scope12Tonnes": null,
+      "intensityKgPerEur": 0.241,
+      "renewableEnergyPercent": null,
+      "transportDistanceKm": 16000,
+      "dataCompletenessPercent": 71.43,
+      "dataSource": "Web search (AI agent)"
+    },
+    {
+      "supplierId": "S-0040",
+      "reportingYear": 2025,
+      "scope12Tonnes": null,
+      "intensityKgPerEur": null,
+      "renewableEnergyPercent": 42,
+      "transportDistanceKm": 180,
+      "dataCompletenessPercent": 71.43,
+      "dataSource": "Web search (AI agent)"
+    },
+    {
+      "supplierId": "S-0043",
+      "reportingYear": 2024,
+      "scope12Tonnes": 872070,
+      "intensityKgPerEur": 0.311,
+      "renewableEnergyPercent": 43,
+      "transportDistanceKm": 370,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Sustainability report"
+    },
+    {
+      "supplierId": "S-0047",
+      "reportingYear": 2021,
+      "scope12Tonnes": 1191450,
+      "intensityKgPerEur": 0.363,
+      "renewableEnergyPercent": 45,
+      "transportDistanceKm": 650,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0048",
+      "reportingYear": 2025,
+      "scope12Tonnes": 44740,
+      "intensityKgPerEur": 0.29,
+      "renewableEnergyPercent": null,
+      "transportDistanceKm": 950,
+      "dataCompletenessPercent": 57.14,
+      "dataSource": "Web search (AI agent)"
+    },
+    {
+      "supplierId": "S-0049",
+      "reportingYear": 2025,
+      "scope12Tonnes": 121180,
+      "intensityKgPerEur": 0.629,
+      "renewableEnergyPercent": 12,
+      "transportDistanceKm": 11500,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Web search (AI agent)"
+    },
+    {
+      "supplierId": "S-0050",
+      "reportingYear": 2025,
+      "scope12Tonnes": 163740,
+      "intensityKgPerEur": 0.437,
+      "renewableEnergyPercent": 17,
+      "transportDistanceKm": 2300,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Web search (AI agent)"
+    },
+    {
+      "supplierId": "S-0052",
+      "reportingYear": 2025,
+      "scope12Tonnes": 601170,
+      "intensityKgPerEur": 0.171,
+      "renewableEnergyPercent": 78,
+      "transportDistanceKm": 1350,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0054",
+      "reportingYear": 2021,
+      "scope12Tonnes": 159480,
+      "intensityKgPerEur": 0.297,
+      "renewableEnergyPercent": 45,
+      "transportDistanceKm": 440,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Sustainability report"
+    },
+    {
+      "supplierId": "S-0056",
+      "reportingYear": 2025,
+      "scope12Tonnes": null,
+      "intensityKgPerEur": 0.368,
+      "renewableEnergyPercent": null,
+      "transportDistanceKm": 12500,
+      "dataCompletenessPercent": 57.14,
+      "dataSource": "Web search (AI agent)"
+    },
+    {
+      "supplierId": "S-0057",
+      "reportingYear": 2024,
+      "scope12Tonnes": 1765480,
+      "intensityKgPerEur": 0.526,
+      "renewableEnergyPercent": 14,
+      "transportDistanceKm": 19500,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0060",
+      "reportingYear": 2025,
+      "scope12Tonnes": 70580,
+      "intensityKgPerEur": null,
+      "renewableEnergyPercent": null,
+      "transportDistanceKm": 560,
+      "dataCompletenessPercent": 28.57,
+      "dataSource": "Web search (AI agent)"
+    },
+    {
+      "supplierId": "S-0061",
+      "reportingYear": 2024,
+      "scope12Tonnes": 579270,
+      "intensityKgPerEur": 0.367,
+      "renewableEnergyPercent": 31,
+      "transportDistanceKm": 45,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0062",
+      "reportingYear": 2024,
+      "scope12Tonnes": 373850,
+      "intensityKgPerEur": 0.239,
+      "renewableEnergyPercent": 95,
+      "transportDistanceKm": 400,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0063",
+      "reportingYear": 2023,
+      "scope12Tonnes": 763170,
+      "intensityKgPerEur": 0.24,
+      "renewableEnergyPercent": 71,
+      "transportDistanceKm": 330,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Estimate (industry average)"
+    },
+    {
+      "supplierId": "S-0064",
+      "reportingYear": 2024,
+      "scope12Tonnes": 1699130,
+      "intensityKgPerEur": 0.762,
+      "renewableEnergyPercent": 3,
+      "transportDistanceKm": 19500,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0065",
+      "reportingYear": 2021,
+      "scope12Tonnes": 1185800,
+      "intensityKgPerEur": 0.377,
+      "renewableEnergyPercent": 58,
+      "transportDistanceKm": 19000,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0066",
+      "reportingYear": 2025,
+      "scope12Tonnes": 59220,
+      "intensityKgPerEur": 0.426,
+      "renewableEnergyPercent": 60,
+      "transportDistanceKm": 40,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Sustainability report"
+    },
+    {
+      "supplierId": "S-0067",
+      "reportingYear": 2024,
+      "scope12Tonnes": 961330,
+      "intensityKgPerEur": 0.423,
+      "renewableEnergyPercent": 51,
+      "transportDistanceKm": 480,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Estimate (industry average)"
+    },
+    {
+      "supplierId": "S-0068",
+      "reportingYear": 2025,
+      "scope12Tonnes": 111060,
+      "intensityKgPerEur": 0.698,
+      "renewableEnergyPercent": null,
+      "transportDistanceKm": 11500,
+      "dataCompletenessPercent": 57.14,
+      "dataSource": "Web search (AI agent)"
+    },
+    {
+      "supplierId": "S-0069",
+      "reportingYear": 2023,
+      "scope12Tonnes": 864870,
+      "intensityKgPerEur": 0.223,
+      "renewableEnergyPercent": 71,
+      "transportDistanceKm": 1350,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Sustainability report"
+    },
+    {
+      "supplierId": "S-0070",
+      "reportingYear": 2025,
+      "scope12Tonnes": null,
+      "intensityKgPerEur": 0.147,
+      "renewableEnergyPercent": 93,
+      "transportDistanceKm": 260,
+      "dataCompletenessPercent": 71.43,
+      "dataSource": "Web search (AI agent)"
+    },
+    {
+      "supplierId": "S-0071",
+      "reportingYear": 2024,
+      "scope12Tonnes": 398680,
+      "intensityKgPerEur": 0.285,
+      "renewableEnergyPercent": 89,
+      "transportDistanceKm": 330,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Sustainability report"
+    },
+    {
+      "supplierId": "S-0072",
+      "reportingYear": 2025,
+      "scope12Tonnes": 302310,
+      "intensityKgPerEur": 0.524,
+      "renewableEnergyPercent": 50,
+      "transportDistanceKm": 90,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0073",
+      "reportingYear": 2024,
+      "scope12Tonnes": 80040,
+      "intensityKgPerEur": 0.496,
+      "renewableEnergyPercent": 27,
+      "transportDistanceKm": 310,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0074",
+      "reportingYear": 2022,
+      "scope12Tonnes": 2066510,
+      "intensityKgPerEur": 0.534,
+      "renewableEnergyPercent": 48,
+      "transportDistanceKm": 330,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0075",
+      "reportingYear": 2023,
+      "scope12Tonnes": 1587400,
+      "intensityKgPerEur": 0.504,
+      "renewableEnergyPercent": 37,
+      "transportDistanceKm": 850,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0076",
+      "reportingYear": 2021,
+      "scope12Tonnes": 625730,
+      "intensityKgPerEur": 0.688,
+      "renewableEnergyPercent": 23,
+      "transportDistanceKm": 19500,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0077",
+      "reportingYear": 2025,
+      "scope12Tonnes": 140660,
+      "intensityKgPerEur": 0.545,
+      "renewableEnergyPercent": 44,
+      "transportDistanceKm": 10500,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Web search (AI agent)"
+    },
+    {
+      "supplierId": "S-0078",
+      "reportingYear": 2025,
+      "scope12Tonnes": 399030,
+      "intensityKgPerEur": 0.546,
+      "renewableEnergyPercent": 46,
+      "transportDistanceKm": 280,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Estimate (industry average)"
+    },
+    {
+      "supplierId": "S-0079",
+      "reportingYear": 2025,
+      "scope12Tonnes": 68160,
+      "intensityKgPerEur": 0.185,
+      "renewableEnergyPercent": 86,
+      "transportDistanceKm": 75,
+      "dataCompletenessPercent": 71.43,
+      "dataSource": "Web search (AI agent)"
+    },
+    {
+      "supplierId": "S-0080",
+      "reportingYear": 2025,
+      "scope12Tonnes": 311740,
+      "intensityKgPerEur": null,
+      "renewableEnergyPercent": null,
+      "transportDistanceKm": 2300,
+      "dataCompletenessPercent": 28.57,
+      "dataSource": "Web search (AI agent)"
+    },
+    {
+      "supplierId": "S-0081",
+      "reportingYear": 2025,
+      "scope12Tonnes": 144080,
+      "intensityKgPerEur": 0.212,
+      "renewableEnergyPercent": 81,
+      "transportDistanceKm": 1500,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Sustainability report"
+    },
+    {
+      "supplierId": "S-0082",
+      "reportingYear": 2023,
+      "scope12Tonnes": 198410,
+      "intensityKgPerEur": 0.252,
+      "renewableEnergyPercent": 79,
+      "transportDistanceKm": 1050,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Sustainability report"
+    },
+    {
+      "supplierId": "S-0083",
+      "reportingYear": 2023,
+      "scope12Tonnes": 570110,
+      "intensityKgPerEur": 0.243,
+      "renewableEnergyPercent": 81,
+      "transportDistanceKm": 520,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Estimate (industry average)"
+    },
+    {
+      "supplierId": "S-0084",
+      "reportingYear": 2025,
+      "scope12Tonnes": 153970,
+      "intensityKgPerEur": 0.438,
+      "renewableEnergyPercent": 35,
+      "transportDistanceKm": 70,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Sustainability report"
+    },
+    {
+      "supplierId": "S-0085",
+      "reportingYear": 2024,
+      "scope12Tonnes": 416550,
+      "intensityKgPerEur": 0.2,
+      "renewableEnergyPercent": 72,
+      "transportDistanceKm": 110,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0086",
+      "reportingYear": 2025,
+      "scope12Tonnes": 2481800,
+      "intensityKgPerEur": 0.808,
+      "renewableEnergyPercent": 5,
+      "transportDistanceKm": 950,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Estimate (industry average)"
+    },
+    {
+      "supplierId": "S-0087",
+      "reportingYear": 2025,
+      "scope12Tonnes": 84770,
+      "intensityKgPerEur": null,
+      "renewableEnergyPercent": null,
+      "transportDistanceKm": 19500,
+      "dataCompletenessPercent": 42.86,
+      "dataSource": "Web search (AI agent)"
+    },
+    {
+      "supplierId": "S-0088",
+      "reportingYear": 2025,
+      "scope12Tonnes": 53870,
+      "intensityKgPerEur": 0.141,
+      "renewableEnergyPercent": 97,
+      "transportDistanceKm": 480,
+      "dataCompletenessPercent": 57.14,
+      "dataSource": "Web search (AI agent)"
+    },
+    {
+      "supplierId": "S-0089",
+      "reportingYear": 2022,
+      "scope12Tonnes": 1193740,
+      "intensityKgPerEur": 0.379,
+      "renewableEnergyPercent": 33,
+      "transportDistanceKm": 300,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0090",
+      "reportingYear": 2025,
+      "scope12Tonnes": null,
+      "intensityKgPerEur": null,
+      "renewableEnergyPercent": 37,
+      "transportDistanceKm": 620,
+      "dataCompletenessPercent": 57.14,
+      "dataSource": "Web search (AI agent)"
+    },
+    {
+      "supplierId": "S-0091",
+      "reportingYear": 2024,
+      "scope12Tonnes": 2410590,
+      "intensityKgPerEur": 0.65,
+      "renewableEnergyPercent": 36,
+      "transportDistanceKm": 300,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0092",
+      "reportingYear": 2025,
+      "scope12Tonnes": 1886870,
+      "intensityKgPerEur": 0.64,
+      "renewableEnergyPercent": 28,
+      "transportDistanceKm": 380,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Sustainability report"
+    },
+    {
+      "supplierId": "S-0093",
+      "reportingYear": 2023,
+      "scope12Tonnes": 125930,
+      "intensityKgPerEur": 0.308,
+      "renewableEnergyPercent": 84,
+      "transportDistanceKm": 330,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0094",
+      "reportingYear": 2024,
+      "scope12Tonnes": 1670010,
+      "intensityKgPerEur": 0.63,
+      "renewableEnergyPercent": 36,
+      "transportDistanceKm": 900,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0095",
+      "reportingYear": 2024,
+      "scope12Tonnes": 820530,
+      "intensityKgPerEur": 0.402,
+      "renewableEnergyPercent": 70,
+      "transportDistanceKm": 220,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Supplier self-assessment"
+    },
+    {
+      "supplierId": "S-0096",
+      "reportingYear": 2021,
+      "scope12Tonnes": 2078240,
+      "intensityKgPerEur": 0.719,
+      "renewableEnergyPercent": 33,
+      "transportDistanceKm": 370,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Sustainability report"
+    },
+    {
+      "supplierId": "S-0097",
+      "reportingYear": 2024,
+      "scope12Tonnes": 245100,
+      "intensityKgPerEur": 0.613,
+      "renewableEnergyPercent": 29,
+      "transportDistanceKm": 10,
+      "dataCompletenessPercent": 100,
+      "dataSource": "Sustainability report"
+    },
+    {
+      "supplierId": "S-0098",
+      "reportingYear": 2025,
+      "scope12Tonnes": 326140,
+      "intensityKgPerEur": null,
+      "renewableEnergyPercent": 17,
+      "transportDistanceKm": 1550,
+      "dataCompletenessPercent": 42.86,
+      "dataSource": "Web search (AI agent)"
+    },
+    {
+      "supplierId": "S-0099",
+      "reportingYear": 2025,
+      "scope12Tonnes": 386580,
+      "intensityKgPerEur": 1.024,
+      "renewableEnergyPercent": null,
+      "transportDistanceKm": 1500,
+      "dataCompletenessPercent": 57.14,
+      "dataSource": "Web search (AI agent)"
+    },
+    {
+      "supplierId": "S-0100",
+      "reportingYear": 2025,
+      "scope12Tonnes": null,
+      "intensityKgPerEur": 0.226,
+      "renewableEnergyPercent": 86,
+      "transportDistanceKm": 250,
+      "dataCompletenessPercent": 57.14,
+      "dataSource": "Web search (AI agent)"
+    }
+  ]
+}

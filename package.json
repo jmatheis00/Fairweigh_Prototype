@@ -1,0 +1,29 @@
+{
+  "name": "sustainable-supplier-cockpit",
+  "private": true,
+  "description": "Prototype by Team Scromen. All data is fictitious.",
+  "workspaces": [
+    "shared",
+    "data",
+    "server",
+    "web"
+  ],
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "npm run build -w shared && npm run build -w server && npm run build -w web",
+    "dev:server": "npm run build -w shared && npm run start:dev -w server",
+    "dev:web": "npm run build -w shared && npm run dev -w web",
+    "lint": "npm run build -w shared && npm run lint --workspaces",
+    "typecheck": "npm run build -w shared && npm run typecheck --workspaces",
+    "test": "npm run build -w shared && npm run test --workspaces",
+    "data:build": "npm run build -w shared && npm run generate -w @scc/data",
+    "hitrate:set": "node scripts/build-hit-rate-set.mjs",
+    "hitrate": "node scripts/hit-rate.mjs",
+    "runs:record": "node scripts/record-runs.mjs"
+  },
+  "devDependencies": {
+    "typescript": "6.0.3"
+  }
+}

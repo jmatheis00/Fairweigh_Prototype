@@ -1,0 +1,1368 @@
+{
+  "system": "Rating partner",
+  "simulates": "A sustainability rating provider (style of EcoVadis): scores, LkSG risk, certificates, scorecards",
+  "notice": "Demo data, fictitious",
+  "generatedFrom": "data/source/Supplier_Dummy_Data_v2.xlsx",
+  "records": [
+    {
+      "certificateId": "CERT-S-0001-ISO9001",
+      "supplierId": "S-0001",
+      "standard": "ISO 9001",
+      "validFrom": "2025-01-14",
+      "validUntil": "2028-01-14",
+      "documentId": "DOC-CERT-S-0001-ISO9001"
+    },
+    {
+      "certificateId": "CERT-S-0001-ISO14001",
+      "supplierId": "S-0001",
+      "standard": "ISO 14001",
+      "validFrom": "2026-02-09",
+      "validUntil": "2029-02-08",
+      "documentId": "DOC-CERT-S-0001-ISO14001"
+    },
+    {
+      "certificateId": "CERT-S-0002-ISO45001",
+      "supplierId": "S-0002",
+      "standard": "ISO 45001",
+      "validFrom": "2024-09-16",
+      "validUntil": "2027-09-16",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0002-ISO14001",
+      "supplierId": "S-0002",
+      "standard": "ISO 14001",
+      "validFrom": "2025-09-30",
+      "validUntil": "2028-09-29",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0003-SA8000",
+      "supplierId": "S-0003",
+      "standard": "SA8000",
+      "validFrom": "2025-09-23",
+      "validUntil": "2028-09-22",
+      "documentId": "DOC-CERT-S-0003-SA8000"
+    },
+    {
+      "certificateId": "CERT-S-0003-ISO14001",
+      "supplierId": "S-0003",
+      "standard": "ISO 14001",
+      "validFrom": "2025-12-06",
+      "validUntil": "2028-12-05",
+      "documentId": "DOC-CERT-S-0003-ISO14001"
+    },
+    {
+      "certificateId": "CERT-S-0004-ISO9001",
+      "supplierId": "S-0004",
+      "standard": "ISO 9001",
+      "validFrom": "2024-05-12",
+      "validUntil": "2027-05-12",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0005-ISO9001",
+      "supplierId": "S-0005",
+      "standard": "ISO 9001",
+      "validFrom": "2024-05-31",
+      "validUntil": "2027-05-31",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0006-ISO14001",
+      "supplierId": "S-0006",
+      "standard": "ISO 14001",
+      "validFrom": "2026-01-27",
+      "validUntil": "2029-01-26",
+      "documentId": "DOC-CERT-S-0006-ISO14001"
+    },
+    {
+      "certificateId": "CERT-S-0007-SA8000",
+      "supplierId": "S-0007",
+      "standard": "SA8000",
+      "validFrom": "2024-06-26",
+      "validUntil": "2027-06-26",
+      "documentId": "DOC-CERT-S-0007-SA8000"
+    },
+    {
+      "certificateId": "CERT-S-0008-ISO14001",
+      "supplierId": "S-0008",
+      "standard": "ISO 14001",
+      "validFrom": "2024-10-01",
+      "validUntil": "2027-10-01",
+      "documentId": "DOC-CERT-S-0008-ISO14001"
+    },
+    {
+      "certificateId": "CERT-S-0010-ISO50001",
+      "supplierId": "S-0010",
+      "standard": "ISO 50001",
+      "validFrom": "2026-05-19",
+      "validUntil": "2029-05-18",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0010-CradletoCradle",
+      "supplierId": "S-0010",
+      "standard": "Cradle to Cradle",
+      "validFrom": "2024-04-04",
+      "validUntil": "2027-04-04",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0010-BCorp",
+      "supplierId": "S-0010",
+      "standard": "B Corp",
+      "validFrom": "2024-11-07",
+      "validUntil": "2027-11-07",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0011-ISO14001",
+      "supplierId": "S-0011",
+      "standard": "ISO 14001",
+      "validFrom": "2024-06-21",
+      "validUntil": "2027-06-21",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0011-ISO50001",
+      "supplierId": "S-0011",
+      "standard": "ISO 50001",
+      "validFrom": "2024-09-24",
+      "validUntil": "2027-09-24",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0012-ISO14001",
+      "supplierId": "S-0012",
+      "standard": "ISO 14001",
+      "validFrom": "2024-11-15",
+      "validUntil": "2027-11-15",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0012-ISO45001",
+      "supplierId": "S-0012",
+      "standard": "ISO 45001",
+      "validFrom": "2025-01-03",
+      "validUntil": "2028-01-03",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0012-ISO50001",
+      "supplierId": "S-0012",
+      "standard": "ISO 50001",
+      "validFrom": "2025-07-17",
+      "validUntil": "2028-07-16",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0013-ISO14001",
+      "supplierId": "S-0013",
+      "standard": "ISO 14001",
+      "validFrom": "2025-06-06",
+      "validUntil": "2028-06-05",
+      "documentId": "DOC-CERT-S-0013-ISO14001"
+    },
+    {
+      "certificateId": "CERT-S-0014-ISO9001",
+      "supplierId": "S-0014",
+      "standard": "ISO 9001",
+      "validFrom": "2024-09-03",
+      "validUntil": "2027-09-03",
+      "documentId": "DOC-CERT-S-0014-ISO9001"
+    },
+    {
+      "certificateId": "CERT-S-0015-ISO9001",
+      "supplierId": "S-0015",
+      "standard": "ISO 9001",
+      "validFrom": "2026-05-04",
+      "validUntil": "2029-05-03",
+      "documentId": "DOC-CERT-S-0015-ISO9001"
+    },
+    {
+      "certificateId": "CERT-S-0015-ISO14001",
+      "supplierId": "S-0015",
+      "standard": "ISO 14001",
+      "validFrom": "2026-04-29",
+      "validUntil": "2029-04-28",
+      "documentId": "DOC-CERT-S-0015-ISO14001"
+    },
+    {
+      "certificateId": "CERT-S-0015-ISO45001",
+      "supplierId": "S-0015",
+      "standard": "ISO 45001",
+      "validFrom": "2026-02-01",
+      "validUntil": "2029-01-31",
+      "documentId": "DOC-CERT-S-0015-ISO45001"
+    },
+    {
+      "certificateId": "CERT-S-0016-ISO50001",
+      "supplierId": "S-0016",
+      "standard": "ISO 50001",
+      "validFrom": "2024-06-21",
+      "validUntil": "2027-06-21",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0016-ISO45001",
+      "supplierId": "S-0016",
+      "standard": "ISO 45001",
+      "validFrom": "2024-01-26",
+      "validUntil": "2027-01-25",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0019-ISO45001",
+      "supplierId": "S-0019",
+      "standard": "ISO 45001",
+      "validFrom": "2023-12-25",
+      "validUntil": "2026-12-24",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0020-ISO9001",
+      "supplierId": "S-0020",
+      "standard": "ISO 9001",
+      "validFrom": "2025-01-27",
+      "validUntil": "2028-01-27",
+      "documentId": "DOC-CERT-S-0020-ISO9001"
+    },
+    {
+      "certificateId": "CERT-S-0021-ISO50001",
+      "supplierId": "S-0021",
+      "standard": "ISO 50001",
+      "validFrom": "2026-01-01",
+      "validUntil": "2028-12-31",
+      "documentId": "DOC-CERT-S-0021-ISO50001"
+    },
+    {
+      "certificateId": "CERT-S-0021-ISO45001",
+      "supplierId": "S-0021",
+      "standard": "ISO 45001",
+      "validFrom": "2025-08-28",
+      "validUntil": "2028-08-27",
+      "documentId": "DOC-CERT-S-0021-ISO45001"
+    },
+    {
+      "certificateId": "CERT-S-0022-ISO45001",
+      "supplierId": "S-0022",
+      "standard": "ISO 45001",
+      "validFrom": "2026-01-02",
+      "validUntil": "2029-01-01",
+      "documentId": "DOC-CERT-S-0022-ISO45001"
+    },
+    {
+      "certificateId": "CERT-S-0023-ISO45001",
+      "supplierId": "S-0023",
+      "standard": "ISO 45001",
+      "validFrom": "2024-03-18",
+      "validUntil": "2027-03-18",
+      "documentId": "DOC-CERT-S-0023-ISO45001"
+    },
+    {
+      "certificateId": "CERT-S-0023-ISO9001",
+      "supplierId": "S-0023",
+      "standard": "ISO 9001",
+      "validFrom": "2025-05-03",
+      "validUntil": "2028-05-02",
+      "documentId": "DOC-CERT-S-0023-ISO9001"
+    },
+    {
+      "certificateId": "CERT-S-0023-ISO14001",
+      "supplierId": "S-0023",
+      "standard": "ISO 14001",
+      "validFrom": "2024-02-23",
+      "validUntil": "2027-02-22",
+      "documentId": "DOC-CERT-S-0023-ISO14001"
+    },
+    {
+      "certificateId": "CERT-S-0024-ISO45001",
+      "supplierId": "S-0024",
+      "standard": "ISO 45001",
+      "validFrom": "2024-05-09",
+      "validUntil": "2027-05-09",
+      "documentId": "DOC-CERT-S-0024-ISO45001"
+    },
+    {
+      "certificateId": "CERT-S-0024-ISO50001",
+      "supplierId": "S-0024",
+      "standard": "ISO 50001",
+      "validFrom": "2025-05-10",
+      "validUntil": "2028-05-09",
+      "documentId": "DOC-CERT-S-0024-ISO50001"
+    },
+    {
+      "certificateId": "CERT-S-0024-ISO14001",
+      "supplierId": "S-0024",
+      "standard": "ISO 14001",
+      "validFrom": "2025-05-18",
+      "validUntil": "2028-05-17",
+      "documentId": "DOC-CERT-S-0024-ISO14001"
+    },
+    {
+      "certificateId": "CERT-S-0025-ISO9001",
+      "supplierId": "S-0025",
+      "standard": "ISO 9001",
+      "validFrom": "2025-10-01",
+      "validUntil": "2028-09-30",
+      "documentId": "DOC-CERT-S-0025-ISO9001"
+    },
+    {
+      "certificateId": "CERT-S-0026-ISO9001",
+      "supplierId": "S-0026",
+      "standard": "ISO 9001",
+      "validFrom": "2025-10-10",
+      "validUntil": "2028-10-09",
+      "documentId": "DOC-CERT-S-0026-ISO9001"
+    },
+    {
+      "certificateId": "CERT-S-0026-ISO45001",
+      "supplierId": "S-0026",
+      "standard": "ISO 45001",
+      "validFrom": "2025-03-14",
+      "validUntil": "2028-03-13",
+      "documentId": "DOC-CERT-S-0026-ISO45001"
+    },
+    {
+      "certificateId": "CERT-S-0027-ISO9001",
+      "supplierId": "S-0027",
+      "standard": "ISO 9001",
+      "validFrom": "2024-01-09",
+      "validUntil": "2027-01-08",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0027-ISO14001",
+      "supplierId": "S-0027",
+      "standard": "ISO 14001",
+      "validFrom": "2026-01-18",
+      "validUntil": "2029-01-17",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0028-ISO50001",
+      "supplierId": "S-0028",
+      "standard": "ISO 50001",
+      "validFrom": "2026-03-26",
+      "validUntil": "2029-03-25",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0030-ISO14001",
+      "supplierId": "S-0030",
+      "standard": "ISO 14001",
+      "validFrom": "2024-02-01",
+      "validUntil": "2027-01-31",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0031-ISO14001",
+      "supplierId": "S-0031",
+      "standard": "ISO 14001",
+      "validFrom": "2024-08-19",
+      "validUntil": "2027-08-19",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0031-EMAS",
+      "supplierId": "S-0031",
+      "standard": "EMAS",
+      "validFrom": "2026-03-17",
+      "validUntil": "2029-03-16",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0032-ISO9001",
+      "supplierId": "S-0032",
+      "standard": "ISO 9001",
+      "validFrom": "2025-08-31",
+      "validUntil": "2028-08-30",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0032-ISO14001",
+      "supplierId": "S-0032",
+      "standard": "ISO 14001",
+      "validFrom": "2024-07-26",
+      "validUntil": "2027-07-26",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0033-ISO50001",
+      "supplierId": "S-0033",
+      "standard": "ISO 50001",
+      "validFrom": "2026-02-11",
+      "validUntil": "2029-02-10",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0033-ISO14001",
+      "supplierId": "S-0033",
+      "standard": "ISO 14001",
+      "validFrom": "2024-06-12",
+      "validUntil": "2027-06-12",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0034-ISO14001",
+      "supplierId": "S-0034",
+      "standard": "ISO 14001",
+      "validFrom": "2024-10-14",
+      "validUntil": "2027-10-14",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0035-ISO14001",
+      "supplierId": "S-0035",
+      "standard": "ISO 14001",
+      "validFrom": "2026-05-20",
+      "validUntil": "2029-05-19",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0035-ISO45001",
+      "supplierId": "S-0035",
+      "standard": "ISO 45001",
+      "validFrom": "2024-05-20",
+      "validUntil": "2027-05-20",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0035-ISO50001",
+      "supplierId": "S-0035",
+      "standard": "ISO 50001",
+      "validFrom": "2025-10-11",
+      "validUntil": "2028-10-10",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0037-ISO9001",
+      "supplierId": "S-0037",
+      "standard": "ISO 9001",
+      "validFrom": "2024-11-05",
+      "validUntil": "2027-11-05",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0037-ISO50001",
+      "supplierId": "S-0037",
+      "standard": "ISO 50001",
+      "validFrom": "2025-05-16",
+      "validUntil": "2028-05-15",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0038-ISO50001",
+      "supplierId": "S-0038",
+      "standard": "ISO 50001",
+      "validFrom": "2023-11-27",
+      "validUntil": "2026-11-26",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0038-EMAS",
+      "supplierId": "S-0038",
+      "standard": "EMAS",
+      "validFrom": "2024-11-09",
+      "validUntil": "2027-11-09",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0038-ISO45001",
+      "supplierId": "S-0038",
+      "standard": "ISO 45001",
+      "validFrom": "2025-12-25",
+      "validUntil": "2028-12-24",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0039-ISO14001",
+      "supplierId": "S-0039",
+      "standard": "ISO 14001",
+      "validFrom": "2025-03-26",
+      "validUntil": "2028-03-25",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0039-ISO9001",
+      "supplierId": "S-0039",
+      "standard": "ISO 9001",
+      "validFrom": "2024-05-02",
+      "validUntil": "2027-05-02",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0040-ISO14001",
+      "supplierId": "S-0040",
+      "standard": "ISO 14001",
+      "validFrom": "2024-03-19",
+      "validUntil": "2027-03-19",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0040-ISO45001",
+      "supplierId": "S-0040",
+      "standard": "ISO 45001",
+      "validFrom": "2024-07-03",
+      "validUntil": "2027-07-03",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0041-ISO14001",
+      "supplierId": "S-0041",
+      "standard": "ISO 14001",
+      "validFrom": "2026-05-28",
+      "validUntil": "2029-05-27",
+      "documentId": "DOC-CERT-S-0041-ISO14001"
+    },
+    {
+      "certificateId": "CERT-S-0041-SA8000",
+      "supplierId": "S-0041",
+      "standard": "SA8000",
+      "validFrom": "2023-11-27",
+      "validUntil": "2026-11-26",
+      "documentId": "DOC-CERT-S-0041-SA8000"
+    },
+    {
+      "certificateId": "CERT-S-0042-EMAS",
+      "supplierId": "S-0042",
+      "standard": "EMAS",
+      "validFrom": "2025-01-07",
+      "validUntil": "2028-01-07",
+      "documentId": "DOC-CERT-S-0042-EMAS"
+    },
+    {
+      "certificateId": "CERT-S-0042-ISO45001",
+      "supplierId": "S-0042",
+      "standard": "ISO 45001",
+      "validFrom": "2023-12-28",
+      "validUntil": "2026-12-27",
+      "documentId": "DOC-CERT-S-0042-ISO45001"
+    },
+    {
+      "certificateId": "CERT-S-0042-SA8000",
+      "supplierId": "S-0042",
+      "standard": "SA8000",
+      "validFrom": "2023-12-19",
+      "validUntil": "2026-12-18",
+      "documentId": "DOC-CERT-S-0042-SA8000"
+    },
+    {
+      "certificateId": "CERT-S-0043-ISO45001",
+      "supplierId": "S-0043",
+      "standard": "ISO 45001",
+      "validFrom": "2024-02-12",
+      "validUntil": "2027-02-11",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0043-ISO14001",
+      "supplierId": "S-0043",
+      "standard": "ISO 14001",
+      "validFrom": "2024-08-27",
+      "validUntil": "2027-08-27",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0044-ISO9001",
+      "supplierId": "S-0044",
+      "standard": "ISO 9001",
+      "validFrom": "2023-12-20",
+      "validUntil": "2026-12-19",
+      "documentId": "DOC-CERT-S-0044-ISO9001"
+    },
+    {
+      "certificateId": "CERT-S-0044-ISO14001",
+      "supplierId": "S-0044",
+      "standard": "ISO 14001",
+      "validFrom": "2026-04-23",
+      "validUntil": "2029-04-22",
+      "documentId": "DOC-CERT-S-0044-ISO14001"
+    },
+    {
+      "certificateId": "CERT-S-0045-ISO9001",
+      "supplierId": "S-0045",
+      "standard": "ISO 9001",
+      "validFrom": "2026-08-19",
+      "validUntil": "2029-08-18",
+      "documentId": "DOC-CERT-S-0045-ISO9001"
+    },
+    {
+      "certificateId": "CERT-S-0046-ISO50001",
+      "supplierId": "S-0046",
+      "standard": "ISO 50001",
+      "validFrom": "2025-04-16",
+      "validUntil": "2028-04-15",
+      "documentId": "DOC-CERT-S-0046-ISO50001"
+    },
+    {
+      "certificateId": "CERT-S-0046-ISO9001",
+      "supplierId": "S-0046",
+      "standard": "ISO 9001",
+      "validFrom": "2025-08-29",
+      "validUntil": "2028-08-28",
+      "documentId": "DOC-CERT-S-0046-ISO9001"
+    },
+    {
+      "certificateId": "CERT-S-0046-ISO14001",
+      "supplierId": "S-0046",
+      "standard": "ISO 14001",
+      "validFrom": "2024-12-08",
+      "validUntil": "2027-12-08",
+      "documentId": "DOC-CERT-S-0046-ISO14001"
+    },
+    {
+      "certificateId": "CERT-S-0047-ISO14001",
+      "supplierId": "S-0047",
+      "standard": "ISO 14001",
+      "validFrom": "2025-03-20",
+      "validUntil": "2028-03-19",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0047-ISO9001",
+      "supplierId": "S-0047",
+      "standard": "ISO 9001",
+      "validFrom": "2025-03-29",
+      "validUntil": "2028-03-28",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0047-ISO50001",
+      "supplierId": "S-0047",
+      "standard": "ISO 50001",
+      "validFrom": "2026-08-04",
+      "validUntil": "2029-08-03",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0049-ISO9001",
+      "supplierId": "S-0049",
+      "standard": "ISO 9001",
+      "validFrom": "2024-02-22",
+      "validUntil": "2027-02-21",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0050-ISO14001",
+      "supplierId": "S-0050",
+      "standard": "ISO 14001",
+      "validFrom": "2025-11-15",
+      "validUntil": "2028-11-14",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0050-ISO9001",
+      "supplierId": "S-0050",
+      "standard": "ISO 9001",
+      "validFrom": "2026-04-10",
+      "validUntil": "2029-04-09",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0051-ISO45001",
+      "supplierId": "S-0051",
+      "standard": "ISO 45001",
+      "validFrom": "2024-03-12",
+      "validUntil": "2027-03-12",
+      "documentId": "DOC-CERT-S-0051-ISO45001"
+    },
+    {
+      "certificateId": "CERT-S-0052-ISO14001",
+      "supplierId": "S-0052",
+      "standard": "ISO 14001",
+      "validFrom": "2024-08-16",
+      "validUntil": "2027-08-16",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0052-EMAS",
+      "supplierId": "S-0052",
+      "standard": "EMAS",
+      "validFrom": "2026-05-18",
+      "validUntil": "2029-05-17",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0053-ISO45001",
+      "supplierId": "S-0053",
+      "standard": "ISO 45001",
+      "validFrom": "2024-04-13",
+      "validUntil": "2027-04-13",
+      "documentId": "DOC-CERT-S-0053-ISO45001"
+    },
+    {
+      "certificateId": "CERT-S-0053-ISO50001",
+      "supplierId": "S-0053",
+      "standard": "ISO 50001",
+      "validFrom": "2025-06-06",
+      "validUntil": "2028-06-05",
+      "documentId": "DOC-CERT-S-0053-ISO50001"
+    },
+    {
+      "certificateId": "CERT-S-0054-ISO45001",
+      "supplierId": "S-0054",
+      "standard": "ISO 45001",
+      "validFrom": "2024-03-05",
+      "validUntil": "2027-03-05",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0055-ISO9001",
+      "supplierId": "S-0055",
+      "standard": "ISO 9001",
+      "validFrom": "2026-06-06",
+      "validUntil": "2029-06-05",
+      "documentId": "DOC-CERT-S-0055-ISO9001"
+    },
+    {
+      "certificateId": "CERT-S-0055-ISO50001",
+      "supplierId": "S-0055",
+      "standard": "ISO 50001",
+      "validFrom": "2025-06-22",
+      "validUntil": "2028-06-21",
+      "documentId": "DOC-CERT-S-0055-ISO50001"
+    },
+    {
+      "certificateId": "CERT-S-0055-ISO14001",
+      "supplierId": "S-0055",
+      "standard": "ISO 14001",
+      "validFrom": "2026-02-25",
+      "validUntil": "2029-02-24",
+      "documentId": "DOC-CERT-S-0055-ISO14001"
+    },
+    {
+      "certificateId": "CERT-S-0057-ISO9001",
+      "supplierId": "S-0057",
+      "standard": "ISO 9001",
+      "validFrom": "2024-10-05",
+      "validUntil": "2027-10-05",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0058-ISO45001",
+      "supplierId": "S-0058",
+      "standard": "ISO 45001",
+      "validFrom": "2024-05-05",
+      "validUntil": "2027-05-05",
+      "documentId": "DOC-CERT-S-0058-ISO45001"
+    },
+    {
+      "certificateId": "CERT-S-0058-ISO50001",
+      "supplierId": "S-0058",
+      "standard": "ISO 50001",
+      "validFrom": "2025-11-29",
+      "validUntil": "2028-11-28",
+      "documentId": "DOC-CERT-S-0058-ISO50001"
+    },
+    {
+      "certificateId": "CERT-S-0058-ISO14001",
+      "supplierId": "S-0058",
+      "standard": "ISO 14001",
+      "validFrom": "2024-04-19",
+      "validUntil": "2027-04-19",
+      "documentId": "DOC-CERT-S-0058-ISO14001"
+    },
+    {
+      "certificateId": "CERT-S-0059-BCorp",
+      "supplierId": "S-0059",
+      "standard": "B Corp",
+      "validFrom": "2024-05-06",
+      "validUntil": "2027-05-06",
+      "documentId": "DOC-CERT-S-0059-BCorp"
+    },
+    {
+      "certificateId": "CERT-S-0059-CradletoCradle",
+      "supplierId": "S-0059",
+      "standard": "Cradle to Cradle",
+      "validFrom": "2024-08-26",
+      "validUntil": "2027-08-26",
+      "documentId": "DOC-CERT-S-0059-CradletoCradle"
+    },
+    {
+      "certificateId": "CERT-S-0061-ISO50001",
+      "supplierId": "S-0061",
+      "standard": "ISO 50001",
+      "validFrom": "2026-05-29",
+      "validUntil": "2029-05-28",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0061-ISO45001",
+      "supplierId": "S-0061",
+      "standard": "ISO 45001",
+      "validFrom": "2024-09-14",
+      "validUntil": "2027-09-14",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0061-ISO14001",
+      "supplierId": "S-0061",
+      "standard": "ISO 14001",
+      "validFrom": "2025-08-09",
+      "validUntil": "2028-08-08",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0062-ISO45001",
+      "supplierId": "S-0062",
+      "standard": "ISO 45001",
+      "validFrom": "2026-06-14",
+      "validUntil": "2029-06-13",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0062-ISO14001",
+      "supplierId": "S-0062",
+      "standard": "ISO 14001",
+      "validFrom": "2025-07-25",
+      "validUntil": "2028-07-24",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0062-ISO50001",
+      "supplierId": "S-0062",
+      "standard": "ISO 50001",
+      "validFrom": "2025-11-09",
+      "validUntil": "2028-11-08",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0063-ISO14001",
+      "supplierId": "S-0063",
+      "standard": "ISO 14001",
+      "validFrom": "2026-07-24",
+      "validUntil": "2029-07-23",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0064-ISO9001",
+      "supplierId": "S-0064",
+      "standard": "ISO 9001",
+      "validFrom": "2025-08-08",
+      "validUntil": "2028-08-07",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0065-ISO14001",
+      "supplierId": "S-0065",
+      "standard": "ISO 14001",
+      "validFrom": "2024-02-27",
+      "validUntil": "2027-02-26",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0065-ISO9001",
+      "supplierId": "S-0065",
+      "standard": "ISO 9001",
+      "validFrom": "2024-09-10",
+      "validUntil": "2027-09-10",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0065-ISO50001",
+      "supplierId": "S-0065",
+      "standard": "ISO 50001",
+      "validFrom": "2025-02-28",
+      "validUntil": "2028-02-28",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0066-ISO14001",
+      "supplierId": "S-0066",
+      "standard": "ISO 14001",
+      "validFrom": "2025-06-14",
+      "validUntil": "2028-06-13",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0067-ISO50001",
+      "supplierId": "S-0067",
+      "standard": "ISO 50001",
+      "validFrom": "2024-03-07",
+      "validUntil": "2027-03-07",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0069-ISO45001",
+      "supplierId": "S-0069",
+      "standard": "ISO 45001",
+      "validFrom": "2025-09-04",
+      "validUntil": "2028-09-03",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0069-SA8000",
+      "supplierId": "S-0069",
+      "standard": "SA8000",
+      "validFrom": "2026-01-19",
+      "validUntil": "2029-01-18",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0069-ISO14001",
+      "supplierId": "S-0069",
+      "standard": "ISO 14001",
+      "validFrom": "2023-12-07",
+      "validUntil": "2026-12-06",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0071-SA8000",
+      "supplierId": "S-0071",
+      "standard": "SA8000",
+      "validFrom": "2026-06-30",
+      "validUntil": "2029-06-29",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0071-ISO14001",
+      "supplierId": "S-0071",
+      "standard": "ISO 14001",
+      "validFrom": "2024-10-18",
+      "validUntil": "2027-10-18",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0071-EMAS",
+      "supplierId": "S-0071",
+      "standard": "EMAS",
+      "validFrom": "2024-12-23",
+      "validUntil": "2027-12-23",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0072-ISO50001",
+      "supplierId": "S-0072",
+      "standard": "ISO 50001",
+      "validFrom": "2025-03-19",
+      "validUntil": "2028-03-18",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0072-ISO45001",
+      "supplierId": "S-0072",
+      "standard": "ISO 45001",
+      "validFrom": "2025-06-29",
+      "validUntil": "2028-06-28",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0072-ISO9001",
+      "supplierId": "S-0072",
+      "standard": "ISO 9001",
+      "validFrom": "2024-12-22",
+      "validUntil": "2027-12-22",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0073-ISO9001",
+      "supplierId": "S-0073",
+      "standard": "ISO 9001",
+      "validFrom": "2024-04-29",
+      "validUntil": "2027-04-29",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0073-ISO45001",
+      "supplierId": "S-0073",
+      "standard": "ISO 45001",
+      "validFrom": "2024-12-15",
+      "validUntil": "2027-12-15",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0073-ISO50001",
+      "supplierId": "S-0073",
+      "standard": "ISO 50001",
+      "validFrom": "2024-04-20",
+      "validUntil": "2027-04-20",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0074-ISO50001",
+      "supplierId": "S-0074",
+      "standard": "ISO 50001",
+      "validFrom": "2025-04-24",
+      "validUntil": "2028-04-23",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0075-ISO14001",
+      "supplierId": "S-0075",
+      "standard": "ISO 14001",
+      "validFrom": "2025-04-24",
+      "validUntil": "2028-04-23",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0076-ISO9001",
+      "supplierId": "S-0076",
+      "standard": "ISO 9001",
+      "validFrom": "2026-05-28",
+      "validUntil": "2029-05-27",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0076-ISO14001",
+      "supplierId": "S-0076",
+      "standard": "ISO 14001",
+      "validFrom": "2025-06-02",
+      "validUntil": "2028-06-01",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0077-ISO14001",
+      "supplierId": "S-0077",
+      "standard": "ISO 14001",
+      "validFrom": "2025-11-28",
+      "validUntil": "2028-11-27",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0077-ISO9001",
+      "supplierId": "S-0077",
+      "standard": "ISO 9001",
+      "validFrom": "2024-03-02",
+      "validUntil": "2027-03-02",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0078-ISO50001",
+      "supplierId": "S-0078",
+      "standard": "ISO 50001",
+      "validFrom": "2026-07-25",
+      "validUntil": "2029-07-24",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0079-CradletoCradle",
+      "supplierId": "S-0079",
+      "standard": "Cradle to Cradle",
+      "validFrom": "2025-02-15",
+      "validUntil": "2028-02-15",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0079-ISO50001",
+      "supplierId": "S-0079",
+      "standard": "ISO 50001",
+      "validFrom": "2024-10-28",
+      "validUntil": "2027-10-28",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0081-ISO45001",
+      "supplierId": "S-0081",
+      "standard": "ISO 45001",
+      "validFrom": "2026-04-14",
+      "validUntil": "2029-04-13",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0082-ISO14001",
+      "supplierId": "S-0082",
+      "standard": "ISO 14001",
+      "validFrom": "2025-11-14",
+      "validUntil": "2028-11-13",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0082-EMAS",
+      "supplierId": "S-0082",
+      "standard": "EMAS",
+      "validFrom": "2023-12-07",
+      "validUntil": "2026-12-06",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0083-EMAS",
+      "supplierId": "S-0083",
+      "standard": "EMAS",
+      "validFrom": "2026-08-14",
+      "validUntil": "2029-08-13",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0083-ISO45001",
+      "supplierId": "S-0083",
+      "standard": "ISO 45001",
+      "validFrom": "2025-02-13",
+      "validUntil": "2028-02-13",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0084-ISO14001",
+      "supplierId": "S-0084",
+      "standard": "ISO 14001",
+      "validFrom": "2025-12-24",
+      "validUntil": "2028-12-23",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0084-ISO45001",
+      "supplierId": "S-0084",
+      "standard": "ISO 45001",
+      "validFrom": "2026-02-05",
+      "validUntil": "2029-02-04",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0084-ISO50001",
+      "supplierId": "S-0084",
+      "standard": "ISO 50001",
+      "validFrom": "2026-03-18",
+      "validUntil": "2029-03-17",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0085-EMAS",
+      "supplierId": "S-0085",
+      "standard": "EMAS",
+      "validFrom": "2024-08-30",
+      "validUntil": "2027-08-30",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0086-ISO9001",
+      "supplierId": "S-0086",
+      "standard": "ISO 9001",
+      "validFrom": "2024-03-13",
+      "validUntil": "2027-03-13",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0088-ISO14001",
+      "supplierId": "S-0088",
+      "standard": "ISO 14001",
+      "validFrom": "2025-12-26",
+      "validUntil": "2028-12-25",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0088-ISO50001",
+      "supplierId": "S-0088",
+      "standard": "ISO 50001",
+      "validFrom": "2025-06-25",
+      "validUntil": "2028-06-24",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0088-BCorp",
+      "supplierId": "S-0088",
+      "standard": "B Corp",
+      "validFrom": "2025-07-12",
+      "validUntil": "2028-07-11",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0089-ISO50001",
+      "supplierId": "S-0089",
+      "standard": "ISO 50001",
+      "validFrom": "2025-08-28",
+      "validUntil": "2028-08-27",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0089-ISO45001",
+      "supplierId": "S-0089",
+      "standard": "ISO 45001",
+      "validFrom": "2024-08-25",
+      "validUntil": "2027-08-25",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0090-ISO50001",
+      "supplierId": "S-0090",
+      "standard": "ISO 50001",
+      "validFrom": "2026-01-22",
+      "validUntil": "2029-01-21",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0090-ISO9001",
+      "supplierId": "S-0090",
+      "standard": "ISO 9001",
+      "validFrom": "2025-11-13",
+      "validUntil": "2028-11-12",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0090-ISO14001",
+      "supplierId": "S-0090",
+      "standard": "ISO 14001",
+      "validFrom": "2024-07-08",
+      "validUntil": "2027-07-08",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0091-ISO45001",
+      "supplierId": "S-0091",
+      "standard": "ISO 45001",
+      "validFrom": "2024-03-29",
+      "validUntil": "2027-03-29",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0091-ISO14001",
+      "supplierId": "S-0091",
+      "standard": "ISO 14001",
+      "validFrom": "2026-03-29",
+      "validUntil": "2029-03-28",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0091-ISO9001",
+      "supplierId": "S-0091",
+      "standard": "ISO 9001",
+      "validFrom": "2024-03-10",
+      "validUntil": "2027-03-10",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0092-ISO50001",
+      "supplierId": "S-0092",
+      "standard": "ISO 50001",
+      "validFrom": "2026-01-18",
+      "validUntil": "2029-01-17",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0092-ISO9001",
+      "supplierId": "S-0092",
+      "standard": "ISO 9001",
+      "validFrom": "2026-05-22",
+      "validUntil": "2029-05-21",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0093-ISO45001",
+      "supplierId": "S-0093",
+      "standard": "ISO 45001",
+      "validFrom": "2026-08-07",
+      "validUntil": "2029-08-06",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0093-SA8000",
+      "supplierId": "S-0093",
+      "standard": "SA8000",
+      "validFrom": "2024-12-13",
+      "validUntil": "2027-12-13",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0093-ISO50001",
+      "supplierId": "S-0093",
+      "standard": "ISO 50001",
+      "validFrom": "2024-06-03",
+      "validUntil": "2027-06-03",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0094-ISO14001",
+      "supplierId": "S-0094",
+      "standard": "ISO 14001",
+      "validFrom": "2025-05-12",
+      "validUntil": "2028-05-11",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0095-ISO50001",
+      "supplierId": "S-0095",
+      "standard": "ISO 50001",
+      "validFrom": "2025-07-04",
+      "validUntil": "2028-07-03",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0096-ISO9001",
+      "supplierId": "S-0096",
+      "standard": "ISO 9001",
+      "validFrom": "2025-09-11",
+      "validUntil": "2028-09-10",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0096-ISO50001",
+      "supplierId": "S-0096",
+      "standard": "ISO 50001",
+      "validFrom": "2024-06-28",
+      "validUntil": "2027-06-28",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0096-ISO14001",
+      "supplierId": "S-0096",
+      "standard": "ISO 14001",
+      "validFrom": "2024-05-30",
+      "validUntil": "2027-05-30",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0097-ISO50001",
+      "supplierId": "S-0097",
+      "standard": "ISO 50001",
+      "validFrom": "2025-06-23",
+      "validUntil": "2028-06-22",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0097-ISO45001",
+      "supplierId": "S-0097",
+      "standard": "ISO 45001",
+      "validFrom": "2025-09-22",
+      "validUntil": "2028-09-21",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0097-ISO9001",
+      "supplierId": "S-0097",
+      "standard": "ISO 9001",
+      "validFrom": "2024-12-17",
+      "validUntil": "2027-12-17",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0098-ISO9001",
+      "supplierId": "S-0098",
+      "standard": "ISO 9001",
+      "validFrom": "2025-04-24",
+      "validUntil": "2028-04-23",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0099-ISO9001",
+      "supplierId": "S-0099",
+      "standard": "ISO 9001",
+      "validFrom": "2024-03-25",
+      "validUntil": "2027-03-25",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0100-CradletoCradle",
+      "supplierId": "S-0100",
+      "standard": "Cradle to Cradle",
+      "validFrom": "2025-04-26",
+      "validUntil": "2028-04-25",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0100-ISO50001",
+      "supplierId": "S-0100",
+      "standard": "ISO 50001",
+      "validFrom": "2025-07-08",
+      "validUntil": "2028-07-07",
+      "documentId": null
+    },
+    {
+      "certificateId": "CERT-S-0100-BCorp",
+      "supplierId": "S-0100",
+      "standard": "B Corp",
+      "validFrom": "2025-06-06",
+      "validUntil": "2028-06-05",
+      "documentId": null
+    }
+  ]
+}

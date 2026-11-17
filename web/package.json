@@ -1,0 +1,32 @@
+{
+  "name": "@scc/web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "typecheck": "next typegen && tsc --noEmit",
+    "test": "echo \"No cockpit tests yet\"",
+    "preview:build": "node scripts/record-preview-snapshot.mjs && cp src/app/icon.svg .preview-snapshot/icon.svg && vite build --config preview/vite.config.mjs"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^6.3.4",
+    "@ant-design/nextjs-registry": "^1.3.0",
+    "@scc/shared": "*",
+    "antd": "^6.7.0",
+    "dayjs": "^1.11.23",
+    "next": "16.4.5",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.5"
+  },
+  "description": "Fairweigh web app (Next.js) of the Sustainable Supplier Cockpit project"
+}

@@ -1,0 +1,341 @@
+{
+  "notice": "Generated from data/sources by scripts/build-hit-rate-set.mjs. Demo data, fictitious.",
+  "builtAt": "2026-11-16",
+  "parts": [
+    {
+      "partId": "P-ALU-HSG-01",
+      "suppliers": [
+        {
+          "supplierId": "S-0013",
+          "expected": {
+            "quality": 0.8,
+            "delivery": 95,
+            "co2": 38,
+            "price": 84.5,
+            "leadTime": 24
+          },
+          "compliance": [],
+          "decoys": []
+        },
+        {
+          "supplierId": "S-0015",
+          "expected": {
+            "quality": 1,
+            "delivery": 97,
+            "co2": 22.6,
+            "price": 85.35,
+            "leadTime": 27
+          },
+          "compliance": [],
+          "decoys": []
+        },
+        {
+          "supplierId": "S-0018",
+          "expected": {
+            "quality": null,
+            "delivery": null,
+            "co2": 41.5,
+            "price": 72.8,
+            "leadTime": 32
+          },
+          "compliance": [],
+          "decoys": []
+        },
+        {
+          "supplierId": "S-0014",
+          "expected": {
+            "quality": null,
+            "delivery": null,
+            "co2": 52.6,
+            "price": 61.9,
+            "leadTime": 55
+          },
+          "compliance": [
+            "LkSG country risk High"
+          ],
+          "decoys": []
+        },
+        {
+          "supplierId": "S-0020",
+          "expected": {
+            "quality": null,
+            "delivery": null,
+            "co2": 50.5,
+            "price": 59.4,
+            "leadTime": 58
+          },
+          "compliance": [
+            "LkSG country risk High"
+          ],
+          "decoys": []
+        }
+      ]
+    },
+    {
+      "partId": "P-BRG-01",
+      "suppliers": [
+        {
+          "supplierId": "S-0046",
+          "expected": {
+            "quality": 1.3,
+            "delivery": 89,
+            "co2": 1.05,
+            "price": 6,
+            "leadTime": 5
+          },
+          "compliance": [],
+          "decoys": []
+        },
+        {
+          "supplierId": "S-0041",
+          "expected": {
+            "quality": 1,
+            "delivery": 94,
+            "co2": 0.62,
+            "price": 6.18,
+            "leadTime": 5
+          },
+          "compliance": [],
+          "decoys": []
+        },
+        {
+          "supplierId": "S-0042",
+          "expected": {
+            "quality": 0.3,
+            "delivery": 98,
+            "co2": 0.7,
+            "price": 6.06,
+            "leadTime": 24
+          },
+          "compliance": [],
+          "decoys": []
+        },
+        {
+          "supplierId": "S-0044",
+          "expected": {
+            "quality": null,
+            "delivery": null,
+            "co2": 0.91,
+            "price": 5.76,
+            "leadTime": 28
+          },
+          "compliance": [],
+          "decoys": []
+        },
+        {
+          "supplierId": "S-0045",
+          "expected": {
+            "quality": null,
+            "delivery": null,
+            "co2": 1.71,
+            "price": 4.44,
+            "leadTime": 60
+          },
+          "compliance": [
+            "LkSG country risk High"
+          ],
+          "decoys": []
+        }
+      ]
+    },
+    {
+      "partId": "P-CU-WIRE-01",
+      "suppliers": [
+        {
+          "supplierId": "S-0021",
+          "expected": {
+            "quality": 0.7,
+            "delivery": 95,
+            "co2": 10.9,
+            "price": 63.24,
+            "leadTime": 15
+          },
+          "compliance": [],
+          "decoys": []
+        },
+        {
+          "supplierId": "S-0022",
+          "expected": {
+            "quality": 0.3,
+            "delivery": 88,
+            "co2": 22.4,
+            "price": 64.48,
+            "leadTime": 7
+          },
+          "compliance": [],
+          "decoys": []
+        },
+        {
+          "supplierId": "S-0025",
+          "expected": {
+            "quality": null,
+            "delivery": null,
+            "co2": 34.9,
+            "price": 48.36,
+            "leadTime": 60
+          },
+          "compliance": [
+            "LkSG country risk High"
+          ],
+          "decoys": []
+        },
+        {
+          "supplierId": "S-0024",
+          "expected": {
+            "quality": 0.4,
+            "delivery": 96,
+            "co2": 21.1,
+            "price": 60.76,
+            "leadTime": 11
+          },
+          "compliance": [],
+          "decoys": []
+        },
+        {
+          "supplierId": "S-0026",
+          "expected": {
+            "quality": null,
+            "delivery": null,
+            "co2": 18.2,
+            "price": 60.76,
+            "leadTime": 17
+          },
+          "compliance": [],
+          "decoys": []
+        }
+      ]
+    },
+    {
+      "partId": "P-SEAL-01",
+      "suppliers": [
+        {
+          "supplierId": "S-0055",
+          "expected": {
+            "quality": 1.1,
+            "delivery": 92,
+            "co2": 0.33,
+            "price": 1.82,
+            "leadTime": 9
+          },
+          "compliance": [],
+          "decoys": []
+        },
+        {
+          "supplierId": "S-0051",
+          "expected": {
+            "quality": 0.8,
+            "delivery": 90,
+            "co2": 0.21,
+            "price": 1.94,
+            "leadTime": 4
+          },
+          "compliance": [],
+          "decoys": []
+        },
+        {
+          "supplierId": "S-0053",
+          "expected": {
+            "quality": 1.5,
+            "delivery": 92,
+            "co2": 0.31,
+            "price": 1.91,
+            "leadTime": 3
+          },
+          "compliance": [],
+          "decoys": []
+        },
+        {
+          "supplierId": "S-0058",
+          "expected": {
+            "quality": null,
+            "delivery": null,
+            "co2": 0.34,
+            "price": 1.76,
+            "leadTime": 14
+          },
+          "compliance": [],
+          "decoys": []
+        },
+        {
+          "supplierId": "S-0059",
+          "expected": {
+            "quality": null,
+            "delivery": null,
+            "co2": 0.12,
+            "price": 2.23,
+            "leadTime": null
+          },
+          "compliance": [],
+          "decoys": []
+        }
+      ]
+    },
+    {
+      "partId": "P-STL-HSG-01",
+      "suppliers": [
+        {
+          "supplierId": "S-0007",
+          "expected": {
+            "quality": 0.7,
+            "delivery": 98,
+            "co2": 13.8,
+            "price": 46.92,
+            "leadTime": 10
+          },
+          "compliance": [],
+          "decoys": []
+        },
+        {
+          "supplierId": "S-0001",
+          "expected": {
+            "quality": 0.5,
+            "delivery": 91,
+            "co2": 24.6,
+            "price": 48.3,
+            "leadTime": 8
+          },
+          "compliance": [],
+          "decoys": []
+        },
+        {
+          "supplierId": "S-0008",
+          "expected": {
+            "quality": 1.3,
+            "delivery": 99,
+            "co2": 24.7,
+            "price": 46.92,
+            "leadTime": 8
+          },
+          "compliance": [],
+          "decoys": []
+        },
+        {
+          "supplierId": "S-0006",
+          "expected": {
+            "quality": null,
+            "delivery": null,
+            "co2": 38.1,
+            "price": 42.78,
+            "leadTime": 46
+          },
+          "compliance": [
+            "Controversy: 2025: complaint about air emissions by local residents"
+          ],
+          "decoys": []
+        },
+        {
+          "supplierId": "S-0003",
+          "expected": {
+            "quality": null,
+            "delivery": null,
+            "co2": 13.6,
+            "price": 46.92,
+            "leadTime": 13
+          },
+          "compliance": [],
+          "decoys": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "notice": "Real, published industry averages (decision of 8 Nov 2026). They describe materials, not companies. Values per kg of material, cradle-to-gate, as published; checked on 8 Nov 2026.",
+  "factors": [
+    {
+      "factorId": "BM-ALU-IAI-2023",
+      "material": "Aluminium",
+      "valueKgCo2ePerKg": 10.04,
+      "scope": "Global average GHG intensity of aluminium produced, including recycling (t CO2e per t)",
+      "referenceYear": 2023,
+      "publisher": "International Aluminium Institute (IAI)",
+      "title": "Global aluminium industry greenhouse gas emissions intensity reduction continues, with total emissions below 2020 peak",
+      "url": "https://international-aluminium.org/global-aluminium-industry-greenhouse-gas-emissions-intensity-reduction-continues-with-total-emissions-below-2020-peak",
+      "retrievedOn": "2026-11-08",
+      "note": "Die castings are mostly made from recycled alloys, so the average including recycling is used. Primary aluminium alone: 14.8 t CO2e per t (same source).",
+      "gas": "CO₂e"
+    },
+    {
+      "factorId": "BM-STEEL-WSA-2023",
+      "material": "Steel",
+      "valueKgCo2ePerKg": 1.92,
+      "scope": "Global average CO2 emissions per tonne of crude steel cast, all scopes 1 and 2 and some scope 3 (t CO2 per t)",
+      "referenceYear": 2023,
+      "publisher": "World Steel Association (worldsteel)",
+      "title": "World Steel in Figures 2025, sustainability indicators",
+      "url": "https://worldsteel.org/wp-content/uploads/World-Steel-in-Figures-2025.pdf",
+      "retrievedOn": "2026-11-08",
+      "note": "CO2 only, not all greenhouse gases.",
+      "gas": "CO₂"
+    },
+    {
+      "factorId": "BM-CU-ICA-2023",
+      "material": "Copper",
+      "valueKgCo2ePerKg": 3.52,
+      "scope": "Global average climate change (fossil) impact of 1 kg copper cathode, cradle-to-gate, ICA member sites",
+      "referenceYear": 2023,
+      "publisher": "International Copper Association (ICA)",
+      "title": "Life Cycle Assessment Summary Report, Global 2026",
+      "url": "https://internationalcopper.org/wp-content/uploads/2026/10/ICA-LCA-Global-Summary-2026.pdf",
+      "retrievedOn": "2026-11-08",
+      "note": "Based on 2023 production data of participating ICA member sites.",
+      "gas": "CO₂e"
+    },
+    {
+      "factorId": "BM-EPDM-OEKOBAUDAT",
+      "material": "EPDM elastomer",
+      "valueKgCo2ePerKg": 4.17,
+      "scope": "German average for an EPDM plastic profile, cradle-to-gate (modules A1-A3)",
+      "referenceYear": 2018,
+      "publisher": "OEKOBAUDAT (German Federal Ministry for Housing)",
+      "title": "Plastic profile EPDM, OEKOBAUDAT 2023-I (via Climatiq)",
+      "url": "https://www.climatiq.io/data/emission-factor/45b55d35-515d-4e85-bf3e-dca3f2c041c2",
+      "retrievedOn": "2026-11-08",
+      "note": "Finished EPDM profile, the closest published value for a seal elastomer; marked deprecated in a later OEKOBAUDAT release.",
+      "gas": "CO₂e"
+    }
+  ]
+}

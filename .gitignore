@@ -1,0 +1,26 @@
+# Dependencies and builds
+node_modules/
+.next/
+dist/
+coverage/
+
+# Secrets: never commit
+.env
+.env.*
+!.env.example
+
+# System
+.DS_Store
+
+# TypeScript build cache
+*.tsbuildinfo
+
+# Office lock files stay local
+~$*
+
+# Rules and decisions saved by the running server (rules page, Decision Log)
+data/rules/
+data/decisions/
+
+# All team documents (slides, PDFs, notes, review sheets) stay local, never in Git (17 Nov 2026)
+docs/

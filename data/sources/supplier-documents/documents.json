@@ -1,0 +1,3299 @@
+{
+  "system": "Supplier documents",
+  "simulates": "Documents received from or about suppliers: quotations, PCF data sheets, authority notices",
+  "notice": "Demo data, fictitious",
+  "generatedFrom": "data/source/Supplier_Dummy_Data_v2.xlsx",
+  "records": [
+    {
+      "recordId": "DOC-FINE-S-0005",
+      "documentId": "DOC-FINE-S-0005",
+      "system": "documents",
+      "supplierId": "S-0005",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/assumptions.json",
+        "sheet": "fineNotices",
+        "row": 7,
+        "assumedFields": [
+          "issuedOn",
+          "authority",
+          "decision",
+          "status"
+        ]
+      },
+      "documentType": "fine_notice",
+      "title": "Notice of administrative fine, Shandong Muster Casting Co., Ltd.",
+      "file": "supplier-documents/authority-notices/DOC-FINE-S-0005.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2024-06-12",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Notice of administrative fine",
+            "Issued by: Local environmental authority, Jinan (fictitious)",
+            "Date: 12 Jun 2024",
+            "Company: Shandong Muster Casting Co., Ltd., Jinan, China",
+            "Supplier ID: S-0005",
+            "Decision: Fine of CNY 200,000 for unlawful discharge of untreated wastewater",
+            "Status: Final and binding",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-OFFER-S-0007-P-STL-HSG-01",
+      "documentId": "DOC-OFFER-S-0007-P-STL-HSG-01",
+      "system": "documents",
+      "supplierId": "S-0007",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 9,
+        "assumedFields": [
+          "partId",
+          "partName",
+          "quantity",
+          "unitPriceEur",
+          "priceDate",
+          "validUntil",
+          "priceType",
+          "sourceDocumentId"
+        ]
+      },
+      "documentType": "offer",
+      "title": "Quotation OFF-S-0007-P-STL-HSG-01",
+      "file": "supplier-documents/quotations/DOC-OFFER-S-0007-P-STL-HSG-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-10-15",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Donautal Stahl GmbH",
+            "Linz, Austria",
+            "Quotation OFF-S-0007-P-STL-HSG-01",
+            "Date: 15 Oct 2026",
+            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "Supplier ID: S-0007",
+            "Part: Steel-cast gearbox housing (P-STL-HSG-01)",
+            "Quantity: 5,000 pcs",
+            "Unit price: EUR 46.92 per piece",
+            "Total: EUR 234,600.00",
+            "Lead time: 10 days",
+            "Valid until: 31 Jan 2027",
+            "Prices ex works, excluding VAT.",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-OFFER-S-0001-P-STL-HSG-01",
+      "documentId": "DOC-OFFER-S-0001-P-STL-HSG-01",
+      "system": "documents",
+      "supplierId": "S-0001",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 3,
+        "assumedFields": [
+          "partId",
+          "partName",
+          "quantity",
+          "unitPriceEur",
+          "priceDate",
+          "validUntil",
+          "priceType",
+          "sourceDocumentId"
+        ]
+      },
+      "documentType": "offer",
+      "title": "Quotation OFF-S-0001-P-STL-HSG-01",
+      "file": "supplier-documents/quotations/DOC-OFFER-S-0001-P-STL-HSG-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-10-22",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Mustermann Stahlguss GmbH",
+            "Dortmund, Germany",
+            "Quotation OFF-S-0001-P-STL-HSG-01",
+            "Date: 22 Oct 2026",
+            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "Supplier ID: S-0001",
+            "Part: Steel-cast gearbox housing (P-STL-HSG-01)",
+            "Quantity: 5,000 pcs",
+            "Unit price: EUR 48.30 per piece",
+            "Total: EUR 241,500.00",
+            "Lead time: 8 days",
+            "Valid until: 31 Jan 2027",
+            "Prices ex works, excluding VAT.",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-OFFER-S-0008-P-STL-HSG-01",
+      "documentId": "DOC-OFFER-S-0008-P-STL-HSG-01",
+      "system": "documents",
+      "supplierId": "S-0008",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 10,
+        "assumedFields": [
+          "partId",
+          "partName",
+          "quantity",
+          "unitPriceEur",
+          "priceDate",
+          "validUntil",
+          "priceType",
+          "sourceDocumentId"
+        ]
+      },
+      "documentType": "offer",
+      "title": "Quotation OFF-S-0008-P-STL-HSG-01",
+      "file": "supplier-documents/quotations/DOC-OFFER-S-0008-P-STL-HSG-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-07-01",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Moselle Acier Europe S.A.",
+            "Esch-sur-Alzette, Luxembourg",
+            "Quotation OFF-S-0008-P-STL-HSG-01",
+            "Date: 1 Jul 2026",
+            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "Supplier ID: S-0008",
+            "Part: Steel-cast gearbox housing (P-STL-HSG-01)",
+            "Quantity: 5,000 pcs",
+            "Unit price: EUR 46.92 per piece",
+            "Total: EUR 234,600.00",
+            "Lead time: 8 days",
+            "Valid until: 31 Dec 2026",
+            "Prices ex works, excluding VAT.",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-OFFER-S-0006-P-STL-HSG-01",
+      "documentId": "DOC-OFFER-S-0006-P-STL-HSG-01",
+      "system": "documents",
+      "supplierId": "S-0006",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 8,
+        "assumedFields": [
+          "partId",
+          "partName",
+          "quantity",
+          "unitPriceEur",
+          "priceDate",
+          "validUntil",
+          "priceType",
+          "sourceDocumentId"
+        ]
+      },
+      "documentType": "offer",
+      "title": "Quotation OFF-S-0006-P-STL-HSG-01",
+      "file": "supplier-documents/quotations/DOC-OFFER-S-0006-P-STL-HSG-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-10-08",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Anatolia Döküm A.Ş.",
+            "Bursa, Türkiye",
+            "Quotation OFF-S-0006-P-STL-HSG-01",
+            "Date: 8 Oct 2026",
+            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "Supplier ID: S-0006",
+            "Part: Steel-cast gearbox housing (P-STL-HSG-01)",
+            "Quantity: 5,000 pcs",
+            "Unit price: EUR 42.78 per piece",
+            "Total: EUR 213,900.00",
+            "Lead time: 46 days",
+            "Valid until: 31 Dec 2026",
+            "Prices ex works, excluding VAT.",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-OFFER-S-0003-P-STL-HSG-01",
+      "documentId": "DOC-OFFER-S-0003-P-STL-HSG-01",
+      "system": "documents",
+      "supplierId": "S-0003",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 5,
+        "assumedFields": [
+          "partId",
+          "partName",
+          "quantity",
+          "unitPriceEur",
+          "priceDate",
+          "validUntil",
+          "priceType",
+          "sourceDocumentId"
+        ]
+      },
+      "documentType": "offer",
+      "title": "Quotation OFF-S-0003-P-STL-HSG-01",
+      "file": "supplier-documents/quotations/DOC-OFFER-S-0003-P-STL-HSG-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-10-25",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Harzland Flachstahl GmbH",
+            "Salzgitter, Germany",
+            "Indicative quotation OFF-S-0003-P-STL-HSG-01",
+            "Date: 25 Oct 2026",
+            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "Supplier ID: S-0003",
+            "Part: Steel-cast gearbox housing (P-STL-HSG-01)",
+            "Quantity: 5,000 pcs",
+            "Unit price: EUR 46.92 per piece (indicative, not binding)",
+            "Total: EUR 234,600.00",
+            "Lead time: 13 days",
+            "Valid until: 15 Jan 2027",
+            "Prices ex works, excluding VAT.",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-OFFER-S-0021-P-CU-WIRE-01",
+      "documentId": "DOC-OFFER-S-0021-P-CU-WIRE-01",
+      "system": "documents",
+      "supplierId": "S-0021",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 23,
+        "assumedFields": [
+          "partId",
+          "partName",
+          "quantity",
+          "unitPriceEur",
+          "priceDate",
+          "validUntil",
+          "priceType",
+          "sourceDocumentId"
+        ]
+      },
+      "documentType": "offer",
+      "title": "Quotation OFF-S-0021-P-CU-WIRE-01",
+      "file": "supplier-documents/quotations/DOC-OFFER-S-0021-P-CU-WIRE-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-10-18",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Elbkupfer AG",
+            "Hamburg, Germany",
+            "Quotation OFF-S-0021-P-CU-WIRE-01",
+            "Date: 18 Oct 2026",
+            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "Supplier ID: S-0021",
+            "Part: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
+            "Quantity: 2,000 pcs",
+            "Unit price: EUR 63.24 per piece",
+            "Total: EUR 126,480.00",
+            "Lead time: 15 days",
+            "Valid until: 31 Jan 2027",
+            "Prices ex works, excluding VAT.",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-OFFER-S-0022-P-CU-WIRE-01",
+      "documentId": "DOC-OFFER-S-0022-P-CU-WIRE-01",
+      "system": "documents",
+      "supplierId": "S-0022",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 24,
+        "assumedFields": [
+          "partId",
+          "partName",
+          "quantity",
+          "unitPriceEur",
+          "priceDate",
+          "validUntil",
+          "priceType",
+          "sourceDocumentId"
+        ]
+      },
+      "documentType": "offer",
+      "title": "Quotation OFF-S-0022-P-CU-WIRE-01",
+      "file": "supplier-documents/quotations/DOC-OFFER-S-0022-P-CU-WIRE-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-10-21",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Elektrisolar Drahtwerk GmbH",
+            "Reichshof, Germany",
+            "Quotation OFF-S-0022-P-CU-WIRE-01",
+            "Date: 21 Oct 2026",
+            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "Supplier ID: S-0022",
+            "Part: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
+            "Quantity: 2,000 pcs",
+            "Unit price: EUR 64.48 per piece",
+            "Total: EUR 128,960.00",
+            "Lead time: 7 days",
+            "Valid until: 31 Jan 2027",
+            "Prices ex works, excluding VAT.",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-OFFER-S-0025-P-CU-WIRE-01",
+      "documentId": "DOC-OFFER-S-0025-P-CU-WIRE-01",
+      "system": "documents",
+      "supplierId": "S-0025",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 27,
+        "assumedFields": [
+          "partId",
+          "partName",
+          "quantity",
+          "unitPriceEur",
+          "priceDate",
+          "validUntil",
+          "priceType",
+          "sourceDocumentId"
+        ]
+      },
+      "documentType": "offer",
+      "title": "Quotation OFF-S-0025-P-CU-WIRE-01",
+      "file": "supplier-documents/quotations/DOC-OFFER-S-0025-P-CU-WIRE-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-10-10",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Jiangsu Goldwire Copper Co., Ltd.",
+            "Changzhou, China",
+            "Quotation OFF-S-0025-P-CU-WIRE-01",
+            "Date: 10 Oct 2026",
+            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "Supplier ID: S-0025",
+            "Part: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
+            "Quantity: 2,000 pcs",
+            "Unit price: EUR 48.36 per piece",
+            "Total: EUR 96,720.00",
+            "Lead time: 60 days",
+            "Valid until: 31 Dec 2026",
+            "Prices ex works, excluding VAT.",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-OFFER-S-0024-P-CU-WIRE-01",
+      "documentId": "DOC-OFFER-S-0024-P-CU-WIRE-01",
+      "system": "documents",
+      "supplierId": "S-0024",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 26,
+        "assumedFields": [
+          "partId",
+          "partName",
+          "quantity",
+          "unitPriceEur",
+          "priceDate",
+          "validUntil",
+          "priceType",
+          "sourceDocumentId"
+        ]
+      },
+      "documentType": "offer",
+      "title": "Quotation OFF-S-0024-P-CU-WIRE-01",
+      "file": "supplier-documents/quotations/DOC-OFFER-S-0024-P-CU-WIRE-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-10-27",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Kupferwerk Mansfeld Muster GmbH",
+            "Hettstedt, Germany",
+            "Quotation OFF-S-0024-P-CU-WIRE-01",
+            "Date: 27 Oct 2026",
+            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "Supplier ID: S-0024",
+            "Part: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
+            "Quantity: 2,000 pcs",
+            "Unit price: EUR 60.76 per piece",
+            "Total: EUR 121,520.00",
+            "Lead time: 11 days",
+            "Valid until: 31 Jan 2027",
+            "Prices ex works, excluding VAT.",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-OFFER-S-0026-P-CU-WIRE-01",
+      "documentId": "DOC-OFFER-S-0026-P-CU-WIRE-01",
+      "system": "documents",
+      "supplierId": "S-0026",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 28,
+        "assumedFields": [
+          "partId",
+          "partName",
+          "quantity",
+          "unitPriceEur",
+          "priceDate",
+          "validUntil",
+          "priceType",
+          "sourceDocumentId"
+        ]
+      },
+      "documentType": "offer",
+      "title": "Quotation OFF-S-0026-P-CU-WIRE-01",
+      "file": "supplier-documents/quotations/DOC-OFFER-S-0026-P-CU-WIRE-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-10-14",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "MetalWire Polska Sp. z o.o.",
+            "Poznań, Poland",
+            "Quotation OFF-S-0026-P-CU-WIRE-01",
+            "Date: 14 Oct 2026",
+            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "Supplier ID: S-0026",
+            "Part: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
+            "Quantity: 2,000 pcs",
+            "Unit price: EUR 60.76 per piece",
+            "Total: EUR 121,520.00",
+            "Lead time: 17 days",
+            "Valid until: 31 Dec 2026",
+            "Prices ex works, excluding VAT.",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-OFFER-S-0046-P-BRG-01",
+      "documentId": "DOC-OFFER-S-0046-P-BRG-01",
+      "system": "documents",
+      "supplierId": "S-0046",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 48,
+        "assumedFields": [
+          "last_updated",
+          "partId",
+          "partName",
+          "quantity",
+          "unitPriceEur",
+          "priceDate",
+          "validUntil",
+          "priceType",
+          "sourceDocumentId"
+        ]
+      },
+      "documentType": "offer",
+      "title": "Quotation OFF-S-0046-P-BRG-01",
+      "file": "supplier-documents/quotations/DOC-OFFER-S-0046-P-BRG-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-10-20",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Kugellager Schweinfurt Muster GmbH",
+            "Schweinfurt, Germany",
+            "Quotation OFF-S-0046-P-BRG-01",
+            "Date: 20 Oct 2026",
+            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "Supplier ID: S-0046",
+            "Part: Deep-groove ball bearing 6208 for gearboxes (P-BRG-01)",
+            "Quantity: 20,000 pcs",
+            "Unit price: EUR 6.00 per piece",
+            "Total: EUR 120,000.00",
+            "Lead time: 5 days",
+            "Valid until: 31 Jan 2027",
+            "Prices ex works, excluding VAT.",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-OFFER-S-0041-P-BRG-01",
+      "documentId": "DOC-OFFER-S-0041-P-BRG-01",
+      "system": "documents",
+      "supplierId": "S-0041",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 43,
+        "assumedFields": [
+          "partId",
+          "partName",
+          "quantity",
+          "unitPriceEur",
+          "priceDate",
+          "validUntil",
+          "priceType",
+          "sourceDocumentId"
+        ]
+      },
+      "documentType": "offer",
+      "title": "Quotation OFF-S-0041-P-BRG-01",
+      "file": "supplier-documents/quotations/DOC-OFFER-S-0041-P-BRG-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-10-28",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Frankenlager AG",
+            "Herzogenaurach, Germany",
+            "Quotation OFF-S-0041-P-BRG-01",
+            "Date: 28 Oct 2026",
+            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "Supplier ID: S-0041",
+            "Part: Deep-groove ball bearing 6208 for gearboxes (P-BRG-01)",
+            "Quantity: 20,000 pcs",
+            "Unit price: EUR 6.18 per piece",
+            "Total: EUR 123,600.00",
+            "Lead time: 5 days",
+            "Valid until: 31 Jan 2027",
+            "Prices ex works, excluding VAT.",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-OFFER-S-0042-P-BRG-01",
+      "documentId": "DOC-OFFER-S-0042-P-BRG-01",
+      "system": "documents",
+      "supplierId": "S-0042",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 44,
+        "assumedFields": [
+          "partId",
+          "partName",
+          "quantity",
+          "unitPriceEur",
+          "priceDate",
+          "validUntil",
+          "priceType",
+          "sourceDocumentId"
+        ]
+      },
+      "documentType": "offer",
+      "title": "Quotation OFF-S-0042-P-BRG-01",
+      "file": "supplier-documents/quotations/DOC-OFFER-S-0042-P-BRG-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-10-30",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Vänern Lager AB",
+            "Gothenburg, Sweden",
+            "Quotation OFF-S-0042-P-BRG-01",
+            "Date: 30 Oct 2026",
+            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "Supplier ID: S-0042",
+            "Part: Deep-groove ball bearing 6208 for gearboxes (P-BRG-01)",
+            "Quantity: 20,000 pcs",
+            "Unit price: EUR 6.06 per piece",
+            "Total: EUR 121,200.00",
+            "Lead time: 24 days",
+            "Valid until: 31 Jan 2027",
+            "Prices ex works, excluding VAT.",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-OFFER-S-0044-P-BRG-01",
+      "documentId": "DOC-OFFER-S-0044-P-BRG-01",
+      "system": "documents",
+      "supplierId": "S-0044",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 46,
+        "assumedFields": [
+          "partId",
+          "partName",
+          "quantity",
+          "unitPriceEur",
+          "priceDate",
+          "validUntil",
+          "priceType",
+          "sourceDocumentId"
+        ]
+      },
+      "documentType": "offer",
+      "title": "Quotation OFF-S-0044-P-BRG-01",
+      "file": "supplier-documents/quotations/DOC-OFFER-S-0044-P-BRG-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-10-25",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Carpați Rulmenți S.A.",
+            "Ploiești, Romania",
+            "Quotation OFF-S-0044-P-BRG-01",
+            "Date: 25 Oct 2026",
+            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "Supplier ID: S-0044",
+            "Part: Deep-groove ball bearing 6208 for gearboxes (P-BRG-01)",
+            "Quantity: 20,000 pcs",
+            "Unit price: EUR 5.76 per piece",
+            "Total: EUR 115,200.00",
+            "Lead time: 28 days",
+            "Valid until: 31 Dec 2026",
+            "Prices ex works, excluding VAT.",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-OFFER-S-0045-P-BRG-01",
+      "documentId": "DOC-OFFER-S-0045-P-BRG-01",
+      "system": "documents",
+      "supplierId": "S-0045",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 47,
+        "assumedFields": [
+          "partId",
+          "partName",
+          "quantity",
+          "unitPriceEur",
+          "priceDate",
+          "validUntil",
+          "priceType",
+          "sourceDocumentId"
+        ]
+      },
+      "documentType": "offer",
+      "title": "Quotation OFF-S-0045-P-BRG-01",
+      "file": "supplier-documents/quotations/DOC-OFFER-S-0045-P-BRG-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-10-18",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Liaoning Rolltech Bearing Co., Ltd.",
+            "Dalian, China",
+            "Quotation OFF-S-0045-P-BRG-01",
+            "Date: 18 Oct 2026",
+            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "Supplier ID: S-0045",
+            "Part: Deep-groove ball bearing 6208 for gearboxes (P-BRG-01)",
+            "Quantity: 20,000 pcs",
+            "Unit price: EUR 4.44 per piece",
+            "Total: EUR 88,800.00",
+            "Lead time: 60 days",
+            "Valid until: 31 Dec 2026",
+            "Prices ex works, excluding VAT.",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-OFFER-S-0055-P-SEAL-01",
+      "documentId": "DOC-OFFER-S-0055-P-SEAL-01",
+      "system": "documents",
+      "supplierId": "S-0055",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 57,
+        "assumedFields": [
+          "partId",
+          "partName",
+          "quantity",
+          "unitPriceEur",
+          "priceDate",
+          "validUntil",
+          "priceType",
+          "sourceDocumentId"
+        ]
+      },
+      "documentType": "offer",
+      "title": "Quotation OFF-S-0055-P-SEAL-01",
+      "file": "supplier-documents/quotations/DOC-OFFER-S-0055-P-SEAL-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-10-21",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Gummiwerk Musterhausen GmbH",
+            "Kassel, Germany",
+            "Quotation OFF-S-0055-P-SEAL-01",
+            "Date: 21 Oct 2026",
+            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "Supplier ID: S-0055",
+            "Part: Radial shaft seal 40x62x7, EPDM (P-SEAL-01)",
+            "Quantity: 20,000 pcs",
+            "Unit price: EUR 1.82 per piece",
+            "Total: EUR 36,400.00",
+            "Lead time: 9 days",
+            "Valid until: 31 Jan 2027",
+            "Prices ex works, excluding VAT.",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-OFFER-S-0051-P-SEAL-01",
+      "documentId": "DOC-OFFER-S-0051-P-SEAL-01",
+      "system": "documents",
+      "supplierId": "S-0051",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 53,
+        "assumedFields": [
+          "partId",
+          "partName",
+          "quantity",
+          "unitPriceEur",
+          "priceDate",
+          "validUntil",
+          "priceType",
+          "sourceDocumentId"
+        ]
+      },
+      "documentType": "offer",
+      "title": "Quotation OFF-S-0051-P-SEAL-01",
+      "file": "supplier-documents/quotations/DOC-OFFER-S-0051-P-SEAL-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-10-29",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Bergstraße Dichtungstechnik SE",
+            "Weinheim, Germany",
+            "Quotation OFF-S-0051-P-SEAL-01",
+            "Date: 29 Oct 2026",
+            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "Supplier ID: S-0051",
+            "Part: Radial shaft seal 40x62x7, EPDM (P-SEAL-01)",
+            "Quantity: 20,000 pcs",
+            "Unit price: EUR 1.94 per piece",
+            "Total: EUR 38,800.00",
+            "Lead time: 4 days",
+            "Valid until: 31 Jan 2027",
+            "Prices ex works, excluding VAT.",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-OFFER-S-0053-P-SEAL-01",
+      "documentId": "DOC-OFFER-S-0053-P-SEAL-01",
+      "system": "documents",
+      "supplierId": "S-0053",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 55,
+        "assumedFields": [
+          "partId",
+          "partName",
+          "quantity",
+          "unitPriceEur",
+          "priceDate",
+          "validUntil",
+          "priceType",
+          "sourceDocumentId"
+        ]
+      },
+      "documentType": "offer",
+      "title": "Quotation OFF-S-0053-P-SEAL-01",
+      "file": "supplier-documents/quotations/DOC-OFFER-S-0053-P-SEAL-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-10-24",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Schwaben Dichtsysteme GmbH",
+            "Bietigheim-Bissingen, Germany",
+            "Quotation OFF-S-0053-P-SEAL-01",
+            "Date: 24 Oct 2026",
+            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "Supplier ID: S-0053",
+            "Part: Radial shaft seal 40x62x7, EPDM (P-SEAL-01)",
+            "Quantity: 20,000 pcs",
+            "Unit price: EUR 1.91 per piece",
+            "Total: EUR 38,200.00",
+            "Lead time: 3 days",
+            "Valid until: 31 Jan 2027",
+            "Prices ex works, excluding VAT.",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-OFFER-S-0058-P-SEAL-01",
+      "documentId": "DOC-OFFER-S-0058-P-SEAL-01",
+      "system": "documents",
+      "supplierId": "S-0058",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 60,
+        "assumedFields": [
+          "partId",
+          "partName",
+          "quantity",
+          "unitPriceEur",
+          "priceDate",
+          "validUntil",
+          "priceType",
+          "sourceDocumentId"
+        ]
+      },
+      "documentType": "offer",
+      "title": "Quotation OFF-S-0058-P-SEAL-01",
+      "file": "supplier-documents/quotations/DOC-OFFER-S-0058-P-SEAL-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-10-27",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Elastomer Česko s.r.o.",
+            "Zlín, Czech Republic",
+            "Quotation OFF-S-0058-P-SEAL-01",
+            "Date: 27 Oct 2026",
+            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "Supplier ID: S-0058",
+            "Part: Radial shaft seal 40x62x7, EPDM (P-SEAL-01)",
+            "Quantity: 20,000 pcs",
+            "Unit price: EUR 1.76 per piece",
+            "Total: EUR 35,200.00",
+            "Lead time: 14 days",
+            "Valid until: 31 Dec 2026",
+            "Prices ex works, excluding VAT.",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-OFFER-S-0059-P-SEAL-01",
+      "documentId": "DOC-OFFER-S-0059-P-SEAL-01",
+      "system": "documents",
+      "supplierId": "S-0059",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 61,
+        "assumedFields": [
+          "partId",
+          "partName",
+          "quantity",
+          "unitPriceEur",
+          "priceDate",
+          "validUntil",
+          "priceType",
+          "sourceDocumentId"
+        ]
+      },
+      "documentType": "offer",
+      "title": "Quotation OFF-S-0059-P-SEAL-01",
+      "file": "supplier-documents/quotations/DOC-OFFER-S-0059-P-SEAL-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-11-02",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "BioSeal Innovations GmbH",
+            "Freiburg, Germany",
+            "Indicative quotation OFF-S-0059-P-SEAL-01",
+            "Date: 2 Nov 2026",
+            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "Supplier ID: S-0059",
+            "Part: Radial shaft seal 40x62x7, EPDM (P-SEAL-01)",
+            "Quantity: 20,000 pcs",
+            "Unit price: EUR 2.23 per piece (indicative, not binding)",
+            "Total: EUR 44,600.00",
+            "Lead time: on request",
+            "Valid until: 31 Jan 2027",
+            "Prices ex works, excluding VAT.",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-OFFER-S-0013-P-ALU-HSG-01",
+      "documentId": "DOC-OFFER-S-0013-P-ALU-HSG-01",
+      "system": "documents",
+      "supplierId": "S-0013",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Offers",
+        "row": 3,
+        "assumedFields": [
+          "partId",
+          "validUntil",
+          "priceType",
+          "sourceDocumentId"
+        ]
+      },
+      "documentType": "offer",
+      "title": "Quotation O-001",
+      "file": "supplier-documents/quotations/DOC-OFFER-S-0013-P-ALU-HSG-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-11-03",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Alucast Schwaben GmbH",
+            "Ulm, Germany",
+            "Quotation O-001",
+            "Date: 3 Nov 2026",
+            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "Supplier ID: S-0013",
+            "Part: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
+            "Quantity: 2,000 pcs",
+            "Unit price: EUR 84.50 per piece",
+            "Total: EUR 169,000.00",
+            "Lead time: 24 days",
+            "Valid until: 2 Jan 2027",
+            "Prices ex works, excluding VAT.",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-OFFER-S-0015-P-ALU-HSG-01",
+      "documentId": "DOC-OFFER-S-0015-P-ALU-HSG-01",
+      "system": "documents",
+      "supplierId": "S-0015",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Offers",
+        "row": 4,
+        "assumedFields": [
+          "partId",
+          "validUntil",
+          "priceType",
+          "sourceDocumentId"
+        ]
+      },
+      "documentType": "offer",
+      "title": "Quotation O-002",
+      "file": "supplier-documents/quotations/DOC-OFFER-S-0015-P-ALU-HSG-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-11-04",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Alu-Druckguss Erzgebirge GmbH",
+            "Chemnitz, Germany",
+            "Quotation O-002",
+            "Date: 4 Nov 2026",
+            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "Supplier ID: S-0015",
+            "Part: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
+            "Quantity: 2,000 pcs",
+            "Unit price: EUR 85.35 per piece",
+            "Total: EUR 170,700.00",
+            "Lead time: 27 days",
+            "Valid until: 3 Jan 2027",
+            "Prices ex works, excluding VAT.",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-OFFER-S-0018-P-ALU-HSG-01",
+      "documentId": "DOC-OFFER-S-0018-P-ALU-HSG-01",
+      "system": "documents",
+      "supplierId": "S-0018",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Offers",
+        "row": 5,
+        "assumedFields": [
+          "partId",
+          "validUntil",
+          "priceType",
+          "sourceDocumentId"
+        ]
+      },
+      "documentType": "offer",
+      "title": "Quotation O-003",
+      "file": "supplier-documents/quotations/DOC-OFFER-S-0018-P-ALU-HSG-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-11-02",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Alu Balkan d.o.o.",
+            "Novi Sad, Serbia",
+            "Quotation O-003",
+            "Date: 2 Nov 2026",
+            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "Supplier ID: S-0018",
+            "Part: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
+            "Quantity: 2,000 pcs",
+            "Unit price: EUR 72.80 per piece",
+            "Total: EUR 145,600.00",
+            "Lead time: 32 days",
+            "Valid until: 1 Jan 2027",
+            "Prices ex works, excluding VAT.",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-OFFER-S-0014-P-ALU-HSG-01",
+      "documentId": "DOC-OFFER-S-0014-P-ALU-HSG-01",
+      "system": "documents",
+      "supplierId": "S-0014",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Offers",
+        "row": 6,
+        "assumedFields": [
+          "partId",
+          "validUntil",
+          "priceType",
+          "sourceDocumentId"
+        ]
+      },
+      "documentType": "offer",
+      "title": "Quotation O-004",
+      "file": "supplier-documents/quotations/DOC-OFFER-S-0014-P-ALU-HSG-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-10-30",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Ningbo Silverline Die Casting Co., Ltd.",
+            "Ningbo, China",
+            "Quotation O-004",
+            "Date: 30 Oct 2026",
+            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "Supplier ID: S-0014",
+            "Part: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
+            "Quantity: 2,000 pcs",
+            "Unit price: EUR 61.90 per piece",
+            "Total: EUR 123,800.00",
+            "Lead time: 55 days",
+            "Valid until: 29 Dec 2026",
+            "Prices ex works, excluding VAT.",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-OFFER-S-0020-P-ALU-HSG-01",
+      "documentId": "DOC-OFFER-S-0020-P-ALU-HSG-01",
+      "system": "documents",
+      "supplierId": "S-0020",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Offers",
+        "row": 7,
+        "assumedFields": [
+          "partId",
+          "validUntil",
+          "priceType",
+          "sourceDocumentId"
+        ]
+      },
+      "documentType": "offer",
+      "title": "Quotation O-005",
+      "file": "supplier-documents/quotations/DOC-OFFER-S-0020-P-ALU-HSG-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-10-31",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Saigon Lightmetal JSC",
+            "Ho Chi Minh City, Vietnam",
+            "Quotation O-005",
+            "Date: 31 Oct 2026",
+            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "Supplier ID: S-0020",
+            "Part: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
+            "Quantity: 2,000 pcs",
+            "Unit price: EUR 59.40 per piece",
+            "Total: EUR 118,800.00",
+            "Lead time: 58 days",
+            "Valid until: 30 Dec 2026",
+            "Prices ex works, excluding VAT.",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0001-ISO9001",
+      "documentId": "DOC-CERT-S-0001-ISO9001",
+      "system": "documents",
+      "supplierId": "S-0001",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 9001, Mustermann Stahlguss GmbH",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0001-ISO9001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2025-01-14",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 9001",
+            "Holder: Mustermann Stahlguss GmbH, supplier ID S-0001",
+            "Standard: ISO 9001",
+            "Valid from: 14 Jan 2025",
+            "Valid until: 14 Jan 2028",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0001-ISO14001",
+      "documentId": "DOC-CERT-S-0001-ISO14001",
+      "system": "documents",
+      "supplierId": "S-0001",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 14001, Mustermann Stahlguss GmbH",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0001-ISO14001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-02-09",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 14001",
+            "Holder: Mustermann Stahlguss GmbH, supplier ID S-0001",
+            "Standard: ISO 14001",
+            "Valid from: 9 Feb 2026",
+            "Valid until: 8 Feb 2029",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0003-SA8000",
+      "documentId": "DOC-CERT-S-0003-SA8000",
+      "system": "documents",
+      "supplierId": "S-0003",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate SA8000, Harzland Flachstahl GmbH",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0003-SA8000.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2025-09-23",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate SA8000",
+            "Holder: Harzland Flachstahl GmbH, supplier ID S-0003",
+            "Standard: SA8000",
+            "Valid from: 23 Sept 2025",
+            "Valid until: 22 Sept 2028",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0003-ISO14001",
+      "documentId": "DOC-CERT-S-0003-ISO14001",
+      "system": "documents",
+      "supplierId": "S-0003",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 14001, Harzland Flachstahl GmbH",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0003-ISO14001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2025-12-06",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 14001",
+            "Holder: Harzland Flachstahl GmbH, supplier ID S-0003",
+            "Standard: ISO 14001",
+            "Valid from: 6 Dec 2025",
+            "Valid until: 5 Dec 2028",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0006-ISO14001",
+      "documentId": "DOC-CERT-S-0006-ISO14001",
+      "system": "documents",
+      "supplierId": "S-0006",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 14001, Anatolia Döküm A.Ş.",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0006-ISO14001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-01-27",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 14001",
+            "Holder: Anatolia Döküm A.Ş., supplier ID S-0006",
+            "Standard: ISO 14001",
+            "Valid from: 27 Jan 2026",
+            "Valid until: 26 Jan 2029",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0007-SA8000",
+      "documentId": "DOC-CERT-S-0007-SA8000",
+      "system": "documents",
+      "supplierId": "S-0007",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate SA8000, Donautal Stahl GmbH",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0007-SA8000.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2024-06-26",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate SA8000",
+            "Holder: Donautal Stahl GmbH, supplier ID S-0007",
+            "Standard: SA8000",
+            "Valid from: 26 Jun 2024",
+            "Valid until: 26 Jun 2027",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0008-ISO14001",
+      "documentId": "DOC-CERT-S-0008-ISO14001",
+      "system": "documents",
+      "supplierId": "S-0008",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 14001, Moselle Acier Europe S.A.",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0008-ISO14001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2024-10-01",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 14001",
+            "Holder: Moselle Acier Europe S.A., supplier ID S-0008",
+            "Standard: ISO 14001",
+            "Valid from: 1 Oct 2024",
+            "Valid until: 1 Oct 2027",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0013-ISO14001",
+      "documentId": "DOC-CERT-S-0013-ISO14001",
+      "system": "documents",
+      "supplierId": "S-0013",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 14001, Alucast Schwaben GmbH",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0013-ISO14001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2025-06-06",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 14001",
+            "Holder: Alucast Schwaben GmbH, supplier ID S-0013",
+            "Standard: ISO 14001",
+            "Valid from: 6 Jun 2025",
+            "Valid until: 5 Jun 2028",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0014-ISO9001",
+      "documentId": "DOC-CERT-S-0014-ISO9001",
+      "system": "documents",
+      "supplierId": "S-0014",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 9001, Ningbo Silverline Die Casting Co., Ltd.",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0014-ISO9001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2024-09-03",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 9001",
+            "Holder: Ningbo Silverline Die Casting Co., Ltd., supplier ID S-0014",
+            "Standard: ISO 9001",
+            "Valid from: 3 Sept 2024",
+            "Valid until: 3 Sept 2027",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0015-ISO9001",
+      "documentId": "DOC-CERT-S-0015-ISO9001",
+      "system": "documents",
+      "supplierId": "S-0015",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 9001, Alu-Druckguss Erzgebirge GmbH",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0015-ISO9001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-05-04",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 9001",
+            "Holder: Alu-Druckguss Erzgebirge GmbH, supplier ID S-0015",
+            "Standard: ISO 9001",
+            "Valid from: 4 May 2026",
+            "Valid until: 3 May 2029",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0015-ISO14001",
+      "documentId": "DOC-CERT-S-0015-ISO14001",
+      "system": "documents",
+      "supplierId": "S-0015",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 14001, Alu-Druckguss Erzgebirge GmbH",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0015-ISO14001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-04-29",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 14001",
+            "Holder: Alu-Druckguss Erzgebirge GmbH, supplier ID S-0015",
+            "Standard: ISO 14001",
+            "Valid from: 29 Apr 2026",
+            "Valid until: 28 Apr 2029",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0015-ISO45001",
+      "documentId": "DOC-CERT-S-0015-ISO45001",
+      "system": "documents",
+      "supplierId": "S-0015",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 45001, Alu-Druckguss Erzgebirge GmbH",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0015-ISO45001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-02-01",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 45001",
+            "Holder: Alu-Druckguss Erzgebirge GmbH, supplier ID S-0015",
+            "Standard: ISO 45001",
+            "Valid from: 1 Feb 2026",
+            "Valid until: 31 Jan 2029",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0020-ISO9001",
+      "documentId": "DOC-CERT-S-0020-ISO9001",
+      "system": "documents",
+      "supplierId": "S-0020",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 9001, Saigon Lightmetal JSC",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0020-ISO9001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2025-01-27",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 9001",
+            "Holder: Saigon Lightmetal JSC, supplier ID S-0020",
+            "Standard: ISO 9001",
+            "Valid from: 27 Jan 2025",
+            "Valid until: 27 Jan 2028",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0021-ISO50001",
+      "documentId": "DOC-CERT-S-0021-ISO50001",
+      "system": "documents",
+      "supplierId": "S-0021",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 50001, Elbkupfer AG",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0021-ISO50001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-01-01",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 50001",
+            "Holder: Elbkupfer AG, supplier ID S-0021",
+            "Standard: ISO 50001",
+            "Valid from: 1 Jan 2026",
+            "Valid until: 31 Dec 2028",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0021-ISO45001",
+      "documentId": "DOC-CERT-S-0021-ISO45001",
+      "system": "documents",
+      "supplierId": "S-0021",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 45001, Elbkupfer AG",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0021-ISO45001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2025-08-28",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 45001",
+            "Holder: Elbkupfer AG, supplier ID S-0021",
+            "Standard: ISO 45001",
+            "Valid from: 28 Aug 2025",
+            "Valid until: 27 Aug 2028",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0022-ISO45001",
+      "documentId": "DOC-CERT-S-0022-ISO45001",
+      "system": "documents",
+      "supplierId": "S-0022",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 45001, Elektrisolar Drahtwerk GmbH",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0022-ISO45001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-01-02",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 45001",
+            "Holder: Elektrisolar Drahtwerk GmbH, supplier ID S-0022",
+            "Standard: ISO 45001",
+            "Valid from: 2 Jan 2026",
+            "Valid until: 1 Jan 2029",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0023-ISO45001",
+      "documentId": "DOC-CERT-S-0023-ISO45001",
+      "system": "documents",
+      "supplierId": "S-0023",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 45001, Nordwick Magnetdraht GmbH",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0023-ISO45001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2024-03-18",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 45001",
+            "Holder: Nordwick Magnetdraht GmbH, supplier ID S-0023",
+            "Standard: ISO 45001",
+            "Valid from: 18 Mar 2024",
+            "Valid until: 18 Mar 2027",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0023-ISO9001",
+      "documentId": "DOC-CERT-S-0023-ISO9001",
+      "system": "documents",
+      "supplierId": "S-0023",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 9001, Nordwick Magnetdraht GmbH",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0023-ISO9001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2025-05-03",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 9001",
+            "Holder: Nordwick Magnetdraht GmbH, supplier ID S-0023",
+            "Standard: ISO 9001",
+            "Valid from: 3 May 2025",
+            "Valid until: 2 May 2028",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0023-ISO14001",
+      "documentId": "DOC-CERT-S-0023-ISO14001",
+      "system": "documents",
+      "supplierId": "S-0023",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 14001, Nordwick Magnetdraht GmbH",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0023-ISO14001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2024-02-23",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 14001",
+            "Holder: Nordwick Magnetdraht GmbH, supplier ID S-0023",
+            "Standard: ISO 14001",
+            "Valid from: 23 Feb 2024",
+            "Valid until: 22 Feb 2027",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0024-ISO45001",
+      "documentId": "DOC-CERT-S-0024-ISO45001",
+      "system": "documents",
+      "supplierId": "S-0024",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 45001, Kupferwerk Mansfeld Muster GmbH",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0024-ISO45001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2024-05-09",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 45001",
+            "Holder: Kupferwerk Mansfeld Muster GmbH, supplier ID S-0024",
+            "Standard: ISO 45001",
+            "Valid from: 9 May 2024",
+            "Valid until: 9 May 2027",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0024-ISO50001",
+      "documentId": "DOC-CERT-S-0024-ISO50001",
+      "system": "documents",
+      "supplierId": "S-0024",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 50001, Kupferwerk Mansfeld Muster GmbH",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0024-ISO50001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2025-05-10",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 50001",
+            "Holder: Kupferwerk Mansfeld Muster GmbH, supplier ID S-0024",
+            "Standard: ISO 50001",
+            "Valid from: 10 May 2025",
+            "Valid until: 9 May 2028",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0024-ISO14001",
+      "documentId": "DOC-CERT-S-0024-ISO14001",
+      "system": "documents",
+      "supplierId": "S-0024",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 14001, Kupferwerk Mansfeld Muster GmbH",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0024-ISO14001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2025-05-18",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 14001",
+            "Holder: Kupferwerk Mansfeld Muster GmbH, supplier ID S-0024",
+            "Standard: ISO 14001",
+            "Valid from: 18 May 2025",
+            "Valid until: 17 May 2028",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0025-ISO9001",
+      "documentId": "DOC-CERT-S-0025-ISO9001",
+      "system": "documents",
+      "supplierId": "S-0025",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 9001, Jiangsu Goldwire Copper Co., Ltd.",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0025-ISO9001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2025-10-01",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 9001",
+            "Holder: Jiangsu Goldwire Copper Co., Ltd., supplier ID S-0025",
+            "Standard: ISO 9001",
+            "Valid from: 1 Oct 2025",
+            "Valid until: 30 Sept 2028",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0026-ISO9001",
+      "documentId": "DOC-CERT-S-0026-ISO9001",
+      "system": "documents",
+      "supplierId": "S-0026",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 9001, MetalWire Polska Sp. z o.o.",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0026-ISO9001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2025-10-10",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 9001",
+            "Holder: MetalWire Polska Sp. z o.o., supplier ID S-0026",
+            "Standard: ISO 9001",
+            "Valid from: 10 Oct 2025",
+            "Valid until: 9 Oct 2028",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0026-ISO45001",
+      "documentId": "DOC-CERT-S-0026-ISO45001",
+      "system": "documents",
+      "supplierId": "S-0026",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 45001, MetalWire Polska Sp. z o.o.",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0026-ISO45001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2025-03-14",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 45001",
+            "Holder: MetalWire Polska Sp. z o.o., supplier ID S-0026",
+            "Standard: ISO 45001",
+            "Valid from: 14 Mar 2025",
+            "Valid until: 13 Mar 2028",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0041-ISO14001",
+      "documentId": "DOC-CERT-S-0041-ISO14001",
+      "system": "documents",
+      "supplierId": "S-0041",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 14001, Frankenlager AG",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0041-ISO14001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-05-28",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 14001",
+            "Holder: Frankenlager AG, supplier ID S-0041",
+            "Standard: ISO 14001",
+            "Valid from: 28 May 2026",
+            "Valid until: 27 May 2029",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0041-SA8000",
+      "documentId": "DOC-CERT-S-0041-SA8000",
+      "system": "documents",
+      "supplierId": "S-0041",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate SA8000, Frankenlager AG",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0041-SA8000.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2023-11-27",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate SA8000",
+            "Holder: Frankenlager AG, supplier ID S-0041",
+            "Standard: SA8000",
+            "Valid from: 27 Nov 2023",
+            "Valid until: 26 Nov 2026",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0042-EMAS",
+      "documentId": "DOC-CERT-S-0042-EMAS",
+      "system": "documents",
+      "supplierId": "S-0042",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate EMAS, Vänern Lager AB",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0042-EMAS.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2025-01-07",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate EMAS",
+            "Holder: Vänern Lager AB, supplier ID S-0042",
+            "Standard: EMAS",
+            "Valid from: 7 Jan 2025",
+            "Valid until: 7 Jan 2028",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0042-ISO45001",
+      "documentId": "DOC-CERT-S-0042-ISO45001",
+      "system": "documents",
+      "supplierId": "S-0042",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 45001, Vänern Lager AB",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0042-ISO45001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2023-12-28",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 45001",
+            "Holder: Vänern Lager AB, supplier ID S-0042",
+            "Standard: ISO 45001",
+            "Valid from: 28 Dec 2023",
+            "Valid until: 27 Dec 2026",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0042-SA8000",
+      "documentId": "DOC-CERT-S-0042-SA8000",
+      "system": "documents",
+      "supplierId": "S-0042",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate SA8000, Vänern Lager AB",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0042-SA8000.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2023-12-19",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate SA8000",
+            "Holder: Vänern Lager AB, supplier ID S-0042",
+            "Standard: SA8000",
+            "Valid from: 19 Dec 2023",
+            "Valid until: 18 Dec 2026",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0044-ISO9001",
+      "documentId": "DOC-CERT-S-0044-ISO9001",
+      "system": "documents",
+      "supplierId": "S-0044",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 9001, Carpați Rulmenți S.A.",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0044-ISO9001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2023-12-20",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 9001",
+            "Holder: Carpați Rulmenți S.A., supplier ID S-0044",
+            "Standard: ISO 9001",
+            "Valid from: 20 Dec 2023",
+            "Valid until: 19 Dec 2026",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0044-ISO14001",
+      "documentId": "DOC-CERT-S-0044-ISO14001",
+      "system": "documents",
+      "supplierId": "S-0044",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 14001, Carpați Rulmenți S.A.",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0044-ISO14001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-04-23",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 14001",
+            "Holder: Carpați Rulmenți S.A., supplier ID S-0044",
+            "Standard: ISO 14001",
+            "Valid from: 23 Apr 2026",
+            "Valid until: 22 Apr 2029",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0045-ISO9001",
+      "documentId": "DOC-CERT-S-0045-ISO9001",
+      "system": "documents",
+      "supplierId": "S-0045",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 9001, Liaoning Rolltech Bearing Co., Ltd.",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0045-ISO9001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-08-19",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 9001",
+            "Holder: Liaoning Rolltech Bearing Co., Ltd., supplier ID S-0045",
+            "Standard: ISO 9001",
+            "Valid from: 19 Aug 2026",
+            "Valid until: 18 Aug 2029",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0046-ISO50001",
+      "documentId": "DOC-CERT-S-0046-ISO50001",
+      "system": "documents",
+      "supplierId": "S-0046",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 50001, Kugellager Schweinfurt Muster GmbH",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0046-ISO50001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2025-04-16",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 50001",
+            "Holder: Kugellager Schweinfurt Muster GmbH, supplier ID S-0046",
+            "Standard: ISO 50001",
+            "Valid from: 16 Apr 2025",
+            "Valid until: 15 Apr 2028",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0046-ISO9001",
+      "documentId": "DOC-CERT-S-0046-ISO9001",
+      "system": "documents",
+      "supplierId": "S-0046",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 9001, Kugellager Schweinfurt Muster GmbH",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0046-ISO9001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2025-08-29",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 9001",
+            "Holder: Kugellager Schweinfurt Muster GmbH, supplier ID S-0046",
+            "Standard: ISO 9001",
+            "Valid from: 29 Aug 2025",
+            "Valid until: 28 Aug 2028",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0046-ISO14001",
+      "documentId": "DOC-CERT-S-0046-ISO14001",
+      "system": "documents",
+      "supplierId": "S-0046",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 14001, Kugellager Schweinfurt Muster GmbH",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0046-ISO14001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2024-12-08",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 14001",
+            "Holder: Kugellager Schweinfurt Muster GmbH, supplier ID S-0046",
+            "Standard: ISO 14001",
+            "Valid from: 8 Dec 2024",
+            "Valid until: 8 Dec 2027",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0051-ISO45001",
+      "documentId": "DOC-CERT-S-0051-ISO45001",
+      "system": "documents",
+      "supplierId": "S-0051",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 45001, Bergstraße Dichtungstechnik SE",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0051-ISO45001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2024-03-12",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 45001",
+            "Holder: Bergstraße Dichtungstechnik SE, supplier ID S-0051",
+            "Standard: ISO 45001",
+            "Valid from: 12 Mar 2024",
+            "Valid until: 12 Mar 2027",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0053-ISO45001",
+      "documentId": "DOC-CERT-S-0053-ISO45001",
+      "system": "documents",
+      "supplierId": "S-0053",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 45001, Schwaben Dichtsysteme GmbH",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0053-ISO45001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2024-04-13",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 45001",
+            "Holder: Schwaben Dichtsysteme GmbH, supplier ID S-0053",
+            "Standard: ISO 45001",
+            "Valid from: 13 Apr 2024",
+            "Valid until: 13 Apr 2027",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0053-ISO50001",
+      "documentId": "DOC-CERT-S-0053-ISO50001",
+      "system": "documents",
+      "supplierId": "S-0053",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 50001, Schwaben Dichtsysteme GmbH",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0053-ISO50001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2025-06-06",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 50001",
+            "Holder: Schwaben Dichtsysteme GmbH, supplier ID S-0053",
+            "Standard: ISO 50001",
+            "Valid from: 6 Jun 2025",
+            "Valid until: 5 Jun 2028",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0055-ISO9001",
+      "documentId": "DOC-CERT-S-0055-ISO9001",
+      "system": "documents",
+      "supplierId": "S-0055",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 9001, Gummiwerk Musterhausen GmbH",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0055-ISO9001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-06-06",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 9001",
+            "Holder: Gummiwerk Musterhausen GmbH, supplier ID S-0055",
+            "Standard: ISO 9001",
+            "Valid from: 6 Jun 2026",
+            "Valid until: 5 Jun 2029",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0055-ISO50001",
+      "documentId": "DOC-CERT-S-0055-ISO50001",
+      "system": "documents",
+      "supplierId": "S-0055",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 50001, Gummiwerk Musterhausen GmbH",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0055-ISO50001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2025-06-22",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 50001",
+            "Holder: Gummiwerk Musterhausen GmbH, supplier ID S-0055",
+            "Standard: ISO 50001",
+            "Valid from: 22 Jun 2025",
+            "Valid until: 21 Jun 2028",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0055-ISO14001",
+      "documentId": "DOC-CERT-S-0055-ISO14001",
+      "system": "documents",
+      "supplierId": "S-0055",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 14001, Gummiwerk Musterhausen GmbH",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0055-ISO14001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-02-25",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 14001",
+            "Holder: Gummiwerk Musterhausen GmbH, supplier ID S-0055",
+            "Standard: ISO 14001",
+            "Valid from: 25 Feb 2026",
+            "Valid until: 24 Feb 2029",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0058-ISO45001",
+      "documentId": "DOC-CERT-S-0058-ISO45001",
+      "system": "documents",
+      "supplierId": "S-0058",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 45001, Elastomer Česko s.r.o.",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0058-ISO45001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2024-05-05",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 45001",
+            "Holder: Elastomer Česko s.r.o., supplier ID S-0058",
+            "Standard: ISO 45001",
+            "Valid from: 5 May 2024",
+            "Valid until: 5 May 2027",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0058-ISO50001",
+      "documentId": "DOC-CERT-S-0058-ISO50001",
+      "system": "documents",
+      "supplierId": "S-0058",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 50001, Elastomer Česko s.r.o.",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0058-ISO50001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2025-11-29",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 50001",
+            "Holder: Elastomer Česko s.r.o., supplier ID S-0058",
+            "Standard: ISO 50001",
+            "Valid from: 29 Nov 2025",
+            "Valid until: 28 Nov 2028",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0058-ISO14001",
+      "documentId": "DOC-CERT-S-0058-ISO14001",
+      "system": "documents",
+      "supplierId": "S-0058",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate ISO 14001, Elastomer Česko s.r.o.",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0058-ISO14001.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2024-04-19",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate ISO 14001",
+            "Holder: Elastomer Česko s.r.o., supplier ID S-0058",
+            "Standard: ISO 14001",
+            "Valid from: 19 Apr 2024",
+            "Valid until: 19 Apr 2027",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0059-BCorp",
+      "documentId": "DOC-CERT-S-0059-BCorp",
+      "system": "documents",
+      "supplierId": "S-0059",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate B Corp, BioSeal Innovations GmbH",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0059-BCorp.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2024-05-06",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate B Corp",
+            "Holder: BioSeal Innovations GmbH, supplier ID S-0059",
+            "Standard: B Corp",
+            "Valid from: 6 May 2024",
+            "Valid until: 6 May 2027",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-CERT-S-0059-CradletoCradle",
+      "documentId": "DOC-CERT-S-0059-CradletoCradle",
+      "system": "documents",
+      "supplierId": "S-0059",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 0,
+        "assumedFields": [
+          "validFrom",
+          "validUntil"
+        ]
+      },
+      "documentType": "certificate",
+      "title": "Certificate Cradle to Cradle, BioSeal Innovations GmbH",
+      "file": "supplier-documents/certificates/DOC-CERT-S-0059-CradletoCradle.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2024-08-26",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Certificate Cradle to Cradle",
+            "Holder: BioSeal Innovations GmbH, supplier ID S-0059",
+            "Standard: Cradle to Cradle",
+            "Valid from: 26 Aug 2024",
+            "Valid until: 26 Aug 2027",
+            "Issued by: accredited certification body",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-PCF-S-0007-P-STL-HSG-01",
+      "documentId": "DOC-PCF-S-0007-P-STL-HSG-01",
+      "system": "documents",
+      "supplierId": "S-0007",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 9,
+        "assumedFields": [
+          "partId",
+          "pcfKgPerPiece",
+          "badge",
+          "method"
+        ]
+      },
+      "documentType": "pcf_datasheet",
+      "title": "PCF data sheet, Donautal Stahl GmbH, P-STL-HSG-01",
+      "file": "supplier-documents/pcf-datasheets/DOC-PCF-S-0007-P-STL-HSG-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-06-26",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Product carbon footprint data sheet",
+            "Supplier: Donautal Stahl GmbH, supplier ID S-0007",
+            "Product: Steel-cast gearbox housing (P-STL-HSG-01)",
+            "PCF: 13.8 kg CO2e per piece",
+            "Method: Supplier-specific PCF from the supplier's self-assessment, electric arc furnace steel (fictitious)",
+            "Reference date: 26 Jun 2026",
+            "Primary data share: not stated",
+            "Third-party assurance: none",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-PCF-S-0001-P-STL-HSG-01",
+      "documentId": "DOC-PCF-S-0001-P-STL-HSG-01",
+      "system": "documents",
+      "supplierId": "S-0001",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 3,
+        "assumedFields": [
+          "partId",
+          "pcfKgPerPiece",
+          "badge",
+          "method"
+        ]
+      },
+      "documentType": "pcf_datasheet",
+      "title": "PCF data sheet, Mustermann Stahlguss GmbH, P-STL-HSG-01",
+      "file": "supplier-documents/pcf-datasheets/DOC-PCF-S-0001-P-STL-HSG-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-10-28",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Product carbon footprint data sheet",
+            "Supplier: Mustermann Stahlguss GmbH, supplier ID S-0001",
+            "Product: Steel-cast gearbox housing (P-STL-HSG-01)",
+            "PCF: 24.6 kg CO2e per piece",
+            "Method: Supplier-specific PCF stated in the supplier's sustainability report (fictitious)",
+            "Reference date: 28 Oct 2026",
+            "Primary data share: not stated",
+            "Third-party assurance: none",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-PCF-S-0021-P-CU-WIRE-01",
+      "documentId": "DOC-PCF-S-0021-P-CU-WIRE-01",
+      "system": "documents",
+      "supplierId": "S-0021",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 23,
+        "assumedFields": [
+          "partId",
+          "pcfKgPerPiece",
+          "badge",
+          "method"
+        ]
+      },
+      "documentType": "pcf_datasheet",
+      "title": "PCF data sheet, Elbkupfer AG, P-CU-WIRE-01",
+      "file": "supplier-documents/pcf-datasheets/DOC-PCF-S-0021-P-CU-WIRE-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2025-07-17",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Product carbon footprint data sheet",
+            "Supplier: Elbkupfer AG, supplier ID S-0021",
+            "Product: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
+            "PCF: 10.9 kg CO2e per piece",
+            "Method: Supplier-specific PCF stated in the supplier's sustainability report (fictitious)",
+            "Reference date: 17 Jul 2025",
+            "Primary data share: not stated",
+            "Third-party assurance: none",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-PCF-S-0022-P-CU-WIRE-01",
+      "documentId": "DOC-PCF-S-0022-P-CU-WIRE-01",
+      "system": "documents",
+      "supplierId": "S-0022",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 24,
+        "assumedFields": [
+          "partId",
+          "pcfKgPerPiece",
+          "badge",
+          "method"
+        ]
+      },
+      "documentType": "pcf_datasheet",
+      "title": "PCF data sheet, Elektrisolar Drahtwerk GmbH, P-CU-WIRE-01",
+      "file": "supplier-documents/pcf-datasheets/DOC-PCF-S-0022-P-CU-WIRE-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2025-02-09",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Product carbon footprint data sheet",
+            "Supplier: Elektrisolar Drahtwerk GmbH, supplier ID S-0022",
+            "Product: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
+            "PCF: 22.4 kg CO2e per piece",
+            "Method: Supplier-specific PCF from the supplier's self-assessment (fictitious)",
+            "Reference date: 9 Feb 2025",
+            "Primary data share: not stated",
+            "Third-party assurance: none",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-PCF-S-0046-P-BRG-01",
+      "documentId": "DOC-PCF-S-0046-P-BRG-01",
+      "system": "documents",
+      "supplierId": "S-0046",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 48,
+        "assumedFields": [
+          "last_updated",
+          "partId",
+          "pcfKgPerPiece",
+          "badge",
+          "method"
+        ]
+      },
+      "documentType": "pcf_datasheet",
+      "title": "PCF data sheet, Kugellager Schweinfurt Muster GmbH, P-BRG-01",
+      "file": "supplier-documents/pcf-datasheets/DOC-PCF-S-0046-P-BRG-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2025-11-10",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Product carbon footprint data sheet",
+            "Supplier: Kugellager Schweinfurt Muster GmbH, supplier ID S-0046",
+            "Product: Deep-groove ball bearing 6208 for gearboxes (P-BRG-01)",
+            "PCF: 1.1 kg CO2e per piece",
+            "Method: Supplier-specific PCF from the supplier's self-assessment",
+            "Reference date: 10 Nov 2025",
+            "Primary data share: not stated",
+            "Third-party assurance: none",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-PCF-S-0041-P-BRG-01",
+      "documentId": "DOC-PCF-S-0041-P-BRG-01",
+      "system": "documents",
+      "supplierId": "S-0041",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 43,
+        "assumedFields": [
+          "partId",
+          "pcfKgPerPiece",
+          "badge",
+          "method"
+        ]
+      },
+      "documentType": "pcf_datasheet",
+      "title": "PCF data sheet, Frankenlager AG, P-BRG-01",
+      "file": "supplier-documents/pcf-datasheets/DOC-PCF-S-0041-P-BRG-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-01-25",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Product carbon footprint data sheet",
+            "Supplier: Frankenlager AG, supplier ID S-0041",
+            "Product: Deep-groove ball bearing 6208 for gearboxes (P-BRG-01)",
+            "PCF: 0.6 kg CO2e per piece",
+            "Method: Supplier-specific PCF stated in the supplier's sustainability report, green steel share",
+            "Reference date: 25 Jan 2026",
+            "Primary data share: not stated",
+            "Third-party assurance: none",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-PCF-S-0042-P-BRG-01",
+      "documentId": "DOC-PCF-S-0042-P-BRG-01",
+      "system": "documents",
+      "supplierId": "S-0042",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 44,
+        "assumedFields": [
+          "partId",
+          "pcfKgPerPiece",
+          "badge",
+          "method"
+        ]
+      },
+      "documentType": "pcf_datasheet",
+      "title": "PCF data sheet, Vänern Lager AB, P-BRG-01",
+      "file": "supplier-documents/pcf-datasheets/DOC-PCF-S-0042-P-BRG-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2025-01-03",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Product carbon footprint data sheet",
+            "Supplier: Vänern Lager AB, supplier ID S-0042",
+            "Product: Deep-groove ball bearing 6208 for gearboxes (P-BRG-01)",
+            "PCF: 0.7 kg CO2e per piece",
+            "Method: Supplier-specific PCF stated in the supplier's sustainability report",
+            "Reference date: 3 Jan 2025",
+            "Primary data share: not stated",
+            "Third-party assurance: none",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-PCF-S-0055-P-SEAL-01",
+      "documentId": "DOC-PCF-S-0055-P-SEAL-01",
+      "system": "documents",
+      "supplierId": "S-0055",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 57,
+        "assumedFields": [
+          "partId",
+          "pcfKgPerPiece",
+          "badge",
+          "method"
+        ]
+      },
+      "documentType": "pcf_datasheet",
+      "title": "PCF data sheet, Gummiwerk Musterhausen GmbH, P-SEAL-01",
+      "file": "supplier-documents/pcf-datasheets/DOC-PCF-S-0055-P-SEAL-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-08-25",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Product carbon footprint data sheet",
+            "Supplier: Gummiwerk Musterhausen GmbH, supplier ID S-0055",
+            "Product: Radial shaft seal 40x62x7, EPDM (P-SEAL-01)",
+            "PCF: 0.3 kg CO2e per piece",
+            "Method: Supplier-specific PCF from the supplier's self-assessment",
+            "Reference date: 25 Aug 2026",
+            "Primary data share: not stated",
+            "Third-party assurance: none",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-PCF-S-0051-P-SEAL-01",
+      "documentId": "DOC-PCF-S-0051-P-SEAL-01",
+      "system": "documents",
+      "supplierId": "S-0051",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 53,
+        "assumedFields": [
+          "partId",
+          "pcfKgPerPiece",
+          "badge",
+          "method"
+        ]
+      },
+      "documentType": "pcf_datasheet",
+      "title": "PCF data sheet, Bergstraße Dichtungstechnik SE, P-SEAL-01",
+      "file": "supplier-documents/pcf-datasheets/DOC-PCF-S-0051-P-SEAL-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2025-12-06",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Product carbon footprint data sheet",
+            "Supplier: Bergstraße Dichtungstechnik SE, supplier ID S-0051",
+            "Product: Radial shaft seal 40x62x7, EPDM (P-SEAL-01)",
+            "PCF: 0.2 kg CO2e per piece",
+            "Method: Supplier-specific PCF stated in the supplier's sustainability report",
+            "Reference date: 6 Dec 2025",
+            "Primary data share: not stated",
+            "Third-party assurance: none",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-PCF-S-0053-P-SEAL-01",
+      "documentId": "DOC-PCF-S-0053-P-SEAL-01",
+      "system": "documents",
+      "supplierId": "S-0053",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "Suppliers",
+        "row": 55,
+        "assumedFields": [
+          "partId",
+          "pcfKgPerPiece",
+          "badge",
+          "method"
+        ]
+      },
+      "documentType": "pcf_datasheet",
+      "title": "PCF data sheet, Schwaben Dichtsysteme GmbH, P-SEAL-01",
+      "file": "supplier-documents/pcf-datasheets/DOC-PCF-S-0053-P-SEAL-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2026-10-11",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Product carbon footprint data sheet",
+            "Supplier: Schwaben Dichtsysteme GmbH, supplier ID S-0053",
+            "Product: Radial shaft seal 40x62x7, EPDM (P-SEAL-01)",
+            "PCF: 0.3 kg CO2e per piece",
+            "Method: Supplier-specific PCF stated in the supplier's sustainability report",
+            "Reference date: 11 Oct 2026",
+            "Primary data share: not stated",
+            "Third-party assurance: none",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    },
+    {
+      "recordId": "DOC-PCF-S-0013-P-ALU-HSG-01",
+      "documentId": "DOC-PCF-S-0013-P-ALU-HSG-01",
+      "system": "documents",
+      "supplierId": "S-0013",
+      "notice": "Demo data, fictitious",
+      "provenance": {
+        "file": "data/source/Supplier_Dummy_Data_v2.xlsx",
+        "sheet": "PCF",
+        "row": 3,
+        "assumedFields": [
+          "referenceDate (end of reference year, at most the retrieval date)"
+        ]
+      },
+      "documentType": "pcf_datasheet",
+      "title": "PCF data sheet, Alucast Schwaben GmbH, P-ALU-HSG-01",
+      "file": "supplier-documents/pcf-datasheets/DOC-PCF-S-0013-P-ALU-HSG-01.pdf",
+      "heldBy": "documents",
+      "issuedOn": "2025-12-31",
+      "pages": [
+        {
+          "page": 1,
+          "lines": [
+            "Product carbon footprint data sheet",
+            "Supplier: Alucast Schwaben GmbH, supplier ID S-0013",
+            "Product: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
+            "PCF: 38.0 kg CO2e per piece",
+            "Method: Cradle-to-gate, declared unit 1 housing",
+            "Reference date: 31 Dec 2025",
+            "Primary data share: 60 %",
+            "Third-party assurance: None",
+            "Sample document from the Fairweigh prototype."
+          ]
+        }
+      ]
+    }
+  ]
+}

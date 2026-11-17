@@ -1,0 +1,784 @@
+{
+  "notice": "Demo data, fictitious. Values marked 'toConfirm' are placeholders chosen by the developer and must be confirmed by the team.",
+  "demoSupplierIds": [
+    "S-0013",
+    "S-0015",
+    "S-0018",
+    "S-0014",
+    "S-0020",
+    "S-0005",
+    "S-0007",
+    "S-0001",
+    "S-0008",
+    "S-0006",
+    "S-0003",
+    "S-0021",
+    "S-0022",
+    "S-0025",
+    "S-0024",
+    "S-0026",
+    "S-0023",
+    "S-0046",
+    "S-0041",
+    "S-0042",
+    "S-0044",
+    "S-0045",
+    "S-0055",
+    "S-0051",
+    "S-0053",
+    "S-0058",
+    "S-0059"
+  ],
+  "extraSuppliers": {
+    "toConfirm": false,
+    "reason": "Since Excel v2 (8 Nov 2026) all suppliers come from the team's Excel; S-0101 is no longer used.",
+    "rows": []
+  },
+  "overrides": {
+    "S-0013": {
+      "values": {
+        "data_source": "Supplier self-assessment"
+      },
+      "toConfirm": true,
+      "reason": "Excel v2: data_source says 'Sustainability report' but sustainability_report is 'No'. Corrected conservatively: no report is claimed that does not exist. S-0005 keeps the contradiction as a test case."
+    },
+    "S-0034": {
+      "values": {
+        "data_source": "Supplier self-assessment"
+      },
+      "toConfirm": true,
+      "reason": "Excel v2: data_source says 'Sustainability report' but sustainability_report is 'No'. Corrected conservatively: no report is claimed that does not exist. S-0005 keeps the contradiction as a test case."
+    },
+    "S-0057": {
+      "values": {
+        "data_source": "Supplier self-assessment"
+      },
+      "toConfirm": true,
+      "reason": "Excel v2: data_source says 'Sustainability report' but sustainability_report is 'No'. Corrected conservatively: no report is claimed that does not exist. S-0005 keeps the contradiction as a test case."
+    },
+    "S-0064": {
+      "values": {
+        "data_source": "Supplier self-assessment"
+      },
+      "toConfirm": true,
+      "reason": "Excel v2: data_source says 'Sustainability report' but sustainability_report is 'No'. Corrected conservatively: no report is claimed that does not exist. S-0005 keeps the contradiction as a test case."
+    },
+    "S-0089": {
+      "values": {
+        "data_source": "Supplier self-assessment"
+      },
+      "toConfirm": true,
+      "reason": "Excel v2: data_source says 'Sustainability report' but sustainability_report is 'No'. Corrected conservatively: no report is claimed that does not exist. S-0005 keeps the contradiction as a test case."
+    },
+    "S-0046": {
+      "values": {
+        "last_updated": "2025-11-10"
+      },
+      "toConfirm": true,
+      "reason": "Excel v2: last_updated (10 Nov 2026) lies after the demo date (6 Nov 2026). Assumed year typo."
+    },
+    "S-0085": {
+      "values": {
+        "last_updated": "2025-12-14"
+      },
+      "toConfirm": true,
+      "reason": "Excel v2: last_updated (14 Dec 2026) lies after the demo date (6 Nov 2026). Assumed year typo."
+    }
+  },
+  "parts": [
+    {
+      "partId": "P-ALU-HSG-01",
+      "fromExcelV2": true,
+      "partName": "Die-cast aluminium gearbox housing GH-200",
+      "category": "Aluminium & Die Casting",
+      "quantity": 2000,
+      "currentSupplierId": "S-0013",
+      "basePriceEurAtIndex100": {
+        "value": 82.84,
+        "toConfirm": true,
+        "reason": "Only for the purchase history: S-0013 (price index 102) then pays EUR 84.50, its quote O-001 in Excel v2."
+      },
+      "pcfEstimate": {
+        "referenceKgPerPiece": 38.0,
+        "toConfirm": true,
+        "reason": "Not used: GH-200 CO2 values come from the PCF sheet of Excel v2."
+      },
+      "offers": {},
+      "pcf": {},
+      "co2Benchmark": {
+        "factorId": "BM-ALU-IAI-2023",
+        "materialKgPerPiece": 3.2,
+        "toConfirm": false,
+        "reason": "Excel v2, sheet Assumptions: housing_weight_kg = 3.2 kg per GH-200 housing."
+      }
+    },
+    {
+      "partId": "P-STL-HSG-01",
+      "partName": "Steel-cast gearbox housing",
+      "category": "Steel & Castings",
+      "quantity": 5000,
+      "currentSupplierId": "S-0007",
+      "basePriceEurAtIndex100": {
+        "value": 46.0,
+        "toConfirm": true,
+        "reason": "Placeholder for a cast-steel gearbox housing of about 15 kg. Unit price = base price x price index / 100."
+      },
+      "pcfEstimate": {
+        "referenceKgPerPiece": 25.0,
+        "toConfirm": true,
+        "reason": "Placeholder: about 15 kg cast steel at roughly 1.7 kg CO2e per kg. Estimated PCF = reference x supplier intensity / category average."
+      },
+      "offers": {
+        "S-0007": {
+          "priceDate": "2026-10-15",
+          "validUntil": "2027-01-31",
+          "priceType": "firm",
+          "toConfirm": true,
+          "reason": "Current supplier since the switch in Q3 2026 (purchase history)."
+        },
+        "S-0001": {
+          "priceDate": "2026-10-22",
+          "validUntil": "2027-01-31",
+          "priceType": "firm",
+          "toConfirm": true,
+          "reason": "Former supplier of this part until Q2 2026."
+        },
+        "S-0008": {
+          "priceDate": "2026-07-01",
+          "validUntil": "2026-12-31",
+          "priceType": "firm",
+          "toConfirm": true,
+          "reason": "Old offer, so the price shows as outdated."
+        },
+        "S-0006": {
+          "priceDate": "2026-10-08",
+          "validUntil": "2026-12-31",
+          "priceType": "firm",
+          "toConfirm": true,
+          "reason": "Allegation (complaint by residents) is a warning, not a knock-out."
+        },
+        "S-0003": {
+          "priceDate": "2026-10-25",
+          "validUntil": "2027-01-15",
+          "priceType": "indicative",
+          "toConfirm": true,
+          "reason": "Quote only: no delivery history, so quality and delivery are missing."
+        }
+      },
+      "pcf": {
+        "S-0007": {
+          "badge": "actual",
+          "pcfKgPerPiece": 13.8,
+          "method": "Supplier-specific PCF from the supplier's self-assessment, electric arc furnace steel (fictitious)",
+          "toConfirm": true
+        },
+        "S-0001": {
+          "badge": "actual",
+          "pcfKgPerPiece": 24.6,
+          "method": "Supplier-specific PCF stated in the supplier's sustainability report (fictitious)",
+          "toConfirm": true
+        },
+        "S-0008": {
+          "badge": "estimated",
+          "toConfirm": true
+        },
+        "S-0006": {
+          "badge": "estimated",
+          "toConfirm": true
+        },
+        "S-0003": {
+          "badge": "estimated",
+          "toConfirm": true
+        }
+      },
+      "co2Benchmark": {
+        "factorId": "BM-STEEL-WSA-2023",
+        "materialKgPerPiece": 15,
+        "toConfirm": true,
+        "reason": "Assumption: a cast-steel gearbox housing of about 15 kg (same basis as the base price)."
+      }
+    },
+    {
+      "partId": "P-CU-WIRE-01",
+      "partName": "Enamelled copper magnet wire, 5 kg spool",
+      "category": "Copper & Magnet Wire",
+      "quantity": 2000,
+      "currentSupplierId": "S-0021",
+      "basePriceEurAtIndex100": {
+        "value": 62.0,
+        "toConfirm": true,
+        "reason": "Placeholder for a 5 kg spool of enamelled copper wire. Unit price = base price x price index / 100."
+      },
+      "pcfEstimate": {
+        "referenceKgPerPiece": 20.0,
+        "toConfirm": true,
+        "reason": "Placeholder: 5 kg copper at roughly 4 kg CO2e per kg. Estimated PCF = reference x supplier intensity / category average."
+      },
+      "offers": {
+        "S-0021": {
+          "priceDate": "2026-10-18",
+          "validUntil": "2027-01-31",
+          "priceType": "firm",
+          "toConfirm": true,
+          "reason": "Current supplier since the switch in Q3 2026 (purchase history)."
+        },
+        "S-0022": {
+          "priceDate": "2026-10-21",
+          "validUntil": "2027-01-31",
+          "priceType": "firm",
+          "toConfirm": true
+        },
+        "S-0025": {
+          "priceDate": "2026-10-10",
+          "validUntil": "2026-12-31",
+          "priceType": "firm",
+          "toConfirm": true,
+          "reason": "Cheap, LkSG country risk High (warning)."
+        },
+        "S-0026": {
+          "priceDate": "2026-10-14",
+          "validUntil": "2026-12-31",
+          "priceType": "firm",
+          "toConfirm": true
+        },
+        "S-0024": {
+          "priceDate": "2026-10-27",
+          "validUntil": "2027-01-31",
+          "priceType": "firm",
+          "toConfirm": true,
+          "reason": "Replaces S-0029: Excel v2 has no price index or CO2 intensity for S-0029."
+        }
+      },
+      "pcf": {
+        "S-0021": {
+          "badge": "actual",
+          "pcfKgPerPiece": 10.9,
+          "method": "Supplier-specific PCF stated in the supplier's sustainability report (fictitious)",
+          "toConfirm": true
+        },
+        "S-0022": {
+          "badge": "actual",
+          "pcfKgPerPiece": 22.4,
+          "method": "Supplier-specific PCF from the supplier's self-assessment (fictitious)",
+          "toConfirm": true
+        },
+        "S-0025": {
+          "badge": "estimated",
+          "toConfirm": true
+        },
+        "S-0026": {
+          "badge": "estimated",
+          "toConfirm": true
+        },
+        "S-0023": {
+          "badge": "estimated",
+          "toConfirm": true
+        },
+        "S-0024": {
+          "badge": "estimated",
+          "toConfirm": true
+        }
+      },
+      "co2Benchmark": {
+        "factorId": "BM-CU-ICA-2023",
+        "materialKgPerPiece": 5,
+        "toConfirm": true,
+        "reason": "One 5 kg spool of enamelled copper wire; the enamel is ignored, so 5 kg of copper."
+      }
+    },
+    {
+      "partId": "P-BRG-01",
+      "partName": "Deep-groove ball bearing 6208 for gearboxes",
+      "category": "Bearings",
+      "quantity": 20000,
+      "currentSupplierId": "S-0046",
+      "basePriceEurAtIndex100": {
+        "value": 6.0,
+        "toConfirm": true,
+        "reason": "Placeholder for a deep-groove ball bearing 6208 (about 0.4 kg). Unit price = base price x price index / 100."
+      },
+      "pcfEstimate": {
+        "referenceKgPerPiece": 1.1,
+        "toConfirm": true,
+        "reason": "Placeholder: about 0.4 kg bearing steel plus processing. Estimated PCF = reference x supplier intensity / category average."
+      },
+      "co2Benchmark": {
+        "factorId": "BM-STEEL-WSA-2023",
+        "materialKgPerPiece": 0.4,
+        "toConfirm": true,
+        "reason": "Assumption: a 6208 ball bearing weighs about 0.4 kg of steel."
+      },
+      "offers": {
+        "S-0046": {
+          "priceDate": "2026-10-20",
+          "validUntil": "2027-01-31",
+          "priceType": "firm",
+          "toConfirm": true,
+          "reason": "Current supplier of this bearing (ERP source list)."
+        },
+        "S-0041": {
+          "priceDate": "2026-10-28",
+          "validUntil": "2027-01-31",
+          "priceType": "firm",
+          "toConfirm": true,
+          "reason": "Alternative with a low CO2 intensity and SA8000."
+        },
+        "S-0042": {
+          "priceDate": "2026-10-30",
+          "validUntil": "2027-01-31",
+          "priceType": "firm",
+          "toConfirm": true,
+          "reason": "Very reliable supplier, longer lead time."
+        },
+        "S-0044": {
+          "priceDate": "2026-10-25",
+          "validUntil": "2026-12-31",
+          "priceType": "firm",
+          "toConfirm": true,
+          "reason": "Quote only: never delivered to us (score range)."
+        },
+        "S-0045": {
+          "priceDate": "2026-10-18",
+          "validUntil": "2026-12-31",
+          "priceType": "firm",
+          "toConfirm": true,
+          "reason": "Cheap, but LkSG risk High without SA8000 (knock-out K2)."
+        }
+      },
+      "pcf": {
+        "S-0046": {
+          "badge": "actual",
+          "pcfKgPerPiece": 1.05,
+          "method": "Supplier-specific PCF from the supplier's self-assessment",
+          "toConfirm": true
+        },
+        "S-0041": {
+          "badge": "actual",
+          "pcfKgPerPiece": 0.62,
+          "method": "Supplier-specific PCF stated in the supplier's sustainability report, green steel share",
+          "toConfirm": true
+        },
+        "S-0042": {
+          "badge": "actual",
+          "pcfKgPerPiece": 0.7,
+          "method": "Supplier-specific PCF stated in the supplier's sustainability report",
+          "toConfirm": true
+        },
+        "S-0044": {
+          "badge": "estimated",
+          "toConfirm": true
+        },
+        "S-0045": {
+          "badge": "estimated",
+          "toConfirm": true
+        }
+      }
+    },
+    {
+      "partId": "P-SEAL-01",
+      "partName": "Radial shaft seal 40x62x7, EPDM",
+      "category": "Seals & Rubber",
+      "quantity": 20000,
+      "currentSupplierId": "S-0055",
+      "basePriceEurAtIndex100": {
+        "value": 1.8,
+        "toConfirm": true,
+        "reason": "Placeholder for a radial shaft seal 40x62x7 (about 0.06 kg elastomer and a steel case). Unit price = base price x price index / 100."
+      },
+      "pcfEstimate": {
+        "referenceKgPerPiece": 0.35,
+        "toConfirm": true,
+        "reason": "Placeholder: about 0.06 kg elastomer plus steel case and processing. Estimated PCF = reference x supplier intensity / category average."
+      },
+      "co2Benchmark": {
+        "factorId": "BM-EPDM-OEKOBAUDAT",
+        "materialKgPerPiece": 0.06,
+        "toConfirm": true,
+        "reason": "Assumption: about 0.06 kg EPDM elastomer per seal (steel case not counted)."
+      },
+      "offers": {
+        "S-0055": {
+          "priceDate": "2026-10-21",
+          "validUntil": "2027-01-31",
+          "priceType": "firm",
+          "toConfirm": true,
+          "reason": "Current supplier of this seal (ERP source list)."
+        },
+        "S-0051": {
+          "priceDate": "2026-10-29",
+          "validUntil": "2027-01-31",
+          "priceType": "firm",
+          "toConfirm": true,
+          "reason": "Alternative with a low CO2 intensity and a sustainability report."
+        },
+        "S-0053": {
+          "priceDate": "2026-10-24",
+          "validUntil": "2027-01-31",
+          "priceType": "firm",
+          "toConfirm": true,
+          "reason": "Current supplier of other seals, more complaints."
+        },
+        "S-0058": {
+          "priceDate": "2026-10-27",
+          "validUntil": "2026-12-31",
+          "priceType": "firm",
+          "toConfirm": true,
+          "reason": "Quote only: never delivered to us (score range)."
+        },
+        "S-0059": {
+          "priceDate": "2026-11-02",
+          "validUntil": "2027-01-31",
+          "priceType": "indicative",
+          "toConfirm": true,
+          "reason": "Green newcomer found by a web search: never delivered (score range), indicative price."
+        }
+      },
+      "pcf": {
+        "S-0055": {
+          "badge": "actual",
+          "pcfKgPerPiece": 0.33,
+          "method": "Supplier-specific PCF from the supplier's self-assessment",
+          "toConfirm": true
+        },
+        "S-0051": {
+          "badge": "actual",
+          "pcfKgPerPiece": 0.21,
+          "method": "Supplier-specific PCF stated in the supplier's sustainability report",
+          "toConfirm": true
+        },
+        "S-0053": {
+          "badge": "actual",
+          "pcfKgPerPiece": 0.31,
+          "method": "Supplier-specific PCF stated in the supplier's sustainability report",
+          "toConfirm": true
+        },
+        "S-0058": {
+          "badge": "estimated",
+          "toConfirm": true
+        },
+        "S-0059": {
+          "badge": "estimated",
+          "toConfirm": true
+        }
+      }
+    }
+  ],
+  "catalog": [
+    {
+      "partId": "P-ALU-HSG-01",
+      "partName": "Die-cast aluminium gearbox housing GH-200",
+      "category": "Aluminium & Die Casting",
+      "hasOffers": true
+    },
+    {
+      "partId": "P-STL-HSG-01",
+      "partName": "Steel-cast gearbox housing",
+      "category": "Steel & Castings",
+      "hasOffers": true
+    },
+    {
+      "partId": "P-CU-WIRE-01",
+      "partName": "Enamelled copper magnet wire, 5 kg spool",
+      "category": "Copper & Magnet Wire",
+      "hasOffers": true
+    },
+    {
+      "partId": "P-BRG-01",
+      "partName": "Deep-groove ball bearing 6208 for gearboxes",
+      "category": "Bearings",
+      "hasOffers": true
+    },
+    {
+      "partId": "P-SEAL-01",
+      "partName": "Radial shaft seal 40x62x7, EPDM",
+      "category": "Seals & Rubber",
+      "hasOffers": true
+    }
+  ],
+  "co2PricePerTonneEur": {
+    "value": 100,
+    "toConfirm": false,
+    "reason": "Team decision 8 Nov 2026, as in Excel v2. Only for the CO2 euro display, not in the score."
+  },
+  "priceMaxAgeDays": {
+    "value": 90,
+    "toConfirm": true,
+    "reason": "Open item 2 in PLAN.md. Older prices show 'outdated'; the score does not change."
+  },
+  "co2MaxAgeDays": {
+    "value": 365,
+    "toConfirm": true,
+    "reason": "Not set in PLAN.md. CO2 values (PCF) older than one year show 'CO2 data outdated'; the score does not change."
+  },
+  "purchaseHistory": {
+    "toConfirm": true,
+    "reason": "Fictitious purchase orders for Q2 and Q3 2026, for the statistics on the start page. Story: in July 2026 the steel housing (S-0001 -> S-0007) and the copper wire (S-0023 -> S-0021) were switched with a decision in the cockpit; the aluminium gearbox housing GH-200 is the next decision (live demo, Excel v2). Unit price = price index x base price of the part; CO2 per piece = the supplier's PCF record.",
+    "orders": [
+      {
+        "poNumber": "PO-4500012301",
+        "orderDate": "2026-04-08",
+        "partId": "P-ALU-HSG-01",
+        "supplierId": "S-0013",
+        "quantity": 700,
+        "cockpitDecisionId": null
+      },
+      {
+        "poNumber": "PO-4500012302",
+        "orderDate": "2026-04-08",
+        "partId": "P-STL-HSG-01",
+        "supplierId": "S-0001",
+        "quantity": 1500,
+        "cockpitDecisionId": null
+      },
+      {
+        "poNumber": "PO-4500012303",
+        "orderDate": "2026-04-08",
+        "partId": "P-CU-WIRE-01",
+        "supplierId": "S-0023",
+        "quantity": 650,
+        "cockpitDecisionId": null
+      },
+      {
+        "poNumber": "PO-4500012304",
+        "orderDate": "2026-05-07",
+        "partId": "P-ALU-HSG-01",
+        "supplierId": "S-0013",
+        "quantity": 700,
+        "cockpitDecisionId": null
+      },
+      {
+        "poNumber": "PO-4500012305",
+        "orderDate": "2026-05-07",
+        "partId": "P-STL-HSG-01",
+        "supplierId": "S-0001",
+        "quantity": 1500,
+        "cockpitDecisionId": null
+      },
+      {
+        "poNumber": "PO-4500012306",
+        "orderDate": "2026-05-07",
+        "partId": "P-CU-WIRE-01",
+        "supplierId": "S-0023",
+        "quantity": 650,
+        "cockpitDecisionId": null
+      },
+      {
+        "poNumber": "PO-4500012307",
+        "orderDate": "2026-06-09",
+        "partId": "P-ALU-HSG-01",
+        "supplierId": "S-0013",
+        "quantity": 700,
+        "cockpitDecisionId": null
+      },
+      {
+        "poNumber": "PO-4500012308",
+        "orderDate": "2026-06-09",
+        "partId": "P-STL-HSG-01",
+        "supplierId": "S-0001",
+        "quantity": 1500,
+        "cockpitDecisionId": null
+      },
+      {
+        "poNumber": "PO-4500012309",
+        "orderDate": "2026-06-09",
+        "partId": "P-CU-WIRE-01",
+        "supplierId": "S-0023",
+        "quantity": 650,
+        "cockpitDecisionId": null
+      },
+      {
+        "poNumber": "PO-4500012310",
+        "orderDate": "2026-07-08",
+        "partId": "P-ALU-HSG-01",
+        "supplierId": "S-0013",
+        "quantity": 700,
+        "cockpitDecisionId": null
+      },
+      {
+        "poNumber": "PO-4500012311",
+        "orderDate": "2026-07-08",
+        "partId": "P-STL-HSG-01",
+        "supplierId": "S-0007",
+        "quantity": 1500,
+        "cockpitDecisionId": "DEC-2026-07-STL",
+        "replacedSupplierId": "S-0001"
+      },
+      {
+        "poNumber": "PO-4500012312",
+        "orderDate": "2026-07-08",
+        "partId": "P-CU-WIRE-01",
+        "supplierId": "S-0021",
+        "quantity": 650,
+        "cockpitDecisionId": "DEC-2026-07-CU",
+        "replacedSupplierId": "S-0023"
+      },
+      {
+        "poNumber": "PO-4500012313",
+        "orderDate": "2026-08-06",
+        "partId": "P-ALU-HSG-01",
+        "supplierId": "S-0013",
+        "quantity": 700,
+        "cockpitDecisionId": null
+      },
+      {
+        "poNumber": "PO-4500012314",
+        "orderDate": "2026-08-06",
+        "partId": "P-STL-HSG-01",
+        "supplierId": "S-0007",
+        "quantity": 1500,
+        "cockpitDecisionId": "DEC-2026-07-STL",
+        "replacedSupplierId": "S-0001"
+      },
+      {
+        "poNumber": "PO-4500012315",
+        "orderDate": "2026-08-06",
+        "partId": "P-CU-WIRE-01",
+        "supplierId": "S-0021",
+        "quantity": 650,
+        "cockpitDecisionId": "DEC-2026-07-CU",
+        "replacedSupplierId": "S-0023"
+      },
+      {
+        "poNumber": "PO-4500012316",
+        "orderDate": "2026-09-08",
+        "partId": "P-ALU-HSG-01",
+        "supplierId": "S-0013",
+        "quantity": 700,
+        "cockpitDecisionId": null
+      },
+      {
+        "poNumber": "PO-4500012317",
+        "orderDate": "2026-09-08",
+        "partId": "P-STL-HSG-01",
+        "supplierId": "S-0007",
+        "quantity": 1500,
+        "cockpitDecisionId": "DEC-2026-07-STL",
+        "replacedSupplierId": "S-0001"
+      },
+      {
+        "poNumber": "PO-4500012318",
+        "orderDate": "2026-09-08",
+        "partId": "P-CU-WIRE-01",
+        "supplierId": "S-0021",
+        "quantity": 650,
+        "cockpitDecisionId": "DEC-2026-07-CU",
+        "replacedSupplierId": "S-0023"
+      }
+    ]
+  },
+  "exampleDecisions": {
+    "toConfirm": true,
+    "reason": "Two fictitious decisions by Thomas in July 2026 that explain the switches in the purchase history. Built by code from today's demo records (offers, ERP, ratings, PCF) with the decision engine, no AI. Shown in the decision log as 'Example, fictitious'.",
+    "decisions": [
+      {
+        "decisionId": "DEC-2026-07-STL",
+        "partId": "P-STL-HSG-01",
+        "recordedAt": "2026-07-03T09:40:00Z",
+        "quantity": 4500,
+        "weights": {
+          "quality": 25,
+          "price": 25,
+          "co2": 30,
+          "delivery": 20
+        },
+        "chosenSupplierId": "S-0007",
+        "reason": "(generated from the records)",
+        "decidedBy": {
+          "name": "Thomas",
+          "role": "Category Manager, Direct Materials"
+        },
+        "replacedSupplierId": "S-0001",
+        "requisitionId": "PR-10038112"
+      },
+      {
+        "decisionId": "DEC-2026-07-CU",
+        "partId": "P-CU-WIRE-01",
+        "recordedAt": "2026-07-04T14:15:00Z",
+        "quantity": 1950,
+        "weights": {
+          "quality": 20,
+          "price": 20,
+          "co2": 40,
+          "delivery": 20
+        },
+        "chosenSupplierId": "S-0021",
+        "reason": "(generated from the records)",
+        "decidedBy": {
+          "name": "Thomas",
+          "role": "Category Manager, Direct Materials"
+        },
+        "replacedSupplierId": "S-0023",
+        "requisitionId": "PR-10038120"
+      }
+    ]
+  },
+  "fineNotices": {
+    "S-0005": {
+      "issuedOn": "2024-06-12",
+      "authority": "Local environmental authority, Jinan (fictitious)",
+      "decision": "Fine of CNY 200,000 for unlawful discharge of untreated wastewater",
+      "status": "Final and binding",
+      "toConfirm": true,
+      "reason": "PLAN.md, section 5: fine notice as a fictitious document; proven violation, so knock-out."
+    }
+  },
+  "buyers": {
+    "toConfirm": true,
+    "reason": "Fictitious buyers for the target overview (expert interviews, 10 Nov 2026). Thomas is the demo user; Jonas and Lena only appear in the targets.",
+    "list": [
+      {
+        "name": "Thomas",
+        "title": "Category Manager, Direct Materials",
+        "email": "thomas@rheintal-antriebe.example",
+        "categories": [
+          "Aluminium & Die Casting",
+          "Steel & Castings",
+          "Copper & Magnet Wire",
+          "Bearings",
+          "Seals & Rubber"
+        ]
+      },
+      {
+        "name": "Jonas",
+        "title": "Category Manager, Electronics & Plastics",
+        "email": "jonas@rheintal-antriebe.example",
+        "categories": [
+          "Electronic Components",
+          "Plastics & Injection Molding",
+          "Fasteners"
+        ]
+      },
+      {
+        "name": "Lena",
+        "title": "Category Manager, Indirect & Logistics",
+        "email": "lena@rheintal-antriebe.example",
+        "categories": [
+          "Packaging",
+          "Logistics"
+        ]
+      }
+    ]
+  },
+  "co2Targets": {
+    "toConfirm": true,
+    "reason": "Fictitious CO2 saving targets for 2026 in t CO2e (expert interviews, 10 Nov 2026), until the Scope 3 manager sets her own.",
+    "company": 200,
+    "buyers": {
+      "Thomas": 100,
+      "Jonas": 60,
+      "Lena": 30
+    },
+    "groups": {
+      "Aluminium & Die Casting": 40,
+      "Steel & Castings": 40,
+      "Copper & Magnet Wire": 15,
+      "Bearings": 3,
+      "Seals & Rubber": 2,
+      "Electronic Components": 30,
+      "Plastics & Injection Molding": 20,
+      "Fasteners": 10,
+      "Packaging": 20,
+      "Logistics": 10
+    }
+  }
+}

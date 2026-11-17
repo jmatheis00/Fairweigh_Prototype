@@ -1,0 +1,364 @@
+{
+  "system": "Fairweigh",
+  "simulates": "Configuration of Fairweigh itself, not an external system",
+  "notice": "Demo data, fictitious",
+  "generatedFrom": "data/source/Supplier_Dummy_Data_v2.xlsx",
+  "records": [],
+  "settings": {
+    "catalog": [
+      {
+        "partId": "P-ALU-HSG-01",
+        "partName": "Die-cast aluminium gearbox housing GH-200",
+        "category": "Aluminium & Die Casting",
+        "hasOffers": true,
+        "defaultQuantity": 2000,
+        "currentSupplierId": "S-0013",
+        "defaultWeights": {
+          "quality": 22,
+          "price": 34,
+          "co2": 22,
+          "delivery": 22
+        },
+        "defaultNeededBy": "2026-12-18",
+        "benchmarks": {
+          "quality": {
+            "value": 0.8,
+            "basis": "Complaint rate of the last 3 purchases: PO-4500012310, PO-4500012313, PO-4500012316, Alucast Schwaben GmbH (client ERP)",
+            "short": "Today",
+            "kind": "internal",
+            "sourceUrl": null
+          },
+          "price": {
+            "value": 84.5,
+            "short": "Price today",
+            "basis": "Price we pay today: EUR 84.50 per piece, average of the last 3 purchases: PO-4500012310, PO-4500012313, PO-4500012316, Alucast Schwaben GmbH (client ERP)",
+            "kind": "internal",
+            "sourceUrl": null
+          },
+          "co2": {
+            "value": 38,
+            "basis": "Product footprint of the last 3 purchases: PO-4500012310, PO-4500012313, PO-4500012316, Alucast Schwaben GmbH (PCF exchange)",
+            "short": "Today",
+            "kind": "internal",
+            "sourceUrl": null
+          },
+          "delivery": {
+            "value": 95,
+            "basis": "On-time delivery of the last 3 purchases: PO-4500012310, PO-4500012313, PO-4500012316, Alucast Schwaben GmbH (client ERP)",
+            "short": "Today",
+            "kind": "internal",
+            "sourceUrl": null
+          }
+        },
+        "industryCo2": {
+          "value": 32.1,
+          "basis": "International Aluminium Institute (IAI), 2023: 10.04 kg CO₂e per kg aluminium × 3.2 kg per piece (material only)",
+          "short": "IAI 2023",
+          "kind": "official",
+          "sourceUrl": "https://international-aluminium.org/global-aluminium-industry-greenhouse-gas-emissions-intensity-reduction-continues-with-total-emissions-below-2020-peak"
+        },
+        "newSupplierAssumption": {
+          "quality": 1.2,
+          "delivery": 91,
+          "qualityBest": 0.4,
+          "deliveryBest": 95,
+          "peers": 3
+        }
+      },
+      {
+        "partId": "P-STL-HSG-01",
+        "partName": "Steel-cast gearbox housing",
+        "category": "Steel & Castings",
+        "hasOffers": true,
+        "defaultQuantity": 5000,
+        "currentSupplierId": "S-0007",
+        "defaultWeights": {
+          "quality": 22,
+          "price": 39,
+          "co2": 17,
+          "delivery": 22
+        },
+        "defaultNeededBy": null,
+        "benchmarks": {
+          "quality": {
+            "value": 0.7,
+            "basis": "Complaint rate of the last 3 purchases: PO-4500012311, PO-4500012314, PO-4500012317, Donautal Stahl GmbH (client ERP)",
+            "short": "Today",
+            "kind": "internal",
+            "sourceUrl": null
+          },
+          "price": {
+            "value": 46.92,
+            "short": "Price today",
+            "basis": "Price we pay today: EUR 46.92 per piece, average of the last 3 purchases: PO-4500012311, PO-4500012314, PO-4500012317, Donautal Stahl GmbH (client ERP)",
+            "kind": "internal",
+            "sourceUrl": null
+          },
+          "co2": {
+            "value": 13.8,
+            "basis": "Product footprint of the last 3 purchases: PO-4500012311, PO-4500012314, PO-4500012317, Donautal Stahl GmbH (PCF exchange)",
+            "short": "Today",
+            "kind": "internal",
+            "sourceUrl": null
+          },
+          "delivery": {
+            "value": 98,
+            "basis": "On-time delivery of the last 3 purchases: PO-4500012311, PO-4500012314, PO-4500012317, Donautal Stahl GmbH (client ERP)",
+            "short": "Today",
+            "kind": "internal",
+            "sourceUrl": null
+          }
+        },
+        "industryCo2": {
+          "value": 28.8,
+          "basis": "World Steel Association (worldsteel), 2023: 1.92 kg CO₂ per kg steel × 15 kg per piece (material only)",
+          "short": "worldsteel 2023",
+          "kind": "official",
+          "sourceUrl": "https://worldsteel.org/wp-content/uploads/World-Steel-in-Figures-2025.pdf"
+        },
+        "newSupplierAssumption": {
+          "quality": 1.1,
+          "delivery": 91,
+          "qualityBest": 0.3,
+          "deliveryBest": 98,
+          "peers": 4
+        }
+      },
+      {
+        "partId": "P-CU-WIRE-01",
+        "partName": "Enamelled copper magnet wire, 5 kg spool",
+        "category": "Copper & Magnet Wire",
+        "hasOffers": true,
+        "defaultQuantity": 2000,
+        "currentSupplierId": "S-0021",
+        "defaultWeights": {
+          "quality": 17,
+          "price": 44,
+          "co2": 17,
+          "delivery": 22
+        },
+        "defaultNeededBy": null,
+        "benchmarks": {
+          "quality": {
+            "value": 0.7,
+            "basis": "Complaint rate of the last 3 purchases: PO-4500012312, PO-4500012315, PO-4500012318, Elbkupfer AG (client ERP)",
+            "short": "Today",
+            "kind": "internal",
+            "sourceUrl": null
+          },
+          "price": {
+            "value": 63.24,
+            "short": "Price today",
+            "basis": "Price we pay today: EUR 63.24 per piece, average of the last 3 purchases: PO-4500012312, PO-4500012315, PO-4500012318, Elbkupfer AG (client ERP)",
+            "kind": "internal",
+            "sourceUrl": null
+          },
+          "co2": {
+            "value": 10.9,
+            "basis": "Product footprint of the last 3 purchases: PO-4500012312, PO-4500012315, PO-4500012318, Elbkupfer AG (PCF exchange)",
+            "short": "Today",
+            "kind": "internal",
+            "sourceUrl": null
+          },
+          "delivery": {
+            "value": 95,
+            "basis": "On-time delivery of the last 3 purchases: PO-4500012312, PO-4500012315, PO-4500012318, Elbkupfer AG (client ERP)",
+            "short": "Today",
+            "kind": "internal",
+            "sourceUrl": null
+          }
+        },
+        "industryCo2": {
+          "value": 17.6,
+          "basis": "International Copper Association (ICA), 2023: 3.52 kg CO₂e per kg copper × 5 kg per piece (material only)",
+          "short": "ICA 2023",
+          "kind": "official",
+          "sourceUrl": "https://internationalcopper.org/wp-content/uploads/2026/10/ICA-LCA-Global-Summary-2026.pdf"
+        },
+        "newSupplierAssumption": {
+          "quality": 1.1,
+          "delivery": 88,
+          "qualityBest": 0.3,
+          "deliveryBest": 96,
+          "peers": 3
+        }
+      },
+      {
+        "partId": "P-BRG-01",
+        "partName": "Deep-groove ball bearing 6208 for gearboxes",
+        "category": "Bearings",
+        "hasOffers": true,
+        "defaultQuantity": 20000,
+        "currentSupplierId": "S-0046",
+        "defaultWeights": {
+          "quality": 35,
+          "price": 29,
+          "co2": 12,
+          "delivery": 24
+        },
+        "defaultNeededBy": null,
+        "benchmarks": {
+          "quality": {
+            "value": 1.3,
+            "basis": "Complaint rate of the current supplier Kugellager Schweinfurt Muster GmbH (client ERP)",
+            "short": "Today",
+            "kind": "internal",
+            "sourceUrl": null
+          },
+          "price": {
+            "value": 6,
+            "short": "Price today",
+            "basis": "Price we pay today: EUR 6.00 per piece to Kugellager Schweinfurt Muster GmbH (current contract, client ERP)",
+            "kind": "internal",
+            "sourceUrl": null
+          },
+          "co2": {
+            "value": 1.05,
+            "basis": "Product footprint of the current supplier Kugellager Schweinfurt Muster GmbH (PCF exchange)",
+            "short": "Today",
+            "kind": "internal",
+            "sourceUrl": null
+          },
+          "delivery": {
+            "value": 89,
+            "basis": "On-time delivery of the current supplier Kugellager Schweinfurt Muster GmbH (client ERP)",
+            "short": "Today",
+            "kind": "internal",
+            "sourceUrl": null
+          }
+        },
+        "industryCo2": {
+          "value": 0.77,
+          "basis": "World Steel Association (worldsteel), 2023: 1.92 kg CO₂ per kg steel × 0.4 kg per piece (material only)",
+          "short": "worldsteel 2023",
+          "kind": "official",
+          "sourceUrl": "https://worldsteel.org/wp-content/uploads/World-Steel-in-Figures-2025.pdf"
+        },
+        "newSupplierAssumption": {
+          "quality": 1.3,
+          "delivery": 89,
+          "qualityBest": 0.3,
+          "deliveryBest": 98,
+          "peers": 3
+        }
+      },
+      {
+        "partId": "P-SEAL-01",
+        "partName": "Radial shaft seal 40x62x7, EPDM",
+        "category": "Seals & Rubber",
+        "hasOffers": true,
+        "defaultQuantity": 20000,
+        "currentSupplierId": "S-0055",
+        "defaultWeights": {
+          "quality": 28,
+          "price": 33,
+          "co2": 17,
+          "delivery": 22
+        },
+        "defaultNeededBy": null,
+        "benchmarks": {
+          "quality": {
+            "value": 1.1,
+            "basis": "Complaint rate of the current supplier Gummiwerk Musterhausen GmbH (client ERP)",
+            "short": "Today",
+            "kind": "internal",
+            "sourceUrl": null
+          },
+          "price": {
+            "value": 1.82,
+            "short": "Price today",
+            "basis": "Price we pay today: EUR 1.82 per piece to Gummiwerk Musterhausen GmbH (current contract, client ERP)",
+            "kind": "internal",
+            "sourceUrl": null
+          },
+          "co2": {
+            "value": 0.33,
+            "basis": "Product footprint of the current supplier Gummiwerk Musterhausen GmbH (PCF exchange)",
+            "short": "Today",
+            "kind": "internal",
+            "sourceUrl": null
+          },
+          "delivery": {
+            "value": 92,
+            "basis": "On-time delivery of the current supplier Gummiwerk Musterhausen GmbH (client ERP)",
+            "short": "Today",
+            "kind": "internal",
+            "sourceUrl": null
+          }
+        },
+        "industryCo2": {
+          "value": 0.25,
+          "basis": "OEKOBAUDAT (German Federal Ministry for Housing), 2018: 4.17 kg CO₂e per kg epdm elastomer × 0.06 kg per piece (material only)",
+          "short": "OEKOBAUDAT 2018",
+          "kind": "official",
+          "sourceUrl": "https://www.climatiq.io/data/emission-factor/45b55d35-515d-4e85-bf3e-dca3f2c041c2"
+        },
+        "newSupplierAssumption": {
+          "quality": 1.5,
+          "delivery": 90,
+          "qualityBest": 0.8,
+          "deliveryBest": 92,
+          "peers": 3
+        }
+      }
+    ],
+    "defaultQuantity": 2000,
+    "co2PricePerTonneEur": 100,
+    "co2PriceToConfirm": false,
+    "priceMaxAgeDays": 90,
+    "co2MaxAgeDays": 365,
+    "buyers": [
+      {
+        "name": "Thomas",
+        "title": "Category Manager, Direct Materials",
+        "email": "thomas@rheintal-antriebe.example",
+        "categories": [
+          "Aluminium & Die Casting",
+          "Steel & Castings",
+          "Copper & Magnet Wire",
+          "Bearings",
+          "Seals & Rubber"
+        ]
+      },
+      {
+        "name": "Jonas",
+        "title": "Category Manager, Electronics & Plastics",
+        "email": "jonas@rheintal-antriebe.example",
+        "categories": [
+          "Electronic Components",
+          "Plastics & Injection Molding",
+          "Fasteners"
+        ]
+      },
+      {
+        "name": "Lena",
+        "title": "Category Manager, Indirect & Logistics",
+        "email": "lena@rheintal-antriebe.example",
+        "categories": [
+          "Packaging",
+          "Logistics"
+        ]
+      }
+    ],
+    "defaultCo2Targets": {
+      "company": 200,
+      "buyers": {
+        "Thomas": 100,
+        "Jonas": 60,
+        "Lena": 30
+      },
+      "groups": {
+        "Aluminium & Die Casting": 40,
+        "Steel & Castings": 40,
+        "Copper & Magnet Wire": 15,
+        "Bearings": 3,
+        "Seals & Rubber": 2,
+        "Electronic Components": 30,
+        "Plastics & Injection Molding": 20,
+        "Fasteners": 10,
+        "Packaging": 20,
+        "Logistics": 10
+      }
+    }
+  }
+}

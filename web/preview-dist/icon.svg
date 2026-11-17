@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Fairweigh">
+  <!-- The Fairweigh scale: price (left) and CO2 (right) in balance. From the pitch design template v4, 16 Nov 2026. -->
+  <path d="M16 16.1 L20.6 24.1 H11.4 Z" fill="#0f5c5c" stroke="#0f5c5c" stroke-width="1" stroke-linejoin="round"/>
+  <path d="M3.6 16.1 H28.4" stroke="#0f5c5c" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="5.2" cy="10.7" r="3.4" fill="#0f5c5c"/>
+  <circle cx="26.8" cy="10.7" r="3.4" fill="#00918a"/>
+</svg>

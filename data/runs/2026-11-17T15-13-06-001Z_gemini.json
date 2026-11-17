@@ -1,0 +1,868 @@
+{
+  "runId": "7b7c1d11-1f8d-44b2-a71f-f570facbe6fe",
+  "request": {
+    "partId": "P-CU-WIRE-01",
+    "supplierIds": [
+      "S-0021",
+      "S-0022",
+      "S-0025",
+      "S-0024",
+      "S-0026"
+    ],
+    "quantity": 2000,
+    "neededBy": null
+  },
+  "mode": {
+    "kind": "live",
+    "provider": "gemini"
+  },
+  "status": "completed",
+  "startedAt": "2026-11-17T15:13:06.001Z",
+  "finishedAt": "2026-11-17T15:14:23.115Z",
+  "steps": [
+    {
+      "index": 1,
+      "at": "2026-11-17T15:13:16.834Z",
+      "kind": "retry",
+      "summary": "Retry 1 of 2: Gemini answered 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+    },
+    {
+      "index": 2,
+      "at": "2026-11-17T15:13:24.332Z",
+      "kind": "model",
+      "summary": "Model asks for get_erp_record, get_erp_record, get_erp_record, get_erp_record, get_erp_record, get_rating, get_rating, get_rating, get_rating, get_rating, get_pcf, get_pcf, get_pcf, get_pcf, get_pcf, list_documents, list_documents, list_documents, list_documents, list_documents"
+    },
+    {
+      "index": 3,
+      "at": "2026-11-17T15:13:24.332Z",
+      "kind": "tool_call",
+      "summary": "get_erp_record(S-0021)",
+      "tool": "get_erp_record",
+      "input": {
+        "supplierId": "S-0021"
+      }
+    },
+    {
+      "index": 4,
+      "at": "2026-11-17T15:13:24.332Z",
+      "kind": "tool_result",
+      "summary": "get_erp_record: received",
+      "tool": "get_erp_record"
+    },
+    {
+      "index": 5,
+      "at": "2026-11-17T15:13:24.332Z",
+      "kind": "tool_call",
+      "summary": "get_erp_record(S-0022)",
+      "tool": "get_erp_record",
+      "input": {
+        "supplierId": "S-0022"
+      }
+    },
+    {
+      "index": 6,
+      "at": "2026-11-17T15:13:24.332Z",
+      "kind": "tool_result",
+      "summary": "get_erp_record: received",
+      "tool": "get_erp_record"
+    },
+    {
+      "index": 7,
+      "at": "2026-11-17T15:13:24.332Z",
+      "kind": "tool_call",
+      "summary": "get_erp_record(S-0024)",
+      "tool": "get_erp_record",
+      "input": {
+        "supplierId": "S-0024"
+      }
+    },
+    {
+      "index": 8,
+      "at": "2026-11-17T15:13:24.332Z",
+      "kind": "tool_result",
+      "summary": "get_erp_record: received",
+      "tool": "get_erp_record"
+    },
+    {
+      "index": 9,
+      "at": "2026-11-17T15:13:24.332Z",
+      "kind": "tool_call",
+      "summary": "get_erp_record(S-0025)",
+      "tool": "get_erp_record",
+      "input": {
+        "supplierId": "S-0025"
+      }
+    },
+    {
+      "index": 10,
+      "at": "2026-11-17T15:13:24.332Z",
+      "kind": "tool_result",
+      "summary": "get_erp_record: received",
+      "tool": "get_erp_record"
+    },
+    {
+      "index": 11,
+      "at": "2026-11-17T15:13:24.332Z",
+      "kind": "tool_call",
+      "summary": "get_erp_record(S-0026)",
+      "tool": "get_erp_record",
+      "input": {
+        "supplierId": "S-0026"
+      }
+    },
+    {
+      "index": 12,
+      "at": "2026-11-17T15:13:24.332Z",
+      "kind": "tool_result",
+      "summary": "get_erp_record: received",
+      "tool": "get_erp_record"
+    },
+    {
+      "index": 13,
+      "at": "2026-11-17T15:13:24.332Z",
+      "kind": "tool_call",
+      "summary": "get_rating(S-0021)",
+      "tool": "get_rating",
+      "input": {
+        "supplierId": "S-0021"
+      }
+    },
+    {
+      "index": 14,
+      "at": "2026-11-17T15:13:24.332Z",
+      "kind": "tool_result",
+      "summary": "get_rating: received",
+      "tool": "get_rating"
+    },
+    {
+      "index": 15,
+      "at": "2026-11-17T15:13:24.332Z",
+      "kind": "tool_call",
+      "summary": "get_rating(S-0022)",
+      "tool": "get_rating",
+      "input": {
+        "supplierId": "S-0022"
+      }
+    },
+    {
+      "index": 16,
+      "at": "2026-11-17T15:13:24.332Z",
+      "kind": "tool_result",
+      "summary": "get_rating: received",
+      "tool": "get_rating"
+    },
+    {
+      "index": 17,
+      "at": "2026-11-17T15:13:24.332Z",
+      "kind": "tool_call",
+      "summary": "get_rating(S-0024)",
+      "tool": "get_rating",
+      "input": {
+        "supplierId": "S-0024"
+      }
+    },
+    {
+      "index": 18,
+      "at": "2026-11-17T15:13:24.332Z",
+      "kind": "tool_result",
+      "summary": "get_rating: received",
+      "tool": "get_rating"
+    },
+    {
+      "index": 19,
+      "at": "2026-11-17T15:13:24.332Z",
+      "kind": "tool_call",
+      "summary": "get_rating(S-0025)",
+      "tool": "get_rating",
+      "input": {
+        "supplierId": "S-0025"
+      }
+    },
+    {
+      "index": 20,
+      "at": "2026-11-17T15:13:24.332Z",
+      "kind": "tool_result",
+      "summary": "get_rating: received",
+      "tool": "get_rating"
+    },
+    {
+      "index": 21,
+      "at": "2026-11-17T15:13:24.332Z",
+      "kind": "tool_call",
+      "summary": "get_rating(S-0026)",
+      "tool": "get_rating",
+      "input": {
+        "supplierId": "S-0026"
+      }
+    },
+    {
+      "index": 22,
+      "at": "2026-11-17T15:13:24.332Z",
+      "kind": "tool_result",
+      "summary": "get_rating: received",
+      "tool": "get_rating"
+    },
+    {
+      "index": 23,
+      "at": "2026-11-17T15:13:24.332Z",
+      "kind": "tool_call",
+      "summary": "get_pcf(S-0021, P-CU-WIRE-01)",
+      "tool": "get_pcf",
+      "input": {
+        "supplierId": "S-0021",
+        "partId": "P-CU-WIRE-01"
+      }
+    },
+    {
+      "index": 24,
+      "at": "2026-11-17T15:13:24.332Z",
+      "kind": "tool_result",
+      "summary": "get_pcf: received",
+      "tool": "get_pcf"
+    },
+    {
+      "index": 25,
+      "at": "2026-11-17T15:13:24.332Z",
+      "kind": "tool_call",
+      "summary": "get_pcf(S-0022, P-CU-WIRE-01)",
+      "tool": "get_pcf",
+      "input": {
+        "supplierId": "S-0022",
+        "partId": "P-CU-WIRE-01"
+      }
+    },
+    {
+      "index": 26,
+      "at": "2026-11-17T15:13:24.332Z",
+      "kind": "tool_result",
+      "summary": "get_pcf: received",
+      "tool": "get_pcf"
+    },
+    {
+      "index": 27,
+      "at": "2026-11-17T15:13:24.332Z",
+      "kind": "tool_call",
+      "summary": "get_pcf(P-CU-WIRE-01, S-0024)",
+      "tool": "get_pcf",
+      "input": {
+        "partId": "P-CU-WIRE-01",
+        "supplierId": "S-0024"
+      }
+    },
+    {
+      "index": 28,
+      "at": "2026-11-17T15:13:24.332Z",
+      "kind": "tool_result",
+      "summary": "get_pcf: received",
+      "tool": "get_pcf"
+    },
+    {
+      "index": 29,
+      "at": "2026-11-17T15:13:24.332Z",
+      "kind": "tool_call",
+      "summary": "get_pcf(S-0025, P-CU-WIRE-01)",
+      "tool": "get_pcf",
+      "input": {
+        "supplierId": "S-0025",
+        "partId": "P-CU-WIRE-01"
+      }
+    },
+    {
+      "index": 30,
+      "at": "2026-11-17T15:13:24.332Z",
+      "kind": "tool_result",
+      "summary": "get_pcf: received",
+      "tool": "get_pcf"
+    },
+    {
+      "index": 31,
+      "at": "2026-11-17T15:13:24.332Z",
+      "kind": "tool_call",
+      "summary": "get_pcf(P-CU-WIRE-01, S-0026)",
+      "tool": "get_pcf",
+      "input": {
+        "partId": "P-CU-WIRE-01",
+        "supplierId": "S-0026"
+      }
+    },
+    {
+      "index": 32,
+      "at": "2026-11-17T15:13:24.332Z",
+      "kind": "tool_result",
+      "summary": "get_pcf: received",
+      "tool": "get_pcf"
+    },
+    {
+      "index": 33,
+      "at": "2026-11-17T15:13:24.332Z",
+      "kind": "tool_call",
+      "summary": "list_documents(S-0021)",
+      "tool": "list_documents",
+      "input": {
+        "supplierId": "S-0021"
+      }
+    },
+    {
+      "index": 34,
+      "at": "2026-11-17T15:13:24.333Z",
+      "kind": "tool_result",
+      "summary": "list_documents: received",
+      "tool": "list_documents"
+    },
+    {
+      "index": 35,
+      "at": "2026-11-17T15:13:24.333Z",
+      "kind": "tool_call",
+      "summary": "list_documents(S-0022)",
+      "tool": "list_documents",
+      "input": {
+        "supplierId": "S-0022"
+      }
+    },
+    {
+      "index": 36,
+      "at": "2026-11-17T15:13:24.333Z",
+      "kind": "tool_result",
+      "summary": "list_documents: received",
+      "tool": "list_documents"
+    },
+    {
+      "index": 37,
+      "at": "2026-11-17T15:13:24.333Z",
+      "kind": "tool_call",
+      "summary": "list_documents(S-0024)",
+      "tool": "list_documents",
+      "input": {
+        "supplierId": "S-0024"
+      }
+    },
+    {
+      "index": 38,
+      "at": "2026-11-17T15:13:24.333Z",
+      "kind": "tool_result",
+      "summary": "list_documents: received",
+      "tool": "list_documents"
+    },
+    {
+      "index": 39,
+      "at": "2026-11-17T15:13:24.333Z",
+      "kind": "tool_call",
+      "summary": "list_documents(S-0025)",
+      "tool": "list_documents",
+      "input": {
+        "supplierId": "S-0025"
+      }
+    },
+    {
+      "index": 40,
+      "at": "2026-11-17T15:13:24.333Z",
+      "kind": "tool_result",
+      "summary": "list_documents: received",
+      "tool": "list_documents"
+    },
+    {
+      "index": 41,
+      "at": "2026-11-17T15:13:24.333Z",
+      "kind": "tool_call",
+      "summary": "list_documents(S-0026)",
+      "tool": "list_documents",
+      "input": {
+        "supplierId": "S-0026"
+      }
+    },
+    {
+      "index": 42,
+      "at": "2026-11-17T15:13:24.333Z",
+      "kind": "tool_result",
+      "summary": "list_documents: received",
+      "tool": "list_documents"
+    },
+    {
+      "index": 43,
+      "at": "2026-11-17T15:14:08.855Z",
+      "kind": "model",
+      "summary": "Model asks for read_document, read_document, read_document, read_document, read_document"
+    },
+    {
+      "index": 44,
+      "at": "2026-11-17T15:14:08.855Z",
+      "kind": "tool_call",
+      "summary": "read_document(DOC-OFFER-S-0021-P-CU-WIRE-01)",
+      "tool": "read_document",
+      "input": {
+        "documentId": "DOC-OFFER-S-0021-P-CU-WIRE-01"
+      }
+    },
+    {
+      "index": 45,
+      "at": "2026-11-17T15:14:08.855Z",
+      "kind": "tool_result",
+      "summary": "read_document: received",
+      "tool": "read_document"
+    },
+    {
+      "index": 46,
+      "at": "2026-11-17T15:14:08.855Z",
+      "kind": "tool_call",
+      "summary": "read_document(DOC-OFFER-S-0022-P-CU-WIRE-01)",
+      "tool": "read_document",
+      "input": {
+        "documentId": "DOC-OFFER-S-0022-P-CU-WIRE-01"
+      }
+    },
+    {
+      "index": 47,
+      "at": "2026-11-17T15:14:08.855Z",
+      "kind": "tool_result",
+      "summary": "read_document: received",
+      "tool": "read_document"
+    },
+    {
+      "index": 48,
+      "at": "2026-11-17T15:14:08.855Z",
+      "kind": "tool_call",
+      "summary": "read_document(DOC-OFFER-S-0024-P-CU-WIRE-01)",
+      "tool": "read_document",
+      "input": {
+        "documentId": "DOC-OFFER-S-0024-P-CU-WIRE-01"
+      }
+    },
+    {
+      "index": 49,
+      "at": "2026-11-17T15:14:08.855Z",
+      "kind": "tool_result",
+      "summary": "read_document: received",
+      "tool": "read_document"
+    },
+    {
+      "index": 50,
+      "at": "2026-11-17T15:14:08.855Z",
+      "kind": "tool_call",
+      "summary": "read_document(DOC-OFFER-S-0025-P-CU-WIRE-01)",
+      "tool": "read_document",
+      "input": {
+        "documentId": "DOC-OFFER-S-0025-P-CU-WIRE-01"
+      }
+    },
+    {
+      "index": 51,
+      "at": "2026-11-17T15:14:08.855Z",
+      "kind": "tool_result",
+      "summary": "read_document: received",
+      "tool": "read_document"
+    },
+    {
+      "index": 52,
+      "at": "2026-11-17T15:14:08.855Z",
+      "kind": "tool_call",
+      "summary": "read_document(DOC-OFFER-S-0026-P-CU-WIRE-01)",
+      "tool": "read_document",
+      "input": {
+        "documentId": "DOC-OFFER-S-0026-P-CU-WIRE-01"
+      }
+    },
+    {
+      "index": 53,
+      "at": "2026-11-17T15:14:08.855Z",
+      "kind": "tool_result",
+      "summary": "read_document: received",
+      "tool": "read_document"
+    },
+    {
+      "index": 54,
+      "at": "2026-11-17T15:14:23.107Z",
+      "kind": "model",
+      "summary": "Model asks for submit_evidence"
+    },
+    {
+      "index": 55,
+      "at": "2026-11-17T15:14:23.107Z",
+      "kind": "tool_call",
+      "summary": "Agent submits its evidence",
+      "tool": "submit_evidence"
+    },
+    {
+      "index": 56,
+      "at": "2026-11-17T15:14:23.108Z",
+      "kind": "tool_result",
+      "summary": "10 pieces of evidence, 29 gaps",
+      "tool": "submit_evidence"
+    },
+    {
+      "index": 57,
+      "at": "2026-11-17T15:14:23.115Z",
+      "kind": "check",
+      "summary": "Evidence check: 10 verified, 0 not verified"
+    }
+  ],
+  "evidence": [
+    {
+      "evidenceId": "a6851a62-b11c-468d-a0e9-aac88c2c4dfe",
+      "supplierId": "S-0021",
+      "topic": "price",
+      "value": 63.24,
+      "unit": "EUR/piece",
+      "sentence": "The unit price is EUR 63.24 per piece.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0021-P-CU-WIRE-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Unit price: EUR 63.24 per piece"
+      },
+      "retrievedAt": "2026-11-17T15:14:08.855Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-10-18",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "25fbc642-33f7-48bf-b4e3-7e3de7301998",
+      "supplierId": "S-0021",
+      "topic": "leadTime",
+      "value": 15,
+      "unit": "days",
+      "sentence": "The lead time is 15 days.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0021-P-CU-WIRE-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Lead time: 15 days"
+      },
+      "retrievedAt": "2026-11-17T15:14:08.855Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-10-18",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "8e7f5620-525b-48cd-a352-1e3d498f5496",
+      "supplierId": "S-0022",
+      "topic": "price",
+      "value": 64.48,
+      "unit": "EUR/piece",
+      "sentence": "The unit price is EUR 64.48 per piece.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0022-P-CU-WIRE-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Unit price: EUR 64.48 per piece"
+      },
+      "retrievedAt": "2026-11-17T15:14:08.855Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-10-21",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "a37d7593-6415-430e-9118-7380d9fe170e",
+      "supplierId": "S-0022",
+      "topic": "leadTime",
+      "value": 7,
+      "unit": "days",
+      "sentence": "The lead time is 7 days.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0022-P-CU-WIRE-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Lead time: 7 days"
+      },
+      "retrievedAt": "2026-11-17T15:14:08.855Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-10-21",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "09137002-01b1-4d22-bd64-5073015a4e22",
+      "supplierId": "S-0024",
+      "topic": "price",
+      "value": 60.76,
+      "unit": "EUR/piece",
+      "sentence": "The unit price is EUR 60.76 per piece.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0024-P-CU-WIRE-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Unit price: EUR 60.76 per piece"
+      },
+      "retrievedAt": "2026-11-17T15:14:08.855Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-10-27",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "53fa2b5e-bc00-40a8-89f4-3ae29202d75f",
+      "supplierId": "S-0024",
+      "topic": "leadTime",
+      "value": 11,
+      "unit": "days",
+      "sentence": "The lead time is 11 days.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0024-P-CU-WIRE-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Lead time: 11 days"
+      },
+      "retrievedAt": "2026-11-17T15:14:08.855Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-10-27",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "293166a9-6f73-4a57-8c9c-86a26c4d8165",
+      "supplierId": "S-0025",
+      "topic": "price",
+      "value": 48.36,
+      "unit": "EUR/piece",
+      "sentence": "The unit price is EUR 48.36 per piece.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0025-P-CU-WIRE-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Unit price: EUR 48.36 per piece"
+      },
+      "retrievedAt": "2026-11-17T15:14:08.855Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-10-10",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "131c4420-5819-4ddb-939b-244adaace108",
+      "supplierId": "S-0025",
+      "topic": "leadTime",
+      "value": 60,
+      "unit": "days",
+      "sentence": "The lead time is 60 days.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0025-P-CU-WIRE-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Lead time: 60 days"
+      },
+      "retrievedAt": "2026-11-17T15:14:08.855Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-10-10",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "20d0b176-0e17-43d8-a04c-e859a6095b35",
+      "supplierId": "S-0026",
+      "topic": "price",
+      "value": 60.76,
+      "unit": "EUR/piece",
+      "sentence": "The unit price is EUR 60.76 per piece.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0026-P-CU-WIRE-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Unit price: EUR 60.76 per piece"
+      },
+      "retrievedAt": "2026-11-17T15:14:08.855Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-10-14",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "396d6399-129f-4946-abd1-e89ed11f4670",
+      "supplierId": "S-0026",
+      "topic": "leadTime",
+      "value": 17,
+      "unit": "days",
+      "sentence": "The lead time is 17 days.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0026-P-CU-WIRE-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Lead time: 17 days"
+      },
+      "retrievedAt": "2026-11-17T15:14:08.855Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-10-14",
+      "sourceBadge": null,
+      "socialAudit": null
+    }
+  ],
+  "gaps": [
+    {
+      "supplierId": "S-0021",
+      "topic": "quality",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0021",
+      "topic": "delivery",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0021",
+      "topic": "co2",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0021",
+      "topic": "compliance",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0021",
+      "topic": "compliance",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0022",
+      "topic": "quality",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0022",
+      "topic": "delivery",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0022",
+      "topic": "co2",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0022",
+      "topic": "compliance",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0022",
+      "topic": "compliance",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0024",
+      "topic": "quality",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0024",
+      "topic": "delivery",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0024",
+      "topic": "co2",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0024",
+      "topic": "compliance",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0024",
+      "topic": "compliance",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0025",
+      "topic": "quality",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0025",
+      "topic": "delivery",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0025",
+      "topic": "co2",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0025",
+      "topic": "compliance",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0025",
+      "topic": "compliance",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0026",
+      "topic": "quality",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0026",
+      "topic": "delivery",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0026",
+      "topic": "delivery",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0026",
+      "topic": "compliance",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0026",
+      "topic": "compliance",
+      "reason": "Agent evidence rejected: no field or page and quote given"
+    },
+    {
+      "supplierId": "S-0025",
+      "topic": "quality",
+      "reason": "Complaint rate is not tracked in ERP for quote-only suppliers."
+    },
+    {
+      "supplierId": "S-0025",
+      "topic": "delivery",
+      "reason": "On-time delivery rate is not tracked in ERP for quote-only suppliers."
+    },
+    {
+      "supplierId": "S-0026",
+      "topic": "quality",
+      "reason": "Complaint rate is not tracked in ERP for quote-only suppliers."
+    },
+    {
+      "supplierId": "S-0026",
+      "topic": "delivery",
+      "reason": "On-time delivery rate is not tracked in ERP for quote-only suppliers."
+    }
+  ],
+  "error": null
+}
