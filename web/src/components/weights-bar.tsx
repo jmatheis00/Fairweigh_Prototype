@@ -129,4 +129,4 @@ export function WeightsPanel({ weights, defaults = DEFAULT_WEIGHTS, onChange, se
 }
 
 /** Tooltip text next to the weights panel title. */
-export const WEIGHTS_TIP = `Company default per commodity group; you may set each weight between ${WEIGHT_MIN} % and ${WEIGHT_MAX} % (shaded band on the shared 0–60 % scale). Changes need a justification when you decide.`;
+export const WEIGHTS_TIP = `Company default per commodity group. Each weight can be set between ${WEIGHT_MIN} % and ${WEIGHT_MAX} % (the darker part of the slider). Any change to the default needs a justification in step 4 (Decide).`;
