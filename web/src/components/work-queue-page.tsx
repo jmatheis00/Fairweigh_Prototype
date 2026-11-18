@@ -1,9 +1,19 @@
 "use client";
 
-import { AimOutlined, CheckCircleOutlined, ClockCircleOutlined, PlayCircleOutlined, SyncOutlined } from "@ant-design/icons";
-import { Alert, Button, Card, Empty, Flex, Progress, Table, Tag, Tooltip, Typography } from "antd";
-import { formatDay, type TargetRow, type DecisionRecord, type QueueEntry, type RequisitionStatus } from "@scc/shared";
-import type { ReactNode } from "react";
+import { AimOutlined, CheckCircleOutlined, ClockCircleOutlined, DeleteOutlined, EditOutlined, PlayCircleOutlined, PlusOutlined, SyncOutlined } from "@ant-design/icons";
+import { Alert, Button, Card, Empty, Flex, Popconfirm, Progress, Table, Tag, Tooltip, Typography } from "antd";
+import {
+  formatDay,
+  type CatalogPart,
+  type DecisionRecord,
+  type ManualRequisitionInput,
+  type PurchaseRequisitionRecord,
+  type QueueEntry,
+  type RequisitionStatus,
+  type TargetRow,
+} from "@scc/shared";
+import { useState, type ReactNode } from "react";
+import { NewRequisitionPanel } from "./new-requisition-panel";
 import { formatDateTime, formatNumber } from "@/lib/labels";
 import { useIsPhone } from "@/lib/use-phone";
 import { InfoTip } from "./info-tip";
@@ -15,6 +25,10 @@ interface Props {
   progress: (TargetRow & { year: number }) | null;
   supplierNames: Record<string, string>;
   onStart: (entry: QueueEntry) => void;
+  /** Parts the buyer can add a requisition for by hand (only those with offers are offered). */
+  catalog: CatalogPart[];
+  onAddManual: (input: ManualRequisitionInput) => PurchaseRequisitionRecord | null;
+  onRemoveManual: (recordId: string) => void;
   onResume: (entry: QueueEntry) => void;
   onOpenDecision: (record: DecisionRecord) => void;
   canRun: boolean;
@@ -38,7 +52,20 @@ export function StatusWord({ status }: { status: RequisitionStatus }) {
 const daysUntil = (iso: string) => Math.round((new Date(iso).getTime() - Date.now()) / 86_400_000);
 
 /** Start page of the buyer (expert interviews, 10 Nov 2026): what needs to be done, then the CO₂ target. */
-export function WorkQueuePage({ queue, progress, supplierNames, onStart, onResume, onOpenDecision, canRun, userName }: Props) {
+export function WorkQueuePage({
+  queue,
+  progress,
+  supplierNames,
+  onStart,
+  catalog,
+  onAddManual,
+  onRemoveManual,
+  onResume,
+  onOpenDecision,
+  canRun,
+  userName,
+}: Props) {
+  const [adding, setAdding] = useState(false);
   const open = queue.filter((e) => e.status === "open");
   const started = queue.filter((e) => e.status === "in progress");
   const done = queue.filter((e) => e.status === "decided");
@@ -47,7 +74,16 @@ export function WorkQueuePage({ queue, progress, supplierNames, onStart, onResum
 
   const material = (e: QueueEntry) => (
     <Flex vertical>
-      <Typography.Text strong>{e.requisition.partName}</Typography.Text>
+      <span>
+        <Typography.Text strong>{e.requisition.partName}</Typography.Text>
+        {e.requisition.origin === "manual" && (
+          <Tooltip title="Added by hand in Fairweigh, not from the ERP">
+            <Tag icon={<EditOutlined />} style={{ marginInlineStart: 8 }}>
+              Manual
+            </Tag>
+          </Tooltip>
+        )}
+      </span>
       <Typography.Text type="secondary" style={{ fontSize: 12 }}>
         {e.requisition.recordId} · {e.requisition.requestedBy}
       </Typography.Text>
@@ -64,6 +100,34 @@ export function WorkQueuePage({ queue, progress, supplierNames, onStart, onResum
       </Flex>
     );
   };
+
+  // Manual requisitions that were not started yet can be removed again (18 Nov 2026).
+  const removeButton = (e: QueueEntry) =>
+    e.requisition.origin === "manual" && (
+      <Popconfirm
+        title="Remove this manual requisition?"
+        okText="Remove"
+        cancelText="Keep"
+        onConfirm={() => onRemoveManual(e.requisition.recordId)}
+      >
+        <Button size="small" type="text" icon={<DeleteOutlined />} aria-label={`Remove ${e.requisition.recordId}`} />
+      </Popconfirm>
+    );
+  const startButton = (e: QueueEntry) => (
+    <Flex gap={4} justify="end">
+      {removeButton(e)}
+      <Button
+        type="primary"
+        size="small"
+        icon={<PlayCircleOutlined />}
+        disabled={!canRun}
+        onClick={() => onStart(e)}
+        aria-label={`Start ${e.requisition.partName}`}
+      >
+        Start
+      </Button>
+    </Flex>
+  );
 
   // Phones: one card per requisition instead of a wide table (10 Nov 2026).
   const phoneList = (entries: QueueEntry[], action: (e: QueueEntry) => ReactNode, empty: string, extra?: (e: QueueEntry) => ReactNode) =>
@@ -100,7 +164,7 @@ export function WorkQueuePage({ queue, progress, supplierNames, onStart, onResum
       <PageHeader
         title={`Good to see you, ${userName}. ${open.length === 0 ? "Nothing open today." : `${open.length} purchase requisition${open.length === 1 ? "" : "s"} to procure.`}`}
         subtitle="Start a requisition: Fairweigh guides you from the requirement to the recorded decision."
-        source="Purchase requisitions from the client ERP"
+        source={queue.some((e) => e.requisition.origin === "manual") ? "Purchase requisitions from the client ERP and added manually" : "Purchase requisitions from the client ERP"}
       />
       {!canRun && (
         <Alert type="info" showIcon title="View only: in this demo only the category manager starts purchase processes." />
@@ -110,6 +174,13 @@ export function WorkQueuePage({ queue, progress, supplierNames, onStart, onResum
         <Card
           className="dash-card"
           size="small"
+          extra={
+            <Tooltip title={canRun ? "Add a requisition that is not in the ERP yet" : "Only the category manager adds requisitions"}>
+              <Button size="small" icon={<PlusOutlined />} disabled={!canRun} onClick={() => setAdding(true)}>
+                New requisition
+              </Button>
+            </Tooltip>
+          }
           title={
             <span>
               To procure ({open.length}){" "}
@@ -122,11 +193,7 @@ export function WorkQueuePage({ queue, progress, supplierNames, onStart, onResum
           styles={{ body: { padding: 0 } }}
         >
           {isPhone ? (
-            phoneList(open, (e) => (
-                <Button type="primary" size="small" icon={<PlayCircleOutlined />} disabled={!canRun} onClick={() => onStart(e)}>
-                  Start
-                </Button>
-              ), "All requisitions are in progress or decided.")
+            phoneList(open, startButton, "All requisitions are in progress or decided.")
           ) : (
           <Table<QueueEntry>
             size="small"
@@ -145,24 +212,7 @@ export function WorkQueuePage({ queue, progress, supplierNames, onStart, onResum
                 render: (_, e) => `${e.requisition.quantity.toLocaleString("en-GB")} pcs`,
               },
               { title: "Required by", key: "date", width: 120, align: "right", render: (_, e) => needed(e) },
-              {
-                title: "",
-                key: "start",
-                width: 96,
-                align: "right",
-                render: (_, e) => (
-                  <Button
-                    type="primary"
-                    size="small"
-                    icon={<PlayCircleOutlined />}
-                    disabled={!canRun}
-                    onClick={() => onStart(e)}
-                    aria-label={`Start ${e.requisition.partName}`}
-                  >
-                    Start
-                  </Button>
-                ),
-              },
+              { title: "", key: "start", width: 120, align: "right", render: (_, e) => startButton(e) },
             ]}
           />
           )}
@@ -296,6 +346,13 @@ export function WorkQueuePage({ queue, progress, supplierNames, onStart, onResum
           )}
         </Card>
       </div>
+      <NewRequisitionPanel
+        open={adding}
+        onClose={() => setAdding(false)}
+        catalog={catalog}
+        plants={[...new Set(queue.map((e) => e.requisition.requestedBy))]}
+        onAdd={onAddManual}
+      />
     </Flex>
   );
 }
