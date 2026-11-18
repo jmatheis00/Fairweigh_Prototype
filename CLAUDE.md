@@ -40,6 +40,6 @@ Prototype by Team Scromen for the pitch on 20 Nov 2026. **Read `PLAN.md` first:*
 - AI only behind our own interface: Gemini and `FakeLlmProvider` for tests (Groq dropped, 16 Nov 2026).
 - Tests and local development use `FakeLlmProvider` by default, so no quota is used.
 - `FakeLlmProvider` is switched off in the online version and must never deliver the demo or the hit rate. The online version is the static preview on Cloudflare Pages, which replays recorded Gemini runs from `data/runs` as "Saved run from <date>" (16 Nov 2026, no Cloud Run).
-- The app always visibly shows the mode: "Live: <provider>" or "Saved run from <date>".
+- The app always shows the mode: "Live: <provider>" as a tag in the header; a saved run as "Saved run from <date>" in the help menu, in "About" and on the collect step next to the run (18 Nov 2026, quieter for the pitch).
 - Never commit secrets. Only `.env.example` with placeholders belongs in the repo.
 - Mandatory tests: decision engine and evidence check.
