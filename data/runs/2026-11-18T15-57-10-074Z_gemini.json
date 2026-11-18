@@ -548,7 +548,7 @@
       "topic": "quality",
       "value": 0.7,
       "unit": "%",
-      "sentence": "The complaint rate for Elbkupfer AG is 0.7%.",
+      "sentence": "The complaint rate for Elbe Copper AG is 0.7%.",
       "system": "erp",
       "recordId": "ERP-S-0021",
       "location": {
@@ -569,7 +569,7 @@
       "topic": "delivery",
       "value": 95,
       "unit": "%",
-      "sentence": "The on-time delivery rate for Elbkupfer AG is 95%.",
+      "sentence": "The on-time delivery rate for Elbe Copper AG is 95%.",
       "system": "erp",
       "recordId": "ERP-S-0021",
       "location": {
@@ -590,7 +590,7 @@
       "topic": "co2",
       "value": 10.9,
       "unit": "kg CO2e/piece",
-      "sentence": "The product carbon footprint for part P-CU-WIRE-01 from Elbkupfer AG is 10.9 kg CO2e per piece.",
+      "sentence": "The product carbon footprint for part P-CU-WIRE-01 from Elbe Copper AG is 10.9 kg CO2e per piece.",
       "system": "pcf",
       "recordId": "PCF-S-0021-P-CU-WIRE-01",
       "location": {
@@ -611,7 +611,7 @@
       "topic": "price",
       "value": 63.24,
       "unit": "EUR/piece",
-      "sentence": "The unit price offered by Elbkupfer AG is 63.24 EUR per piece.",
+      "sentence": "The unit price offered by Elbe Copper AG is 63.24 EUR per piece.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0021-P-CU-WIRE-01",
       "location": {
@@ -633,7 +633,7 @@
       "topic": "leadTime",
       "value": 15,
       "unit": "days",
-      "sentence": "The lead time offered by Elbkupfer AG is 15 days.",
+      "sentence": "The lead time offered by Elbe Copper AG is 15 days.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0021-P-CU-WIRE-01",
       "location": {
@@ -655,7 +655,7 @@
       "topic": "compliance",
       "value": "Low; Controversies: None known",
       "unit": "",
-      "sentence": "The LkSG country risk for Elbkupfer AG is Low and there are no known controversies.",
+      "sentence": "The LkSG country risk for Elbe Copper AG is Low and there are no known controversies.",
       "system": "ratings",
       "recordId": "RAT-S-0021",
       "location": {
@@ -678,7 +678,7 @@
       "topic": "quality",
       "value": 0.3,
       "unit": "%",
-      "sentence": "The complaint rate for Elektrisolar Drahtwerk GmbH is 0.3%.",
+      "sentence": "The complaint rate for Elektrisolar Wire Works GmbH is 0.3%.",
       "system": "erp",
       "recordId": "ERP-S-0022",
       "location": {
@@ -699,7 +699,7 @@
       "topic": "delivery",
       "value": 88,
       "unit": "%",
-      "sentence": "The on-time delivery rate for Elektrisolar Drahtwerk GmbH is 88%.",
+      "sentence": "The on-time delivery rate for Elektrisolar Wire Works GmbH is 88%.",
       "system": "erp",
       "recordId": "ERP-S-0022",
       "location": {
@@ -720,7 +720,7 @@
       "topic": "co2",
       "value": 22.4,
       "unit": "kg CO2e/piece",
-      "sentence": "The product carbon footprint for part P-CU-WIRE-01 from Elektrisolar Drahtwerk GmbH is 22.4 kg CO2e per piece.",
+      "sentence": "The product carbon footprint for part P-CU-WIRE-01 from Elektrisolar Wire Works GmbH is 22.4 kg CO2e per piece.",
       "system": "pcf",
       "recordId": "PCF-S-0022-P-CU-WIRE-01",
       "location": {
@@ -741,7 +741,7 @@
       "topic": "price",
       "value": 64.48,
       "unit": "EUR/piece",
-      "sentence": "The unit price offered by Elektrisolar Drahtwerk GmbH is 64.48 EUR per piece.",
+      "sentence": "The unit price offered by Elektrisolar Wire Works GmbH is 64.48 EUR per piece.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0022-P-CU-WIRE-01",
       "location": {
@@ -763,7 +763,7 @@
       "topic": "leadTime",
       "value": 7,
       "unit": "days",
-      "sentence": "The lead time offered by Elektrisolar Drahtwerk GmbH is 7 days.",
+      "sentence": "The lead time offered by Elektrisolar Wire Works GmbH is 7 days.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0022-P-CU-WIRE-01",
       "location": {
@@ -785,7 +785,7 @@
       "topic": "compliance",
       "value": "Low; Controversies: None known",
       "unit": "",
-      "sentence": "The LkSG country risk for Elektrisolar Drahtwerk GmbH is Low and there are no known controversies.",
+      "sentence": "The LkSG country risk for Elektrisolar Wire Works GmbH is Low and there are no known controversies.",
       "system": "ratings",
       "recordId": "RAT-S-0022",
       "location": {
@@ -808,7 +808,7 @@
       "topic": "quality",
       "value": 0.4,
       "unit": "%",
-      "sentence": "The complaint rate for Kupferwerk Mansfeld Muster GmbH is 0.4%.",
+      "sentence": "The complaint rate for Mansfeld Muster Copper Works GmbH is 0.4%.",
       "system": "erp",
       "recordId": "ERP-S-0024",
       "location": {
@@ -829,7 +829,7 @@
       "topic": "delivery",
       "value": 96,
       "unit": "%",
-      "sentence": "The on-time delivery rate for Kupferwerk Mansfeld Muster GmbH is 96%.",
+      "sentence": "The on-time delivery rate for Mansfeld Muster Copper Works GmbH is 96%.",
       "system": "erp",
       "recordId": "ERP-S-0024",
       "location": {
@@ -850,7 +850,7 @@
       "topic": "co2",
       "value": 21.1,
       "unit": "kg CO2e/piece",
-      "sentence": "The product carbon footprint for part P-CU-WIRE-01 from Kupferwerk Mansfeld Muster GmbH is 21.1 kg CO2e per piece.",
+      "sentence": "The product carbon footprint for part P-CU-WIRE-01 from Mansfeld Muster Copper Works GmbH is 21.1 kg CO2e per piece.",
       "system": "pcf",
       "recordId": "PCF-S-0024-P-CU-WIRE-01",
       "location": {
@@ -871,7 +871,7 @@
       "topic": "price",
       "value": 60.76,
       "unit": "EUR/piece",
-      "sentence": "The unit price offered by Kupferwerk Mansfeld Muster GmbH is 60.76 EUR per piece.",
+      "sentence": "The unit price offered by Mansfeld Muster Copper Works GmbH is 60.76 EUR per piece.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0024-P-CU-WIRE-01",
       "location": {
@@ -893,7 +893,7 @@
       "topic": "leadTime",
       "value": 11,
       "unit": "days",
-      "sentence": "The lead time offered by Kupferwerk Mansfeld Muster GmbH is 11 days.",
+      "sentence": "The lead time offered by Mansfeld Muster Copper Works GmbH is 11 days.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0024-P-CU-WIRE-01",
       "location": {
@@ -915,7 +915,7 @@
       "topic": "compliance",
       "value": "Low; Controversies: None known",
       "unit": "",
-      "sentence": "The LkSG country risk for Kupferwerk Mansfeld Muster GmbH is Low and there are no known controversies.",
+      "sentence": "The LkSG country risk for Mansfeld Muster Copper Works GmbH is Low and there are no known controversies.",
       "system": "ratings",
       "recordId": "RAT-S-0024",
       "location": {

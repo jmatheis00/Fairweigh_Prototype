@@ -1,6 +1,6 @@
 {
   "notice": "Generated from data/sources by scripts/build-hit-rate-set.mjs. Demo data, fictitious.",
-  "builtAt": "2026-11-16",
+  "builtAt": "2026-11-18",
   "parts": [
     {
       "partId": "P-ALU-HSG-01",

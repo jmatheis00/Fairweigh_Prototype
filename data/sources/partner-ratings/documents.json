@@ -17,7 +17,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Mustermann Stahlguss GmbH",
+      "title": "Sustainability scorecard, Mustermann Steel Castings GmbH",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0001.pdf",
       "heldBy": "ratings",
       "issuedOn": "2026-10-28",
@@ -26,7 +26,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Mustermann Stahlguss GmbH, supplier ID S-0001",
+            "Company: Mustermann Steel Castings GmbH, supplier ID S-0001",
             "Assessment date: 28 Oct 2026",
             "Overall score: 62 / 100",
             "LkSG country risk: Low",
@@ -53,7 +53,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Ruhrtal Stahlwerke AG",
+      "title": "Sustainability scorecard, Ruhr Valley Steelworks AG",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0002.pdf",
       "heldBy": "ratings",
       "issuedOn": "2026-09-11",
@@ -62,7 +62,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Ruhrtal Stahlwerke AG, supplier ID S-0002",
+            "Company: Ruhr Valley Steelworks AG, supplier ID S-0002",
             "Assessment date: 11 Sept 2026",
             "Overall score: 58 / 100",
             "LkSG country risk: Low",
@@ -89,7 +89,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Harzland Flachstahl GmbH",
+      "title": "Sustainability scorecard, Harzland Flat Steel GmbH",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0003.pdf",
       "heldBy": "ratings",
       "issuedOn": "2025-01-28",
@@ -98,7 +98,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Harzland Flachstahl GmbH, supplier ID S-0003",
+            "Company: Harzland Flat Steel GmbH, supplier ID S-0003",
             "Assessment date: 28 Jan 2025",
             "Overall score: 73 / 100",
             "LkSG country risk: Low",
@@ -233,7 +233,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Donautal Stahl GmbH",
+      "title": "Sustainability scorecard, Danube Valley Steel GmbH",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0007.pdf",
       "heldBy": "ratings",
       "issuedOn": "2026-06-26",
@@ -242,7 +242,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Donautal Stahl GmbH, supplier ID S-0007",
+            "Company: Danube Valley Steel GmbH, supplier ID S-0007",
             "Assessment date: 26 Jun 2026",
             "Overall score: 65 / 100",
             "LkSG country risk: Low",
@@ -451,7 +451,7 @@
         ]
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Alucast Schwaben GmbH",
+      "title": "Sustainability scorecard, Alucast Swabia GmbH",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0013.pdf",
       "heldBy": "ratings",
       "issuedOn": "2026-02-04",
@@ -460,7 +460,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Alucast Schwaben GmbH, supplier ID S-0013",
+            "Company: Alucast Swabia GmbH, supplier ID S-0013",
             "Assessment date: 4 Feb 2026",
             "Overall score: 47 / 100",
             "LkSG country risk: Low",
@@ -523,7 +523,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Alu-Druckguss Erzgebirge GmbH",
+      "title": "Sustainability scorecard, Ore Mountains Die Casting GmbH",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0015.pdf",
       "heldBy": "ratings",
       "issuedOn": "2025-09-08",
@@ -532,7 +532,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Alu-Druckguss Erzgebirge GmbH, supplier ID S-0015",
+            "Company: Ore Mountains Die Casting GmbH, supplier ID S-0015",
             "Assessment date: 8 Sept 2025",
             "Overall score: 52 / 100",
             "LkSG country risk: Low",
@@ -559,7 +559,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Rheinwalz Aluminium GmbH",
+      "title": "Sustainability scorecard, Rhine Rolling Aluminium GmbH",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0016.pdf",
       "heldBy": "ratings",
       "issuedOn": "2024-05-28",
@@ -568,7 +568,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Rheinwalz Aluminium GmbH, supplier ID S-0016",
+            "Company: Rhine Rolling Aluminium GmbH, supplier ID S-0016",
             "Assessment date: 28 May 2024",
             "Overall score: 68 / 100",
             "LkSG country risk: Low",
@@ -595,7 +595,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Leichtmetallwerk Muster GmbH",
+      "title": "Sustainability scorecard, Muster Light Metal Works GmbH",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0017.pdf",
       "heldBy": "ratings",
       "issuedOn": "2026-05-06",
@@ -604,7 +604,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Leichtmetallwerk Muster GmbH, supplier ID S-0017",
+            "Company: Muster Light Metal Works GmbH, supplier ID S-0017",
             "Assessment date: 6 May 2026",
             "Overall score: 53 / 100",
             "LkSG country risk: Low",
@@ -739,7 +739,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Elbkupfer AG",
+      "title": "Sustainability scorecard, Elbe Copper AG",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0021.pdf",
       "heldBy": "ratings",
       "issuedOn": "2025-07-17",
@@ -748,7 +748,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Elbkupfer AG, supplier ID S-0021",
+            "Company: Elbe Copper AG, supplier ID S-0021",
             "Assessment date: 17 Jul 2025",
             "Overall score: 65 / 100",
             "LkSG country risk: Low",
@@ -775,7 +775,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Elektrisolar Drahtwerk GmbH",
+      "title": "Sustainability scorecard, Elektrisolar Wire Works GmbH",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0022.pdf",
       "heldBy": "ratings",
       "issuedOn": "2025-02-09",
@@ -784,7 +784,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Elektrisolar Drahtwerk GmbH, supplier ID S-0022",
+            "Company: Elektrisolar Wire Works GmbH, supplier ID S-0022",
             "Assessment date: 9 Feb 2025",
             "Overall score: 57 / 100",
             "LkSG country risk: Low",
@@ -811,7 +811,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Nordwick Magnetdraht GmbH",
+      "title": "Sustainability scorecard, Nordwick Magnet Wire GmbH",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0023.pdf",
       "heldBy": "ratings",
       "issuedOn": "2025-03-13",
@@ -820,7 +820,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Nordwick Magnetdraht GmbH, supplier ID S-0023",
+            "Company: Nordwick Magnet Wire GmbH, supplier ID S-0023",
             "Assessment date: 13 Mar 2025",
             "Overall score: 53 / 100",
             "LkSG country risk: Low",
@@ -847,7 +847,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Kupferwerk Mansfeld Muster GmbH",
+      "title": "Sustainability scorecard, Mansfeld Muster Copper Works GmbH",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0024.pdf",
       "heldBy": "ratings",
       "issuedOn": "2025-10-19",
@@ -856,7 +856,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Kupferwerk Mansfeld Muster GmbH, supplier ID S-0024",
+            "Company: Mansfeld Muster Copper Works GmbH, supplier ID S-0024",
             "Assessment date: 19 Oct 2025",
             "Overall score: 54 / 100",
             "LkSG country risk: Low",
@@ -955,7 +955,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Kupferhütte Saale GmbH",
+      "title": "Sustainability scorecard, Saale Copper Smelter GmbH",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0028.pdf",
       "heldBy": "ratings",
       "issuedOn": "2022-11-22",
@@ -964,7 +964,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Kupferhütte Saale GmbH, supplier ID S-0028",
+            "Company: Saale Copper Smelter GmbH, supplier ID S-0028",
             "Assessment date: 22 Nov 2022",
             "Overall score: 61 / 100",
             "LkSG country risk: Low",
@@ -1063,7 +1063,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Neckartal Elektronik GmbH",
+      "title": "Sustainability scorecard, Neckar Valley Electronics GmbH",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0032.pdf",
       "heldBy": "ratings",
       "issuedOn": "2025-01-20",
@@ -1072,7 +1072,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Neckartal Elektronik GmbH, supplier ID S-0032",
+            "Company: Neckar Valley Electronics GmbH, supplier ID S-0032",
             "Assessment date: 20 Jan 2025",
             "Overall score: 51 / 100",
             "LkSG country risk: Low",
@@ -1099,7 +1099,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Lippe Kontakttechnik GmbH & Co. KG",
+      "title": "Sustainability scorecard, Lippe Contact Technology GmbH & Co. KG",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0033.pdf",
       "heldBy": "ratings",
       "issuedOn": "2026-04-22",
@@ -1108,7 +1108,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Lippe Kontakttechnik GmbH & Co. KG, supplier ID S-0033",
+            "Company: Lippe Contact Technology GmbH & Co. KG, supplier ID S-0033",
             "Assessment date: 22 Apr 2026",
             "Overall score: 64 / 100",
             "LkSG country risk: Low",
@@ -1137,7 +1137,7 @@
         ]
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Hohenlohe Elektronik GmbH",
+      "title": "Sustainability scorecard, Hohenlohe Electronics GmbH",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0034.pdf",
       "heldBy": "ratings",
       "issuedOn": "2022-07-28",
@@ -1146,7 +1146,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Hohenlohe Elektronik GmbH, supplier ID S-0034",
+            "Company: Hohenlohe Electronics GmbH, supplier ID S-0034",
             "Assessment date: 28 Jul 2022",
             "Overall score: 48 / 100",
             "LkSG country risk: Low",
@@ -1317,7 +1317,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Max Mustermann Kabelkonfektion e.K.",
+      "title": "Sustainability scorecard, Max Mustermann Cable Assemblies e.K.",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0040.pdf",
       "heldBy": "ratings",
       "issuedOn": "2026-03-06",
@@ -1326,7 +1326,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Max Mustermann Kabelkonfektion e.K., supplier ID S-0040",
+            "Company: Max Mustermann Cable Assemblies e.K., supplier ID S-0040",
             "Assessment date: 6 Mar 2026",
             "Overall score: 46 / 100",
             "LkSG country risk: Low",
@@ -1353,7 +1353,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Frankenlager AG",
+      "title": "Sustainability scorecard, Franconia Bearings AG",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0041.pdf",
       "heldBy": "ratings",
       "issuedOn": "2026-01-25",
@@ -1362,7 +1362,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Frankenlager AG, supplier ID S-0041",
+            "Company: Franconia Bearings AG, supplier ID S-0041",
             "Assessment date: 25 Jan 2026",
             "Overall score: 73 / 100",
             "LkSG country risk: Low",
@@ -1425,7 +1425,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Rheinlager Europe GmbH",
+      "title": "Sustainability scorecard, Rhine Bearings Europe GmbH",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0043.pdf",
       "heldBy": "ratings",
       "issuedOn": "2025-01-20",
@@ -1434,7 +1434,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Rheinlager Europe GmbH, supplier ID S-0043",
+            "Company: Rhine Bearings Europe GmbH, supplier ID S-0043",
             "Assessment date: 20 Jan 2025",
             "Overall score: 59 / 100",
             "LkSG country risk: Low",
@@ -1535,7 +1535,7 @@
         ]
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Kugellager Schweinfurt Muster GmbH",
+      "title": "Sustainability scorecard, Schweinfurt Muster Ball Bearings GmbH",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0046.pdf",
       "heldBy": "ratings",
       "issuedOn": "2025-11-10",
@@ -1544,7 +1544,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Kugellager Schweinfurt Muster GmbH, supplier ID S-0046",
+            "Company: Schweinfurt Muster Ball Bearings GmbH, supplier ID S-0046",
             "Assessment date: 10 Nov 2025",
             "Overall score: 47 / 100",
             "LkSG country risk: Low",
@@ -1715,7 +1715,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Bergstraße Dichtungstechnik SE",
+      "title": "Sustainability scorecard, Bergstrasse Sealing Technology SE",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0051.pdf",
       "heldBy": "ratings",
       "issuedOn": "2025-12-06",
@@ -1724,7 +1724,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Bergstraße Dichtungstechnik SE, supplier ID S-0051",
+            "Company: Bergstrasse Sealing Technology SE, supplier ID S-0051",
             "Assessment date: 6 Dec 2025",
             "Overall score: 76 / 100",
             "LkSG country risk: Low",
@@ -1787,7 +1787,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Schwaben Dichtsysteme GmbH",
+      "title": "Sustainability scorecard, Swabia Sealing Systems GmbH",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0053.pdf",
       "heldBy": "ratings",
       "issuedOn": "2026-10-11",
@@ -1796,7 +1796,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Schwaben Dichtsysteme GmbH, supplier ID S-0053",
+            "Company: Swabia Sealing Systems GmbH, supplier ID S-0053",
             "Assessment date: 11 Oct 2026",
             "Overall score: 62 / 100",
             "LkSG country risk: Low",
@@ -1823,7 +1823,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Leinetal Elastomer AG",
+      "title": "Sustainability scorecard, Leine Valley Elastomers AG",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0054.pdf",
       "heldBy": "ratings",
       "issuedOn": "2022-06-11",
@@ -1832,7 +1832,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Leinetal Elastomer AG, supplier ID S-0054",
+            "Company: Leine Valley Elastomers AG, supplier ID S-0054",
             "Assessment date: 11 Jun 2022",
             "Overall score: 46 / 100",
             "LkSG country risk: Low",
@@ -1859,7 +1859,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Gummiwerk Musterhausen GmbH",
+      "title": "Sustainability scorecard, Musterhausen Rubber Works GmbH",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0055.pdf",
       "heldBy": "ratings",
       "issuedOn": "2026-08-25",
@@ -1868,7 +1868,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Gummiwerk Musterhausen GmbH, supplier ID S-0055",
+            "Company: Musterhausen Rubber Works GmbH, supplier ID S-0055",
             "Assessment date: 25 Aug 2026",
             "Overall score: 59 / 100",
             "LkSG country risk: Low",
@@ -2041,7 +2041,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Kocher Befestigungstechnik GmbH",
+      "title": "Sustainability scorecard, Kocher Fastening Technology GmbH",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0061.pdf",
       "heldBy": "ratings",
       "issuedOn": "2025-04-12",
@@ -2050,7 +2050,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Kocher Befestigungstechnik GmbH, supplier ID S-0061",
+            "Company: Kocher Fastening Technology GmbH, supplier ID S-0061",
             "Assessment date: 12 Apr 2025",
             "Overall score: 60 / 100",
             "LkSG country risk: Low",
@@ -2077,7 +2077,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Teutoburg Verbindungstechnik GmbH",
+      "title": "Sustainability scorecard, Teutoburg Joining Technology GmbH",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0062.pdf",
       "heldBy": "ratings",
       "issuedOn": "2025-09-07",
@@ -2086,7 +2086,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Teutoburg Verbindungstechnik GmbH, supplier ID S-0062",
+            "Company: Teutoburg Joining Technology GmbH, supplier ID S-0062",
             "Assessment date: 7 Sept 2025",
             "Overall score: 67 / 100",
             "LkSG country risk: Low",
@@ -2113,7 +2113,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Zugersee Fasteners AG",
+      "title": "Sustainability scorecard, Lake Zug Fasteners AG",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0063.pdf",
       "heldBy": "ratings",
       "issuedOn": "2024-01-06",
@@ -2122,7 +2122,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Zugersee Fasteners AG, supplier ID S-0063",
+            "Company: Lake Zug Fasteners AG, supplier ID S-0063",
             "Assessment date: 6 Jan 2024",
             "Overall score: 70 / 100",
             "LkSG country risk: Low",
@@ -2223,7 +2223,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Schraubenwerk Musterberg GmbH",
+      "title": "Sustainability scorecard, Musterberg Screw Works GmbH",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0066.pdf",
       "heldBy": "ratings",
       "issuedOn": "2026-10-29",
@@ -2232,7 +2232,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Schraubenwerk Musterberg GmbH, supplier ID S-0066",
+            "Company: Musterberg Screw Works GmbH, supplier ID S-0066",
             "Assessment date: 29 Oct 2026",
             "Overall score: 55 / 100",
             "LkSG country risk: Low",
@@ -2367,7 +2367,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Niederrhein Polymere AG",
+      "title": "Sustainability scorecard, Lower Rhine Polymers AG",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0071.pdf",
       "heldBy": "ratings",
       "issuedOn": "2025-04-27",
@@ -2376,7 +2376,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Niederrhein Polymere AG, supplier ID S-0071",
+            "Company: Lower Rhine Polymers AG, supplier ID S-0071",
             "Assessment date: 27 Apr 2025",
             "Overall score: 65 / 100",
             "LkSG country risk: Low",
@@ -2403,7 +2403,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Kurpfalz Performance Polymers SE",
+      "title": "Sustainability scorecard, Palatinate Performance Polymers SE",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0072.pdf",
       "heldBy": "ratings",
       "issuedOn": "2026-03-17",
@@ -2412,7 +2412,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Kurpfalz Performance Polymers SE, supplier ID S-0072",
+            "Company: Palatinate Performance Polymers SE, supplier ID S-0072",
             "Assessment date: 17 Mar 2026",
             "Overall score: 46 / 100",
             "LkSG country risk: Low",
@@ -2439,7 +2439,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Kunststofftechnik Mustermann GmbH",
+      "title": "Sustainability scorecard, Mustermann Plastics Technology GmbH",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0073.pdf",
       "heldBy": "ratings",
       "issuedOn": "2025-04-28",
@@ -2448,7 +2448,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Kunststofftechnik Mustermann GmbH, supplier ID S-0073",
+            "Company: Mustermann Plastics Technology GmbH, supplier ID S-0073",
             "Assessment date: 28 Apr 2025",
             "Overall score: 58 / 100",
             "LkSG country risk: Low",
@@ -2475,7 +2475,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Wupper Kunststoffe GmbH",
+      "title": "Sustainability scorecard, Wupper Plastics GmbH",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0074.pdf",
       "heldBy": "ratings",
       "issuedOn": "2023-11-27",
@@ -2484,7 +2484,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Wupper Kunststoffe GmbH, supplier ID S-0074",
+            "Company: Wupper Plastics GmbH, supplier ID S-0074",
             "Assessment date: 27 Nov 2023",
             "Overall score: 47 / 100",
             "LkSG country risk: Low",
@@ -2619,7 +2619,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Polymerwerk Bayern GmbH",
+      "title": "Sustainability scorecard, Bavaria Polymer Works GmbH",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0078.pdf",
       "heldBy": "ratings",
       "issuedOn": "2026-06-15",
@@ -2628,7 +2628,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Polymerwerk Bayern GmbH, supplier ID S-0078",
+            "Company: Bavaria Polymer Works GmbH, supplier ID S-0078",
             "Assessment date: 15 Jun 2026",
             "Overall score: 47 / 100",
             "LkSG country risk: Low",
@@ -2727,7 +2727,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Steiermark Paper Group AG",
+      "title": "Sustainability scorecard, Styria Paper Group AG",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0083.pdf",
       "heldBy": "ratings",
       "issuedOn": "2024-10-10",
@@ -2736,7 +2736,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Steiermark Paper Group AG, supplier ID S-0083",
+            "Company: Styria Paper Group AG, supplier ID S-0083",
             "Assessment date: 10 Oct 2024",
             "Overall score: 80 / 100",
             "LkSG country risk: Low",
@@ -2763,7 +2763,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Wellpappe Mustermann GmbH",
+      "title": "Sustainability scorecard, Mustermann Corrugated Board GmbH",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0084.pdf",
       "heldBy": "ratings",
       "issuedOn": "2026-03-01",
@@ -2772,7 +2772,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Wellpappe Mustermann GmbH, supplier ID S-0084",
+            "Company: Mustermann Corrugated Board GmbH, supplier ID S-0084",
             "Assessment date: 1 Mar 2026",
             "Overall score: 53 / 100",
             "LkSG country risk: Low",
@@ -2801,7 +2801,7 @@
         ]
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Holzpaletten Schwarzwald GmbH",
+      "title": "Sustainability scorecard, Black Forest Wood Pallets GmbH",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0085.pdf",
       "heldBy": "ratings",
       "issuedOn": "2025-12-14",
@@ -2810,7 +2810,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Holzpaletten Schwarzwald GmbH, supplier ID S-0085",
+            "Company: Black Forest Wood Pallets GmbH, supplier ID S-0085",
             "Assessment date: 14 Dec 2025",
             "Overall score: 64 / 100",
             "LkSG country risk: Low",
@@ -2837,7 +2837,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Stretchfolien Polska Sp. z o.o.",
+      "title": "Sustainability scorecard, Stretch Film Polska Sp. z o.o.",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0086.pdf",
       "heldBy": "ratings",
       "issuedOn": "2026-09-15",
@@ -2846,7 +2846,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Stretchfolien Polska Sp. z o.o., supplier ID S-0086",
+            "Company: Stretch Film Polska Sp. z o.o., supplier ID S-0086",
             "Assessment date: 15 Sept 2026",
             "Overall score: 18 / 100",
             "LkSG country risk: Low",
@@ -2911,7 +2911,7 @@
         ]
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Eurobox Logistikverpackung GmbH",
+      "title": "Sustainability scorecard, Eurobox Logistics Packaging GmbH",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0089.pdf",
       "heldBy": "ratings",
       "issuedOn": "2023-10-09",
@@ -2920,7 +2920,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Eurobox Logistikverpackung GmbH, supplier ID S-0089",
+            "Company: Eurobox Logistics Packaging GmbH, supplier ID S-0089",
             "Assessment date: 9 Oct 2023",
             "Overall score: 47 / 100",
             "LkSG country risk: Low",
@@ -3019,7 +3019,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Mainline Logistik AG",
+      "title": "Sustainability scorecard, Mainline Logistics AG",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0092.pdf",
       "heldBy": "ratings",
       "issuedOn": "2026-03-25",
@@ -3028,7 +3028,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Mainline Logistik AG, supplier ID S-0092",
+            "Company: Mainline Logistics AG, supplier ID S-0092",
             "Assessment date: 25 Mar 2026",
             "Overall score: 47 / 100",
             "LkSG country risk: Low",
@@ -3055,7 +3055,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Vierwaldstätter Logistik AG",
+      "title": "Sustainability scorecard, Lake Lucerne Logistics AG",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0093.pdf",
       "heldBy": "ratings",
       "issuedOn": "2024-06-06",
@@ -3064,7 +3064,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Vierwaldstätter Logistik AG, supplier ID S-0093",
+            "Company: Lake Lucerne Logistics AG, supplier ID S-0093",
             "Assessment date: 6 Jun 2024",
             "Overall score: 68 / 100",
             "LkSG country risk: Low",
@@ -3127,7 +3127,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Altmühl Spedition GmbH",
+      "title": "Sustainability scorecard, Altmühl Freight Forwarding GmbH",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0095.pdf",
       "heldBy": "ratings",
       "issuedOn": "2025-11-04",
@@ -3136,7 +3136,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Altmühl Spedition GmbH, supplier ID S-0095",
+            "Company: Altmühl Freight Forwarding GmbH, supplier ID S-0095",
             "Assessment date: 4 Nov 2025",
             "Overall score: 78 / 100",
             "LkSG country risk: Low",
@@ -3199,7 +3199,7 @@
         "assumedFields": []
       },
       "documentType": "rating_scorecard",
-      "title": "Sustainability scorecard, Spedition Mustermann & Söhne GmbH",
+      "title": "Sustainability scorecard, Mustermann & Sons Freight Forwarding GmbH",
       "file": "partner-ratings/scorecards/DOC-SCORECARD-S-0097.pdf",
       "heldBy": "ratings",
       "issuedOn": "2025-05-13",
@@ -3208,7 +3208,7 @@
           "page": 1,
           "lines": [
             "Sustainability scorecard",
-            "Company: Spedition Mustermann & Söhne GmbH, supplier ID S-0097",
+            "Company: Mustermann & Sons Freight Forwarding GmbH, supplier ID S-0097",
             "Assessment date: 13 May 2025",
             "Overall score: 49 / 100",
             "LkSG country risk: Low",

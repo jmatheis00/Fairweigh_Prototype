@@ -496,7 +496,7 @@
       "topic": "quality",
       "value": 0.7,
       "unit": "%",
-      "sentence": "The complaint rate for Donautal Stahl GmbH is 0.7%.",
+      "sentence": "The complaint rate for Danube Valley Steel GmbH is 0.7%.",
       "system": "erp",
       "recordId": "ERP-S-0007",
       "location": {
@@ -517,7 +517,7 @@
       "topic": "delivery",
       "value": 98,
       "unit": "%",
-      "sentence": "The on-time delivery rate for Donautal Stahl GmbH is 98%.",
+      "sentence": "The on-time delivery rate for Danube Valley Steel GmbH is 98%.",
       "system": "erp",
       "recordId": "ERP-S-0007",
       "location": {
@@ -538,7 +538,7 @@
       "topic": "co2",
       "value": 13.8,
       "unit": "kg CO2e/piece",
-      "sentence": "The PCF for part P-STL-HSG-01 from Donautal Stahl GmbH is 13.8 kg CO2e per piece.",
+      "sentence": "The PCF for part P-STL-HSG-01 from Danube Valley Steel GmbH is 13.8 kg CO2e per piece.",
       "system": "pcf",
       "recordId": "PCF-S-0007-P-STL-HSG-01",
       "location": {
@@ -559,7 +559,7 @@
       "topic": "price",
       "value": 46.92,
       "unit": "EUR/piece",
-      "sentence": "The unit price offered by Donautal Stahl GmbH is EUR 46.92 per piece.",
+      "sentence": "The unit price offered by Danube Valley Steel GmbH is EUR 46.92 per piece.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0007-P-STL-HSG-01",
       "location": {
@@ -581,7 +581,7 @@
       "topic": "leadTime",
       "value": 10,
       "unit": "days",
-      "sentence": "The lead time offered by Donautal Stahl GmbH is 10 days.",
+      "sentence": "The lead time offered by Danube Valley Steel GmbH is 10 days.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0007-P-STL-HSG-01",
       "location": {
@@ -603,7 +603,7 @@
       "topic": "quality",
       "value": 0.5,
       "unit": "%",
-      "sentence": "The complaint rate for Mustermann Stahlguss GmbH is 0.5%.",
+      "sentence": "The complaint rate for Mustermann Steel Castings GmbH is 0.5%.",
       "system": "erp",
       "recordId": "ERP-S-0001",
       "location": {
@@ -624,7 +624,7 @@
       "topic": "delivery",
       "value": 91,
       "unit": "%",
-      "sentence": "The on-time delivery rate for Mustermann Stahlguss GmbH is 91%.",
+      "sentence": "The on-time delivery rate for Mustermann Steel Castings GmbH is 91%.",
       "system": "erp",
       "recordId": "ERP-S-0001",
       "location": {
@@ -645,7 +645,7 @@
       "topic": "co2",
       "value": 24.6,
       "unit": "kg CO2e/piece",
-      "sentence": "The PCF for part P-STL-HSG-01 from Mustermann Stahlguss GmbH is 24.6 kg CO2e per piece.",
+      "sentence": "The PCF for part P-STL-HSG-01 from Mustermann Steel Castings GmbH is 24.6 kg CO2e per piece.",
       "system": "pcf",
       "recordId": "PCF-S-0001-P-STL-HSG-01",
       "location": {
@@ -666,7 +666,7 @@
       "topic": "price",
       "value": 48.3,
       "unit": "EUR/piece",
-      "sentence": "The unit price offered by Mustermann Stahlguss GmbH is EUR 48.30 per piece.",
+      "sentence": "The unit price offered by Mustermann Steel Castings GmbH is EUR 48.30 per piece.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0001-P-STL-HSG-01",
       "location": {
@@ -688,7 +688,7 @@
       "topic": "leadTime",
       "value": 8,
       "unit": "days",
-      "sentence": "The lead time offered by Mustermann Stahlguss GmbH is 8 days.",
+      "sentence": "The lead time offered by Mustermann Steel Castings GmbH is 8 days.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0001-P-STL-HSG-01",
       "location": {
@@ -907,7 +907,7 @@
       "topic": "price",
       "value": 46.92,
       "unit": "EUR/piece",
-      "sentence": "The unit price offered by Harzland Flachstahl GmbH is EUR 46.92 per piece.",
+      "sentence": "The unit price offered by Harzland Flat Steel GmbH is EUR 46.92 per piece.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0003-P-STL-HSG-01",
       "location": {
@@ -929,7 +929,7 @@
       "topic": "leadTime",
       "value": 13,
       "unit": "days",
-      "sentence": "The lead time offered by Harzland Flachstahl GmbH is 13 days.",
+      "sentence": "The lead time offered by Harzland Flat Steel GmbH is 13 days.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0003-P-STL-HSG-01",
       "location": {
@@ -951,7 +951,7 @@
       "topic": "co2",
       "value": 13.6,
       "unit": "kg CO2e/piece",
-      "sentence": "The PCF for part P-STL-HSG-01 from Harzland Flachstahl GmbH is 13.6 kg CO2e per piece.",
+      "sentence": "The PCF for part P-STL-HSG-01 from Harzland Flat Steel GmbH is 13.6 kg CO2e per piece.",
       "system": "pcf",
       "recordId": "PCF-S-0003-P-STL-HSG-01",
       "location": {

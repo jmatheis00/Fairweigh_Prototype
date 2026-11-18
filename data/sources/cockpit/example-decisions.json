@@ -35,19 +35,19 @@
       "reference": {
         "quality": {
           "value": 0.7,
-          "basis": "Complaint rate of the last 3 purchases: PO-4500012311, PO-4500012314, PO-4500012317, Donautal Stahl GmbH (client ERP)"
+          "basis": "Complaint rate of the last 3 purchases: PO-4500012311, PO-4500012314, PO-4500012317, Danube Valley Steel GmbH (client ERP)"
         },
         "price": {
           "value": 46.92,
-          "basis": "Price we pay today: EUR 46.92 per piece, average of the last 3 purchases: PO-4500012311, PO-4500012314, PO-4500012317, Donautal Stahl GmbH (client ERP)"
+          "basis": "Price we pay today: EUR 46.92 per piece, average of the last 3 purchases: PO-4500012311, PO-4500012314, PO-4500012317, Danube Valley Steel GmbH (client ERP)"
         },
         "co2": {
           "value": 13.8,
-          "basis": "Product footprint of the last 3 purchases: PO-4500012311, PO-4500012314, PO-4500012317, Donautal Stahl GmbH (PCF exchange)"
+          "basis": "Product footprint of the last 3 purchases: PO-4500012311, PO-4500012314, PO-4500012317, Danube Valley Steel GmbH (PCF exchange)"
         },
         "delivery": {
           "value": 98,
-          "basis": "On-time delivery of the last 3 purchases: PO-4500012311, PO-4500012314, PO-4500012317, Donautal Stahl GmbH (client ERP)"
+          "basis": "On-time delivery of the last 3 purchases: PO-4500012311, PO-4500012314, PO-4500012317, Danube Valley Steel GmbH (client ERP)"
         }
       },
       "ranking": [
@@ -191,19 +191,19 @@
       "reference": {
         "quality": {
           "value": 0.7,
-          "basis": "Complaint rate of the last 3 purchases: PO-4500012312, PO-4500012315, PO-4500012318, Elbkupfer AG (client ERP)"
+          "basis": "Complaint rate of the last 3 purchases: PO-4500012312, PO-4500012315, PO-4500012318, Elbe Copper AG (client ERP)"
         },
         "price": {
           "value": 63.24,
-          "basis": "Price we pay today: EUR 63.24 per piece, average of the last 3 purchases: PO-4500012312, PO-4500012315, PO-4500012318, Elbkupfer AG (client ERP)"
+          "basis": "Price we pay today: EUR 63.24 per piece, average of the last 3 purchases: PO-4500012312, PO-4500012315, PO-4500012318, Elbe Copper AG (client ERP)"
         },
         "co2": {
           "value": 10.9,
-          "basis": "Product footprint of the last 3 purchases: PO-4500012312, PO-4500012315, PO-4500012318, Elbkupfer AG (PCF exchange)"
+          "basis": "Product footprint of the last 3 purchases: PO-4500012312, PO-4500012315, PO-4500012318, Elbe Copper AG (PCF exchange)"
         },
         "delivery": {
           "value": 95,
-          "basis": "On-time delivery of the last 3 purchases: PO-4500012312, PO-4500012315, PO-4500012318, Elbkupfer AG (client ERP)"
+          "basis": "On-time delivery of the last 3 purchases: PO-4500012312, PO-4500012315, PO-4500012318, Elbe Copper AG (client ERP)"
         }
       },
       "ranking": [

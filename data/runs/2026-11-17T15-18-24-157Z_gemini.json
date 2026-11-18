@@ -502,7 +502,7 @@
       "topic": "price",
       "value": 1.82,
       "unit": "EUR/piece",
-      "sentence": "The unit price offered by Gummiwerk Musterhausen GmbH for part P-SEAL-01 is EUR 1.82 per piece.",
+      "sentence": "The unit price offered by Musterhausen Rubber Works GmbH for part P-SEAL-01 is EUR 1.82 per piece.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0055-P-SEAL-01",
       "location": {
@@ -524,7 +524,7 @@
       "topic": "leadTime",
       "value": 9,
       "unit": "days",
-      "sentence": "The lead time offered by Gummiwerk Musterhausen GmbH is 9 days.",
+      "sentence": "The lead time offered by Musterhausen Rubber Works GmbH is 9 days.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0055-P-SEAL-01",
       "location": {
@@ -546,7 +546,7 @@
       "topic": "price",
       "value": 1.94,
       "unit": "EUR/piece",
-      "sentence": "The unit price offered by Bergstraße Dichtungstechnik SE for part P-SEAL-01 is EUR 1.94 per piece.",
+      "sentence": "The unit price offered by Bergstrasse Sealing Technology SE for part P-SEAL-01 is EUR 1.94 per piece.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0051-P-SEAL-01",
       "location": {
@@ -568,7 +568,7 @@
       "topic": "leadTime",
       "value": 4,
       "unit": "days",
-      "sentence": "The lead time offered by Bergstraße Dichtungstechnik SE is 4 days.",
+      "sentence": "The lead time offered by Bergstrasse Sealing Technology SE is 4 days.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0051-P-SEAL-01",
       "location": {
@@ -590,7 +590,7 @@
       "topic": "price",
       "value": 1.91,
       "unit": "EUR/piece",
-      "sentence": "The unit price offered by Schwaben Dichtsysteme GmbH for part P-SEAL-01 is EUR 1.91 per piece.",
+      "sentence": "The unit price offered by Swabia Sealing Systems GmbH for part P-SEAL-01 is EUR 1.91 per piece.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0053-P-SEAL-01",
       "location": {
@@ -612,7 +612,7 @@
       "topic": "leadTime",
       "value": 3,
       "unit": "days",
-      "sentence": "The lead time offered by Schwaben Dichtsysteme GmbH is 3 days.",
+      "sentence": "The lead time offered by Swabia Sealing Systems GmbH is 3 days.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0053-P-SEAL-01",
       "location": {

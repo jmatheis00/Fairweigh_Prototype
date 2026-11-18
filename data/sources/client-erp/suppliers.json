@@ -15,7 +15,7 @@
         "row": 3,
         "assumedFields": []
       },
-      "supplierName": "Mustermann Stahlguss GmbH",
+      "supplierName": "Mustermann Steel Castings GmbH",
       "country": "Germany",
       "city": "Dortmund",
       "category": "Steel & Castings",
@@ -44,7 +44,7 @@
         "row": 4,
         "assumedFields": []
       },
-      "supplierName": "Ruhrtal Stahlwerke AG",
+      "supplierName": "Ruhr Valley Steelworks AG",
       "country": "Germany",
       "city": "Duisburg",
       "category": "Steel & Castings",
@@ -73,7 +73,7 @@
         "row": 5,
         "assumedFields": []
       },
-      "supplierName": "Harzland Flachstahl GmbH",
+      "supplierName": "Harzland Flat Steel GmbH",
       "country": "Germany",
       "city": "Salzgitter",
       "category": "Steel & Castings",
@@ -189,7 +189,7 @@
         "row": 9,
         "assumedFields": []
       },
-      "supplierName": "Donautal Stahl GmbH",
+      "supplierName": "Danube Valley Steel GmbH",
       "country": "Austria",
       "city": "Linz",
       "category": "Steel & Castings",
@@ -365,7 +365,7 @@
           "data_source"
         ]
       },
-      "supplierName": "Alucast Schwaben GmbH",
+      "supplierName": "Alucast Swabia GmbH",
       "country": "Germany",
       "city": "Ulm",
       "category": "Aluminium & Die Casting",
@@ -423,7 +423,7 @@
         "row": 17,
         "assumedFields": []
       },
-      "supplierName": "Alu-Druckguss Erzgebirge GmbH",
+      "supplierName": "Ore Mountains Die Casting GmbH",
       "country": "Germany",
       "city": "Chemnitz",
       "category": "Aluminium & Die Casting",
@@ -452,7 +452,7 @@
         "row": 18,
         "assumedFields": []
       },
-      "supplierName": "Rheinwalz Aluminium GmbH",
+      "supplierName": "Rhine Rolling Aluminium GmbH",
       "country": "Germany",
       "city": "Göttingen",
       "category": "Aluminium & Die Casting",
@@ -481,7 +481,7 @@
         "row": 19,
         "assumedFields": []
       },
-      "supplierName": "Leichtmetallwerk Muster GmbH",
+      "supplierName": "Muster Light Metal Works GmbH",
       "country": "Germany",
       "city": "Aalen",
       "category": "Aluminium & Die Casting",
@@ -597,7 +597,7 @@
         "row": 23,
         "assumedFields": []
       },
-      "supplierName": "Elbkupfer AG",
+      "supplierName": "Elbe Copper AG",
       "country": "Germany",
       "city": "Hamburg",
       "category": "Copper & Magnet Wire",
@@ -626,7 +626,7 @@
         "row": 24,
         "assumedFields": []
       },
-      "supplierName": "Elektrisolar Drahtwerk GmbH",
+      "supplierName": "Elektrisolar Wire Works GmbH",
       "country": "Germany",
       "city": "Reichshof",
       "category": "Copper & Magnet Wire",
@@ -655,7 +655,7 @@
         "row": 25,
         "assumedFields": []
       },
-      "supplierName": "Nordwick Magnetdraht GmbH",
+      "supplierName": "Nordwick Magnet Wire GmbH",
       "country": "Germany",
       "city": "Bad Arolsen",
       "category": "Copper & Magnet Wire",
@@ -684,7 +684,7 @@
         "row": 26,
         "assumedFields": []
       },
-      "supplierName": "Kupferwerk Mansfeld Muster GmbH",
+      "supplierName": "Mansfeld Muster Copper Works GmbH",
       "country": "Germany",
       "city": "Hettstedt",
       "category": "Copper & Magnet Wire",
@@ -800,7 +800,7 @@
         "row": 30,
         "assumedFields": []
       },
-      "supplierName": "Kupferhütte Saale GmbH",
+      "supplierName": "Saale Copper Smelter GmbH",
       "country": "Germany",
       "city": "Osnabrück",
       "category": "Copper & Magnet Wire",
@@ -916,7 +916,7 @@
         "row": 34,
         "assumedFields": []
       },
-      "supplierName": "Neckartal Elektronik GmbH",
+      "supplierName": "Neckar Valley Electronics GmbH",
       "country": "Germany",
       "city": "Reutlingen",
       "category": "Electronic Components",
@@ -945,7 +945,7 @@
         "row": 35,
         "assumedFields": []
       },
-      "supplierName": "Lippe Kontakttechnik GmbH & Co. KG",
+      "supplierName": "Lippe Contact Technology GmbH & Co. KG",
       "country": "Germany",
       "city": "Blomberg",
       "category": "Electronic Components",
@@ -976,7 +976,7 @@
           "data_source"
         ]
       },
-      "supplierName": "Hohenlohe Elektronik GmbH",
+      "supplierName": "Hohenlohe Electronics GmbH",
       "country": "Germany",
       "city": "Waldenburg",
       "category": "Electronic Components",
@@ -1150,7 +1150,7 @@
         "row": 42,
         "assumedFields": []
       },
-      "supplierName": "Max Mustermann Kabelkonfektion e.K.",
+      "supplierName": "Max Mustermann Cable Assemblies e.K.",
       "country": "Germany",
       "city": "Nuremberg",
       "category": "Electronic Components",
@@ -1179,7 +1179,7 @@
         "row": 43,
         "assumedFields": []
       },
-      "supplierName": "Frankenlager AG",
+      "supplierName": "Franconia Bearings AG",
       "country": "Germany",
       "city": "Herzogenaurach",
       "category": "Bearings",
@@ -1237,7 +1237,7 @@
         "row": 45,
         "assumedFields": []
       },
-      "supplierName": "Rheinlager Europe GmbH",
+      "supplierName": "Rhine Bearings Europe GmbH",
       "country": "Germany",
       "city": "Ratingen",
       "category": "Bearings",
@@ -1326,7 +1326,7 @@
           "last_updated"
         ]
       },
-      "supplierName": "Kugellager Schweinfurt Muster GmbH",
+      "supplierName": "Schweinfurt Muster Ball Bearings GmbH",
       "country": "Germany",
       "city": "Schweinfurt",
       "category": "Bearings",
@@ -1471,7 +1471,7 @@
         "row": 53,
         "assumedFields": []
       },
-      "supplierName": "Bergstraße Dichtungstechnik SE",
+      "supplierName": "Bergstrasse Sealing Technology SE",
       "country": "Germany",
       "city": "Weinheim",
       "category": "Seals & Rubber",
@@ -1529,7 +1529,7 @@
         "row": 55,
         "assumedFields": []
       },
-      "supplierName": "Schwaben Dichtsysteme GmbH",
+      "supplierName": "Swabia Sealing Systems GmbH",
       "country": "Germany",
       "city": "Bietigheim-Bissingen",
       "category": "Seals & Rubber",
@@ -1558,7 +1558,7 @@
         "row": 56,
         "assumedFields": []
       },
-      "supplierName": "Leinetal Elastomer AG",
+      "supplierName": "Leine Valley Elastomers AG",
       "country": "Germany",
       "city": "Hanover",
       "category": "Seals & Rubber",
@@ -1587,7 +1587,7 @@
         "row": 57,
         "assumedFields": []
       },
-      "supplierName": "Gummiwerk Musterhausen GmbH",
+      "supplierName": "Musterhausen Rubber Works GmbH",
       "country": "Germany",
       "city": "Kassel",
       "category": "Seals & Rubber",
@@ -1763,7 +1763,7 @@
         "row": 63,
         "assumedFields": []
       },
-      "supplierName": "Kocher Befestigungstechnik GmbH",
+      "supplierName": "Kocher Fastening Technology GmbH",
       "country": "Germany",
       "city": "Künzelsau",
       "category": "Fasteners",
@@ -1792,7 +1792,7 @@
         "row": 64,
         "assumedFields": []
       },
-      "supplierName": "Teutoburg Verbindungstechnik GmbH",
+      "supplierName": "Teutoburg Joining Technology GmbH",
       "country": "Germany",
       "city": "Bielefeld",
       "category": "Fasteners",
@@ -1821,7 +1821,7 @@
         "row": 65,
         "assumedFields": []
       },
-      "supplierName": "Zugersee Fasteners AG",
+      "supplierName": "Lake Zug Fasteners AG",
       "country": "Switzerland",
       "city": "Zug",
       "category": "Fasteners",
@@ -1910,7 +1910,7 @@
         "row": 68,
         "assumedFields": []
       },
-      "supplierName": "Schraubenwerk Musterberg GmbH",
+      "supplierName": "Musterberg Screw Works GmbH",
       "country": "Germany",
       "city": "Ludwigsburg",
       "category": "Fasteners",
@@ -2055,7 +2055,7 @@
         "row": 73,
         "assumedFields": []
       },
-      "supplierName": "Niederrhein Polymere AG",
+      "supplierName": "Lower Rhine Polymers AG",
       "country": "Germany",
       "city": "Leverkusen",
       "category": "Plastics & Injection Molding",
@@ -2084,7 +2084,7 @@
         "row": 74,
         "assumedFields": []
       },
-      "supplierName": "Kurpfalz Performance Polymers SE",
+      "supplierName": "Palatinate Performance Polymers SE",
       "country": "Germany",
       "city": "Ludwigshafen",
       "category": "Plastics & Injection Molding",
@@ -2113,7 +2113,7 @@
         "row": 75,
         "assumedFields": []
       },
-      "supplierName": "Kunststofftechnik Mustermann GmbH",
+      "supplierName": "Mustermann Plastics Technology GmbH",
       "country": "Germany",
       "city": "Lüdenscheid",
       "category": "Plastics & Injection Molding",
@@ -2142,7 +2142,7 @@
         "row": 76,
         "assumedFields": []
       },
-      "supplierName": "Wupper Kunststoffe GmbH",
+      "supplierName": "Wupper Plastics GmbH",
       "country": "Germany",
       "city": "Cologne",
       "category": "Plastics & Injection Molding",
@@ -2258,7 +2258,7 @@
         "row": 80,
         "assumedFields": []
       },
-      "supplierName": "Polymerwerk Bayern GmbH",
+      "supplierName": "Bavaria Polymer Works GmbH",
       "country": "Germany",
       "city": "Regensburg",
       "category": "Plastics & Injection Molding",
@@ -2287,7 +2287,7 @@
         "row": 81,
         "assumedFields": []
       },
-      "supplierName": "ReGranulat Circular Plastics GmbH",
+      "supplierName": "ReGranulate Circular Plastics GmbH",
       "country": "Germany",
       "city": "Karlsruhe",
       "category": "Plastics & Injection Molding",
@@ -2403,7 +2403,7 @@
         "row": 85,
         "assumedFields": []
       },
-      "supplierName": "Steiermark Paper Group AG",
+      "supplierName": "Styria Paper Group AG",
       "country": "Austria",
       "city": "Vienna",
       "category": "Packaging",
@@ -2432,7 +2432,7 @@
         "row": 86,
         "assumedFields": []
       },
-      "supplierName": "Wellpappe Mustermann GmbH",
+      "supplierName": "Mustermann Corrugated Board GmbH",
       "country": "Germany",
       "city": "Göppingen",
       "category": "Packaging",
@@ -2463,7 +2463,7 @@
           "last_updated"
         ]
       },
-      "supplierName": "Holzpaletten Schwarzwald GmbH",
+      "supplierName": "Black Forest Wood Pallets GmbH",
       "country": "Germany",
       "city": "Freudenstadt",
       "category": "Packaging",
@@ -2492,7 +2492,7 @@
         "row": 88,
         "assumedFields": []
       },
-      "supplierName": "Stretchfolien Polska Sp. z o.o.",
+      "supplierName": "Stretch Film Polska Sp. z o.o.",
       "country": "Poland",
       "city": "Łódź",
       "category": "Packaging",
@@ -2581,7 +2581,7 @@
           "data_source"
         ]
       },
-      "supplierName": "Eurobox Logistikverpackung GmbH",
+      "supplierName": "Eurobox Logistics Packaging GmbH",
       "country": "Germany",
       "city": "Kassel",
       "category": "Packaging",
@@ -2668,7 +2668,7 @@
         "row": 94,
         "assumedFields": []
       },
-      "supplierName": "Mainline Logistik AG",
+      "supplierName": "Mainline Logistics AG",
       "country": "Germany",
       "city": "Essen",
       "category": "Logistics",
@@ -2697,7 +2697,7 @@
         "row": 95,
         "assumedFields": []
       },
-      "supplierName": "Vierwaldstätter Logistik AG",
+      "supplierName": "Lake Lucerne Logistics AG",
       "country": "Switzerland",
       "city": "Schindellegi",
       "category": "Logistics",
@@ -2755,7 +2755,7 @@
         "row": 97,
         "assumedFields": []
       },
-      "supplierName": "Altmühl Spedition GmbH",
+      "supplierName": "Altmühl Freight Forwarding GmbH",
       "country": "Germany",
       "city": "Kempten",
       "category": "Logistics",
@@ -2813,7 +2813,7 @@
         "row": 99,
         "assumedFields": []
       },
-      "supplierName": "Spedition Mustermann & Söhne GmbH",
+      "supplierName": "Mustermann & Sons Freight Forwarding GmbH",
       "country": "Germany",
       "city": "Heilbronn",
       "category": "Logistics",

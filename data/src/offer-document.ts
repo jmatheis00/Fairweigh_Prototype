@@ -2,7 +2,7 @@ import { DEMO_DATA_NOTICE, type DocumentRecord, type ErpRecord, type Offer } fro
 import type { Assumptions } from './assumptions.ts';
 import type { SupplierRow } from './build-dataset.ts';
 
-export const BUYER = 'Rheintal Antriebe GmbH, Heilbronn, Germany';
+export const BUYER = 'Rhine Valley Drives GmbH, Heilbronn, Germany';
 
 /** The only notice on the PDFs (decision of 8 Nov 2026): one small line at the bottom. */
 export const SAMPLE_FOOTER = 'Sample document from the Fairweigh prototype.';
