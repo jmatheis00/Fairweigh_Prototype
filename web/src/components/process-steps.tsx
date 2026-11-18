@@ -2,13 +2,13 @@
 
 import { ArrowLeftOutlined } from "@ant-design/icons";
 import { Button, Flex, Progress, Steps, Typography } from "antd";
-import { formatDay, type PurchaseRequisitionRecord } from "@scc/shared";
+import { formatDay, type ProcessStep, type PurchaseRequisitionRecord } from "@scc/shared";
 import { useIsPhone } from "@/lib/use-phone";
 import { BRAND } from "@/lib/theme";
 
 /** The five steps of a purchase (expert interviews, 10 Nov 2026). */
 export const PROCESS_STEPS = ["Request", "Collect", "Compare", "Decide", "Complete"] as const;
-export type ProcessStep = 0 | 1 | 2 | 3 | 4;
+export type { ProcessStep };
 
 interface Props {
   requisition: PurchaseRequisitionRecord;
