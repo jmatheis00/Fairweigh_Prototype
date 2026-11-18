@@ -33,8 +33,8 @@
           "lines": [
             "Purchase order PO-4500011001",
             "Date: 8 Jan 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
-            "Supplier: Alucast Swabia GmbH, supplier ID S-0013",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
+            "Supplier: Alucast Vertis GmbH, supplier ID S-0013",
             "Part: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
             "Quantity: 650 pcs",
             "Unit price: EUR 84.50 per piece",
@@ -74,7 +74,7 @@
           "lines": [
             "Purchase order PO-4500011031",
             "Date: 8 Jan 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Nordwick Magnet Wire GmbH, supplier ID S-0023",
             "Part: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
             "Quantity: 650 pcs",
@@ -115,7 +115,7 @@
           "lines": [
             "Purchase order PO-4500011016",
             "Date: 8 Jan 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Mustermann Steel Castings GmbH, supplier ID S-0001",
             "Part: Steel-cast gearbox housing (P-STL-HSG-01)",
             "Quantity: 1,550 pcs",
@@ -156,8 +156,8 @@
           "lines": [
             "Purchase order PO-4500011002",
             "Date: 8 Feb 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
-            "Supplier: Alucast Swabia GmbH, supplier ID S-0013",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
+            "Supplier: Alucast Vertis GmbH, supplier ID S-0013",
             "Part: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
             "Quantity: 700 pcs",
             "Unit price: EUR 84.50 per piece",
@@ -197,7 +197,7 @@
           "lines": [
             "Purchase order PO-4500011032",
             "Date: 8 Feb 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Nordwick Magnet Wire GmbH, supplier ID S-0023",
             "Part: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
             "Quantity: 600 pcs",
@@ -238,7 +238,7 @@
           "lines": [
             "Purchase order PO-4500011017",
             "Date: 8 Feb 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Mustermann Steel Castings GmbH, supplier ID S-0001",
             "Part: Steel-cast gearbox housing (P-STL-HSG-01)",
             "Quantity: 1,300 pcs",
@@ -279,8 +279,8 @@
           "lines": [
             "Purchase order PO-4500011003",
             "Date: 8 Mar 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
-            "Supplier: Alucast Swabia GmbH, supplier ID S-0013",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
+            "Supplier: Alucast Vertis GmbH, supplier ID S-0013",
             "Part: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
             "Quantity: 650 pcs",
             "Unit price: EUR 84.50 per piece",
@@ -320,7 +320,7 @@
           "lines": [
             "Purchase order PO-4500011033",
             "Date: 8 Mar 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Nordwick Magnet Wire GmbH, supplier ID S-0023",
             "Part: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
             "Quantity: 650 pcs",
@@ -361,7 +361,7 @@
           "lines": [
             "Purchase order PO-4500011018",
             "Date: 8 Mar 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Mustermann Steel Castings GmbH, supplier ID S-0001",
             "Part: Steel-cast gearbox housing (P-STL-HSG-01)",
             "Quantity: 1,400 pcs",
@@ -402,8 +402,8 @@
           "lines": [
             "Purchase order PO-4500011004",
             "Date: 8 Apr 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
-            "Supplier: Alucast Swabia GmbH, supplier ID S-0013",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
+            "Supplier: Alucast Vertis GmbH, supplier ID S-0013",
             "Part: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
             "Quantity: 650 pcs",
             "Unit price: EUR 84.50 per piece",
@@ -443,7 +443,7 @@
           "lines": [
             "Purchase order PO-4500011034",
             "Date: 8 Apr 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Nordwick Magnet Wire GmbH, supplier ID S-0023",
             "Part: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
             "Quantity: 700 pcs",
@@ -484,7 +484,7 @@
           "lines": [
             "Purchase order PO-4500011019",
             "Date: 8 Apr 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Mustermann Steel Castings GmbH, supplier ID S-0001",
             "Part: Steel-cast gearbox housing (P-STL-HSG-01)",
             "Quantity: 1,600 pcs",
@@ -525,8 +525,8 @@
           "lines": [
             "Purchase order PO-4500011005",
             "Date: 8 May 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
-            "Supplier: Alucast Swabia GmbH, supplier ID S-0013",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
+            "Supplier: Alucast Vertis GmbH, supplier ID S-0013",
             "Part: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
             "Quantity: 600 pcs",
             "Unit price: EUR 84.50 per piece",
@@ -566,7 +566,7 @@
           "lines": [
             "Purchase order PO-4500011035",
             "Date: 8 May 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Nordwick Magnet Wire GmbH, supplier ID S-0023",
             "Part: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
             "Quantity: 600 pcs",
@@ -607,7 +607,7 @@
           "lines": [
             "Purchase order PO-4500011020",
             "Date: 8 May 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Mustermann Steel Castings GmbH, supplier ID S-0001",
             "Part: Steel-cast gearbox housing (P-STL-HSG-01)",
             "Quantity: 1,600 pcs",
@@ -648,8 +648,8 @@
           "lines": [
             "Purchase order PO-4500011006",
             "Date: 8 Jun 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
-            "Supplier: Alucast Swabia GmbH, supplier ID S-0013",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
+            "Supplier: Alucast Vertis GmbH, supplier ID S-0013",
             "Part: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
             "Quantity: 700 pcs",
             "Unit price: EUR 84.50 per piece",
@@ -689,7 +689,7 @@
           "lines": [
             "Purchase order PO-4500011036",
             "Date: 8 Jun 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Nordwick Magnet Wire GmbH, supplier ID S-0023",
             "Part: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
             "Quantity: 600 pcs",
@@ -730,7 +730,7 @@
           "lines": [
             "Purchase order PO-4500011021",
             "Date: 8 Jun 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Mustermann Steel Castings GmbH, supplier ID S-0001",
             "Part: Steel-cast gearbox housing (P-STL-HSG-01)",
             "Quantity: 1,400 pcs",
@@ -771,8 +771,8 @@
           "lines": [
             "Purchase order PO-4500011007",
             "Date: 8 Jul 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
-            "Supplier: Alucast Swabia GmbH, supplier ID S-0013",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
+            "Supplier: Alucast Vertis GmbH, supplier ID S-0013",
             "Part: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
             "Quantity: 650 pcs",
             "Unit price: EUR 84.50 per piece",
@@ -812,7 +812,7 @@
           "lines": [
             "Purchase order PO-4500011037",
             "Date: 8 Jul 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Nordwick Magnet Wire GmbH, supplier ID S-0023",
             "Part: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
             "Quantity: 550 pcs",
@@ -853,7 +853,7 @@
           "lines": [
             "Purchase order PO-4500011022",
             "Date: 8 Jul 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Mustermann Steel Castings GmbH, supplier ID S-0001",
             "Part: Steel-cast gearbox housing (P-STL-HSG-01)",
             "Quantity: 1,550 pcs",
@@ -894,8 +894,8 @@
           "lines": [
             "Purchase order PO-4500011008",
             "Date: 8 Aug 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
-            "Supplier: Alucast Swabia GmbH, supplier ID S-0013",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
+            "Supplier: Alucast Vertis GmbH, supplier ID S-0013",
             "Part: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
             "Quantity: 700 pcs",
             "Unit price: EUR 84.50 per piece",
@@ -935,7 +935,7 @@
           "lines": [
             "Purchase order PO-4500011038",
             "Date: 8 Aug 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Nordwick Magnet Wire GmbH, supplier ID S-0023",
             "Part: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
             "Quantity: 550 pcs",
@@ -976,7 +976,7 @@
           "lines": [
             "Purchase order PO-4500011023",
             "Date: 8 Aug 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Mustermann Steel Castings GmbH, supplier ID S-0001",
             "Part: Steel-cast gearbox housing (P-STL-HSG-01)",
             "Quantity: 1,450 pcs",
@@ -1017,8 +1017,8 @@
           "lines": [
             "Purchase order PO-4500011009",
             "Date: 8 Sept 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
-            "Supplier: Alucast Swabia GmbH, supplier ID S-0013",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
+            "Supplier: Alucast Vertis GmbH, supplier ID S-0013",
             "Part: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
             "Quantity: 700 pcs",
             "Unit price: EUR 84.50 per piece",
@@ -1058,7 +1058,7 @@
           "lines": [
             "Purchase order PO-4500011039",
             "Date: 8 Sept 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Nordwick Magnet Wire GmbH, supplier ID S-0023",
             "Part: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
             "Quantity: 650 pcs",
@@ -1099,7 +1099,7 @@
           "lines": [
             "Purchase order PO-4500011024",
             "Date: 8 Sept 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Mustermann Steel Castings GmbH, supplier ID S-0001",
             "Part: Steel-cast gearbox housing (P-STL-HSG-01)",
             "Quantity: 1,300 pcs",
@@ -1140,8 +1140,8 @@
           "lines": [
             "Purchase order PO-4500011010",
             "Date: 8 Oct 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
-            "Supplier: Alucast Swabia GmbH, supplier ID S-0013",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
+            "Supplier: Alucast Vertis GmbH, supplier ID S-0013",
             "Part: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
             "Quantity: 700 pcs",
             "Unit price: EUR 84.50 per piece",
@@ -1181,7 +1181,7 @@
           "lines": [
             "Purchase order PO-4500011040",
             "Date: 8 Oct 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Nordwick Magnet Wire GmbH, supplier ID S-0023",
             "Part: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
             "Quantity: 650 pcs",
@@ -1222,7 +1222,7 @@
           "lines": [
             "Purchase order PO-4500011025",
             "Date: 8 Oct 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Mustermann Steel Castings GmbH, supplier ID S-0001",
             "Part: Steel-cast gearbox housing (P-STL-HSG-01)",
             "Quantity: 1,400 pcs",
@@ -1263,8 +1263,8 @@
           "lines": [
             "Purchase order PO-4500011011",
             "Date: 8 Nov 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
-            "Supplier: Alucast Swabia GmbH, supplier ID S-0013",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
+            "Supplier: Alucast Vertis GmbH, supplier ID S-0013",
             "Part: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
             "Quantity: 650 pcs",
             "Unit price: EUR 84.50 per piece",
@@ -1304,7 +1304,7 @@
           "lines": [
             "Purchase order PO-4500011041",
             "Date: 8 Nov 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Nordwick Magnet Wire GmbH, supplier ID S-0023",
             "Part: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
             "Quantity: 700 pcs",
@@ -1345,7 +1345,7 @@
           "lines": [
             "Purchase order PO-4500011026",
             "Date: 8 Nov 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Mustermann Steel Castings GmbH, supplier ID S-0001",
             "Part: Steel-cast gearbox housing (P-STL-HSG-01)",
             "Quantity: 1,350 pcs",
@@ -1386,8 +1386,8 @@
           "lines": [
             "Purchase order PO-4500011012",
             "Date: 8 Dec 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
-            "Supplier: Alucast Swabia GmbH, supplier ID S-0013",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
+            "Supplier: Alucast Vertis GmbH, supplier ID S-0013",
             "Part: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
             "Quantity: 650 pcs",
             "Unit price: EUR 84.50 per piece",
@@ -1427,7 +1427,7 @@
           "lines": [
             "Purchase order PO-4500011042",
             "Date: 8 Dec 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Nordwick Magnet Wire GmbH, supplier ID S-0023",
             "Part: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
             "Quantity: 550 pcs",
@@ -1468,7 +1468,7 @@
           "lines": [
             "Purchase order PO-4500011027",
             "Date: 8 Dec 2025",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Mustermann Steel Castings GmbH, supplier ID S-0001",
             "Part: Steel-cast gearbox housing (P-STL-HSG-01)",
             "Quantity: 1,450 pcs",
@@ -1509,8 +1509,8 @@
           "lines": [
             "Purchase order PO-4500011013",
             "Date: 8 Jan 2026",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
-            "Supplier: Alucast Swabia GmbH, supplier ID S-0013",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
+            "Supplier: Alucast Vertis GmbH, supplier ID S-0013",
             "Part: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
             "Quantity: 750 pcs",
             "Unit price: EUR 84.50 per piece",
@@ -1550,7 +1550,7 @@
           "lines": [
             "Purchase order PO-4500011043",
             "Date: 8 Jan 2026",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Nordwick Magnet Wire GmbH, supplier ID S-0023",
             "Part: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
             "Quantity: 550 pcs",
@@ -1591,7 +1591,7 @@
           "lines": [
             "Purchase order PO-4500011028",
             "Date: 8 Jan 2026",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Mustermann Steel Castings GmbH, supplier ID S-0001",
             "Part: Steel-cast gearbox housing (P-STL-HSG-01)",
             "Quantity: 1,450 pcs",
@@ -1632,8 +1632,8 @@
           "lines": [
             "Purchase order PO-4500011014",
             "Date: 8 Feb 2026",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
-            "Supplier: Alucast Swabia GmbH, supplier ID S-0013",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
+            "Supplier: Alucast Vertis GmbH, supplier ID S-0013",
             "Part: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
             "Quantity: 650 pcs",
             "Unit price: EUR 84.50 per piece",
@@ -1673,7 +1673,7 @@
           "lines": [
             "Purchase order PO-4500011044",
             "Date: 8 Feb 2026",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Nordwick Magnet Wire GmbH, supplier ID S-0023",
             "Part: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
             "Quantity: 550 pcs",
@@ -1714,7 +1714,7 @@
           "lines": [
             "Purchase order PO-4500011029",
             "Date: 8 Feb 2026",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Mustermann Steel Castings GmbH, supplier ID S-0001",
             "Part: Steel-cast gearbox housing (P-STL-HSG-01)",
             "Quantity: 1,400 pcs",
@@ -1755,8 +1755,8 @@
           "lines": [
             "Purchase order PO-4500011015",
             "Date: 8 Mar 2026",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
-            "Supplier: Alucast Swabia GmbH, supplier ID S-0013",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
+            "Supplier: Alucast Vertis GmbH, supplier ID S-0013",
             "Part: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
             "Quantity: 650 pcs",
             "Unit price: EUR 84.50 per piece",
@@ -1796,7 +1796,7 @@
           "lines": [
             "Purchase order PO-4500011045",
             "Date: 8 Mar 2026",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Nordwick Magnet Wire GmbH, supplier ID S-0023",
             "Part: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
             "Quantity: 550 pcs",
@@ -1837,7 +1837,7 @@
           "lines": [
             "Purchase order PO-4500011030",
             "Date: 8 Mar 2026",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Mustermann Steel Castings GmbH, supplier ID S-0001",
             "Part: Steel-cast gearbox housing (P-STL-HSG-01)",
             "Quantity: 1,300 pcs",
@@ -1878,8 +1878,8 @@
           "lines": [
             "Purchase order PO-4500012301",
             "Date: 8 Apr 2026",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
-            "Supplier: Alucast Swabia GmbH, supplier ID S-0013",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
+            "Supplier: Alucast Vertis GmbH, supplier ID S-0013",
             "Part: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
             "Quantity: 700 pcs",
             "Unit price: EUR 84.50 per piece",
@@ -1919,7 +1919,7 @@
           "lines": [
             "Purchase order PO-4500012302",
             "Date: 8 Apr 2026",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Mustermann Steel Castings GmbH, supplier ID S-0001",
             "Part: Steel-cast gearbox housing (P-STL-HSG-01)",
             "Quantity: 1,500 pcs",
@@ -1960,7 +1960,7 @@
           "lines": [
             "Purchase order PO-4500012303",
             "Date: 8 Apr 2026",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Nordwick Magnet Wire GmbH, supplier ID S-0023",
             "Part: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
             "Quantity: 650 pcs",
@@ -2001,8 +2001,8 @@
           "lines": [
             "Purchase order PO-4500012304",
             "Date: 7 May 2026",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
-            "Supplier: Alucast Swabia GmbH, supplier ID S-0013",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
+            "Supplier: Alucast Vertis GmbH, supplier ID S-0013",
             "Part: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
             "Quantity: 700 pcs",
             "Unit price: EUR 84.50 per piece",
@@ -2042,7 +2042,7 @@
           "lines": [
             "Purchase order PO-4500012305",
             "Date: 7 May 2026",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Mustermann Steel Castings GmbH, supplier ID S-0001",
             "Part: Steel-cast gearbox housing (P-STL-HSG-01)",
             "Quantity: 1,500 pcs",
@@ -2083,7 +2083,7 @@
           "lines": [
             "Purchase order PO-4500012306",
             "Date: 7 May 2026",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Nordwick Magnet Wire GmbH, supplier ID S-0023",
             "Part: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
             "Quantity: 650 pcs",
@@ -2124,8 +2124,8 @@
           "lines": [
             "Purchase order PO-4500012307",
             "Date: 9 Jun 2026",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
-            "Supplier: Alucast Swabia GmbH, supplier ID S-0013",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
+            "Supplier: Alucast Vertis GmbH, supplier ID S-0013",
             "Part: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
             "Quantity: 700 pcs",
             "Unit price: EUR 84.50 per piece",
@@ -2165,7 +2165,7 @@
           "lines": [
             "Purchase order PO-4500012308",
             "Date: 9 Jun 2026",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Mustermann Steel Castings GmbH, supplier ID S-0001",
             "Part: Steel-cast gearbox housing (P-STL-HSG-01)",
             "Quantity: 1,500 pcs",
@@ -2206,7 +2206,7 @@
           "lines": [
             "Purchase order PO-4500012309",
             "Date: 9 Jun 2026",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier: Nordwick Magnet Wire GmbH, supplier ID S-0023",
             "Part: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
             "Quantity: 650 pcs",
@@ -2247,8 +2247,8 @@
           "lines": [
             "Purchase order PO-4500012310",
             "Date: 8 Jul 2026",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
-            "Supplier: Alucast Swabia GmbH, supplier ID S-0013",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
+            "Supplier: Alucast Vertis GmbH, supplier ID S-0013",
             "Part: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
             "Quantity: 700 pcs",
             "Unit price: EUR 84.50 per piece",
@@ -2288,8 +2288,8 @@
           "lines": [
             "Purchase order PO-4500012311",
             "Date: 8 Jul 2026",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
-            "Supplier: Danube Valley Steel GmbH, supplier ID S-0007",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
+            "Supplier: Stavio Steel GmbH, supplier ID S-0007",
             "Part: Steel-cast gearbox housing (P-STL-HSG-01)",
             "Quantity: 1,500 pcs",
             "Unit price: EUR 46.92 per piece",
@@ -2329,8 +2329,8 @@
           "lines": [
             "Purchase order PO-4500012312",
             "Date: 8 Jul 2026",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
-            "Supplier: Elbe Copper AG, supplier ID S-0021",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
+            "Supplier: Cuprion AG, supplier ID S-0021",
             "Part: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
             "Quantity: 650 pcs",
             "Unit price: EUR 63.24 per piece",
@@ -2370,8 +2370,8 @@
           "lines": [
             "Purchase order PO-4500012313",
             "Date: 6 Aug 2026",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
-            "Supplier: Alucast Swabia GmbH, supplier ID S-0013",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
+            "Supplier: Alucast Vertis GmbH, supplier ID S-0013",
             "Part: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
             "Quantity: 700 pcs",
             "Unit price: EUR 84.50 per piece",
@@ -2411,8 +2411,8 @@
           "lines": [
             "Purchase order PO-4500012314",
             "Date: 6 Aug 2026",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
-            "Supplier: Danube Valley Steel GmbH, supplier ID S-0007",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
+            "Supplier: Stavio Steel GmbH, supplier ID S-0007",
             "Part: Steel-cast gearbox housing (P-STL-HSG-01)",
             "Quantity: 1,500 pcs",
             "Unit price: EUR 46.92 per piece",
@@ -2452,8 +2452,8 @@
           "lines": [
             "Purchase order PO-4500012315",
             "Date: 6 Aug 2026",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
-            "Supplier: Elbe Copper AG, supplier ID S-0021",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
+            "Supplier: Cuprion AG, supplier ID S-0021",
             "Part: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
             "Quantity: 650 pcs",
             "Unit price: EUR 63.24 per piece",
@@ -2493,8 +2493,8 @@
           "lines": [
             "Purchase order PO-4500012316",
             "Date: 8 Sept 2026",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
-            "Supplier: Alucast Swabia GmbH, supplier ID S-0013",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
+            "Supplier: Alucast Vertis GmbH, supplier ID S-0013",
             "Part: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
             "Quantity: 700 pcs",
             "Unit price: EUR 84.50 per piece",
@@ -2534,8 +2534,8 @@
           "lines": [
             "Purchase order PO-4500012317",
             "Date: 8 Sept 2026",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
-            "Supplier: Danube Valley Steel GmbH, supplier ID S-0007",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
+            "Supplier: Stavio Steel GmbH, supplier ID S-0007",
             "Part: Steel-cast gearbox housing (P-STL-HSG-01)",
             "Quantity: 1,500 pcs",
             "Unit price: EUR 46.92 per piece",
@@ -2575,8 +2575,8 @@
           "lines": [
             "Purchase order PO-4500012318",
             "Date: 8 Sept 2026",
-            "Buyer: Rhine Valley Drives GmbH, Heilbronn, Germany",
-            "Supplier: Elbe Copper AG, supplier ID S-0021",
+            "Buyer: Torvane Drive Systems GmbH, Heilbronn, Germany",
+            "Supplier: Cuprion AG, supplier ID S-0021",
             "Part: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
             "Quantity: 650 pcs",
             "Unit price: EUR 63.24 per piece",

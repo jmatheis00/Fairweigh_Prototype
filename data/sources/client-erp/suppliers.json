@@ -44,7 +44,7 @@
         "row": 4,
         "assumedFields": []
       },
-      "supplierName": "Ruhr Valley Steelworks AG",
+      "supplierName": "Corvex Steelworks AG",
       "country": "Germany",
       "city": "Duisburg",
       "category": "Steel & Castings",
@@ -73,7 +73,7 @@
         "row": 5,
         "assumedFields": []
       },
-      "supplierName": "Harzland Flat Steel GmbH",
+      "supplierName": "Feralis Flat Steel GmbH",
       "country": "Germany",
       "city": "Salzgitter",
       "category": "Steel & Castings",
@@ -102,7 +102,7 @@
         "row": 6,
         "assumedFields": []
       },
-      "supplierName": "Odlewnia Wisła Sp. z o.o.",
+      "supplierName": "Odlewnia Stalmet Sp. z o.o.",
       "country": "Poland",
       "city": "Katowice",
       "category": "Steel & Castings",
@@ -131,7 +131,7 @@
         "row": 7,
         "assumedFields": []
       },
-      "supplierName": "Shandong Muster Casting Co., Ltd.",
+      "supplierName": "Xinmo Casting Co., Ltd.",
       "country": "China",
       "city": "Jinan",
       "category": "Steel & Castings",
@@ -160,7 +160,7 @@
         "row": 8,
         "assumedFields": []
       },
-      "supplierName": "Anatolia Döküm A.Ş.",
+      "supplierName": "Yıldızer Döküm A.Ş.",
       "country": "Türkiye",
       "city": "Bursa",
       "category": "Steel & Castings",
@@ -189,7 +189,7 @@
         "row": 9,
         "assumedFields": []
       },
-      "supplierName": "Danube Valley Steel GmbH",
+      "supplierName": "Stavio Steel GmbH",
       "country": "Austria",
       "city": "Linz",
       "category": "Steel & Castings",
@@ -218,7 +218,7 @@
         "row": 10,
         "assumedFields": []
       },
-      "supplierName": "Moselle Acier Europe S.A.",
+      "supplierName": "Novacier Europe S.A.",
       "country": "Luxembourg",
       "city": "Esch-sur-Alzette",
       "category": "Steel & Castings",
@@ -247,7 +247,7 @@
         "row": 11,
         "assumedFields": []
       },
-      "supplierName": "Pune Precision Castings Pvt. Ltd.",
+      "supplierName": "Varuna Precision Castings Pvt. Ltd.",
       "country": "India",
       "city": "Pune",
       "category": "Steel & Castings",
@@ -276,7 +276,7 @@
         "row": 12,
         "assumedFields": []
       },
-      "supplierName": "GreenFerro Nordic AB",
+      "supplierName": "GreenFerro AB",
       "country": "Sweden",
       "city": "Luleå",
       "category": "Steel & Castings",
@@ -334,7 +334,7 @@
         "row": 14,
         "assumedFields": []
       },
-      "supplierName": "Weserland Aluminium SE",
+      "supplierName": "Lumarex Aluminium SE",
       "country": "Germany",
       "city": "Essen",
       "category": "Aluminium & Die Casting",
@@ -365,7 +365,7 @@
           "data_source"
         ]
       },
-      "supplierName": "Alucast Swabia GmbH",
+      "supplierName": "Alucast Vertis GmbH",
       "country": "Germany",
       "city": "Ulm",
       "category": "Aluminium & Die Casting",
@@ -394,7 +394,7 @@
         "row": 16,
         "assumedFields": []
       },
-      "supplierName": "Ningbo Silverline Die Casting Co., Ltd.",
+      "supplierName": "Silverline Die Casting Co., Ltd.",
       "country": "China",
       "city": "Ningbo",
       "category": "Aluminium & Die Casting",
@@ -423,7 +423,7 @@
         "row": 17,
         "assumedFields": []
       },
-      "supplierName": "Ore Mountains Die Casting GmbH",
+      "supplierName": "Brightform Die Casting GmbH",
       "country": "Germany",
       "city": "Chemnitz",
       "category": "Aluminium & Die Casting",
@@ -452,7 +452,7 @@
         "row": 18,
         "assumedFields": []
       },
-      "supplierName": "Rhine Rolling Aluminium GmbH",
+      "supplierName": "Rolltec Aluminium GmbH",
       "country": "Germany",
       "city": "Göttingen",
       "category": "Aluminium & Die Casting",
@@ -510,7 +510,7 @@
         "row": 20,
         "assumedFields": []
       },
-      "supplierName": "Alu Balkan d.o.o.",
+      "supplierName": "Alunova d.o.o.",
       "country": "Serbia",
       "city": "Novi Sad",
       "category": "Aluminium & Die Casting",
@@ -539,7 +539,7 @@
         "row": 21,
         "assumedFields": []
       },
-      "supplierName": "Aluvallée France SAS",
+      "supplierName": "Aluvallée SAS",
       "country": "France",
       "city": "Issoire",
       "category": "Aluminium & Die Casting",
@@ -568,7 +568,7 @@
         "row": 22,
         "assumedFields": []
       },
-      "supplierName": "Saigon Lightmetal JSC",
+      "supplierName": "Phuc Thinh Lightmetal JSC",
       "country": "Vietnam",
       "city": "Ho Chi Minh City",
       "category": "Aluminium & Die Casting",
@@ -597,7 +597,7 @@
         "row": 23,
         "assumedFields": []
       },
-      "supplierName": "Elbe Copper AG",
+      "supplierName": "Cuprion AG",
       "country": "Germany",
       "city": "Hamburg",
       "category": "Copper & Magnet Wire",
@@ -684,7 +684,7 @@
         "row": 26,
         "assumedFields": []
       },
-      "supplierName": "Mansfeld Muster Copper Works GmbH",
+      "supplierName": "Muster Copper Works GmbH",
       "country": "Germany",
       "city": "Hettstedt",
       "category": "Copper & Magnet Wire",
@@ -713,7 +713,7 @@
         "row": 27,
         "assumedFields": []
       },
-      "supplierName": "Jiangsu Goldwire Copper Co., Ltd.",
+      "supplierName": "Goldwire Copper Co., Ltd.",
       "country": "China",
       "city": "Changzhou",
       "category": "Copper & Magnet Wire",
@@ -771,7 +771,7 @@
         "row": 29,
         "assumedFields": []
       },
-      "supplierName": "Hindustan Enamelled Wires Ltd.",
+      "supplierName": "Kavira Enamelled Wires Ltd.",
       "country": "India",
       "city": "Chennai",
       "category": "Copper & Magnet Wire",
@@ -800,7 +800,7 @@
         "row": 30,
         "assumedFields": []
       },
-      "supplierName": "Saale Copper Smelter GmbH",
+      "supplierName": "Kuprana Copper Smelter GmbH",
       "country": "Germany",
       "city": "Osnabrück",
       "category": "Copper & Magnet Wire",
@@ -887,7 +887,7 @@
         "row": 33,
         "assumedFields": []
       },
-      "supplierName": "Isarchip Technologies AG",
+      "supplierName": "Vantochip Technologies AG",
       "country": "Germany",
       "city": "Neubiberg",
       "category": "Electronic Components",
@@ -916,7 +916,7 @@
         "row": 34,
         "assumedFields": []
       },
-      "supplierName": "Neckar Valley Electronics GmbH",
+      "supplierName": "Elnova Electronics GmbH",
       "country": "Germany",
       "city": "Reutlingen",
       "category": "Electronic Components",
@@ -945,7 +945,7 @@
         "row": 35,
         "assumedFields": []
       },
-      "supplierName": "Lippe Contact Technology GmbH & Co. KG",
+      "supplierName": "Kontaro Contact Technology GmbH & Co. KG",
       "country": "Germany",
       "city": "Blomberg",
       "category": "Electronic Components",
@@ -976,7 +976,7 @@
           "data_source"
         ]
       },
-      "supplierName": "Hohenlohe Electronics GmbH",
+      "supplierName": "Brenntec Electronics GmbH",
       "country": "Germany",
       "city": "Waldenburg",
       "category": "Electronic Components",
@@ -1005,7 +1005,7 @@
         "row": 37,
         "assumedFields": []
       },
-      "supplierName": "Kansai Ceramic Components Co., Ltd.",
+      "supplierName": "Kizuna Ceramic Components Co., Ltd.",
       "country": "Japan",
       "city": "Kyoto",
       "category": "Electronic Components",
@@ -1034,7 +1034,7 @@
         "row": 38,
         "assumedFields": []
       },
-      "supplierName": "Shenzhen BrightChip Electronics Co., Ltd.",
+      "supplierName": "BrightChip Electronics Co., Ltd.",
       "country": "China",
       "city": "Shenzhen",
       "category": "Electronic Components",
@@ -1063,7 +1063,7 @@
         "row": 39,
         "assumedFields": []
       },
-      "supplierName": "Tatra Electronics s.r.o.",
+      "supplierName": "Tekora Electronics s.r.o.",
       "country": "Czech Republic",
       "city": "Brno",
       "category": "Electronic Components",
@@ -1092,7 +1092,7 @@
         "row": 40,
         "assumedFields": []
       },
-      "supplierName": "Brianza Microelettronica S.r.l.",
+      "supplierName": "Vettori Microelettronica S.r.l.",
       "country": "Italy",
       "city": "Agrate Brianza",
       "category": "Electronic Components",
@@ -1121,7 +1121,7 @@
         "row": 41,
         "assumedFields": []
       },
-      "supplierName": "Penang PCB Assembly Sdn. Bhd.",
+      "supplierName": "Orchid PCB Assembly Sdn. Bhd.",
       "country": "Malaysia",
       "city": "Penang",
       "category": "Electronic Components",
@@ -1179,7 +1179,7 @@
         "row": 43,
         "assumedFields": []
       },
-      "supplierName": "Franconia Bearings AG",
+      "supplierName": "Ferrolan Bearings AG",
       "country": "Germany",
       "city": "Herzogenaurach",
       "category": "Bearings",
@@ -1208,7 +1208,7 @@
         "row": 44,
         "assumedFields": []
       },
-      "supplierName": "Vänern Lager AB",
+      "supplierName": "Lindqvist Lager AB",
       "country": "Sweden",
       "city": "Gothenburg",
       "category": "Bearings",
@@ -1237,7 +1237,7 @@
         "row": 45,
         "assumedFields": []
       },
-      "supplierName": "Rhine Bearings Europe GmbH",
+      "supplierName": "Rotalis Bearings Europe GmbH",
       "country": "Germany",
       "city": "Ratingen",
       "category": "Bearings",
@@ -1266,7 +1266,7 @@
         "row": 46,
         "assumedFields": []
       },
-      "supplierName": "Carpați Rulmenți S.A.",
+      "supplierName": "Dinamic Rulmenți S.A.",
       "country": "Romania",
       "city": "Ploiești",
       "category": "Bearings",
@@ -1295,7 +1295,7 @@
         "row": 47,
         "assumedFields": []
       },
-      "supplierName": "Liaoning Rolltech Bearing Co., Ltd.",
+      "supplierName": "Rolltech Bearing Co., Ltd.",
       "country": "China",
       "city": "Dalian",
       "category": "Bearings",
@@ -1326,7 +1326,7 @@
           "last_updated"
         ]
       },
-      "supplierName": "Schweinfurt Muster Ball Bearings GmbH",
+      "supplierName": "Muster Ball Bearings GmbH",
       "country": "Germany",
       "city": "Schweinfurt",
       "category": "Bearings",
@@ -1355,7 +1355,7 @@
         "row": 49,
         "assumedFields": []
       },
-      "supplierName": "Savoie Roulements SAS",
+      "supplierName": "Roulements Darnaud SAS",
       "country": "France",
       "city": "Annecy",
       "category": "Bearings",
@@ -1413,7 +1413,7 @@
         "row": 51,
         "assumedFields": []
       },
-      "supplierName": "Ganga Bearings Pvt. Ltd.",
+      "supplierName": "Navkar Bearings Pvt. Ltd.",
       "country": "India",
       "city": "Vadodara",
       "category": "Bearings",
@@ -1442,7 +1442,7 @@
         "row": 52,
         "assumedFields": []
       },
-      "supplierName": "Marmara Bearing A.Ş.",
+      "supplierName": "Özkan Bearing A.Ş.",
       "country": "Türkiye",
       "city": "Kocaeli",
       "category": "Bearings",
@@ -1471,7 +1471,7 @@
         "row": 53,
         "assumedFields": []
       },
-      "supplierName": "Bergstrasse Sealing Technology SE",
+      "supplierName": "Dichtex Sealing Technology SE",
       "country": "Germany",
       "city": "Weinheim",
       "category": "Seals & Rubber",
@@ -1500,7 +1500,7 @@
         "row": 54,
         "assumedFields": []
       },
-      "supplierName": "Skåne Sealing Solutions AB",
+      "supplierName": "Sealvik Solutions AB",
       "country": "Sweden",
       "city": "Trelleborg",
       "category": "Seals & Rubber",
@@ -1529,7 +1529,7 @@
         "row": 55,
         "assumedFields": []
       },
-      "supplierName": "Swabia Sealing Systems GmbH",
+      "supplierName": "Sealtron Systems GmbH",
       "country": "Germany",
       "city": "Bietigheim-Bissingen",
       "category": "Seals & Rubber",
@@ -1558,7 +1558,7 @@
         "row": 56,
         "assumedFields": []
       },
-      "supplierName": "Leine Valley Elastomers AG",
+      "supplierName": "Elastra Elastomers AG",
       "country": "Germany",
       "city": "Hanover",
       "category": "Seals & Rubber",
@@ -1587,7 +1587,7 @@
         "row": 57,
         "assumedFields": []
       },
-      "supplierName": "Musterhausen Rubber Works GmbH",
+      "supplierName": "Muster Rubber Works GmbH",
       "country": "Germany",
       "city": "Kassel",
       "category": "Seals & Rubber",
@@ -1616,7 +1616,7 @@
         "row": 58,
         "assumedFields": []
       },
-      "supplierName": "Lanka Rubber Compounds (Pvt) Ltd.",
+      "supplierName": "Ceyra Rubber Compounds (Pvt) Ltd.",
       "country": "Sri Lanka",
       "city": "Colombo",
       "category": "Seals & Rubber",
@@ -1647,7 +1647,7 @@
           "data_source"
         ]
       },
-      "supplierName": "Hebei Sealmaster Co., Ltd.",
+      "supplierName": "Sealmaster Co., Ltd.",
       "country": "China",
       "city": "Xingtai",
       "category": "Seals & Rubber",
@@ -1676,7 +1676,7 @@
         "row": 60,
         "assumedFields": []
       },
-      "supplierName": "Elastomer Česko s.r.o.",
+      "supplierName": "Elastomer Novotný s.r.o.",
       "country": "Czech Republic",
       "city": "Zlín",
       "category": "Seals & Rubber",
@@ -1734,7 +1734,7 @@
         "row": 62,
         "assumedFields": []
       },
-      "supplierName": "Guarnizioni Lombarde S.p.A.",
+      "supplierName": "Guarnizioni Bellini S.p.A.",
       "country": "Italy",
       "city": "Bergamo",
       "category": "Seals & Rubber",
@@ -1763,7 +1763,7 @@
         "row": 63,
         "assumedFields": []
       },
-      "supplierName": "Kocher Fastening Technology GmbH",
+      "supplierName": "Fixaro Fastening Technology GmbH",
       "country": "Germany",
       "city": "Künzelsau",
       "category": "Fasteners",
@@ -1792,7 +1792,7 @@
         "row": 64,
         "assumedFields": []
       },
-      "supplierName": "Teutoburg Joining Technology GmbH",
+      "supplierName": "Verbix Joining Technology GmbH",
       "country": "Germany",
       "city": "Bielefeld",
       "category": "Fasteners",
@@ -1821,7 +1821,7 @@
         "row": 65,
         "assumedFields": []
       },
-      "supplierName": "Lake Zug Fasteners AG",
+      "supplierName": "Vexor Fasteners AG",
       "country": "Switzerland",
       "city": "Zug",
       "category": "Fasteners",
@@ -1852,7 +1852,7 @@
           "data_source"
         ]
       },
-      "supplierName": "Ningbo Screwking Fasteners Co., Ltd.",
+      "supplierName": "Screwking Fasteners Co., Ltd.",
       "country": "China",
       "city": "Ningbo",
       "category": "Fasteners",
@@ -1881,7 +1881,7 @@
         "row": 67,
         "assumedFields": []
       },
-      "supplierName": "Kaohsiung Bolt Industrial Co., Ltd.",
+      "supplierName": "Hongtai Bolt Industrial Co., Ltd.",
       "country": "Taiwan",
       "city": "Kaohsiung",
       "category": "Fasteners",
@@ -1910,7 +1910,7 @@
         "row": 68,
         "assumedFields": []
       },
-      "supplierName": "Musterberg Screw Works GmbH",
+      "supplierName": "Muster Screw Works GmbH",
       "country": "Germany",
       "city": "Ludwigsburg",
       "category": "Fasteners",
@@ -1939,7 +1939,7 @@
         "row": 69,
         "assumedFields": []
       },
-      "supplierName": "Lowland Fasteners Europe B.V.",
+      "supplierName": "Boltwerk Fasteners Europe B.V.",
       "country": "Netherlands",
       "city": "Venlo",
       "category": "Fasteners",
@@ -1968,7 +1968,7 @@
         "row": 70,
         "assumedFields": []
       },
-      "supplierName": "Ludhiana Fasteners Pvt. Ltd.",
+      "supplierName": "Jaswant Fasteners Pvt. Ltd.",
       "country": "India",
       "city": "Ludhiana",
       "category": "Fasteners",
@@ -1997,7 +1997,7 @@
         "row": 71,
         "assumedFields": []
       },
-      "supplierName": "Göta Fasteners AB",
+      "supplierName": "Ekberg Fasteners AB",
       "country": "Sweden",
       "city": "Gothenburg",
       "category": "Fasteners",
@@ -2055,7 +2055,7 @@
         "row": 73,
         "assumedFields": []
       },
-      "supplierName": "Lower Rhine Polymers AG",
+      "supplierName": "Polyvant Polymers AG",
       "country": "Germany",
       "city": "Leverkusen",
       "category": "Plastics & Injection Molding",
@@ -2084,7 +2084,7 @@
         "row": 74,
         "assumedFields": []
       },
-      "supplierName": "Palatinate Performance Polymers SE",
+      "supplierName": "Peravon Performance Polymers SE",
       "country": "Germany",
       "city": "Ludwigshafen",
       "category": "Plastics & Injection Molding",
@@ -2142,7 +2142,7 @@
         "row": 76,
         "assumedFields": []
       },
-      "supplierName": "Wupper Plastics GmbH",
+      "supplierName": "Werner Plastics GmbH",
       "country": "Germany",
       "city": "Cologne",
       "category": "Plastics & Injection Molding",
@@ -2171,7 +2171,7 @@
         "row": 77,
         "assumedFields": []
       },
-      "supplierName": "Plast-Form Hungária Kft.",
+      "supplierName": "Plast-Form Kft.",
       "country": "Hungary",
       "city": "Győr",
       "category": "Plastics & Injection Molding",
@@ -2200,7 +2200,7 @@
         "row": 78,
         "assumedFields": []
       },
-      "supplierName": "Dongguan Moldmax Plastics Co., Ltd.",
+      "supplierName": "Moldmax Plastics Co., Ltd.",
       "country": "China",
       "city": "Dongguan",
       "category": "Plastics & Injection Molding",
@@ -2229,7 +2229,7 @@
         "row": 79,
         "assumedFields": []
       },
-      "supplierName": "Moldtech Monterrey S.A. de C.V.",
+      "supplierName": "Moldtech S.A. de C.V.",
       "country": "Mexico",
       "city": "Monterrey",
       "category": "Plastics & Injection Molding",
@@ -2258,7 +2258,7 @@
         "row": 80,
         "assumedFields": []
       },
-      "supplierName": "Bavaria Polymer Works GmbH",
+      "supplierName": "Polymeron Works GmbH",
       "country": "Germany",
       "city": "Regensburg",
       "category": "Plastics & Injection Molding",
@@ -2316,7 +2316,7 @@
         "row": 82,
         "assumedFields": []
       },
-      "supplierName": "İstanbul Plastik Enjeksiyon A.Ş.",
+      "supplierName": "Aksoy Plastik Enjeksiyon A.Ş.",
       "country": "Türkiye",
       "city": "Istanbul",
       "category": "Plastics & Injection Molding",
@@ -2345,7 +2345,7 @@
         "row": 83,
         "assumedFields": []
       },
-      "supplierName": "Liffey Corrugated Group plc",
+      "supplierName": "Corrafold Group plc",
       "country": "Ireland",
       "city": "Dublin",
       "category": "Packaging",
@@ -2374,7 +2374,7 @@
         "row": 84,
         "assumedFields": []
       },
-      "supplierName": "Pennine Packaging Ltd.",
+      "supplierName": "Ashcroft Packaging Ltd.",
       "country": "United Kingdom",
       "city": "London",
       "category": "Packaging",
@@ -2403,7 +2403,7 @@
         "row": 85,
         "assumedFields": []
       },
-      "supplierName": "Styria Paper Group AG",
+      "supplierName": "Papyron Paper Group AG",
       "country": "Austria",
       "city": "Vienna",
       "category": "Packaging",
@@ -2463,7 +2463,7 @@
           "last_updated"
         ]
       },
-      "supplierName": "Black Forest Wood Pallets GmbH",
+      "supplierName": "Timberra Wood Pallets GmbH",
       "country": "Germany",
       "city": "Freudenstadt",
       "category": "Packaging",
@@ -2521,7 +2521,7 @@
         "row": 89,
         "assumedFields": []
       },
-      "supplierName": "Xiamen PackPro Co., Ltd.",
+      "supplierName": "PackPro Co., Ltd.",
       "country": "China",
       "city": "Xiamen",
       "category": "Packaging",
@@ -2639,7 +2639,7 @@
         "row": 93,
         "assumedFields": []
       },
-      "supplierName": "Hanse Freight GmbH",
+      "supplierName": "Transvela Freight GmbH",
       "country": "Germany",
       "city": "Bonn",
       "category": "Logistics",
@@ -2697,7 +2697,7 @@
         "row": 95,
         "assumedFields": []
       },
-      "supplierName": "Lake Lucerne Logistics AG",
+      "supplierName": "Vectra Logistics AG",
       "country": "Switzerland",
       "city": "Schindellegi",
       "category": "Logistics",
@@ -2726,7 +2726,7 @@
         "row": 96,
         "assumedFields": []
       },
-      "supplierName": "Jutland Road A/S",
+      "supplierName": "Holmgaard Road A/S",
       "country": "Denmark",
       "city": "Hedehusene",
       "category": "Logistics",
@@ -2755,7 +2755,7 @@
         "row": 97,
         "assumedFields": []
       },
-      "supplierName": "Altmühl Freight Forwarding GmbH",
+      "supplierName": "Kargon Freight Forwarding GmbH",
       "country": "Germany",
       "city": "Kempten",
       "category": "Logistics",
@@ -2784,7 +2784,7 @@
         "row": 98,
         "assumedFields": []
       },
-      "supplierName": "Rheinhafen Logistics SE",
+      "supplierName": "Portalis Logistics SE",
       "country": "Germany",
       "city": "Holzwickede",
       "category": "Logistics",
@@ -2842,7 +2842,7 @@
         "row": 100,
         "assumedFields": []
       },
-      "supplierName": "TransCarpathia Trucking S.R.L.",
+      "supplierName": "TransVia Trucking S.R.L.",
       "country": "Romania",
       "city": "Cluj-Napoca",
       "category": "Logistics",
@@ -2871,7 +2871,7 @@
         "row": 101,
         "assumedFields": []
       },
-      "supplierName": "Baltic Express Cargo UAB",
+      "supplierName": "Aurelis Express Cargo UAB",
       "country": "Lithuania",
       "city": "Vilnius",
       "category": "Logistics",

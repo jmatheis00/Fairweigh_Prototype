@@ -23,7 +23,7 @@
         "benchmarks": {
           "quality": {
             "value": 0.8,
-            "basis": "Complaint rate of the last 3 purchases: PO-4500012310, PO-4500012313, PO-4500012316, Alucast Swabia GmbH (client ERP)",
+            "basis": "Complaint rate of the last 3 purchases: PO-4500012310, PO-4500012313, PO-4500012316, Alucast Vertis GmbH (client ERP)",
             "short": "Today",
             "kind": "internal",
             "sourceUrl": null
@@ -31,20 +31,20 @@
           "price": {
             "value": 84.5,
             "short": "Price today",
-            "basis": "Price we pay today: EUR 84.50 per piece, average of the last 3 purchases: PO-4500012310, PO-4500012313, PO-4500012316, Alucast Swabia GmbH (client ERP)",
+            "basis": "Price we pay today: EUR 84.50 per piece, average of the last 3 purchases: PO-4500012310, PO-4500012313, PO-4500012316, Alucast Vertis GmbH (client ERP)",
             "kind": "internal",
             "sourceUrl": null
           },
           "co2": {
             "value": 38,
-            "basis": "Product footprint of the last 3 purchases: PO-4500012310, PO-4500012313, PO-4500012316, Alucast Swabia GmbH (PCF exchange)",
+            "basis": "Product footprint of the last 3 purchases: PO-4500012310, PO-4500012313, PO-4500012316, Alucast Vertis GmbH (PCF exchange)",
             "short": "Today",
             "kind": "internal",
             "sourceUrl": null
           },
           "delivery": {
             "value": 95,
-            "basis": "On-time delivery of the last 3 purchases: PO-4500012310, PO-4500012313, PO-4500012316, Alucast Swabia GmbH (client ERP)",
+            "basis": "On-time delivery of the last 3 purchases: PO-4500012310, PO-4500012313, PO-4500012316, Alucast Vertis GmbH (client ERP)",
             "short": "Today",
             "kind": "internal",
             "sourceUrl": null
@@ -82,7 +82,7 @@
         "benchmarks": {
           "quality": {
             "value": 0.7,
-            "basis": "Complaint rate of the last 3 purchases: PO-4500012311, PO-4500012314, PO-4500012317, Danube Valley Steel GmbH (client ERP)",
+            "basis": "Complaint rate of the last 3 purchases: PO-4500012311, PO-4500012314, PO-4500012317, Stavio Steel GmbH (client ERP)",
             "short": "Today",
             "kind": "internal",
             "sourceUrl": null
@@ -90,20 +90,20 @@
           "price": {
             "value": 46.92,
             "short": "Price today",
-            "basis": "Price we pay today: EUR 46.92 per piece, average of the last 3 purchases: PO-4500012311, PO-4500012314, PO-4500012317, Danube Valley Steel GmbH (client ERP)",
+            "basis": "Price we pay today: EUR 46.92 per piece, average of the last 3 purchases: PO-4500012311, PO-4500012314, PO-4500012317, Stavio Steel GmbH (client ERP)",
             "kind": "internal",
             "sourceUrl": null
           },
           "co2": {
             "value": 13.8,
-            "basis": "Product footprint of the last 3 purchases: PO-4500012311, PO-4500012314, PO-4500012317, Danube Valley Steel GmbH (PCF exchange)",
+            "basis": "Product footprint of the last 3 purchases: PO-4500012311, PO-4500012314, PO-4500012317, Stavio Steel GmbH (PCF exchange)",
             "short": "Today",
             "kind": "internal",
             "sourceUrl": null
           },
           "delivery": {
             "value": 98,
-            "basis": "On-time delivery of the last 3 purchases: PO-4500012311, PO-4500012314, PO-4500012317, Danube Valley Steel GmbH (client ERP)",
+            "basis": "On-time delivery of the last 3 purchases: PO-4500012311, PO-4500012314, PO-4500012317, Stavio Steel GmbH (client ERP)",
             "short": "Today",
             "kind": "internal",
             "sourceUrl": null
@@ -141,7 +141,7 @@
         "benchmarks": {
           "quality": {
             "value": 0.7,
-            "basis": "Complaint rate of the last 3 purchases: PO-4500012312, PO-4500012315, PO-4500012318, Elbe Copper AG (client ERP)",
+            "basis": "Complaint rate of the last 3 purchases: PO-4500012312, PO-4500012315, PO-4500012318, Cuprion AG (client ERP)",
             "short": "Today",
             "kind": "internal",
             "sourceUrl": null
@@ -149,20 +149,20 @@
           "price": {
             "value": 63.24,
             "short": "Price today",
-            "basis": "Price we pay today: EUR 63.24 per piece, average of the last 3 purchases: PO-4500012312, PO-4500012315, PO-4500012318, Elbe Copper AG (client ERP)",
+            "basis": "Price we pay today: EUR 63.24 per piece, average of the last 3 purchases: PO-4500012312, PO-4500012315, PO-4500012318, Cuprion AG (client ERP)",
             "kind": "internal",
             "sourceUrl": null
           },
           "co2": {
             "value": 10.9,
-            "basis": "Product footprint of the last 3 purchases: PO-4500012312, PO-4500012315, PO-4500012318, Elbe Copper AG (PCF exchange)",
+            "basis": "Product footprint of the last 3 purchases: PO-4500012312, PO-4500012315, PO-4500012318, Cuprion AG (PCF exchange)",
             "short": "Today",
             "kind": "internal",
             "sourceUrl": null
           },
           "delivery": {
             "value": 95,
-            "basis": "On-time delivery of the last 3 purchases: PO-4500012312, PO-4500012315, PO-4500012318, Elbe Copper AG (client ERP)",
+            "basis": "On-time delivery of the last 3 purchases: PO-4500012312, PO-4500012315, PO-4500012318, Cuprion AG (client ERP)",
             "short": "Today",
             "kind": "internal",
             "sourceUrl": null
@@ -200,7 +200,7 @@
         "benchmarks": {
           "quality": {
             "value": 1.3,
-            "basis": "Complaint rate of the current supplier Schweinfurt Muster Ball Bearings GmbH (client ERP)",
+            "basis": "Complaint rate of the current supplier Muster Ball Bearings GmbH (client ERP)",
             "short": "Today",
             "kind": "internal",
             "sourceUrl": null
@@ -208,20 +208,20 @@
           "price": {
             "value": 6,
             "short": "Price today",
-            "basis": "Price we pay today: EUR 6.00 per piece to Schweinfurt Muster Ball Bearings GmbH (current contract, client ERP)",
+            "basis": "Price we pay today: EUR 6.00 per piece to Muster Ball Bearings GmbH (current contract, client ERP)",
             "kind": "internal",
             "sourceUrl": null
           },
           "co2": {
             "value": 1.05,
-            "basis": "Product footprint of the current supplier Schweinfurt Muster Ball Bearings GmbH (PCF exchange)",
+            "basis": "Product footprint of the current supplier Muster Ball Bearings GmbH (PCF exchange)",
             "short": "Today",
             "kind": "internal",
             "sourceUrl": null
           },
           "delivery": {
             "value": 89,
-            "basis": "On-time delivery of the current supplier Schweinfurt Muster Ball Bearings GmbH (client ERP)",
+            "basis": "On-time delivery of the current supplier Muster Ball Bearings GmbH (client ERP)",
             "short": "Today",
             "kind": "internal",
             "sourceUrl": null
@@ -259,7 +259,7 @@
         "benchmarks": {
           "quality": {
             "value": 1.1,
-            "basis": "Complaint rate of the current supplier Musterhausen Rubber Works GmbH (client ERP)",
+            "basis": "Complaint rate of the current supplier Muster Rubber Works GmbH (client ERP)",
             "short": "Today",
             "kind": "internal",
             "sourceUrl": null
@@ -267,20 +267,20 @@
           "price": {
             "value": 1.82,
             "short": "Price today",
-            "basis": "Price we pay today: EUR 1.82 per piece to Musterhausen Rubber Works GmbH (current contract, client ERP)",
+            "basis": "Price we pay today: EUR 1.82 per piece to Muster Rubber Works GmbH (current contract, client ERP)",
             "kind": "internal",
             "sourceUrl": null
           },
           "co2": {
             "value": 0.33,
-            "basis": "Product footprint of the current supplier Musterhausen Rubber Works GmbH (PCF exchange)",
+            "basis": "Product footprint of the current supplier Muster Rubber Works GmbH (PCF exchange)",
             "short": "Today",
             "kind": "internal",
             "sourceUrl": null
           },
           "delivery": {
             "value": 92,
-            "basis": "On-time delivery of the current supplier Musterhausen Rubber Works GmbH (client ERP)",
+            "basis": "On-time delivery of the current supplier Muster Rubber Works GmbH (client ERP)",
             "short": "Today",
             "kind": "internal",
             "sourceUrl": null

@@ -43,7 +43,7 @@ Every JSON file says which system it simulates and carries the notice "Demo data
 
 On 6 Nov 2026 43 names in the Excel that played on real companies (e.g. a steel group, a chemicals group, logistics firms) were replaced with clearly invented ones, including their website and e-mail domains, so that no invented risk or controversy can be read as a claim about a real company. S-0005 was renamed too, because "Hengda" is the Chinese name of a real group. On 8 Nov 2026 the same 44 renames were applied to Excel v2. Only the text cells changed; formulas, dropdowns and all other values of the Excel are untouched.
 
-On 18 Nov 2026 the German words in 44 supplier names and in the buyer's name were translated into English for an English-speaking audience, keeping place names and the legal form (e.g. "Mustermann Stahlguss GmbH" → "Mustermann Steel Castings GmbH", "Rheintal Antriebe GmbH" → "Rhine Valley Drives GmbH"). Names in other languages stay as they were. The same renames were applied 1:1 as text to the saved Gemini runs in `runs/`, so the replayed runs match the data; nothing else in those runs changed. Only text cells and cached formula results of the Excel changed.
+On 18 Nov 2026 the supplier names were made neutral for an English-speaking audience, in two steps: first the German words in 44 names were translated into English; then every name that contained a city, region, river or country was replaced with an invented one (79 names, e.g. "Alucast Schwaben GmbH" → "Alucast Vertis GmbH", "Ningbo Silverline Die Casting Co., Ltd." → "Silverline Die Casting Co., Ltd."). The legal form stays, so the country of a supplier is still clear from its name and its address. The buyer "Rheintal Antriebe GmbH" became "Torvane Drive Systems GmbH". The same renames were applied 1:1 as text to the saved Gemini runs in `runs/`, so the replayed runs match the data; nothing else in those runs changed. Only text cells and cached formula results of the Excel changed.
 
 ## Excel v2 (team data model, 8 Nov 2026)
 
@@ -65,11 +65,11 @@ Demo request from v2: 2,000 pieces, needed by 18 Dec 2026. Prices, CO₂ values,
 
 | ID | Supplier | Complaints | On time | Price/piece | CO₂/piece | Lead time | Note |
 |---|---|---|---|---|---|---|---|
-| S-0013 | Alucast Swabia | 0.8 % | 95 % | 84.50 | 38.0 kg Supplier-specific | 24 days | Existing supplier |
-| S-0015 | Ore Mountains Die Casting | 1.0 % | 97 % | 85.35 | 22.6 kg Verified | 27 days | Demo story: +1.0 % price, −41 % CO₂, verified |
-| S-0018 | Alu Balkan | missing | missing | 72.80 | 41.5 kg Company estimate (2024) | 32 days | Gaps; CO₂ data older than 365 days; LkSG "Medium" (warning) |
-| S-0014 | Ningbo Silverline | missing | missing | 61.90 | 52.6 kg Industry average | 55 days | Knock-out K2: LkSG "High" without SA8000 |
-| S-0020 | Saigon Lightmetal | missing | missing | 59.40 | 50.5 kg Industry average | 58 days | Knock-out K2: LkSG "High" without SA8000 |
+| S-0013 | Alucast Vertis | 0.8 % | 95 % | 84.50 | 38.0 kg Supplier-specific | 24 days | Existing supplier |
+| S-0015 | Brightform Die Casting | 1.0 % | 97 % | 85.35 | 22.6 kg Verified | 27 days | Demo story: +1.0 % price, −41 % CO₂, verified |
+| S-0018 | Alunova | missing | missing | 72.80 | 41.5 kg Company estimate (2024) | 32 days | Gaps; CO₂ data older than 365 days; LkSG "Medium" (warning) |
+| S-0014 | Silverline Die Casting | missing | missing | 61.90 | 52.6 kg Industry average | 55 days | Knock-out K2: LkSG "High" without SA8000 |
+| S-0020 | Phuc Thinh Lightmetal | missing | missing | 59.40 | 50.5 kg Industry average | 58 days | Knock-out K2: LkSG "High" without SA8000 |
 
 The CO₂ reference date is the end of the reference year, but never after the day the source was retrieved (S-0014 and S-0020 have reference year 2026). Every record lists in `provenance.assumedFields` which fields are assumptions.
 
@@ -79,11 +79,11 @@ Price = Excel `price_index` × assumed base price 46.00 EUR ÷ 100. Estimated CO
 
 | ID | Supplier | Complaints | On time | Price/piece | CO₂/piece | Lead time | Note |
 |---|---|---|---|---|---|---|---|
-| S-0007 | Danube Valley Steel GmbH | 0.7 % | 98 % | 46.92 | 13.8 kg Supplier-specific | 10 days | Current supplier since the Q3 2026 switch |
+| S-0007 | Stavio Steel GmbH | 0.7 % | 98 % | 46.92 | 13.8 kg Supplier-specific | 10 days | Current supplier since the Q3 2026 switch |
 | S-0001 | Mustermann Steel Castings GmbH | 0.5 % | 91 % | 48.30 | 24.6 kg Supplier-specific | 8 days | Former supplier of this part (until Q2 2026) |
-| S-0008 | Moselle Acier Europe S.A. | 1.3 % | 99 % | 46.92 | 24.7 kg Company estimate | 8 days | |
-| S-0006 | Anatolia Döküm A.Ş. | missing | missing | 42.78 | 38.1 kg Company estimate | 46 days | Cheapest; allegation (residents' complaint) as warning |
-| S-0003 | Harzland Flat Steel GmbH | missing | missing | 46.92 indicative | 13.6 kg Company estimate | 13 days | Quote only, gaps |
+| S-0008 | Novacier Europe S.A. | 1.3 % | 99 % | 46.92 | 24.7 kg Company estimate | 8 days | |
+| S-0006 | Yıldızer Döküm A.Ş. | missing | missing | 42.78 | 38.1 kg Company estimate | 46 days | Cheapest; allegation (residents' complaint) as warning |
+| S-0003 | Feralis Flat Steel GmbH | missing | missing | 46.92 indicative | 13.6 kg Company estimate | 13 days | Quote only, gaps |
 
 ### Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01), added 6 Nov 2026
 
@@ -91,10 +91,10 @@ One "piece" is one 5 kg spool. Price = `price_index` × assumed base price 62.00
 
 | ID | Supplier | Complaints | On time | Price/spool | CO₂/spool | Lead time | Note |
 |---|---|---|---|---|---|---|---|
-| S-0021 | Elbe Copper AG | 0.7 % | 95 % | 63.24 | 10.9 kg Supplier-specific | 15 days | Current supplier since the Q3 2026 switch |
+| S-0021 | Cuprion AG | 0.7 % | 95 % | 63.24 | 10.9 kg Supplier-specific | 15 days | Current supplier since the Q3 2026 switch |
 | S-0022 | Elektrisolar Wire Works GmbH | 0.3 % | 88 % | 64.48 | 22.4 kg Supplier-specific | 7 days | Best quality, more CO₂ |
-| S-0025 | Jiangsu Goldwire Copper Co., Ltd. | missing | missing | 48.36 | 34.9 kg Company estimate | 60 days | Knock-out K2: LkSG "High" without SA8000 |
-| S-0024 | Mansfeld Muster Copper Works GmbH | 0.4 % | 96 % | 60.76 | 21.1 kg Company estimate | 11 days | Replaces S-0029, which has no price index or CO₂ intensity in v2 |
+| S-0025 | Goldwire Copper Co., Ltd. | missing | missing | 48.36 | 34.9 kg Company estimate | 60 days | Knock-out K2: LkSG "High" without SA8000 |
+| S-0024 | Muster Copper Works GmbH | 0.4 % | 96 % | 60.76 | 21.1 kg Company estimate | 11 days | Replaces S-0029, which has no price index or CO₂ intensity in v2 |
 | S-0026 | MetalWire Polska Sp. z o.o. | missing | missing | 60.76 | 18.2 kg Company estimate | 17 days | |
 
 The current supplier per part (`currentSupplierId` in `assumptions.json`) stands for the ERP source list; the Excel status "Active contract" alone does not say who supplies which part.

@@ -496,7 +496,7 @@
       "topic": "quality",
       "value": 0.7,
       "unit": "%",
-      "sentence": "The complaint rate for Danube Valley Steel GmbH is 0.7%.",
+      "sentence": "The complaint rate for Stavio Steel GmbH is 0.7%.",
       "system": "erp",
       "recordId": "ERP-S-0007",
       "location": {
@@ -517,7 +517,7 @@
       "topic": "delivery",
       "value": 98,
       "unit": "%",
-      "sentence": "The on-time delivery rate for Danube Valley Steel GmbH is 98%.",
+      "sentence": "The on-time delivery rate for Stavio Steel GmbH is 98%.",
       "system": "erp",
       "recordId": "ERP-S-0007",
       "location": {
@@ -538,7 +538,7 @@
       "topic": "co2",
       "value": 13.8,
       "unit": "kg CO2e/piece",
-      "sentence": "The PCF for part P-STL-HSG-01 from Danube Valley Steel GmbH is 13.8 kg CO2e per piece.",
+      "sentence": "The PCF for part P-STL-HSG-01 from Stavio Steel GmbH is 13.8 kg CO2e per piece.",
       "system": "pcf",
       "recordId": "PCF-S-0007-P-STL-HSG-01",
       "location": {
@@ -559,7 +559,7 @@
       "topic": "price",
       "value": 46.92,
       "unit": "EUR/piece",
-      "sentence": "The unit price offered by Danube Valley Steel GmbH is EUR 46.92 per piece.",
+      "sentence": "The unit price offered by Stavio Steel GmbH is EUR 46.92 per piece.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0007-P-STL-HSG-01",
       "location": {
@@ -581,7 +581,7 @@
       "topic": "leadTime",
       "value": 10,
       "unit": "days",
-      "sentence": "The lead time offered by Danube Valley Steel GmbH is 10 days.",
+      "sentence": "The lead time offered by Stavio Steel GmbH is 10 days.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0007-P-STL-HSG-01",
       "location": {
@@ -710,7 +710,7 @@
       "topic": "quality",
       "value": 1.3,
       "unit": "%",
-      "sentence": "The complaint rate for Moselle Acier Europe S.A. is 1.3%.",
+      "sentence": "The complaint rate for Novacier Europe S.A. is 1.3%.",
       "system": "erp",
       "recordId": "ERP-S-0008",
       "location": {
@@ -731,7 +731,7 @@
       "topic": "delivery",
       "value": 99,
       "unit": "%",
-      "sentence": "The on-time delivery rate for Moselle Acier Europe S.A. is 99%.",
+      "sentence": "The on-time delivery rate for Novacier Europe S.A. is 99%.",
       "system": "erp",
       "recordId": "ERP-S-0008",
       "location": {
@@ -752,7 +752,7 @@
       "topic": "co2",
       "value": 24.7,
       "unit": "kg CO2e/piece",
-      "sentence": "The PCF for part P-STL-HSG-01 from Moselle Acier Europe S.A. is 24.7 kg CO2e per piece.",
+      "sentence": "The PCF for part P-STL-HSG-01 from Novacier Europe S.A. is 24.7 kg CO2e per piece.",
       "system": "pcf",
       "recordId": "PCF-S-0008-P-STL-HSG-01",
       "location": {
@@ -773,7 +773,7 @@
       "topic": "price",
       "value": 46.92,
       "unit": "EUR/piece",
-      "sentence": "The unit price offered by Moselle Acier Europe S.A. is EUR 46.92 per piece.",
+      "sentence": "The unit price offered by Novacier Europe S.A. is EUR 46.92 per piece.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0008-P-STL-HSG-01",
       "location": {
@@ -795,7 +795,7 @@
       "topic": "leadTime",
       "value": 8,
       "unit": "days",
-      "sentence": "The lead time offered by Moselle Acier Europe S.A. is 8 days.",
+      "sentence": "The lead time offered by Novacier Europe S.A. is 8 days.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0008-P-STL-HSG-01",
       "location": {
@@ -817,7 +817,7 @@
       "topic": "price",
       "value": 42.78,
       "unit": "EUR/piece",
-      "sentence": "Anatolia Döküm A.Ş. has a price index of 93 in the ERP record.",
+      "sentence": "Yıldızer Döküm A.Ş. has a price index of 93 in the ERP record.",
       "system": "erp",
       "recordId": "ERP-S-0006",
       "location": {
@@ -842,7 +842,7 @@
       "topic": "price",
       "value": 42.78,
       "unit": "EUR/piece",
-      "sentence": "The unit price offered by Anatolia Döküm A.Ş. is EUR 42.78 per piece.",
+      "sentence": "The unit price offered by Yıldızer Döküm A.Ş. is EUR 42.78 per piece.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0006-P-STL-HSG-01",
       "location": {
@@ -864,7 +864,7 @@
       "topic": "leadTime",
       "value": 46,
       "unit": "days",
-      "sentence": "The lead time offered by Anatolia Döküm A.Ş. is 46 days.",
+      "sentence": "The lead time offered by Yıldızer Döküm A.Ş. is 46 days.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0006-P-STL-HSG-01",
       "location": {
@@ -886,7 +886,7 @@
       "topic": "co2",
       "value": 38.1,
       "unit": "kg CO2e/piece",
-      "sentence": "The PCF for part P-STL-HSG-01 from Anatolia Döküm A.Ş. is 38.1 kg CO2e per piece.",
+      "sentence": "The PCF for part P-STL-HSG-01 from Yıldızer Döküm A.Ş. is 38.1 kg CO2e per piece.",
       "system": "pcf",
       "recordId": "PCF-S-0006-P-STL-HSG-01",
       "location": {
@@ -907,7 +907,7 @@
       "topic": "price",
       "value": 46.92,
       "unit": "EUR/piece",
-      "sentence": "The unit price offered by Harzland Flat Steel GmbH is EUR 46.92 per piece.",
+      "sentence": "The unit price offered by Feralis Flat Steel GmbH is EUR 46.92 per piece.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0003-P-STL-HSG-01",
       "location": {
@@ -929,7 +929,7 @@
       "topic": "leadTime",
       "value": 13,
       "unit": "days",
-      "sentence": "The lead time offered by Harzland Flat Steel GmbH is 13 days.",
+      "sentence": "The lead time offered by Feralis Flat Steel GmbH is 13 days.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0003-P-STL-HSG-01",
       "location": {
@@ -951,7 +951,7 @@
       "topic": "co2",
       "value": 13.6,
       "unit": "kg CO2e/piece",
-      "sentence": "The PCF for part P-STL-HSG-01 from Harzland Flat Steel GmbH is 13.6 kg CO2e per piece.",
+      "sentence": "The PCF for part P-STL-HSG-01 from Feralis Flat Steel GmbH is 13.6 kg CO2e per piece.",
       "system": "pcf",
       "recordId": "PCF-S-0003-P-STL-HSG-01",
       "location": {
