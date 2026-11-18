@@ -258,6 +258,8 @@ body {
   background: #ffffff;
   border: 1px solid var(--border-strong);
   border-left: 3px solid var(--brand);
+  /* Same rounded corners as the cards (Ant Design borderRadiusLG, 18 Nov 2026). */
+  border-radius: 12px;
 }
 
 .how-steps {
