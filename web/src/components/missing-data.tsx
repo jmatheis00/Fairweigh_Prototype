@@ -1,10 +1,9 @@
 "use client";
 
-import { CheckOutlined, CopyOutlined } from "@ant-design/icons";
-import { Button, Flex, Typography } from "antd";
-import { useState } from "react";
+import { MailOutlined } from "@ant-design/icons";
+import { Button, Flex, Tooltip, Typography } from "antd";
 import { CRITERIA, type AgentRun, type Criterion, type DecisionResult, type LeadRequirement } from "@scc/shared";
-import { dataRequestText, requestItems } from "@/lib/data-request";
+import { dataRequestText, requestItems, requestMailto } from "@/lib/data-request";
 import { TOPIC_LABEL, formatNumber, formatEur } from "@/lib/labels";
 import { pcfBadgeTooltip } from "./pcf-badge-tag";
 
@@ -48,8 +47,6 @@ const list = (items: string[]) => (items.length <= 1 ? items.join("") : `${items
  * them could change the result. Outdated data is listed too.
  */
 export function MissingData({ run, result, supplierNames, requirements, partName }: Props) {
-  // Which request was just copied, or could not be copied; shown next to its button.
-  const [copied, setCopied] = useState<{ id: string; ok: boolean } | null>(null);
   const items = run.request.supplierIds
     .map((id) => {
       const ranked = result.ranked.find((r) => r.supplierId === id);
@@ -70,15 +67,6 @@ export function MissingData({ run, result, supplierNames, requirements, partName
     })
     .filter((i) => !i.excluded && (i.missing.length > 0 || i.stale.length > 0 || i.asks.length > 0));
 
-  const copy = async (id: string, text: string) => {
-    try {
-      await navigator.clipboard.writeText(text);
-      setCopied({ id, ok: true });
-    } catch {
-      setCopied({ id, ok: false });
-    }
-  };
-
   if (items.length === 0) {
     return <Typography.Text>All offers with a score have verified values for all {CRITERIA.length} criteria.</Typography.Text>;
   }
@@ -86,8 +74,8 @@ export function MissingData({ run, result, supplierNames, requirements, partName
   return (
     <Flex vertical gap={16}>
       <Typography.Text type="secondary">
-        Gaps get 0 points, so closing them can change the ranking. Each offer has a data request you can copy and send from your
-        own mail program; nothing is sent from here. Excluded offers are not listed.
+        Gaps get 0 points, so closing them can change the ranking. Each offer has a data request that opens as an e-mail draft in
+        your own mail program; nothing is sent from here. Excluded offers are not listed.
       </Typography.Text>
       {items.map((i) => (
         <div key={i.id} className="missing-item">
@@ -123,15 +111,18 @@ export function MissingData({ run, result, supplierNames, requirements, partName
           {i.asks.length > 0 && (
             <Flex vertical gap={4} style={{ marginTop: 6 }}>
               <Flex gap={8} align="center" wrap>
-                <Button size="small" icon={<CopyOutlined />} onClick={() => copy(i.id, dataRequestText(i.request))}>
-                  Copy data request
-                </Button>
-                <Typography.Text type="secondary" style={{ fontSize: 12 }} role="status">
-                  {copied?.id === i.id
-                    ? copied.ok
-                      ? <><CheckOutlined /> Copied. Paste it into your mail program.</>
-                      : "Copying is blocked here. Open the preview and copy the text."
-                    : `Asks for ${i.asks.length} ${i.asks.length === 1 ? "item" : "items"}`}
+                <Tooltip title="Opens an e-mail draft in your mail program. Nothing is sent automatically.">
+                  <Button
+                    size="small"
+                    icon={<MailOutlined />}
+                    href={requestMailto(dataRequestText(i.request))}
+                    aria-label={`Request missing data from ${supplierNames[i.id] ?? i.id}`}
+                  >
+                    Request missing data
+                  </Button>
+                </Tooltip>
+                <Typography.Text type="secondary" style={{ fontSize: 12 }}>
+                  Asks for {i.asks.length} {i.asks.length === 1 ? "item" : "items"}
                 </Typography.Text>
               </Flex>
               <details className="request-preview">

@@ -1,10 +1,9 @@
 "use client";
 
-import { CheckOutlined, CopyOutlined, MailOutlined } from "@ant-design/icons";
-import { Button, Card, Table, Tag, Typography } from "antd";
-import { useState } from "react";
+import { MailOutlined } from "@ant-design/icons";
+import { Button, Card, Table, Tag, Tooltip, Typography } from "antd";
 import type { Co2DataQuality, ErpRecord, SupplierFlag } from "@scc/shared";
-import { sustainabilityRequestText } from "@/lib/data-request";
+import { requestMailto, sustainabilityRequestText } from "@/lib/data-request";
 import { usePartnerData } from "@/lib/partner-data";
 
 const DEMO_DATE = "2026-11-06";
@@ -27,11 +26,10 @@ interface Props {
 
 /**
  * Next steps for the Scope 3 manager: which supplier to ask for which data, from what the
- * connected systems are missing. Built in code; the request is copied, never sent.
+ * connected systems are missing. Built in code; the request opens as an e-mail draft, never sent.
  */
 export function DataRequestsCard({ erp, dataQuality, dataGaps, name }: Props) {
   const { data } = usePartnerData();
-  const [copied, setCopied] = useState<string | null>(null);
   const active = new Set(erp.filter((e) => e.relationshipStatus === "Active contract").map((e) => e.supplierId));
   const rows = new Map<string, Row>();
   const add = (supplierId: string, priority: number, reason: string, item: string) => {
@@ -65,15 +63,6 @@ export function DataRequestsCard({ erp, dataQuality, dataGaps, name }: Props) {
   }
   const list = [...rows.values()].sort((a, b) => a.priority - b.priority || b.items.length - a.items.length || a.supplierId.localeCompare(b.supplierId));
 
-  const copy = async (row: Row) => {
-    try {
-      await navigator.clipboard.writeText(sustainabilityRequestText(name(row.supplierId), row.items));
-      setCopied(row.supplierId);
-    } catch {
-      setCopied(`failed:${row.supplierId}`);
-    }
-  };
-
   return (
     <Card
       className="dash-card"
@@ -83,7 +72,7 @@ export function DataRequestsCard({ erp, dataQuality, dataGaps, name }: Props) {
           <MailOutlined /> Data to request ({list.length} suppliers)
         </span>
       }
-      extra={<Typography.Text type="secondary" style={{ fontSize: 12 }}>Suppliers in our purchases first · copy the request into your mail program</Typography.Text>}
+      extra={<Typography.Text type="secondary" style={{ fontSize: 12 }}>Suppliers in our purchases first · requests open as e-mail drafts</Typography.Text>}
       styles={{ body: { padding: 0 } }}
     >
       <Table<Row>
@@ -101,9 +90,16 @@ export function DataRequestsCard({ erp, dataQuality, dataGaps, name }: Props) {
           ) },
           { title: "Why", key: "w", render: (_, r) => r.reasons.map((x) => <Tag key={x} color="warning" style={{ marginBottom: 2 }}>{x}</Tag>) },
           { title: "", key: "c", width: 200, align: "right", render: (_, r) => (
-            <Button size="small" icon={copied === r.supplierId ? <CheckOutlined /> : <CopyOutlined />} onClick={() => copy(r)}>
-              {copied === r.supplierId ? "Copied" : copied === `failed:${r.supplierId}` ? "Copy blocked" : `Copy request (${r.items.length})`}
-            </Button>
+            <Tooltip title="Opens an e-mail draft in your mail program. Nothing is sent automatically.">
+              <Button
+                size="small"
+                icon={<MailOutlined />}
+                href={requestMailto(sustainabilityRequestText(name(r.supplierId), r.items))}
+                aria-label={`Request data from ${name(r.supplierId)}`}
+              >
+                Request data ({r.items.length})
+              </Button>
+            </Tooltip>
           ) },
         ]}
       />
