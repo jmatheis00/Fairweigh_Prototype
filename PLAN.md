@@ -137,7 +137,7 @@ The cockpit makes no legal assessment. It shows the stored proof, and the user i
 If a piece of evidence fails the check, it counts as "not verified" and gets 0 points.
 
 **Limits and operation:**
-- Maximum steps, time limit and retries are fixed.
+- Maximum steps, time limit and retries are fixed: 10 model turns, 300 s per run, 2 retries (18 Nov 2026: time limit raised from 120 s, because stronger Gemini models needed longer).
 - The run is a background job in the server, the user interface shows the progress.
 - The app stores every step for the log.
 - On limit or outage: the last saved run, marked as such (Groq dropped, 16 Nov 2026).
