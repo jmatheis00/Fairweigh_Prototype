@@ -2,7 +2,8 @@
  * Decision engine (PLAN.md, section 3). Pure code, no AI:
  * 1. Knock-outs first: excluded offers stay visible, without a score.
  * 2. Points 0–100 against a reference value (decision of 8 Nov 2026): 50 = at the
- *    reference, +1 point per 1 % better, −1 per 1 % worse, capped at 0 and 100.
+ *    reference, +1 point per 1 % better, −1 per 1 % worse, capped at 0 and 100. Since 18 Nov 2026
+ *    quality and delivery count the share of good deliveries (without complaint, on time).
  *    Since 17 Nov 2026 the reference is what we have today: the current supplier
  *    (model B). Published industry averages are shown as context only.
  *    Without benchmarks (not used in the demo) the old rule applies: min-max
@@ -11,7 +12,8 @@
  *    never delivered gets a score range: low = the weakest quality and delivery of our current suppliers
  *    in the category (used for the ranking), high = their best values (see DecisionOffer.assumed).
  * 4. Weighting; the weights always add up to 100 %.
- * 5. Sorting: higher score, then more verified criteria, then lower price.
+ * 5. Sorting: offers with real data before suppliers that never delivered (18 Nov 2026), then
+ *    higher score, then more verified criteria, then lower price.
  */
 
 export type Criterion = 'quality' | 'price' | 'co2' | 'delivery';
@@ -50,22 +52,31 @@ export interface Benchmark {
 export type Benchmarks = Record<Criterion, Benchmark>;
 
 /**
- * Points for one value against its benchmark: 50 at the benchmark, +1 point per
- * 1 % better, capped at 0–100. Delivery is compared by its late share
- * (100 − on-time %), so all four criteria work the same way: lower is better.
+ * How much better (+) or worse (−) a value is than its benchmark, in percent of what we want
+ * (decision of 18 Nov 2026): price and CO₂ as less money and less CO₂; quality as more deliveries
+ * without a complaint (100 − complaint %); delivery as more deliveries on time. So every percentage
+ * is a real one: 99.0 % vs 99.2 % deliveries without a complaint is 0.2 % worse, not "25 % more
+ * complaints". This replaced comparing the small complaint and late shares (8 Nov 2026), which made
+ * gaps of tenths of a percentage point look huge.
  */
-export function benchmarkPoints(criterion: Criterion, value: number, benchmark: number): number {
-  const v = criterion === 'delivery' ? 100 - value : value;
-  const b = criterion === 'delivery' ? 100 - benchmark : benchmark;
-  if (b <= 0) return v <= 0 ? 100 : 0;
-  return Math.max(0, Math.min(100, 50 + (100 * (b - v)) / b));
+export function percentBetter(criterion: Criterion, value: number, benchmark: number): number {
+  if (criterion === 'quality' || criterion === 'delivery') {
+    const v = criterion === 'quality' ? 100 - value : value;
+    const b = criterion === 'quality' ? 100 - benchmark : benchmark;
+    return b > 0 ? (100 * (v - b)) / b : 0;
+  }
+  return benchmark > 0 ? (100 * (benchmark - value)) / benchmark : 0;
 }
 
-/** How much better (+) or worse (−) a value is than its benchmark, in percent (same basis as the points). */
-export function percentBetter(criterion: Criterion, value: number, benchmark: number): number {
-  const v = criterion === 'delivery' ? 100 - value : value;
-  const b = criterion === 'delivery' ? 100 - benchmark : benchmark;
-  return b > 0 ? (100 * (b - v)) / b : 0;
+/**
+ * Points for one value against its benchmark: 50 at the benchmark, +1 point per
+ * 1 % better (see percentBetter), capped at 0–100.
+ */
+export function benchmarkPoints(criterion: Criterion, value: number, benchmark: number): number {
+  if (criterion === 'price' || criterion === 'co2') {
+    if (benchmark <= 0) return value <= 0 ? 100 : 0;
+  }
+  return Math.max(0, Math.min(100, 50 + percentBetter(criterion, value, benchmark)));
 }
 
 export interface KnockOut {
@@ -216,8 +227,12 @@ export function decide(offers: DecisionOffer[], weights: Weights = DEFAULT_WEIGH
     };
   });
 
-  // 5. Sort: score, then verified criteria, then lower price (missing price last).
+  // 5. Sort: offers with real data first (decision of 18 Nov 2026: a supplier that never delivered
+  // is never ranked above one with real data, so a gap never beats real data), then score,
+  // then verified criteria, then lower price (missing price last).
   unsorted.sort((a, b) => {
+    const byData = (a.assumed.length > 0 ? 1 : 0) - (b.assumed.length > 0 ? 1 : 0);
+    if (byData !== 0) return byData;
     const byScore = round1(b.raw) - round1(a.raw);
     if (byScore !== 0) return byScore;
     if (b.verifiedCount !== a.verifiedCount) return b.verifiedCount - a.verifiedCount;

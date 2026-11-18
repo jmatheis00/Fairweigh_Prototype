@@ -41,8 +41,9 @@ export function ScoreHelp({ open, title, onClose, rules, weights, defaults }: Pr
           controversies and long lead times are warnings.
         </li>
         <li>
-          <strong>Points per criterion (0–100) against today.</strong> 50 points means the same as today. Every 1 % better adds a
-          point, every 1 % worse removes one. Today means the average of our last three purchases of the part
+          <strong>Percent per criterion against today.</strong> How many % better (+) or worse (−) a value is than today, capped at
+          ±50 %. Quality counts the deliveries without a complaint (99.0 % vs 99.2 % is 0.2 % worse), delivery the deliveries on time,
+          price and CO₂ less money and less CO₂. Today means the average of our last three purchases of the part
           in the client ERP: their unit price, and the quality, delivery and CO₂ figures of the suppliers we bought from. Without
           purchases, the current contract and the current supplier are used; without any value, the category average. Hover a column title to see the value and its source.
         </li>
@@ -52,7 +53,8 @@ export function ScoreHelp({ open, title, onClose, rules, weights, defaults }: Pr
           the material only, so it does not count towards the score.
         </li>
         <li>
-          <strong>Gaps never help.</strong> A missing or unverified value gets 0 points and a visible notice.
+          <strong>Gaps never help.</strong> A missing or unverified value counts as 50 % worse and gets a visible notice. A supplier
+          that never delivered gets a range for quality and delivery and is ranked after all offers with real data.
         </li>
         <li>
           <strong>Weighting.</strong> The weights (together 100 %) weight the four criteria: product quality, price, CO₂ and delivery
@@ -60,7 +62,8 @@ export function ScoreHelp({ open, title, onClose, rules, weights, defaults }: Pr
           percentage points and must justify a change.
         </li>
         <li>
-          <strong>Score bands.</strong> {SCORE_BAND_LABEL.strong}, {SCORE_BAND_LABEL.medium}, {SCORE_BAND_LABEL.weak}.
+          <strong>Result.</strong> The weighted average, e.g. “Ø 9 % better than today” (range −50 % to +50 %). Colours:{" "}
+          {SCORE_BAND_LABEL.better}, {SCORE_BAND_LABEL.same}, {SCORE_BAND_LABEL.worse}.
         </li>
       </ol>
       <Typography.Text type="secondary">CO₂ in euros is shown for information only and does not count towards the score.</Typography.Text>

@@ -69,23 +69,53 @@ export function formatDateTime(iso: string): string {
 }
 
 /**
- * Score bands for the matrix. Colour always comes with the band word
- * (tooltip and screen-reader label), never alone.
+ * The score shown against today (decision of 18 Nov 2026): score − 50 is the weighted average of how
+ * many percent better (+) or worse (−) an offer is than today on each criterion, so the buyer reads
+ * "Ø 9 % better than today" instead of "59 / 100".
  */
-export type ScoreBand = "strong" | "medium" | "weak";
+export const vsToday = (score: number): number => score - 50;
 
-export const SCORE_BANDS = { strong: 70, medium: 40 } as const;
+/** Points of one criterion as % against today: "-0.2 %", "+40 %" (one decimal below 10 %). */
+export function formatCriterionVsToday(points: number): string {
+  const d = points - 50;
+  const digits = Math.abs(d) < 10 ? 1 : 0;
+  const r = Number(d.toFixed(digits));
+  return `${r > 0 ? "+" : r < 0 ? "-" : "±"}${formatNumber(Math.abs(r), digits)} %`;
+}
+
+/** Short form for tables: "+9 %", "-19 %", "±0 %". */
+export function formatVsTodayShort(score: number, digits = 0): string {
+  const d = Number(vsToday(score).toFixed(digits));
+  return `${d > 0 ? "+" : d < 0 ? "-" : "±"}${formatNumber(Math.abs(d), digits)} %`;
+}
+
+/** Long form: "Ø 9 % better than today", "Ø 19 % worse than today", "Same as today". */
+export function formatVsToday(score: number, digits = 0): string {
+  const d = Number(vsToday(score).toFixed(digits));
+  if (d === 0) return "Same as today";
+  return `Ø ${formatNumber(Math.abs(d), digits)} % ${d > 0 ? "better" : "worse"} than today`;
+}
+
+/**
+ * Score bands against today (18 Nov 2026): 5 % or more better, about the same (within ±5 %), 5 % or
+ * more worse; the same limit as the arrows per criterion. Colour always comes with the word (tooltip
+ * and screen-reader label), never alone.
+ */
+export type ScoreBand = "better" | "same" | "worse";
+
+export const SCORE_BAND_LIMIT = 5;
 
 export function scoreBand(score: number): ScoreBand {
-  if (score >= SCORE_BANDS.strong) return "strong";
-  if (score >= SCORE_BANDS.medium) return "medium";
-  return "weak";
+  const d = vsToday(score);
+  if (d >= SCORE_BAND_LIMIT) return "better";
+  if (d <= -SCORE_BAND_LIMIT) return "worse";
+  return "same";
 }
 
 export const SCORE_BAND_LABEL: Record<ScoreBand, string> = {
-  strong: `Strong (${SCORE_BANDS.strong}–100)`,
-  medium: `Medium (${SCORE_BANDS.medium}–${SCORE_BANDS.strong - 1})`,
-  weak: `Weak (below ${SCORE_BANDS.medium})`,
+  better: `Better than today (${SCORE_BAND_LIMIT} % or more)`,
+  same: `About the same as today (within ±${SCORE_BAND_LIMIT} %)`,
+  worse: `Worse than today (${SCORE_BAND_LIMIT} % or more)`,
 };
 
 /** Short product names for filter chips; the full name is in the tooltip. */

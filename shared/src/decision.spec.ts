@@ -72,11 +72,24 @@ describe('decide: points against benchmarks (decision of 8 Nov 2026)', () => {
     expect(benchmarkPoints('co2', 60, 32)).toBe(0); // more than half above
   });
 
-  it('compares delivery by its late share, so higher on-time is better', () => {
-    // Benchmark 95 % on time = 5 % late. 97 % = 3 % late = 40 % better -> 90 points.
-    expect(benchmarkPoints('delivery', 97, 95)).toBeCloseTo(90);
+  it('compares delivery by the share of deliveries on time (decision of 18 Nov 2026)', () => {
+    // 97 % vs 95 % on time = 2.1 % more deliveries on time -> 52.1 points (was 90 with the late share).
+    expect(benchmarkPoints('delivery', 97, 95)).toBeCloseTo(52.11, 2);
     expect(benchmarkPoints('delivery', 95, 95)).toBe(50);
-    expect(benchmarkPoints('delivery', 100, 95)).toBe(100);
+    expect(benchmarkPoints('delivery', 90, 95)).toBeCloseTo(44.74, 2);
+  });
+
+  it('compares quality by the share of deliveries without a complaint (decision of 18 Nov 2026)', () => {
+    // 1.0 % vs 0.8 % complaints = 99.0 % vs 99.2 % without a complaint = 0.2 % worse -> 49.8 points (was 25).
+    expect(benchmarkPoints('quality', 1.0, 0.8)).toBeCloseTo(49.8, 1);
+    expect(percentBetter('quality', 1.0, 0.8)).toBeCloseTo(-0.2, 1);
+    expect(benchmarkPoints('quality', 0.8, 0.8)).toBe(50);
+    expect(benchmarkPoints('quality', 0.4, 0.8)).toBeCloseTo(50.4, 1);
+  });
+
+  it('keeps price and CO₂ as less money and less CO₂', () => {
+    expect(percentBetter('price', 85.35, 84.5)).toBeCloseTo(-1.0, 1);
+    expect(benchmarkPoints('co2', 22.6, 38)).toBeCloseTo(90.5, 1);
   });
 
   it('gives the current supplier exactly 50 when its own values are the reference (today, 17 Nov 2026)', () => {
@@ -111,12 +124,24 @@ describe('decide: points against benchmarks (decision of 8 Nov 2026)', () => {
     const r = result.ranked.find((x) => x.supplierId === 'N')!;
     expect(r.assumed).toEqual(['quality', 'delivery']);
     expect(r.verifiedCount).toBe(2); // assumed values are not verified
-    // Low end: weakest values (2 % complaints = twice the benchmark, 10 % late = twice) -> 0 points each.
-    expect([r.points.quality, r.points.delivery]).toEqual([0, 0]);
-    // High end: best values (0.5 % complaints = 50 % better -> 100; 1 % late vs 5 % -> 100).
-    expect(r.pointsHigh).toEqual({ quality: 100, delivery: 100 });
+    // Low end: weakest values (98 % vs 99 % without complaint, 90 % vs 95 % on time).
+    expect([r.points.quality, r.points.delivery]).toEqual([49, 44.7]);
+    // High end: best values (99.5 % vs 99 % without complaint, 99 % vs 95 % on time).
+    expect(r.pointsHigh).toEqual({ quality: 50.5, delivery: 54.2 });
     expect(r.scoreRange!.low).toBe(r.score); // the ranking uses the low end
-    expect(r.scoreRange!.high).toBeCloseTo(r.score + 50, 1); // + (100 × 25 % + 100 × 25 %)
+    expect(r.scoreRange!.high).toBeGreaterThan(r.score);
+  });
+
+  it('never ranks a supplier that never delivered above one with real data (18 Nov 2026)', () => {
+    const b = bench(1, 18, 5, 95);
+    // Much cheaper and cleaner than A, but without deliveries: it still comes after A.
+    const [filled] = withAssumedValues([offer('N', { price: 9, co2: 2 })], { quality: 2, delivery: 90, qualityBest: 0.5, deliveryBest: 99, peers: 5 }, new Set(['N']));
+    const result = decide([filled!, A], DEFAULT_WEIGHTS, b);
+    expect(result.ranked.map((r) => r.supplierId)).toEqual(['A', 'N']);
+    expect(result.recommendation!.supplierId).toBe('A');
+    expect(result.ranked[1]!.score).toBeGreaterThan(result.ranked[0]!.score);
+    // Only suppliers without deliveries: the best of them is still ranked first.
+    expect(decide([filled!], DEFAULT_WEIGHTS, b).recommendation!.supplierId).toBe('N');
   });
 
   it('says when a supplier without deliveries could beat the recommendation at its best', () => {

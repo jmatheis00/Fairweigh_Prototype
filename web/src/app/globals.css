@@ -188,10 +188,17 @@ body {
 
 /* Small score bar next to the number in the matrix. Band colours always
    come with the band word in tooltip and aria-label. */
-.score-strong { --score-color: var(--good); }
-.score-medium { --score-color: var(--warn); }
-.score-weak { --score-color: var(--bad); }
+.score-better { --score-color: var(--good); }
+.score-same { --score-color: var(--warn); }
+.score-worse { --score-color: var(--bad); }
 .score-number { color: var(--score-color, inherit); }
+/* Score tag in the recommendation box: text and border in the band colour, white background. */
+.score-tag {
+  color: var(--score-color) !important;
+  border-color: var(--score-color) !important;
+  background: #ffffff !important;
+  font-weight: 600;
+}
 
 .score-track {
   position: relative;
@@ -208,6 +215,23 @@ body {
   height: 100%;
   border-radius: 4px;
   background: var(--score-color, var(--brand-secondary));
+}
+/* Today in the middle of the score bar (18 Nov 2026): better grows to the right, worse to the left. */
+.score-track-today .score-fill {
+  top: 0;
+  border-radius: 0;
+}
+.viz-today {
+  stroke: var(--text);
+  stroke-width: 1.5;
+}
+.score-today-mark {
+  position: absolute;
+  left: calc(50% - 1px);
+  top: -2px;
+  bottom: -2px;
+  width: 2px;
+  background: var(--text);
 }
 
 /* Dashboard (calm admin style): white cards with a soft edge on a light grey page. */

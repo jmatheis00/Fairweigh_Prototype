@@ -16,7 +16,7 @@ import {
   type DecisionResult,
   type Evidence,
 } from "@scc/shared";
-import { AGE_NOTE, SCORE_BAND_LABEL, knockOutLabel, TOPIC_LABEL, formatNumber, scoreBand, formatEur } from "@/lib/labels";
+import { AGE_NOTE, SCORE_BAND_LABEL, knockOutLabel, TOPIC_LABEL, formatNumber, scoreBand, formatEur, formatVsToday, formatVsTodayShort, formatCriterionVsToday } from "@/lib/labels";
 import { shortNote } from "@/lib/notes";
 import { priceRequestMailto } from "@/lib/price-request";
 import { PcfBadgeTag } from "./pcf-badge-tag";
@@ -61,7 +61,7 @@ interface Props {
 
 /** What the points under each value mean (PLAN.md section 3, decision of 17 Nov 2026: against today). */
 const POINTS_HELP =
-  "Points: 50 = the same as today. Every 1 % better than today adds a point, every 1 % worse removes one (0 to 100). A missing or unverified value gets 0.";
+  "Under each value: how many % better (+) or worse (−) than today. Quality counts deliveries without a complaint, delivery the deliveries on time, price and CO₂ less money and less CO₂. Capped at ±50 %; a missing or unverified value counts as 50 % worse.";
 const POINTS_HELP_RELATIVE =
   "Points 0–100 among the scored offers: the best verified value gets 100, the worst 0, the others in between. Missing or unverified values get 0.";
 
@@ -115,6 +115,21 @@ function mainValue(c: Criterion, value: number): string {
 }
 
 /**
+ * Bar from 50 % worse (left) to 50 % better (right) than today; the mark in the middle is today.
+ * The fill runs from today to the score; a range (supplier without deliveries) is hatched up to its best value.
+ */
+function ScoreBar({ from, to }: { from: number; to: number | null }) {
+  const left = Math.min(50, from);
+  return (
+    <span className="score-track score-track-today" aria-hidden="true">
+      <span className="score-fill" style={{ position: "absolute", left: `${left}%`, width: `${Math.abs(from - 50)}%` }} />
+      {to !== null && <span className="score-range" style={{ left: `${from}%`, width: `${Math.max(0, to - from)}%` }} />}
+      <span className="score-today-mark" />
+    </span>
+  );
+}
+
+/**
  * Points with a status: above 55 better than today (arrow up), below 45 worse (arrow down),
  * otherwise about the same as today. Colour always comes with the arrow and the number.
  */
@@ -123,8 +138,8 @@ function PointsLine({ points, hint }: { points: number; hint: string | null }) {
   const icon = tone === "better" ? <ArrowUpOutlined /> : tone === "worse" ? <ArrowDownOutlined /> : <MinusOutlined />;
   return (
     <Tooltip title={hint}>
-      <span className={`points-line delta-${tone}`} aria-label={`${formatNumber(points, 0)} points, ${tone === "same" ? "about the same as" : `${tone} than`} today`}>
-        {icon} {formatNumber(points, 0)} pts
+      <span className={`points-line delta-${tone}`} aria-label={`${formatCriterionVsToday(points)}, ${tone === "same" ? "about the same as" : `${tone} than`} today`}>
+        {icon} {formatCriterionVsToday(points)}
       </span>
     </Tooltip>
   );
@@ -234,7 +249,7 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
                 ≈ {formatNumber(Math.min(weak, best), decimals)}–{formatNumber(Math.max(weak, best), decimals)} %
               </span>
               <span className="points-line delta-same">
-                {formatNumber(lo, 0)}–{formatNumber(hi, 0)} pts
+                {formatCriterionVsToday(lo)} to {formatCriterionVsToday(hi)}
               </span>
             </Flex>
           </Tooltip>
@@ -247,8 +262,8 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
           <Tooltip
             title={
               never
-                ? "This supplier has never delivered to us, so the ERP has no complaint or on-time figures yet. Counts as 0 points until a sample delivery is rated."
-                : "No verified value in the connected systems. Counts as 0 points."
+                ? "This supplier has never delivered to us, so the ERP has no complaint or on-time figures yet. Counts as 50 % worse than today until a sample delivery is rated."
+                : "No verified value in the connected systems. Counts as 50 % worse than today."
             }
           >
             <Flex vertical align="end" tabIndex={0}>
@@ -257,7 +272,7 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
               </Typography.Text>
               {row.points && (
                 <Typography.Text type="secondary" style={{ fontSize: 12 }}>
-                  0 pts
+                  -50 %
                 </Typography.Text>
               )}
             </Flex>
@@ -383,16 +398,17 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
           render: (_, row) => supplierCell(row, false),
         },
         {
-          title: "Score",
+          // Score against today (18 Nov 2026): the bar runs from 50 % worse to 50 % better, the mark is today.
+          title: <Tooltip title="Weighted average of how many % better (+) or worse (−) the offer is than today on each criterion. Range −50 % to +50 %; the mark in the bar is today.">vs today</Tooltip>,
           key: "score",
           align: "right",
-          width: 96,
+          width: 112,
           render: (_, row) =>
             row.score === null ? (
               "—"
             ) : row.scoreRange ? (
               <Tooltip
-                title={`Never delivered to us, so quality and delivery are a range: ${formatNumber(row.scoreRange.low, 0)} points with the weakest values of our current suppliers, up to ${formatNumber(row.scoreRange.high, 0)} with their best. The ranking uses ${formatNumber(row.scoreRange.low, 0)}.`}
+                title={`Never delivered to us, so quality and delivery are a range: ${formatVsToday(row.scoreRange.low)} with the weakest values of our current suppliers, up to ${formatVsToday(row.scoreRange.high).replace(/^Ø /, "")} with their best. It is ranked after all offers with real data.`}
               >
                 <Flex
                   align="center"
@@ -401,32 +417,27 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
                   className={`score-${scoreBand(row.scoreRange.low)}`}
                   role="img"
                   tabIndex={0}
-                  aria-label={`Score range ${formatNumber(row.scoreRange.low, 0)} to ${formatNumber(row.scoreRange.high, 0)} of 100`}
+                  aria-label={`From ${formatVsToday(row.scoreRange.low)} to ${formatVsToday(row.scoreRange.high).replace(/^Ø /, "")}`}
                 >
-                  <span className="score-track" aria-hidden="true">
-                    <span className="score-fill" style={{ width: `${row.scoreRange.low}%` }} />
-                    <span className="score-range" style={{ left: `${row.scoreRange.low}%`, width: `${row.scoreRange.high - row.scoreRange.low}%` }} />
-                  </span>
+                  <ScoreBar from={row.scoreRange.low} to={row.scoreRange.high} />
                   <Typography.Text strong className="score-number" style={{ whiteSpace: "nowrap" }}>
-                    {formatNumber(row.scoreRange.low, 0)}–{formatNumber(row.scoreRange.high, 0)}
+                    {formatVsTodayShort(row.scoreRange.low).replace(" %", "")} to {formatVsTodayShort(row.scoreRange.high)}
                   </Typography.Text>
                 </Flex>
               </Tooltip>
             ) : (
-              <Tooltip title={`Score ${formatNumber(row.score, 0)} of 100 · ${SCORE_BAND_LABEL[scoreBand(row.score)]}`}>
+              <Tooltip title={`${formatVsToday(row.score, 1)} · ${SCORE_BAND_LABEL[scoreBand(row.score)]}`}>
                 <Flex
                   align="center"
                   gap={6}
                   justify="flex-end"
                   className={`score-${scoreBand(row.score)}`}
                   role="img"
-                  aria-label={`Score ${formatNumber(row.score, 0)} of 100, ${SCORE_BAND_LABEL[scoreBand(row.score)]}`}
+                  aria-label={`${formatVsToday(row.score)}, ${SCORE_BAND_LABEL[scoreBand(row.score)]}`}
                 >
-                  <span className="score-track" aria-hidden="true">
-                    <span className="score-fill" style={{ width: `${row.score}%` }} />
-                  </span>
-                  <Typography.Text strong className="score-number" style={{ minWidth: 22, textAlign: "right" }}>
-                    {formatNumber(row.score, 0)}
+                  <ScoreBar from={row.score} to={null} />
+                  <Typography.Text strong className="score-number" style={{ minWidth: 40, textAlign: "right", whiteSpace: "nowrap" }}>
+                    {formatVsTodayShort(row.score)}
                   </Typography.Text>
                 </Flex>
               </Tooltip>

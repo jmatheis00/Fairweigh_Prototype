@@ -16,7 +16,7 @@ import {
   type Benchmarks,
   type Weights,
 } from "@scc/shared";
-import { TOPIC_LABEL, formatNumber, formatEur } from "@/lib/labels";
+import { TOPIC_LABEL, formatNumber, formatEur, formatVsTodayShort } from "@/lib/labels";
 import { InfoTip } from "./info-tip";
 
 /** A comparison value: lower is better (cost, CO₂). Better in the app's green (tone-good) with a down arrow, worse in red (tone-bad) with an up arrow; the words carry the meaning too. Both pass WCAG AA contrast, unlike antd's success/danger text. */
@@ -127,7 +127,7 @@ export function DecideStep({
               options={[
                 ...result.ranked.map((r) => ({
                   value: r.supplierId,
-                  label: `${r.rank}. ${name(r.supplierId)} · ${formatNumber(r.score, 0)} points${r.supplierId === recommended ? " · recommended" : ""}`,
+                  label: `${r.rank}. ${name(r.supplierId)} · ${formatVsTodayShort(r.score)} vs today${r.supplierId === recommended ? " · recommended" : ""}`,
                 })),
                 ...result.excluded.map((x) => ({ value: x.supplierId, label: `${name(x.supplierId)} · excluded`, disabled: true })),
               ]}
