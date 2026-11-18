@@ -7,27 +7,18 @@ import { runModeLabel, type AgentRun } from "@scc/shared";
 import { formatDateTime } from "@/lib/labels";
 import { SidePanel } from "./side-panel";
 
-/** Real run time from start to finish, e.g. "61 s" or "2 min 8 s" (18 Nov 2026). */
-function runDuration(run: AgentRun): string | null {
-  if (!run.finishedAt) return null;
-  const s = Math.round((new Date(run.finishedAt).getTime() - new Date(run.startedAt).getTime()) / 1000);
-  if (!Number.isFinite(s) || s < 0) return null;
-  return s < 60 ? `${s} s` : `${Math.floor(s / 60)} min ${s % 60} s`;
-}
-
 /** One status line; run metadata and the full step log in a side panel. */
 export function RunProgress({ run, request }: { run: AgentRun; request: string }) {
   const [open, setOpen] = useState(false);
   const last = run.steps.at(-1);
   const verified = run.evidence.filter((e) => e.status === "verified").length;
-  const duration = runDuration(run);
   const line =
     run.status === "running"
       ? last
         ? `Agent running · step ${run.steps.length}: ${last.summary}`
         : "Collecting evidence from 4 systems…"
       : run.status === "completed"
-        ? `${runModeLabel(run.mode)} · ${formatDateTime(run.finishedAt ?? run.startedAt)}${duration ? ` · took ${duration}` : ""}`
+        ? `${runModeLabel(run.mode)} · ${formatDateTime(run.finishedAt ?? run.startedAt)}`
         : `Run failed: ${run.error ?? "unknown error"}`;
 
   return (
@@ -50,7 +41,6 @@ export function RunProgress({ run, request }: { run: AgentRun; request: string }
             { key: "mode", label: "Mode", children: runModeLabel(run.mode) },
             { key: "start", label: "Started", children: formatDateTime(run.startedAt) },
             { key: "end", label: "Finished", children: run.finishedAt ? formatDateTime(run.finishedAt) : "-" },
-            { key: "dur", label: "Duration", children: duration ?? "-" },
             { key: "ev", label: "Evidence check", children: `${verified} verified, ${run.evidence.length - verified} not verified` },
           ]}
         />
