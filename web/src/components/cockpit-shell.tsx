@@ -409,7 +409,7 @@ export function CockpitShell() {
     () => (scoredInput ? decide(scoredInput, appliedWeights, benchmarks) : null),
     [scoredInput, appliedWeights, benchmarks],
   );
-  // Robustness: at which weight would another offer lead? Only inside the allowed range (±10 points).
+  // Robustness: at which weight would another offer lead? Only inside the allowed range (10–50 %).
   const sensitivity = useMemo(() => {
     if (!scoredInput) return [];
     const bounds = weightBounds(defaultWeights);
@@ -922,6 +922,7 @@ export function CockpitShell() {
               onShowLog={() => openPanel("log")}
               weights={appliedWeights}
               industryCo2={catalogPart?.industryCo2 ?? null}
+              qualityToday={benchmarks?.quality.value ?? null}
               requestLabel={`${catalogPart?.partName ?? run.request.partId} · ${run.request.quantity.toLocaleString("en-GB")} pcs${run.request.neededBy ? ` · needed by ${formatDay(run.request.neededBy)}` : ""}`}
             />
           )}

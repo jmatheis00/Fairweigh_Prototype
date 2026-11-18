@@ -5,7 +5,7 @@ import { Button, Collapse, Descriptions, Empty, Flex, Table, Tag, Typography } f
 import { CRITERIA, decisionsToCsv, formatDay, type Criterion, type DecisionRecord } from "@scc/shared";
 import { STATIC_PREVIEW } from "@/lib/api";
 import { downloadCsv } from "@/lib/decision-log";
-import { TOPIC_LABEL, formatDateTime, formatNumber, displayUnit, formatSignedEur } from "@/lib/labels";
+import { TOPIC_LABEL, formatDateTime, formatNumber, displayUnit, formatSignedEur, formatCriterionVsToday, formatVsToday, formatVsTodayShort } from "@/lib/labels";
 
 interface Props {
   records: DecisionRecord[];
@@ -101,7 +101,7 @@ export function DecisionLog({ records, supplierNames, partNames, storageAvailabl
                           {r.ranking.map((x) => (
                             <li key={x.supplierId}>
                               {supplier(x.supplierId)}{" "}
-                              {x.excluded ? "· excluded" : `· ${x.score === null ? "—" : formatNumber(x.score, 0)} points${x.supplierId === r.recommendedSupplierId ? " · recommended" : ""}`}
+                              {x.excluded ? "· excluded" : `· ${x.score === null ? "—" : formatVsToday(x.score)}${x.supplierId === r.recommendedSupplierId ? " · recommended" : ""}`}
                             </li>
                           ))}
                         </ol>
@@ -186,7 +186,7 @@ function CalculationTable({ record: r, name }: { record: DecisionRecord; name: (
     defaultWeight: r.defaultWeights?.[c] ?? null,
     reference: r.reference?.[c] ?? null,
     points: chosen.points![c],
-    adds: (chosen.points![c] * r.weights[c]) / 100,
+    adds: ((chosen.points![c] - 50) * r.weights[c]) / 100,
   }));
   return (
     <Flex vertical gap={4}>
@@ -212,22 +212,23 @@ function CalculationTable({ record: r, name }: { record: DecisionRecord; name: (
             align: "right",
             render: (_, x) => (x.reference ? <span title={x.reference.basis}>{referenceText(x.c, x.reference.value)}</span> : "—"),
           },
-          { title: "Points", key: "p", align: "right", render: (_, x) => formatNumber(x.points, 0) },
-          { title: "Adds", key: "a", align: "right", render: (_, x) => formatNumber(x.adds, 1) },
+          { title: "vs today", key: "p", align: "right", render: (_, x) => formatCriterionVsToday(x.points) },
+          { title: "Adds", key: "a", align: "right", render: (_, x) => `${x.adds > 0 ? "+" : x.adds < 0 ? "-" : "±"}${formatNumber(Math.abs(x.adds), 1)} %` },
         ]}
         summary={() => (
           <Table.Summary.Row>
             <Table.Summary.Cell index={0} colSpan={4}>
-              <strong>Score</strong>
+              <strong>Weighted average vs today</strong>
             </Table.Summary.Cell>
             <Table.Summary.Cell index={1} align="right">
-              <strong>{chosen.score === null ? "—" : formatNumber(chosen.score, 1)}</strong>
+              <strong>{chosen.score === null ? "—" : formatVsTodayShort(chosen.score, 1)}</strong>
             </Table.Summary.Cell>
           </Table.Summary.Row>
         )}
       />
       <Typography.Text type="secondary" style={{ fontSize: 12 }}>
-        Points 0–100: 50 = the same as today, +1 per 1 % better. Adds = points × weight. Hover a reference value for its source.
+        Per criterion: % better or worse than today, as calculated when the decision was recorded. Adds = % × weight. Hover a
+        reference value for its source.
       </Typography.Text>
     </Flex>
   );

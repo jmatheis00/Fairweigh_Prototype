@@ -3,7 +3,7 @@
 import { SearchOutlined } from "@ant-design/icons";
 import { Card, Flex, Input, Table, Typography } from "antd";
 import { useState } from "react";
-import { WEIGHT_DEVIATION_LIMIT, type BuyerRules } from "@scc/shared";
+import { WEIGHT_MAX, WEIGHT_MIN, type BuyerRules } from "@scc/shared";
 import { COMPLAINT_THRESHOLDS, RATING_THRESHOLDS } from "@/lib/risk-levels";
 import { useIsPhone } from "@/lib/use-phone";
 import { PageHeader } from "./page-header";
@@ -20,14 +20,14 @@ function terms(rules: BuyerRules | null): Term[] {
   const co2Price = rules?.co2PricePerTonneEur ?? 100;
   return [
     {
-      term: "Score",
-      means: "Overall result of an offer from 0 to 100: the points of the four criteria, weighted. Calculated by fixed rules, not by AI.",
-      helps: "Ranks the offers. The highest score is the recommendation.",
-      where: "Compare step: Score column and recommendation",
+      term: "Result vs today",
+      means: "Overall result of an offer, e.g. “9 % better than today”: the weighted average of how many % better or worse it is than today on the four criteria (at most 50 % either way). Green from 5 % better, red from 5 % worse, yellow in between. Calculated by fixed rules, not by AI.",
+      helps: "Ranks the offers. The best result with real data is the recommendation.",
+      where: "Compare step: “vs today” column and recommendation",
     },
     {
-      term: "Points against today",
-      means: "Per criterion, 50 points = the same as today (our last three purchases). Every 1 % better adds a point, every 1 % worse removes one (0 to 100). An arrow shows better or worse.",
+      term: "% against today",
+      means: "Per criterion, how many % better or worse a value is than today (our last three purchases), capped at ±50 %. Quality counts deliveries without a complaint, delivery the deliveries on time, price and CO₂ less money and less CO₂. An arrow shows better or worse.",
       helps: "Shows how good a value really is, not only how it compares with the other offers.",
       where: "Compare step: under each value",
     },
@@ -39,7 +39,7 @@ function terms(rules: BuyerRules | null): Term[] {
     },
     {
       term: "Weights",
-      means: `How much each criterion counts, together 100 %. The company sets a default per commodity group; the buyer may move each weight by at most ${WEIGHT_DEVIATION_LIMIT} percentage points.`,
+      means: `How much each criterion counts, together 100 %. The company sets a default per commodity group; the buyer may set each weight between ${WEIGHT_MIN} % and ${WEIGHT_MAX} %, so no criterion can be switched off or take over.`,
       helps: "Fits the ranking to the purchase without letting one person tune it until a favourite wins.",
       where: "Compare step: Weights. Changes are saved in the Decision Log",
     },
@@ -56,14 +56,14 @@ function terms(rules: BuyerRules | null): Term[] {
       where: "Compare step: Notes column",
     },
     {
-      term: "Data missing · 0 points",
-      means: "No verified value in the connected systems. The criterion counts 0 points, so a gap never improves an offer.",
+      term: "Data missing · 50 % worse",
+      means: "No verified value in the connected systems. The criterion counts as 50 % worse than today, so a gap never improves an offer.",
       helps: "Shows where data must be requested.",
       where: "Compare step and “What's missing”",
     },
     {
       term: "Score range",
-      means: "For a supplier that never delivered to us: quality and delivery are a range from the weakest to the best of our current suppliers in the category. The ranking uses the low end.",
+      means: "For a supplier that never delivered to us: quality and delivery are a range from the weakest to the best of our current suppliers in the category. Such a supplier is ranked after all offers with real data, so a gap never beats real data.",
       helps: "Shows whether a new supplier could lead; if so, request a sample delivery first.",
       where: "Compare step: Score and the quality and delivery columns",
     },

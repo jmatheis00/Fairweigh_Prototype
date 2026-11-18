@@ -66,7 +66,7 @@ describe('buildDecisionRecord', () => {
     expect(() => buildDecisionRecord({ ...base, chosenSupplierId: 'B', reason: '' })).toThrow('reason');
   });
 
-  it('logs changed weights with the defaults and refuses weights outside ±10 points', () => {
+  it('logs changed weights with the defaults and refuses weights outside 10–50 %', () => {
     const defaults = { quality: 25, price: 25, co2: 25, delivery: 25 };
     const changed = { quality: 20, price: 35, co2: 20, delivery: 25 };
     expect(() => buildDecisionRecord({ ...base, weights: changed, defaultWeights: defaults, chosenSupplierId: 'A', reason: '' })).toThrow(
