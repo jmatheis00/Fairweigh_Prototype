@@ -24,6 +24,8 @@ interface Props {
   requestLabel: string;
   /** Opens "How is the score calculated?" (criteria, weights, sources). */
   onExplainScore: () => void;
+  /** Opens the agent log of the run (moved here from the recommendation box, 18 Nov 2026). */
+  onShowLog: () => void;
   /** Weights the ranking uses, to show what each criterion adds to the score. */
   weights: Weights;
   /** Published industry average CO₂ per piece: context only, not scored (17 Nov 2026). */
@@ -63,6 +65,7 @@ export function RecommendationDetails({
   onOpenSupplier,
   requestLabel,
   onExplainScore,
+  onShowLog,
   weights,
   industryCo2 = null,
 }: Props) {
@@ -330,6 +333,10 @@ export function RecommendationDetails({
         <RobotOutlined aria-hidden /> AI suggestion: AI collects the evidence, fixed rules rank it. You decide.{" "}
         <Button type="link" size="small" className="inline-link" onClick={onExplainScore}>
           How is the score calculated?
+        </Button>
+        <Typography.Text type="secondary"> · </Typography.Text>
+        <Button type="link" size="small" className="inline-link" onClick={onShowLog}>
+          Agent log
         </Button>
       </div>
     </div>

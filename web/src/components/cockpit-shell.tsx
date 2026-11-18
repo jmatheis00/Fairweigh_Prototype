@@ -541,7 +541,6 @@ export function CockpitShell() {
           onWhy={() => openPanel("why")}
           onShowEvidence={() => openPanel("evidence")}
           onShowMissing={() => openPanel("missing")}
-          onShowLog={() => openPanel("log")}
         />
         <div className="dash-grid">
           <Card
@@ -920,6 +919,7 @@ export function CockpitShell() {
               nearestFlip={nearestFlip(sensitivity)}
               onOpenSupplier={openProfile}
               onExplainScore={() => setHelp("score")}
+              onShowLog={() => openPanel("log")}
               weights={appliedWeights}
               industryCo2={catalogPart?.industryCo2 ?? null}
               requestLabel={`${catalogPart?.partName ?? run.request.partId} · ${run.request.quantity.toLocaleString("en-GB")} pcs${run.request.neededBy ? ` · needed by ${formatDay(run.request.neededBy)}` : ""}`}
