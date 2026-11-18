@@ -18,7 +18,7 @@ import {
 } from "@scc/shared";
 import { DRAWER_WIDTH } from "@/lib/layout";
 import { priceRequestMailto } from "@/lib/price-request";
-import { TOPIC_LABEL, formatNumber, formatEur, formatCriterionVsToday, formatVsToday } from "@/lib/labels";
+import { TOPIC_LABEL, formatNumber, formatEur, formatCriterionVsToday, formatCriterionRange, formatVsToday } from "@/lib/labels";
 import { FavouriteButton, PreviousDecisions } from "./previous-decisions";
 import { SupplierHistory } from "./supplier-history";
 
@@ -177,8 +177,8 @@ export function SupplierProfile({
                   render: (_, r) =>
                     r.value === null
                       ? ranked.assumed.includes(r.c)
-                        ? `${formatCriterionVsToday(r.points)} to ${formatCriterionVsToday(ranked.pointsHigh?.[r.c] ?? r.points)}`
-                        : "-50 % (missing)"
+                        ? formatCriterionRange(r.points, ranked.pointsHigh?.[r.c] ?? r.points)
+                        : "50 % worse (missing)"
                       : formatCriterionVsToday(r.points),
                 },
               ]}
@@ -224,7 +224,7 @@ export function SupplierProfile({
                         <line x1={LABEL_W + PLOT_W / 2} x2={LABEL_W + PLOT_W / 2} y1={by - 1} y2={by + BAR_H + 1} className="viz-today" />
                         {w > 0 && <rect x={LABEL_W} y={by} width={w} height={BAR_H} rx={2} className={b.cls} />}
                         <text x={LABEL_W + Math.max(w, 0) + 6} y={by + BAR_H - 2} className="viz-tick">
-                          {b.missing ? "missing · -50 %" : formatCriterionVsToday(b.points)}
+                          {b.missing ? "missing · 50 % worse" : formatCriterionVsToday(b.points)}
                         </text>
                       </g>
                     );

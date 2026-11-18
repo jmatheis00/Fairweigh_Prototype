@@ -16,7 +16,7 @@ import {
   type DecisionResult,
   type Evidence,
 } from "@scc/shared";
-import { AGE_NOTE, SCORE_BAND_LABEL, knockOutLabel, TOPIC_LABEL, formatNumber, scoreBand, formatEur, formatVsToday, formatVsTodayShort, formatCriterionVsToday } from "@/lib/labels";
+import { AGE_NOTE, SCORE_BAND_LABEL, knockOutLabel, TOPIC_LABEL, formatNumber, scoreBand, formatEur, formatVsToday, formatVsTodayShort, formatVsTodayRange, formatCriterionVsToday, formatCriterionRange } from "@/lib/labels";
 import { shortNote } from "@/lib/notes";
 import { priceRequestMailto } from "@/lib/price-request";
 import { PcfBadgeTag } from "./pcf-badge-tag";
@@ -61,7 +61,7 @@ interface Props {
 
 /** What the points under each value mean (PLAN.md section 3, decision of 17 Nov 2026: against today). */
 const POINTS_HELP =
-  "Under each value: how many % better (+) or worse (−) than today. Quality counts deliveries without a complaint, delivery the deliveries on time, price and CO₂ less money and less CO₂. Capped at ±50 %; a missing or unverified value counts as 50 % worse.";
+  "Under each value: how many % better or worse than today. Quality counts deliveries without a complaint, delivery the deliveries on time, price and CO₂ less money and less CO₂. Capped at ±50 %; a missing or unverified value counts as 50 % worse.";
 const POINTS_HELP_RELATIVE =
   "Points 0–100 among the scored offers: the best verified value gets 100, the worst 0, the others in between. Missing or unverified values get 0.";
 
@@ -233,9 +233,14 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
               <span>
                 ≈ {formatNumber(Math.min(weak, best), decimals)}–{formatNumber(Math.max(weak, best), decimals)} %
               </span>
-              <span className="points-line delta-same">
-                {formatCriterionVsToday(lo)} to {formatCriterionVsToday(hi)}
-              </span>
+              {/* "0.4 % worse to 0.4 % better" is too wide for the column: one line per end. */}
+              {formatCriterionRange(lo, hi)
+                .split(/ (?=to )/)
+                .map((part) => (
+                  <span key={part} className="points-line delta-same">
+                    {part}
+                  </span>
+                ))}
             </Flex>
           </Tooltip>
         );
@@ -257,7 +262,7 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
               </Typography.Text>
               {row.points && (
                 <Typography.Text type="secondary" style={{ fontSize: 12 }}>
-                  -50 %
+                  50 % worse
                 </Typography.Text>
               )}
             </Flex>
@@ -384,24 +389,24 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
         },
         {
           // Score against today (18 Nov 2026): the number on a soft background in its band colour.
-          title: <Tooltip title="Weighted average of how many % better (+) or worse (−) the offer is than today on each criterion, from −50 % to +50 %. Green from 5 % better, red from 5 % worse, yellow in between.">vs today</Tooltip>,
+          title: <Tooltip title="Weighted average of how many % better or worse the offer is than today on each criterion, up to 50 % either way. Green from 5 % better, red from 5 % worse, yellow in between.">vs today</Tooltip>,
           key: "score",
           align: "right",
-          width: 104,
+          width: 124,
           render: (_, row) =>
             row.score === null ? (
               "—"
             ) : row.scoreRange ? (
               <Tooltip
-                title={`Never delivered to us, so quality and delivery are a range: ${formatVsToday(row.scoreRange.low)} with the weakest values of our current suppliers, up to ${formatVsToday(row.scoreRange.high).replace(/^Ø /, "")} with their best. It is ranked after all offers with real data.`}
+                title={`Never delivered to us, so quality and delivery are a range: ${formatVsToday(row.scoreRange.low)} with the weakest values of our current suppliers, up to ${formatVsToday(row.scoreRange.high).replace(/^Same/, "the same")} with their best. It is ranked after all offers with real data.`}
               >
                 <span
                   className={`score-pill score-${scoreBand(row.scoreRange.low)}`}
                   role="img"
                   tabIndex={0}
-                  aria-label={`From ${formatVsToday(row.scoreRange.low)} to ${formatVsToday(row.scoreRange.high).replace(/^Ø /, "")}`}
+                  aria-label={`${formatVsTodayRange(row.scoreRange.low, row.scoreRange.high)} than today`}
                 >
-                  {formatVsTodayShort(row.scoreRange.low).replace(" %", "")} to {formatVsTodayShort(row.scoreRange.high)}
+                  {formatVsTodayRange(row.scoreRange.low, row.scoreRange.high)}
                 </span>
               </Tooltip>
             ) : (

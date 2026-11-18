@@ -204,12 +204,11 @@ body {
   font-weight: 600;
   white-space: nowrap;
 }
-/* Score tag in the recommendation box: text and border in the band colour, white background. */
-.score-tag {
-  color: var(--score-color) !important;
-  border-color: var(--score-color) !important;
-  background: #ffffff !important;
-  font-weight: 600;
+/* Larger pill next to the supplier name in the recommendation box. */
+.score-pill-lg {
+  padding: 2px 10px;
+  font-size: 15px;
+  line-height: 22px;
 }
 
 .viz-today {

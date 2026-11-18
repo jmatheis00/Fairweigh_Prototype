@@ -74,7 +74,7 @@ export function decisionSummaryParts({ run, result, supplierNames, currentSuppli
     parts.push(gapText);
   }
   for (const c of rec?.couldLead ?? []) {
-    const t = `${name(c.supplierId)} could be ahead at its best (up to ${formatVsToday(c.high).replace(/^Ø /, "")}) but has never delivered: request a sample delivery first.`;
+    const t = `${name(c.supplierId)} could be ahead at its best (up to ${formatVsToday(c.high).replace(/^Same/, "the same")}) but has never delivered: request a sample delivery first.`;
     couldLeadText = [couldLeadText, t].filter(Boolean).join(" ");
     parts.push(t);
   }
@@ -165,16 +165,19 @@ export function RecommendationBlock(props: BlockProps) {
         <div className="rec-label">Recommended</div>
         {rec ? (
           <>
-            <Typography.Title level={4} style={{ margin: 0, lineHeight: 1.25 }}>
-              {name(rec.supplierId)}
-            </Typography.Title>
-            <Flex gap={8} align="center" wrap style={{ marginTop: 4 }}>
-              {/* Score against today (18 Nov 2026), coloured by band; the word is always there, never colour alone. */}
-              <Tooltip title={`Weighted average of how many % better or worse the offer is than today on each criterion (range −50 % to +50 %). ${SCORE_BAND_LABEL[scoreBand(rec.score)]}.`}>
-                <Tag bordered tabIndex={0} className={`score-tag score-${scoreBand(rec.score)}`} style={{ marginInlineEnd: 0 }}>
+            {/* Name and result on one line (feedback 18 Nov 2026): the result is the same soft pill as in the
+                offer table, in words ("9 % better than today"), coloured by band; never colour alone. */}
+            <Flex gap={8} align="center" wrap>
+              <Typography.Title level={4} style={{ margin: 0, lineHeight: 1.25 }}>
+                {name(rec.supplierId)}
+              </Typography.Title>
+              <Tooltip title={`Weighted average of how many % better or worse the offer is than today on each criterion (up to 50 % either way). ${SCORE_BAND_LABEL[scoreBand(rec.score)]}.`}>
+                <span tabIndex={0} className={`score-pill score-pill-lg score-${scoreBand(rec.score)}`}>
                   {formatVsToday(rec.score)}
-                </Tag>
+                </span>
               </Tooltip>
+            </Flex>
+            <Flex gap={8} align="center" wrap style={{ marginTop: 6 }}>
               <Button type="primary" size="small" icon={<FileSearchOutlined />} onClick={onWhy}>
                 View details
               </Button>
@@ -198,7 +201,7 @@ export function RecommendationBlock(props: BlockProps) {
             {couldLead.map((c) => (
               <Tooltip
                 key={c.supplierId}
-                title={`${name(c.supplierId)} could be ahead at its best (up to ${formatVsToday(c.high).replace(/^Ø /, "")}) but has never delivered: request a sample delivery first.`}
+                title={`${name(c.supplierId)} could be ahead at its best (up to ${formatVsToday(c.high).replace(/^Same/, "the same")}) but has never delivered: request a sample delivery first.`}
               >
                 <Tag
                   icon={<WarningOutlined />}

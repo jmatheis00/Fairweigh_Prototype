@@ -41,7 +41,7 @@ export function ScoreHelp({ open, title, onClose, rules, weights, defaults }: Pr
           controversies and long lead times are warnings.
         </li>
         <li>
-          <strong>Percent per criterion against today.</strong> How many % better (+) or worse (−) a value is than today, capped at
+          <strong>Percent per criterion against today.</strong> How many % better or worse a value is than today, capped at
           ±50 %. Quality counts the deliveries without a complaint (99.0 % vs 99.2 % is 0.2 % worse), delivery the deliveries on time,
           price and CO₂ less money and less CO₂. Today means the average of our last three purchases of the part
           in the client ERP: their unit price, and the quality, delivery and CO₂ figures of the suppliers we bought from. Without
@@ -62,7 +62,7 @@ export function ScoreHelp({ open, title, onClose, rules, weights, defaults }: Pr
           {WEIGHT_MAX} % and must justify a change.
         </li>
         <li>
-          <strong>Result.</strong> The weighted average, e.g. “Ø 9 % better than today” (range −50 % to +50 %). Colours:{" "}
+          <strong>Result.</strong> The weighted average, e.g. “9 % better than today” (at most 50 % either way). Colours:{" "}
           {SCORE_BAND_LABEL.better}, {SCORE_BAND_LABEL.same}, {SCORE_BAND_LABEL.worse}.
         </li>
       </ol>

@@ -37,7 +37,7 @@ function impact(r: LeadRequirement | null, name: string): string | null {
   if (r.canLead && r.needed) {
     return `${name} would take first place with verified ${list(r.needed.map((n) => condition(n.criterion, n.value)))}. Closing these gaps can change the recommendation.`;
   }
-  return `Even with the best values among the offers, ${name} would reach ${formatVsToday(r.bestCaseScore).replace(/^Ø /, "").replace(/^Same/, "the same")} and rank ${r.bestCaseRank}. Closing these gaps would not change the recommendation.`;
+  return `Even with the best values among the offers, ${name} would reach ${formatVsToday(r.bestCaseScore).replace(/^Same/, "the same")} and rank ${r.bestCaseRank}. Closing these gaps would not change the recommendation.`;
 }
 
 const list = (items: string[]) => (items.length <= 1 ? items.join("") : `${items.slice(0, -1).join(", ")} and ${items.at(-1)}`);

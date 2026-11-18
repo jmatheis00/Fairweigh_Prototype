@@ -5,7 +5,7 @@ import { Button, Collapse, Descriptions, Empty, Flex, Table, Tag, Typography } f
 import { CRITERIA, decisionsToCsv, formatDay, type Criterion, type DecisionRecord } from "@scc/shared";
 import { STATIC_PREVIEW } from "@/lib/api";
 import { downloadCsv } from "@/lib/decision-log";
-import { TOPIC_LABEL, formatDateTime, formatNumber, displayUnit, formatSignedEur, formatCriterionVsToday, formatVsTodayShort } from "@/lib/labels";
+import { TOPIC_LABEL, formatDateTime, formatNumber, displayUnit, formatSignedEur, formatCriterionVsToday, formatVsToday, formatVsTodayShort } from "@/lib/labels";
 
 interface Props {
   records: DecisionRecord[];
@@ -101,7 +101,7 @@ export function DecisionLog({ records, supplierNames, partNames, storageAvailabl
                           {r.ranking.map((x) => (
                             <li key={x.supplierId}>
                               {supplier(x.supplierId)}{" "}
-                              {x.excluded ? "· excluded" : `· ${x.score === null ? "—" : `${formatVsTodayShort(x.score)} vs today`}${x.supplierId === r.recommendedSupplierId ? " · recommended" : ""}`}
+                              {x.excluded ? "· excluded" : `· ${x.score === null ? "—" : formatVsToday(x.score)}${x.supplierId === r.recommendedSupplierId ? " · recommended" : ""}`}
                             </li>
                           ))}
                         </ol>
@@ -227,7 +227,7 @@ function CalculationTable({ record: r, name }: { record: DecisionRecord; name: (
         )}
       />
       <Typography.Text type="secondary" style={{ fontSize: 12 }}>
-        Per criterion: % better (+) or worse (−) than today, as calculated when the decision was recorded. Adds = % × weight. Hover a
+        Per criterion: % better or worse than today, as calculated when the decision was recorded. Adds = % × weight. Hover a
         reference value for its source.
       </Typography.Text>
     </Flex>

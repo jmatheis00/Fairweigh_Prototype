@@ -4,7 +4,7 @@ import { CheckCircleOutlined, CloudOutlined, EuroOutlined, InfoCircleOutlined, R
 import type { ReactNode } from "react";
 import { Button, Card, Flex, Table, Tag, Tooltip, Typography } from "antd";
 import { CRITERIA, cellEvidence, compareWithBaseline, isSupplierSpecific, percentBetter, type Benchmark, type Criterion, type AgentRun, type DecisionResult, type Weights, type WeightSensitivity } from "@scc/shared";
-import { TOPIC_LABEL, formatNumber, formatEur, formatCriterionVsToday, formatVsToday, formatVsTodayShort } from "@/lib/labels";
+import { TOPIC_LABEL, formatNumber, formatEur, formatCriterionVsToday, formatDiff, formatVsToday, formatVsTodayShort } from "@/lib/labels";
 import { shortName } from "@/lib/names";
 import { Delta, decisionSummaryParts, signed } from "./decision-summary";
 
@@ -187,10 +187,9 @@ export function RecommendationDetails({
             </div>
             <div style={{ textAlign: "right", flex: "none" }}>
               <div style={{ fontSize: 32, fontWeight: 600, lineHeight: 1 }}>
-                {formatVsTodayShort(rec.score)}
+                {formatVsTodayShort(rec.score) === "same" ? "Same" : formatVsTodayShort(rec.score)}
                 <Typography.Text type="secondary" style={{ fontSize: 14, fontWeight: 400 }}>
-                  {" "}
-                  vs today
+                  {formatVsTodayShort(rec.score) === "same" ? " as today" : " than today"}
                 </Typography.Text>
               </div>
               <Typography.Text type="secondary" style={{ fontSize: 12 }}>
@@ -237,9 +236,9 @@ export function RecommendationDetails({
               { title: "Value", key: "v", render: (_, r) => r.value },
               { title: "vs today", key: "p", align: "right", render: (_, r) => formatCriterionVsToday(r.points) },
               { title: "Weight", key: "w", align: "right", render: (_, r) => `${weights[r.c]} %` },
-              { title: "Adds", key: "a", align: "right", render: (_, r) => <strong>{signed(r.adds, 1, " %")}</strong> },
+              { title: "Adds", key: "a", align: "right", render: (_, r) => <strong>{formatDiff(r.adds, 1, "0 %")}</strong> },
               ...(runnerUp
-                ? [{ title: name(runnerUp.supplierId), key: "r", align: "right" as const, render: (_: unknown, r: (typeof rows)[number]) => signed(r.runnerUpAdds ?? 0, 1, " %") }]
+                ? [{ title: name(runnerUp.supplierId), key: "r", align: "right" as const, render: (_: unknown, r: (typeof rows)[number]) => formatDiff(r.runnerUpAdds ?? 0, 1, "0 %") }]
                 : []),
             ]}
             summary={() => (
@@ -264,7 +263,7 @@ export function RecommendationDetails({
             </Typography.Text>
           )}
           <Typography.Text type="secondary" style={{ fontSize: 12 }}>
-            Per criterion: % better (+) or worse (−) than today (average of the last 3 purchases). Quality counts deliveries without a
+            Per criterion: % better or worse than today (average of the last 3 purchases). Quality counts deliveries without a
             complaint, delivery the deliveries on time, price and CO₂ less money and less CO₂; capped at ±50 %. Adds = % × weight; the
             sum is the weighted average.
           </Typography.Text>
