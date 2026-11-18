@@ -30,6 +30,8 @@ interface Props {
   weights: Weights;
   /** Published industry average CO₂ per piece: context only, not scored (17 Nov 2026). */
   industryCo2?: Benchmark | null;
+  /** Complaint rate today (% of deliveries), to explain the quality points in plain numbers; null if unknown. */
+  qualityToday?: number | null;
 }
 
 /** Criterion inside a sentence: lower case, except the chemical formula CO₂. */
@@ -68,6 +70,7 @@ export function RecommendationDetails({
   onShowLog,
   weights,
   industryCo2 = null,
+  qualityToday = null,
 }: Props) {
   const rec = result.recommendation;
   const first = result.ranked[0];
@@ -138,6 +141,14 @@ export function RecommendationDetails({
         };
       })
     : [];
+
+  // Quality points in plain numbers (feedback 18 Nov 2026): small rates make small gaps look big in percent.
+  // The ERP rate counts deliveries with a complaint, so the line speaks of deliveries, never of parts.
+  const qualityValue = first ? value(first.supplierId, "quality") : null;
+  const qualityNote =
+    qualityValue !== null && qualityToday !== null && qualityToday > 0 && qualityValue !== qualityToday
+      ? `Product quality: ${formatNumber(qualityValue, 1)} % vs ${formatNumber(qualityToday, 1)} % today means ${formatNumber(qualityValue * 10, 0)} instead of ${formatNumber(qualityToday * 10, 0)} deliveries with a complaint per 1,000 deliveries (${signed(-percentBetter("quality", qualityValue, qualityToday), 0, " %")}).`
+      : null;
 
   const figure = (title: ReactNode, delta: ReactNode, lines: ReactNode) => (
     <Card size="small" style={{ flex: "1 1 240px" }} title={title}>
@@ -246,6 +257,11 @@ export function RecommendationDetails({
               </Table.Summary.Row>
             )}
           />
+          {qualityNote && (
+            <Typography.Text type="secondary" style={{ fontSize: 12, display: "block", marginTop: 4 }}>
+              {qualityNote}
+            </Typography.Text>
+          )}
           <Typography.Text type="secondary" style={{ fontSize: 12 }}>
             Points 0–100: 50 = the same as today (average of the last 3 purchases), +1 per 1 % better. Adds = points × weight.
           </Typography.Text>

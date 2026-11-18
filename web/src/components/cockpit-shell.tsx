@@ -922,6 +922,7 @@ export function CockpitShell() {
               onShowLog={() => openPanel("log")}
               weights={appliedWeights}
               industryCo2={catalogPart?.industryCo2 ?? null}
+              qualityToday={benchmarks?.quality.value ?? null}
               requestLabel={`${catalogPart?.partName ?? run.request.partId} · ${run.request.quantity.toLocaleString("en-GB")} pcs${run.request.neededBy ? ` · needed by ${formatDay(run.request.neededBy)}` : ""}`}
             />
           )}
