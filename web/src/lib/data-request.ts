@@ -35,7 +35,19 @@ export function requestItems(i: DataRequestInput): string[] {
   return items;
 }
 
-/** Subject and body of a data request the buyer copies into their own mail program. Nothing is sent. */
+/**
+ * Turns a request text ("Subject: …", blank line, body) into a prefilled e-mail draft for the buyer's own mail
+ * program, like "Request current price" (18 Nov 2026). Nothing is sent and no recipient is filled in, because the
+ * systems hold no supplier contact.
+ */
+export function requestMailto(text: string): string {
+  const [first, ...rest] = text.split("\n");
+  const subject = first.replace(/^Subject:\s*/, "");
+  const body = rest.join("\n").replace(/^\n+/, "");
+  return `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+/** Subject and body of a data request, opened as an e-mail draft in the buyer's own mail program. Nothing is sent. */
 export function dataRequestText(i: DataRequestInput): string {
   const items = requestItems(i);
   const due = i.neededBy ? `, needed by ${formatDay(i.neededBy)}` : "";
