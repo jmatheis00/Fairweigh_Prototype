@@ -14,6 +14,8 @@
   --border: #e3e3e3;
   --border-strong: #d9d9d9;
   --surface-muted: #f5f5f5;
+  /* Allowed range on the weight sliders: brand colour, light. */
+  --weight-band: rgba(15, 92, 92, 0.28);
   --page: #f1f2f4;
   --good: #135200;
   --warn: #874d00;
@@ -186,12 +188,22 @@ body {
   flex: none;
 }
 
-/* Small score bar next to the number in the matrix. Band colours always
-   come with the band word in tooltip and aria-label. */
+/* Result against today in the matrix: the number on a soft background in its band colour
+   (18 Nov 2026, replaces the small bar). Colour always comes with the sign and the band word
+   in tooltip and aria-label. */
 .score-better { --score-color: var(--good); }
 .score-same { --score-color: var(--warn); }
 .score-worse { --score-color: var(--bad); }
 .score-number { color: var(--score-color, inherit); }
+.score-pill {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 6px;
+  color: var(--score-color);
+  background: color-mix(in srgb, var(--score-color) 12%, transparent);
+  font-weight: 600;
+  white-space: nowrap;
+}
 /* Score tag in the recommendation box: text and border in the band colour, white background. */
 .score-tag {
   color: var(--score-color) !important;
@@ -200,38 +212,9 @@ body {
   font-weight: 600;
 }
 
-.score-track {
-  position: relative;
-  display: inline-block;
-  width: 56px;
-  height: 8px;
-  border-radius: 4px;
-  background: var(--surface-muted);
-  overflow: hidden;
-}
-
-.score-fill {
-  display: block;
-  height: 100%;
-  border-radius: 4px;
-  background: var(--score-color, var(--brand-secondary));
-}
-/* Today in the middle of the score bar (18 Nov 2026): better grows to the right, worse to the left. */
-.score-track-today .score-fill {
-  top: 0;
-  border-radius: 0;
-}
 .viz-today {
   stroke: var(--text);
   stroke-width: 1.5;
-}
-.score-today-mark {
-  position: absolute;
-  left: calc(50% - 1px);
-  top: -2px;
-  bottom: -2px;
-  width: 2px;
-  background: var(--text);
 }
 
 /* Dashboard (calm admin style): white cards with a soft edge on a light grey page. */
@@ -418,14 +401,6 @@ body {
 .delta-word {
   font-size: 13px;
   font-weight: 500;
-}
-
-/* High end of a score range: a lighter, hatched extension of the bar. */
-.score-range {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  background: repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.18) 0 3px, rgba(0, 0, 0, 0.06) 3px 6px);
 }
 
 /* Status colours, always together with an icon, a word or a number. */

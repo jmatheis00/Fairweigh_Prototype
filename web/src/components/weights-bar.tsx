@@ -38,6 +38,10 @@ export function WeightsPanel({ weights, defaults = DEFAULT_WEIGHTS, onChange, se
   const sum = weightSum(weights);
   // Company default ±10 points per criterion (expert interviews, 10 Nov 2026).
   const bounds = weightBounds(defaults);
+  // One scale for all four sliders (18 Nov 2026), so 22 % sits visibly left of 34 %.
+  // At least 0–60 %; the allowed band (default ±10) is shaded and the handle stops at its ends.
+  const scaleMax = Math.max(60, Math.ceil(Math.max(...CRITERIA.map((c) => bounds[c].max)) / 10) * 10);
+  const pos = (v: number) => `${(100 * v) / scaleMax}%`;
   const set = (c: Criterion, v: number | null) => {
     if (v === null || !Number.isFinite(v)) return;
     onChange({ ...weights, [c]: Math.max(bounds[c].min, Math.min(bounds[c].max, Math.round(v))) });
@@ -87,13 +91,19 @@ export function WeightsPanel({ weights, defaults = DEFAULT_WEIGHTS, onChange, se
               const s = sensitivity.find((x) => x.criterion === c);
               return s?.flipsAt != null && s.flipsAt >= bounds[c].min && s.flipsAt <= bounds[c].max ? { [s.flipsAt]: " " } : undefined;
             })()}
-            min={bounds[c].min}
-            max={bounds[c].max}
+            min={0}
+            max={scaleMax}
             step={1}
+            included={false}
             value={weights[c]}
             onChange={(v) => set(c, v)}
             tooltip={{ formatter: (v) => `${v} %` }}
             style={{ marginBlock: 2 }}
+            styles={{
+              rail: {
+                background: `linear-gradient(to right, var(--surface-muted) ${pos(bounds[c].min)}, var(--weight-band) ${pos(bounds[c].min)} ${pos(bounds[c].max)}, var(--surface-muted) ${pos(bounds[c].max)})`,
+              },
+            }}
             aria-label={`Weight for ${TOPIC_LABEL[c]} in percent`}
           />
         </div>
@@ -117,4 +127,4 @@ export function WeightsPanel({ weights, defaults = DEFAULT_WEIGHTS, onChange, se
 }
 
 /** Tooltip text next to the weights panel title. */
-export const WEIGHTS_TIP = `Company default per commodity group; you may move each weight by up to ${WEIGHT_DEVIATION_LIMIT} points. Changes need a justification when you decide.`;
+export const WEIGHTS_TIP = `Company default per commodity group; you may move each weight by up to ${WEIGHT_DEVIATION_LIMIT} points. Changes need a justification when you decide. All sliders share one scale from 0 to 60 %; the shaded band is the allowed range.`;

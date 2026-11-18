@@ -115,21 +115,6 @@ function mainValue(c: Criterion, value: number): string {
 }
 
 /**
- * Bar from 50 % worse (left) to 50 % better (right) than today; the mark in the middle is today.
- * The fill runs from today to the score; a range (supplier without deliveries) is hatched up to its best value.
- */
-function ScoreBar({ from, to }: { from: number; to: number | null }) {
-  const left = Math.min(50, from);
-  return (
-    <span className="score-track score-track-today" aria-hidden="true">
-      <span className="score-fill" style={{ position: "absolute", left: `${left}%`, width: `${Math.abs(from - 50)}%` }} />
-      {to !== null && <span className="score-range" style={{ left: `${from}%`, width: `${Math.max(0, to - from)}%` }} />}
-      <span className="score-today-mark" />
-    </span>
-  );
-}
-
-/**
  * Points with a status: above 55 better than today (arrow up), below 45 worse (arrow down),
  * otherwise about the same as today. Colour always comes with the arrow and the number.
  */
@@ -398,11 +383,11 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
           render: (_, row) => supplierCell(row, false),
         },
         {
-          // Score against today (18 Nov 2026): the bar runs from 50 % worse to 50 % better, the mark is today.
-          title: <Tooltip title="Weighted average of how many % better (+) or worse (−) the offer is than today on each criterion. Range −50 % to +50 %; the mark in the bar is today.">vs today</Tooltip>,
+          // Score against today (18 Nov 2026): the number on a soft background in its band colour.
+          title: <Tooltip title="Weighted average of how many % better (+) or worse (−) the offer is than today on each criterion, from −50 % to +50 %. Green from 5 % better, red from 5 % worse, yellow in between.">vs today</Tooltip>,
           key: "score",
           align: "right",
-          width: 112,
+          width: 104,
           render: (_, row) =>
             row.score === null ? (
               "—"
@@ -410,36 +395,25 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
               <Tooltip
                 title={`Never delivered to us, so quality and delivery are a range: ${formatVsToday(row.scoreRange.low)} with the weakest values of our current suppliers, up to ${formatVsToday(row.scoreRange.high).replace(/^Ø /, "")} with their best. It is ranked after all offers with real data.`}
               >
-                <Flex
-                  align="center"
-                  gap={6}
-                  justify="flex-end"
-                  className={`score-${scoreBand(row.scoreRange.low)}`}
+                <span
+                  className={`score-pill score-${scoreBand(row.scoreRange.low)}`}
                   role="img"
                   tabIndex={0}
                   aria-label={`From ${formatVsToday(row.scoreRange.low)} to ${formatVsToday(row.scoreRange.high).replace(/^Ø /, "")}`}
                 >
-                  <ScoreBar from={row.scoreRange.low} to={row.scoreRange.high} />
-                  <Typography.Text strong className="score-number" style={{ whiteSpace: "nowrap" }}>
-                    {formatVsTodayShort(row.scoreRange.low).replace(" %", "")} to {formatVsTodayShort(row.scoreRange.high)}
-                  </Typography.Text>
-                </Flex>
+                  {formatVsTodayShort(row.scoreRange.low).replace(" %", "")} to {formatVsTodayShort(row.scoreRange.high)}
+                </span>
               </Tooltip>
             ) : (
               <Tooltip title={`${formatVsToday(row.score, 1)} · ${SCORE_BAND_LABEL[scoreBand(row.score)]}`}>
-                <Flex
-                  align="center"
-                  gap={6}
-                  justify="flex-end"
-                  className={`score-${scoreBand(row.score)}`}
+                <span
+                  className={`score-pill score-${scoreBand(row.score)}`}
                   role="img"
+                  tabIndex={0}
                   aria-label={`${formatVsToday(row.score)}, ${SCORE_BAND_LABEL[scoreBand(row.score)]}`}
                 >
-                  <ScoreBar from={row.score} to={null} />
-                  <Typography.Text strong className="score-number" style={{ minWidth: 40, textAlign: "right", whiteSpace: "nowrap" }}>
-                    {formatVsTodayShort(row.score)}
-                  </Typography.Text>
-                </Flex>
+                  {formatVsTodayShort(row.score)}
+                </span>
               </Tooltip>
             ),
         },
