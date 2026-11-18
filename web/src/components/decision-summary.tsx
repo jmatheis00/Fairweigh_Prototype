@@ -186,10 +186,21 @@ export function RecommendationBlock(props: BlockProps) {
                 </Button>
               </Tooltip>
             </Flex>
+            {/* One short line (feedback 18 Nov 2026); the full sentence is in the tooltip and in "View details". */}
             {couldLead.map((c) => (
-              <Tag key={c.supplierId} icon={<WarningOutlined />} style={{ marginInlineEnd: 0, marginTop: 4, whiteSpace: "normal" }}>
-                {name(c.supplierId)} could lead at its best (up to {formatNumber(c.high, 0)} points) but has never delivered: request a sample delivery first
-              </Tag>
+              <Tooltip
+                key={c.supplierId}
+                title={`${name(c.supplierId)} could lead at its best (up to ${formatNumber(c.high, 0)} points) but has never delivered: request a sample delivery first.`}
+              >
+                <Tag
+                  icon={<WarningOutlined />}
+                  tabIndex={0}
+                  className="rec-could-lead"
+                  style={{ marginInlineEnd: 0, marginTop: 4 }}
+                >
+                  {name(c.supplierId)} could lead (up to {formatNumber(c.high, 0)} pts) · request a sample
+                </Tag>
+              </Tooltip>
             ))}
           </>
         ) : (
