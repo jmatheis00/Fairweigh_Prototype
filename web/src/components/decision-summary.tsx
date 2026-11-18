@@ -101,7 +101,6 @@ interface BlockProps extends Props {
   onWhy: () => void;
   onShowMissing: () => void;
   onShowEvidence: () => void;
-  onShowLog: () => void;
 }
 
 /** One figure tile: label on top, one big value with arrow, one small line with word and percentage. */
@@ -125,14 +124,14 @@ function judge(value: number | null) {
 
 /** Recommendation block of the compare step: name and score on the left, three figure tiles on the right. Details are in the side panel. */
 export function RecommendationBlock(props: BlockProps) {
-  const { run, result, supplierNames, currentSupplierId, co2PricePerTonneEur, partName, onWhy, onShowMissing, onShowEvidence, onShowLog } = props;
+  const { run, result, supplierNames, currentSupplierId, co2PricePerTonneEur, partName, onWhy, onShowMissing, onShowEvidence } = props;
   const rec = result.recommendation;
   const name = (id: string) => shortName(supplierNames[id] ?? id);
   const hasCurrent = !!currentSupplierId && run.request.supplierIds.includes(currentSupplierId);
   const isCurrent = !!rec && rec.supplierId === currentSupplierId;
   const cmp = rec && hasCurrent && !isCurrent ? compareWithBaseline(run, rec.supplierId, currentSupplierId!, co2PricePerTonneEur) : null;
-  const verified = run.evidence.filter((e) => e.status === "verified").length;
-  const gaps = result.ranked.filter((r) => r.verifiedCount < CRITERIA.length).length;
+  // Evidence of the recommended offer only (feedback 18 Nov 2026): the count over all offers said little.
+  const recVerified = result.ranked.find((r) => r.supplierId === rec?.supplierId)?.verifiedCount ?? 0;
   const couldLead = rec?.couldLead ?? [];
   const pct = (p: number | null) => (p === null ? "" : p === 0 ? "" : ` · ${p > 0 ? "+" : "-"}${percent(p)} per piece`);
 
@@ -263,26 +262,24 @@ export function RecommendationBlock(props: BlockProps) {
           )}
         </div>
       )}
-      <div className="rec-tile">
-        <div className="rec-label">Evidence</div>
-        <div className="rec-value">
-          <SafetyCertificateOutlined />{" "}
-          <Button type="link" className="inline-link rec-value-link" onClick={onShowMissing} aria-label="Open what is missing">
-            {verified} verified
-          </Button>
+      {rec && (
+        <div className="rec-tile">
+          <div className="rec-label">Evidence</div>
+          <div className="rec-value">
+            {recVerified === CRITERIA.length ? <SafetyCertificateOutlined /> : <WarningOutlined />}{" "}
+            <Button type="link" className="inline-link rec-value-link" onClick={onShowMissing} aria-label="Open what is missing">
+              {recVerified}/{CRITERIA.length}
+            </Button>
+          </div>
+          <div className="rec-line">
+            criteria verified
+            <br />
+            <Button type="link" size="small" className="inline-link" onClick={onShowEvidence}>
+              All evidence
+            </Button>
+          </div>
         </div>
-        <div className="rec-line">
-          {gaps} {gaps === 1 ? "offer" : "offers"} with gaps · {result.excluded.length} excluded
-          <br />
-          <Button type="link" size="small" className="inline-link" onClick={onShowEvidence}>
-            All evidence
-          </Button>
-          <Typography.Text type="secondary"> · </Typography.Text>
-          <Button type="link" size="small" className="inline-link" onClick={onShowLog}>
-            Log
-          </Button>
-        </div>
-      </div>
+      )}
     </div>
   );
 }
