@@ -751,12 +751,13 @@ export function CockpitShell() {
             closePanels();
             setPage("glossary");
           }}
+          modeLabel={shownMode ? runModeLabel(shownMode) : undefined}
           status={
-            // Mode as a small status tag (16 Nov 2026, replaces the icon of 6 Nov 2026): readable without hovering and
-            // not mistaken for help. A saved run is always spelled out, so nobody mistakes it for a live run.
-            // Only live and saved runs get the tag; test and example mode are named in "About Fairweigh" (16 Nov 2026).
+            // Mode as a small status tag (16 Nov 2026) only for live runs, which happen locally. Since 18 Nov 2026 a
+            // saved run is named in the help menu, in "About Fairweigh" and on the collect step where its result is shown,
+            // not in the header, so the pitch screen stays quiet without hiding that it is a recording.
             shownMode &&
-            (shownMode.kind === "live" || shownMode.kind === "saved") && (
+            shownMode.kind === "live" && (
               <Tooltip
                 title={
                   <>

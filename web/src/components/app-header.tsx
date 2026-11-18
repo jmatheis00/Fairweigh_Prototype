@@ -24,8 +24,10 @@ interface Props {
   onHelp: () => void;
   onGlossary: () => void;
   onAbout: () => void;
-  /** Mode tag on the right. */
+  /** Mode tag on the right (live runs only, since 18 Nov 2026). */
   status: ReactNode;
+  /** Mode as text at the top of the help menu, e.g. "Saved run from 18 Nov 2026". */
+  modeLabel?: string;
   /** Page actions, e.g. "Record decision". */
   actions?: ReactNode;
 }
@@ -45,6 +47,7 @@ export function AppHeader({
   onGlossary,
   onAbout,
   status,
+  modeLabel,
   actions,
 }: Props) {
   // Navigation per role (expert interviews, 10 Nov 2026): pages a role does not need are hidden, not greyed out.
@@ -111,7 +114,22 @@ export function AppHeader({
   };
 
   // Help where SaaS users expect it (16 Nov 2026): a "?" in the header instead of explanations on the pages.
+  // The mode sits here instead of a header tag for saved runs (18 Nov 2026): visible on request, quiet in a pitch.
   const helpItems: MenuProps["items"] = [
+    ...(modeLabel
+      ? [
+          {
+            key: "mode",
+            type: "group" as const,
+            label: (
+              <Typography.Text type="secondary" style={{ fontSize: 12 }}>
+                Mode: {modeLabel}
+              </Typography.Text>
+            ),
+          },
+          { type: "divider" as const },
+        ]
+      : []),
     { key: "how", icon: <NodeIndexOutlined />, label: "How it works" },
     { key: "glossary", icon: <BookOutlined />, label: "Glossary" },
     { type: "divider" },

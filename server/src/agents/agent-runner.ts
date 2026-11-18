@@ -23,7 +23,8 @@ export interface AgentLimits {
 
 export const DEFAULT_LIMITS: AgentLimits = {
   maxModelTurns: 10,
-  timeoutMs: 120_000,
+  // 300 s since 18 Nov 2026: gemini-3.8-flash needed more than 120 s per run.
+  timeoutMs: 300_000,
   retries: 2,
   retryDelayMs: 2_000,
 };

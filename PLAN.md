@@ -137,12 +137,12 @@ The cockpit makes no legal assessment. It shows the stored proof, and the user i
 If a piece of evidence fails the check, it counts as "not verified" and gets 0 points.
 
 **Limits and operation:**
-- Maximum steps, time limit and retries are fixed.
+- Maximum steps, time limit and retries are fixed: 10 model turns, 300 s per run, 2 retries (18 Nov 2026: time limit raised from 120 s, because stronger Gemini models needed longer).
 - The run is a background job in the server, the user interface shows the progress.
 - The app stores every step for the log.
 - On limit or outage: the last saved run, marked as such (Groq dropped, 16 Nov 2026).
 - In test mode a `FakeLlmProvider` returns fixed answers, so development and tests use nothing up. It only runs locally and in automated tests; it is switched off in the online version.
-- The app always visibly shows what is running, e.g. "Live: Gemini" or "Saved run from 18 Nov".
+- The app always shows what is running: "Live: Gemini" as a tag in the header; "Saved run from 18 Nov" in the help menu, in "About Fairweigh" and on the collect step next to the run (18 Nov 2026: no header tag for saved runs, so the pitch screen stays quiet).
 - The hit rate is only measured with the real model.
 
 **Test set:** a list of expected evidence and traps for every demo supplier, runnable via command. The hit rate with the final model goes into the presentation.

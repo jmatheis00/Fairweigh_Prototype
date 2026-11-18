@@ -1,0 +1,1094 @@
+{
+  "runId": "1d4925a6-380f-413b-b278-9760fdf9c883",
+  "request": {
+    "partId": "P-BRG-01",
+    "supplierIds": [
+      "S-0046",
+      "S-0041",
+      "S-0042",
+      "S-0044",
+      "S-0045"
+    ],
+    "quantity": 20000,
+    "neededBy": null
+  },
+  "mode": {
+    "kind": "live",
+    "provider": "gemini"
+  },
+  "status": "completed",
+  "startedAt": "2026-11-18T16:00:08.568Z",
+  "finishedAt": "2026-11-18T16:02:16.377Z",
+  "steps": [
+    {
+      "index": 1,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "model",
+      "summary": "Model asks for get_erp_record, get_pcf, get_rating, list_documents, get_erp_record, get_pcf, get_rating, list_documents, get_erp_record, get_pcf, get_rating, list_documents, get_erp_record, get_pcf, get_rating, list_documents, get_erp_record, get_pcf, get_rating, list_documents"
+    },
+    {
+      "index": 2,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_call",
+      "summary": "get_erp_record(S-0046)",
+      "tool": "get_erp_record",
+      "input": {
+        "supplierId": "S-0046"
+      }
+    },
+    {
+      "index": 3,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_result",
+      "summary": "get_erp_record: received",
+      "tool": "get_erp_record"
+    },
+    {
+      "index": 4,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_call",
+      "summary": "get_pcf(S-0046, P-BRG-01)",
+      "tool": "get_pcf",
+      "input": {
+        "supplierId": "S-0046",
+        "partId": "P-BRG-01"
+      }
+    },
+    {
+      "index": 5,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_result",
+      "summary": "get_pcf: received",
+      "tool": "get_pcf"
+    },
+    {
+      "index": 6,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_call",
+      "summary": "get_rating(S-0046)",
+      "tool": "get_rating",
+      "input": {
+        "supplierId": "S-0046"
+      }
+    },
+    {
+      "index": 7,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_result",
+      "summary": "get_rating: received",
+      "tool": "get_rating"
+    },
+    {
+      "index": 8,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_call",
+      "summary": "list_documents(S-0046)",
+      "tool": "list_documents",
+      "input": {
+        "supplierId": "S-0046"
+      }
+    },
+    {
+      "index": 9,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_result",
+      "summary": "list_documents: received",
+      "tool": "list_documents"
+    },
+    {
+      "index": 10,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_call",
+      "summary": "get_erp_record(S-0041)",
+      "tool": "get_erp_record",
+      "input": {
+        "supplierId": "S-0041"
+      }
+    },
+    {
+      "index": 11,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_result",
+      "summary": "get_erp_record: received",
+      "tool": "get_erp_record"
+    },
+    {
+      "index": 12,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_call",
+      "summary": "get_pcf(P-BRG-01, S-0041)",
+      "tool": "get_pcf",
+      "input": {
+        "partId": "P-BRG-01",
+        "supplierId": "S-0041"
+      }
+    },
+    {
+      "index": 13,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_result",
+      "summary": "get_pcf: received",
+      "tool": "get_pcf"
+    },
+    {
+      "index": 14,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_call",
+      "summary": "get_rating(S-0041)",
+      "tool": "get_rating",
+      "input": {
+        "supplierId": "S-0041"
+      }
+    },
+    {
+      "index": 15,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_result",
+      "summary": "get_rating: received",
+      "tool": "get_rating"
+    },
+    {
+      "index": 16,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_call",
+      "summary": "list_documents(S-0041)",
+      "tool": "list_documents",
+      "input": {
+        "supplierId": "S-0041"
+      }
+    },
+    {
+      "index": 17,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_result",
+      "summary": "list_documents: received",
+      "tool": "list_documents"
+    },
+    {
+      "index": 18,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_call",
+      "summary": "get_erp_record(S-0042)",
+      "tool": "get_erp_record",
+      "input": {
+        "supplierId": "S-0042"
+      }
+    },
+    {
+      "index": 19,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_result",
+      "summary": "get_erp_record: received",
+      "tool": "get_erp_record"
+    },
+    {
+      "index": 20,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_call",
+      "summary": "get_pcf(P-BRG-01, S-0042)",
+      "tool": "get_pcf",
+      "input": {
+        "partId": "P-BRG-01",
+        "supplierId": "S-0042"
+      }
+    },
+    {
+      "index": 21,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_result",
+      "summary": "get_pcf: received",
+      "tool": "get_pcf"
+    },
+    {
+      "index": 22,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_call",
+      "summary": "get_rating(S-0042)",
+      "tool": "get_rating",
+      "input": {
+        "supplierId": "S-0042"
+      }
+    },
+    {
+      "index": 23,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_result",
+      "summary": "get_rating: received",
+      "tool": "get_rating"
+    },
+    {
+      "index": 24,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_call",
+      "summary": "list_documents(S-0042)",
+      "tool": "list_documents",
+      "input": {
+        "supplierId": "S-0042"
+      }
+    },
+    {
+      "index": 25,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_result",
+      "summary": "list_documents: received",
+      "tool": "list_documents"
+    },
+    {
+      "index": 26,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_call",
+      "summary": "get_erp_record(S-0044)",
+      "tool": "get_erp_record",
+      "input": {
+        "supplierId": "S-0044"
+      }
+    },
+    {
+      "index": 27,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_result",
+      "summary": "get_erp_record: received",
+      "tool": "get_erp_record"
+    },
+    {
+      "index": 28,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_call",
+      "summary": "get_pcf(P-BRG-01, S-0044)",
+      "tool": "get_pcf",
+      "input": {
+        "partId": "P-BRG-01",
+        "supplierId": "S-0044"
+      }
+    },
+    {
+      "index": 29,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_result",
+      "summary": "get_pcf: received",
+      "tool": "get_pcf"
+    },
+    {
+      "index": 30,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_call",
+      "summary": "get_rating(S-0044)",
+      "tool": "get_rating",
+      "input": {
+        "supplierId": "S-0044"
+      }
+    },
+    {
+      "index": 31,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_result",
+      "summary": "get_rating: received",
+      "tool": "get_rating"
+    },
+    {
+      "index": 32,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_call",
+      "summary": "list_documents(S-0044)",
+      "tool": "list_documents",
+      "input": {
+        "supplierId": "S-0044"
+      }
+    },
+    {
+      "index": 33,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_result",
+      "summary": "list_documents: received",
+      "tool": "list_documents"
+    },
+    {
+      "index": 34,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_call",
+      "summary": "get_erp_record(S-0045)",
+      "tool": "get_erp_record",
+      "input": {
+        "supplierId": "S-0045"
+      }
+    },
+    {
+      "index": 35,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_result",
+      "summary": "get_erp_record: received",
+      "tool": "get_erp_record"
+    },
+    {
+      "index": 36,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_call",
+      "summary": "get_pcf(P-BRG-01, S-0045)",
+      "tool": "get_pcf",
+      "input": {
+        "partId": "P-BRG-01",
+        "supplierId": "S-0045"
+      }
+    },
+    {
+      "index": 37,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_result",
+      "summary": "get_pcf: received",
+      "tool": "get_pcf"
+    },
+    {
+      "index": 38,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_call",
+      "summary": "get_rating(S-0045)",
+      "tool": "get_rating",
+      "input": {
+        "supplierId": "S-0045"
+      }
+    },
+    {
+      "index": 39,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_result",
+      "summary": "get_rating: received",
+      "tool": "get_rating"
+    },
+    {
+      "index": 40,
+      "at": "2026-11-18T16:00:13.178Z",
+      "kind": "tool_call",
+      "summary": "list_documents(S-0045)",
+      "tool": "list_documents",
+      "input": {
+        "supplierId": "S-0045"
+      }
+    },
+    {
+      "index": 41,
+      "at": "2026-11-18T16:00:13.179Z",
+      "kind": "tool_result",
+      "summary": "list_documents: received",
+      "tool": "list_documents"
+    },
+    {
+      "index": 42,
+      "at": "2026-11-18T16:01:40.523Z",
+      "kind": "model",
+      "summary": "Model asks for read_document, read_document, read_document, read_document, read_document"
+    },
+    {
+      "index": 43,
+      "at": "2026-11-18T16:01:40.523Z",
+      "kind": "tool_call",
+      "summary": "read_document(DOC-OFFER-S-0046-P-BRG-01)",
+      "tool": "read_document",
+      "input": {
+        "documentId": "DOC-OFFER-S-0046-P-BRG-01"
+      }
+    },
+    {
+      "index": 44,
+      "at": "2026-11-18T16:01:40.523Z",
+      "kind": "tool_result",
+      "summary": "read_document: received",
+      "tool": "read_document"
+    },
+    {
+      "index": 45,
+      "at": "2026-11-18T16:01:40.523Z",
+      "kind": "tool_call",
+      "summary": "read_document(DOC-OFFER-S-0041-P-BRG-01)",
+      "tool": "read_document",
+      "input": {
+        "documentId": "DOC-OFFER-S-0041-P-BRG-01"
+      }
+    },
+    {
+      "index": 46,
+      "at": "2026-11-18T16:01:40.523Z",
+      "kind": "tool_result",
+      "summary": "read_document: received",
+      "tool": "read_document"
+    },
+    {
+      "index": 47,
+      "at": "2026-11-18T16:01:40.523Z",
+      "kind": "tool_call",
+      "summary": "read_document(DOC-OFFER-S-0042-P-BRG-01)",
+      "tool": "read_document",
+      "input": {
+        "documentId": "DOC-OFFER-S-0042-P-BRG-01"
+      }
+    },
+    {
+      "index": 48,
+      "at": "2026-11-18T16:01:40.523Z",
+      "kind": "tool_result",
+      "summary": "read_document: received",
+      "tool": "read_document"
+    },
+    {
+      "index": 49,
+      "at": "2026-11-18T16:01:40.523Z",
+      "kind": "tool_call",
+      "summary": "read_document(DOC-OFFER-S-0044-P-BRG-01)",
+      "tool": "read_document",
+      "input": {
+        "documentId": "DOC-OFFER-S-0044-P-BRG-01"
+      }
+    },
+    {
+      "index": 50,
+      "at": "2026-11-18T16:01:40.523Z",
+      "kind": "tool_result",
+      "summary": "read_document: received",
+      "tool": "read_document"
+    },
+    {
+      "index": 51,
+      "at": "2026-11-18T16:01:40.523Z",
+      "kind": "tool_call",
+      "summary": "read_document(DOC-OFFER-S-0045-P-BRG-01)",
+      "tool": "read_document",
+      "input": {
+        "documentId": "DOC-OFFER-S-0045-P-BRG-01"
+      }
+    },
+    {
+      "index": 52,
+      "at": "2026-11-18T16:01:40.523Z",
+      "kind": "tool_result",
+      "summary": "read_document: received",
+      "tool": "read_document"
+    },
+    {
+      "index": 53,
+      "at": "2026-11-18T16:02:16.369Z",
+      "kind": "model",
+      "summary": "Model asks for submit_evidence"
+    },
+    {
+      "index": 54,
+      "at": "2026-11-18T16:02:16.369Z",
+      "kind": "tool_call",
+      "summary": "Agent submits its evidence",
+      "tool": "submit_evidence"
+    },
+    {
+      "index": 55,
+      "at": "2026-11-18T16:02:16.370Z",
+      "kind": "tool_result",
+      "summary": "27 pieces of evidence, 4 gaps",
+      "tool": "submit_evidence"
+    },
+    {
+      "index": 56,
+      "at": "2026-11-18T16:02:16.377Z",
+      "kind": "check",
+      "summary": "Evidence check: 27 verified, 0 not verified"
+    }
+  ],
+  "evidence": [
+    {
+      "evidenceId": "8e43b2ab-8aed-4f8f-abee-e6dcb4e44f7d",
+      "supplierId": "S-0046",
+      "topic": "quality",
+      "value": 1.3,
+      "unit": "%",
+      "sentence": "The complaint rate for S-0046 is 1.3%.",
+      "system": "erp",
+      "recordId": "ERP-S-0046",
+      "location": {
+        "kind": "field",
+        "field": "complaintRatePercent"
+      },
+      "retrievedAt": "2026-11-18T16:00:13.178Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": null,
+      "sourceDate": "2025-11-10",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "3cbf5ec9-37fa-4707-9b28-8a255e424c79",
+      "supplierId": "S-0046",
+      "topic": "delivery",
+      "value": 89,
+      "unit": "%",
+      "sentence": "The on-time delivery rate for S-0046 is 89%.",
+      "system": "erp",
+      "recordId": "ERP-S-0046",
+      "location": {
+        "kind": "field",
+        "field": "onTimeDeliveryPercent"
+      },
+      "retrievedAt": "2026-11-18T16:00:13.178Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": null,
+      "sourceDate": "2025-11-10",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "70f7d6e6-a3d8-4ae7-b2c6-20cbccbc8c77",
+      "supplierId": "S-0046",
+      "topic": "co2",
+      "value": 1.05,
+      "unit": "kg CO2e/piece",
+      "sentence": "The product carbon footprint for S-0046 is 1.05 kg CO2e/piece.",
+      "system": "pcf",
+      "recordId": "PCF-S-0046-P-BRG-01",
+      "location": {
+        "kind": "field",
+        "field": "pcfKgPerPiece"
+      },
+      "retrievedAt": "2026-11-18T16:00:13.178Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": null,
+      "sourceDate": "2025-11-10",
+      "sourceBadge": "Supplier-specific",
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "275d8f25-fd15-48b8-bf27-7219ccd83bba",
+      "supplierId": "S-0046",
+      "topic": "price",
+      "value": 6,
+      "unit": "EUR/piece",
+      "sentence": "The unit price from S-0046 is 6.00 EUR/piece.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0046-P-BRG-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Unit price: EUR 6.00 per piece"
+      },
+      "retrievedAt": "2026-11-18T16:01:40.523Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-10-20",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "71b2c2a5-1568-4eef-b93d-7a3472937360",
+      "supplierId": "S-0046",
+      "topic": "leadTime",
+      "value": 5,
+      "unit": "days",
+      "sentence": "The lead time for S-0046 is 5 days.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0046-P-BRG-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Lead time: 5 days"
+      },
+      "retrievedAt": "2026-11-18T16:01:40.523Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-10-20",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "0bde46c6-592e-41d4-8ef1-79af6a8922f5",
+      "supplierId": "S-0046",
+      "topic": "compliance",
+      "value": "None known",
+      "unit": "",
+      "sentence": "There are no known controversies for S-0046.",
+      "system": "ratings",
+      "recordId": "RAT-S-0046",
+      "location": {
+        "kind": "field",
+        "field": "controversies"
+      },
+      "retrievedAt": "2026-11-18T16:00:13.178Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": null,
+      "sourceDate": "2025-11-10",
+      "sourceBadge": null,
+      "socialAudit": false
+    },
+    {
+      "evidenceId": "356854f8-c609-4aa5-87c4-89d9185db36d",
+      "supplierId": "S-0041",
+      "topic": "quality",
+      "value": 1,
+      "unit": "%",
+      "sentence": "The complaint rate for S-0041 is 1%.",
+      "system": "erp",
+      "recordId": "ERP-S-0041",
+      "location": {
+        "kind": "field",
+        "field": "complaintRatePercent"
+      },
+      "retrievedAt": "2026-11-18T16:00:13.178Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": null,
+      "sourceDate": "2026-01-25",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "85e878e4-35d5-4f16-82be-b6793c87fc11",
+      "supplierId": "S-0041",
+      "topic": "delivery",
+      "value": 94,
+      "unit": "%",
+      "sentence": "The on-time delivery rate for S-0041 is 94%.",
+      "system": "erp",
+      "recordId": "ERP-S-0041",
+      "location": {
+        "kind": "field",
+        "field": "onTimeDeliveryPercent"
+      },
+      "retrievedAt": "2026-11-18T16:00:13.178Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": null,
+      "sourceDate": "2026-01-25",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "d4949375-d0b2-43e5-ac7e-3b195c88aa96",
+      "supplierId": "S-0041",
+      "topic": "co2",
+      "value": 0.62,
+      "unit": "kg CO2e/piece",
+      "sentence": "The product carbon footprint for S-0041 is 0.62 kg CO2e/piece.",
+      "system": "pcf",
+      "recordId": "PCF-S-0041-P-BRG-01",
+      "location": {
+        "kind": "field",
+        "field": "pcfKgPerPiece"
+      },
+      "retrievedAt": "2026-11-18T16:00:13.178Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": null,
+      "sourceDate": "2026-01-25",
+      "sourceBadge": "Supplier-specific",
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "1c66b813-73fc-4212-80af-a7c1d53595a3",
+      "supplierId": "S-0041",
+      "topic": "price",
+      "value": 6.18,
+      "unit": "EUR/piece",
+      "sentence": "The unit price from S-0041 is 6.18 EUR/piece.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0041-P-BRG-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Unit price: EUR 6.18 per piece"
+      },
+      "retrievedAt": "2026-11-18T16:01:40.523Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-10-28",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "38e6f712-e564-4ed5-8f85-f2abea27baa8",
+      "supplierId": "S-0041",
+      "topic": "leadTime",
+      "value": 5,
+      "unit": "days",
+      "sentence": "The lead time for S-0041 is 5 days.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0041-P-BRG-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Lead time: 5 days"
+      },
+      "retrievedAt": "2026-11-18T16:01:40.523Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-10-28",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "bdac2859-b865-4fdf-a2de-1fc2f2261681",
+      "supplierId": "S-0041",
+      "topic": "compliance",
+      "value": "None known",
+      "unit": "",
+      "sentence": "There are no known controversies for S-0041.",
+      "system": "ratings",
+      "recordId": "RAT-S-0041",
+      "location": {
+        "kind": "field",
+        "field": "controversies"
+      },
+      "retrievedAt": "2026-11-18T16:00:13.178Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": null,
+      "sourceDate": "2026-01-25",
+      "sourceBadge": null,
+      "socialAudit": true
+    },
+    {
+      "evidenceId": "342abe9a-8ce2-4122-8255-3feb584509e0",
+      "supplierId": "S-0042",
+      "topic": "quality",
+      "value": 0.3,
+      "unit": "%",
+      "sentence": "The complaint rate for S-0042 is 0.3%.",
+      "system": "erp",
+      "recordId": "ERP-S-0042",
+      "location": {
+        "kind": "field",
+        "field": "complaintRatePercent"
+      },
+      "retrievedAt": "2026-11-18T16:00:13.178Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": null,
+      "sourceDate": "2025-01-03",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "d35b35b6-e6aa-4187-835a-ac9140308683",
+      "supplierId": "S-0042",
+      "topic": "delivery",
+      "value": 98,
+      "unit": "%",
+      "sentence": "The on-time delivery rate for S-0042 is 98%.",
+      "system": "erp",
+      "recordId": "ERP-S-0042",
+      "location": {
+        "kind": "field",
+        "field": "onTimeDeliveryPercent"
+      },
+      "retrievedAt": "2026-11-18T16:00:13.178Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": null,
+      "sourceDate": "2025-01-03",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "0e86bc16-6eee-4eb1-be56-e0981b5571fd",
+      "supplierId": "S-0042",
+      "topic": "co2",
+      "value": 0.7,
+      "unit": "kg CO2e/piece",
+      "sentence": "The product carbon footprint for S-0042 is 0.7 kg CO2e/piece.",
+      "system": "pcf",
+      "recordId": "PCF-S-0042-P-BRG-01",
+      "location": {
+        "kind": "field",
+        "field": "pcfKgPerPiece"
+      },
+      "retrievedAt": "2026-11-18T16:00:13.178Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": null,
+      "sourceDate": "2025-01-03",
+      "sourceBadge": "Supplier-specific",
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "8cf4c0d3-d10f-4450-9061-ba72ccde663f",
+      "supplierId": "S-0042",
+      "topic": "price",
+      "value": 6.06,
+      "unit": "EUR/piece",
+      "sentence": "The unit price from S-0042 is 6.06 EUR/piece.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0042-P-BRG-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Unit price: EUR 6.06 per piece"
+      },
+      "retrievedAt": "2026-11-18T16:01:40.523Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-10-30",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "81ee3c7a-2150-417c-9500-176141a3871b",
+      "supplierId": "S-0042",
+      "topic": "leadTime",
+      "value": 24,
+      "unit": "days",
+      "sentence": "The lead time for S-0042 is 24 days.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0042-P-BRG-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Lead time: 24 days"
+      },
+      "retrievedAt": "2026-11-18T16:01:40.523Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-10-30",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "06c14236-053f-48d1-9000-a85942ed8402",
+      "supplierId": "S-0042",
+      "topic": "compliance",
+      "value": "None known",
+      "unit": "",
+      "sentence": "There are no known controversies for S-0042.",
+      "system": "ratings",
+      "recordId": "RAT-S-0042",
+      "location": {
+        "kind": "field",
+        "field": "controversies"
+      },
+      "retrievedAt": "2026-11-18T16:00:13.178Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": null,
+      "sourceDate": "2025-01-03",
+      "sourceBadge": null,
+      "socialAudit": true
+    },
+    {
+      "evidenceId": "7b3126c3-cd68-419d-bc36-c120d5b9f4a4",
+      "supplierId": "S-0044",
+      "topic": "co2",
+      "value": 0.91,
+      "unit": "kg CO2e/piece",
+      "sentence": "The product carbon footprint for S-0044 is 0.91 kg CO2e/piece.",
+      "system": "pcf",
+      "recordId": "PCF-S-0044-P-BRG-01",
+      "location": {
+        "kind": "field",
+        "field": "pcfKgPerPiece"
+      },
+      "retrievedAt": "2026-11-18T16:00:13.178Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": null,
+      "sourceDate": "2026-04-04",
+      "sourceBadge": "Company estimate",
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "f7197f66-9891-41fb-8f6c-3673d331dfeb",
+      "supplierId": "S-0044",
+      "topic": "price",
+      "value": 5.76,
+      "unit": "EUR/piece",
+      "sentence": "The unit price from S-0044 is 5.76 EUR/piece.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0044-P-BRG-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Unit price: EUR 5.76 per piece"
+      },
+      "retrievedAt": "2026-11-18T16:01:40.523Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-10-25",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "403bf86d-efff-40c7-88a2-e2c473abfaeb",
+      "supplierId": "S-0044",
+      "topic": "leadTime",
+      "value": 28,
+      "unit": "days",
+      "sentence": "The lead time for S-0044 is 28 days.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0044-P-BRG-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Lead time: 28 days"
+      },
+      "retrievedAt": "2026-11-18T16:01:40.523Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-10-25",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "8c4dee81-049e-4628-a4d4-95eeaa10d7bb",
+      "supplierId": "S-0044",
+      "topic": "compliance",
+      "value": "None known",
+      "unit": "",
+      "sentence": "There are no known controversies for S-0044.",
+      "system": "ratings",
+      "recordId": "RAT-S-0044",
+      "location": {
+        "kind": "field",
+        "field": "controversies"
+      },
+      "retrievedAt": "2026-11-18T16:00:13.178Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": null,
+      "sourceDate": "2026-04-04",
+      "sourceBadge": null,
+      "socialAudit": false
+    },
+    {
+      "evidenceId": "0ca57393-6b71-4183-a385-f039a84be912",
+      "supplierId": "S-0045",
+      "topic": "co2",
+      "value": 1.71,
+      "unit": "kg CO2e/piece",
+      "sentence": "The product carbon footprint for S-0045 is 1.71 kg CO2e/piece.",
+      "system": "pcf",
+      "recordId": "PCF-S-0045-P-BRG-01",
+      "location": {
+        "kind": "field",
+        "field": "pcfKgPerPiece"
+      },
+      "retrievedAt": "2026-11-18T16:00:13.178Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": null,
+      "sourceDate": "2024-02-12",
+      "sourceBadge": "Company estimate",
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "ef9ce196-97d2-41bf-acd0-1f23899bb7cf",
+      "supplierId": "S-0045",
+      "topic": "price",
+      "value": 4.44,
+      "unit": "EUR/piece",
+      "sentence": "The unit price from S-0045 is 4.44 EUR/piece.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0045-P-BRG-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Unit price: EUR 4.44 per piece"
+      },
+      "retrievedAt": "2026-11-18T16:01:40.523Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-10-18",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "92fcf114-ce5e-4953-8762-b79eb796ecf1",
+      "supplierId": "S-0045",
+      "topic": "leadTime",
+      "value": 60,
+      "unit": "days",
+      "sentence": "The lead time for S-0045 is 60 days.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0045-P-BRG-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Lead time: 60 days"
+      },
+      "retrievedAt": "2026-11-18T16:01:40.523Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-10-18",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "b79853aa-1c36-46ac-a731-3047cf8e2c16",
+      "supplierId": "S-0045",
+      "topic": "compliance",
+      "value": "High",
+      "unit": "",
+      "sentence": "The LkSG country risk for S-0045 is High.",
+      "system": "ratings",
+      "recordId": "RAT-S-0045",
+      "location": {
+        "kind": "field",
+        "field": "lksgCountryRisk"
+      },
+      "retrievedAt": "2026-11-18T16:00:13.178Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": null,
+      "sourceDate": "2024-02-12",
+      "sourceBadge": null,
+      "socialAudit": false
+    },
+    {
+      "evidenceId": "c479bdc0-20be-49c0-ad4f-cc9c52b4868d",
+      "supplierId": "S-0045",
+      "topic": "compliance",
+      "value": "None known",
+      "unit": "",
+      "sentence": "There are no known controversies for S-0045.",
+      "system": "ratings",
+      "recordId": "RAT-S-0045",
+      "location": {
+        "kind": "field",
+        "field": "controversies"
+      },
+      "retrievedAt": "2026-11-18T16:00:13.178Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": null,
+      "sourceDate": "2024-02-12",
+      "sourceBadge": null,
+      "socialAudit": false
+    }
+  ],
+  "gaps": [
+    {
+      "supplierId": "S-0044",
+      "topic": "quality",
+      "reason": "No complaint rate available in ERP record for quote-only supplier."
+    },
+    {
+      "supplierId": "S-0044",
+      "topic": "delivery",
+      "reason": "No on-time delivery rate available in ERP record for quote-only supplier."
+    },
+    {
+      "supplierId": "S-0045",
+      "topic": "quality",
+      "reason": "No complaint rate available in ERP record for quote-only supplier."
+    },
+    {
+      "supplierId": "S-0045",
+      "topic": "delivery",
+      "reason": "No on-time delivery rate available in ERP record for quote-only supplier."
+    }
+  ],
+  "error": null
+}

@@ -58,7 +58,7 @@ npm run dev:web
 
 Then open <http://localhost:3000>.
 
-By default the agent runs with `LLM_PROVIDER=fake`, a test provider with fixed answers that needs no API key. To use the real model, set `LLM_PROVIDER=gemini` and a `GEMINI_API_KEY` from Google AI Studio in `.env`. Never commit that file. The app always shows which mode is running: "Live: Gemini" or "Saved run from <date>".
+By default the agent runs with `LLM_PROVIDER=fake`, a test provider with fixed answers that needs no API key. To use the real model, set `LLM_PROVIDER=gemini` and a `GEMINI_API_KEY` from Google AI Studio in `.env`. Never commit that file. The app always shows which mode is running: "Live: Gemini" in the header, or "Saved run from <date>" in the help menu and next to the run.
 
 ## Commands
 

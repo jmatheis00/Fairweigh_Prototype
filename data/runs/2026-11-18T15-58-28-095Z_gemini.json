@@ -1,0 +1,1041 @@
+{
+  "runId": "e6be3a32-2bc3-495a-b0c4-99f5fc3e2c0b",
+  "request": {
+    "partId": "P-ALU-HSG-01",
+    "supplierIds": [
+      "S-0013",
+      "S-0015",
+      "S-0018",
+      "S-0014",
+      "S-0020"
+    ],
+    "quantity": 2000,
+    "neededBy": null
+  },
+  "mode": {
+    "kind": "live",
+    "provider": "gemini"
+  },
+  "status": "completed",
+  "startedAt": "2026-11-18T15:58:28.095Z",
+  "finishedAt": "2026-11-18T15:59:07.659Z",
+  "steps": [
+    {
+      "index": 1,
+      "at": "2026-11-18T15:58:32.635Z",
+      "kind": "model",
+      "summary": "Model asks for get_erp_record, get_pcf, get_rating, list_documents, get_erp_record, get_pcf, get_rating, list_documents, get_erp_record, get_pcf, get_rating, list_documents, get_erp_record, get_pcf, get_rating, list_documents, get_erp_record, get_pcf, get_rating, list_documents"
+    },
+    {
+      "index": 2,
+      "at": "2026-11-18T15:58:32.635Z",
+      "kind": "tool_call",
+      "summary": "get_erp_record(S-0013)",
+      "tool": "get_erp_record",
+      "input": {
+        "supplierId": "S-0013"
+      }
+    },
+    {
+      "index": 3,
+      "at": "2026-11-18T15:58:32.635Z",
+      "kind": "tool_result",
+      "summary": "get_erp_record: received",
+      "tool": "get_erp_record"
+    },
+    {
+      "index": 4,
+      "at": "2026-11-18T15:58:32.635Z",
+      "kind": "tool_call",
+      "summary": "get_pcf(S-0013, P-ALU-HSG-01)",
+      "tool": "get_pcf",
+      "input": {
+        "supplierId": "S-0013",
+        "partId": "P-ALU-HSG-01"
+      }
+    },
+    {
+      "index": 5,
+      "at": "2026-11-18T15:58:32.636Z",
+      "kind": "tool_result",
+      "summary": "get_pcf: received",
+      "tool": "get_pcf"
+    },
+    {
+      "index": 6,
+      "at": "2026-11-18T15:58:32.636Z",
+      "kind": "tool_call",
+      "summary": "get_rating(S-0013)",
+      "tool": "get_rating",
+      "input": {
+        "supplierId": "S-0013"
+      }
+    },
+    {
+      "index": 7,
+      "at": "2026-11-18T15:58:32.636Z",
+      "kind": "tool_result",
+      "summary": "get_rating: received",
+      "tool": "get_rating"
+    },
+    {
+      "index": 8,
+      "at": "2026-11-18T15:58:32.636Z",
+      "kind": "tool_call",
+      "summary": "list_documents(S-0013)",
+      "tool": "list_documents",
+      "input": {
+        "supplierId": "S-0013"
+      }
+    },
+    {
+      "index": 9,
+      "at": "2026-11-18T15:58:32.636Z",
+      "kind": "tool_result",
+      "summary": "list_documents: received",
+      "tool": "list_documents"
+    },
+    {
+      "index": 10,
+      "at": "2026-11-18T15:58:32.636Z",
+      "kind": "tool_call",
+      "summary": "get_erp_record(S-0015)",
+      "tool": "get_erp_record",
+      "input": {
+        "supplierId": "S-0015"
+      }
+    },
+    {
+      "index": 11,
+      "at": "2026-11-18T15:58:32.636Z",
+      "kind": "tool_result",
+      "summary": "get_erp_record: received",
+      "tool": "get_erp_record"
+    },
+    {
+      "index": 12,
+      "at": "2026-11-18T15:58:32.636Z",
+      "kind": "tool_call",
+      "summary": "get_pcf(P-ALU-HSG-01, S-0015)",
+      "tool": "get_pcf",
+      "input": {
+        "partId": "P-ALU-HSG-01",
+        "supplierId": "S-0015"
+      }
+    },
+    {
+      "index": 13,
+      "at": "2026-11-18T15:58:32.636Z",
+      "kind": "tool_result",
+      "summary": "get_pcf: received",
+      "tool": "get_pcf"
+    },
+    {
+      "index": 14,
+      "at": "2026-11-18T15:58:32.636Z",
+      "kind": "tool_call",
+      "summary": "get_rating(S-0015)",
+      "tool": "get_rating",
+      "input": {
+        "supplierId": "S-0015"
+      }
+    },
+    {
+      "index": 15,
+      "at": "2026-11-18T15:58:32.636Z",
+      "kind": "tool_result",
+      "summary": "get_rating: received",
+      "tool": "get_rating"
+    },
+    {
+      "index": 16,
+      "at": "2026-11-18T15:58:32.636Z",
+      "kind": "tool_call",
+      "summary": "list_documents(S-0015)",
+      "tool": "list_documents",
+      "input": {
+        "supplierId": "S-0015"
+      }
+    },
+    {
+      "index": 17,
+      "at": "2026-11-18T15:58:32.636Z",
+      "kind": "tool_result",
+      "summary": "list_documents: received",
+      "tool": "list_documents"
+    },
+    {
+      "index": 18,
+      "at": "2026-11-18T15:58:32.636Z",
+      "kind": "tool_call",
+      "summary": "get_erp_record(S-0018)",
+      "tool": "get_erp_record",
+      "input": {
+        "supplierId": "S-0018"
+      }
+    },
+    {
+      "index": 19,
+      "at": "2026-11-18T15:58:32.636Z",
+      "kind": "tool_result",
+      "summary": "get_erp_record: received",
+      "tool": "get_erp_record"
+    },
+    {
+      "index": 20,
+      "at": "2026-11-18T15:58:32.636Z",
+      "kind": "tool_call",
+      "summary": "get_pcf(P-ALU-HSG-01, S-0018)",
+      "tool": "get_pcf",
+      "input": {
+        "partId": "P-ALU-HSG-01",
+        "supplierId": "S-0018"
+      }
+    },
+    {
+      "index": 21,
+      "at": "2026-11-18T15:58:32.637Z",
+      "kind": "tool_result",
+      "summary": "get_pcf: received",
+      "tool": "get_pcf"
+    },
+    {
+      "index": 22,
+      "at": "2026-11-18T15:58:32.637Z",
+      "kind": "tool_call",
+      "summary": "get_rating(S-0018)",
+      "tool": "get_rating",
+      "input": {
+        "supplierId": "S-0018"
+      }
+    },
+    {
+      "index": 23,
+      "at": "2026-11-18T15:58:32.637Z",
+      "kind": "tool_result",
+      "summary": "get_rating: received",
+      "tool": "get_rating"
+    },
+    {
+      "index": 24,
+      "at": "2026-11-18T15:58:32.637Z",
+      "kind": "tool_call",
+      "summary": "list_documents(S-0018)",
+      "tool": "list_documents",
+      "input": {
+        "supplierId": "S-0018"
+      }
+    },
+    {
+      "index": 25,
+      "at": "2026-11-18T15:58:32.637Z",
+      "kind": "tool_result",
+      "summary": "list_documents: received",
+      "tool": "list_documents"
+    },
+    {
+      "index": 26,
+      "at": "2026-11-18T15:58:32.637Z",
+      "kind": "tool_call",
+      "summary": "get_erp_record(S-0014)",
+      "tool": "get_erp_record",
+      "input": {
+        "supplierId": "S-0014"
+      }
+    },
+    {
+      "index": 27,
+      "at": "2026-11-18T15:58:32.637Z",
+      "kind": "tool_result",
+      "summary": "get_erp_record: received",
+      "tool": "get_erp_record"
+    },
+    {
+      "index": 28,
+      "at": "2026-11-18T15:58:32.637Z",
+      "kind": "tool_call",
+      "summary": "get_pcf(S-0014, P-ALU-HSG-01)",
+      "tool": "get_pcf",
+      "input": {
+        "supplierId": "S-0014",
+        "partId": "P-ALU-HSG-01"
+      }
+    },
+    {
+      "index": 29,
+      "at": "2026-11-18T15:58:32.637Z",
+      "kind": "tool_result",
+      "summary": "get_pcf: received",
+      "tool": "get_pcf"
+    },
+    {
+      "index": 30,
+      "at": "2026-11-18T15:58:32.637Z",
+      "kind": "tool_call",
+      "summary": "get_rating(S-0014)",
+      "tool": "get_rating",
+      "input": {
+        "supplierId": "S-0014"
+      }
+    },
+    {
+      "index": 31,
+      "at": "2026-11-18T15:58:32.637Z",
+      "kind": "tool_result",
+      "summary": "get_rating: received",
+      "tool": "get_rating"
+    },
+    {
+      "index": 32,
+      "at": "2026-11-18T15:58:32.637Z",
+      "kind": "tool_call",
+      "summary": "list_documents(S-0014)",
+      "tool": "list_documents",
+      "input": {
+        "supplierId": "S-0014"
+      }
+    },
+    {
+      "index": 33,
+      "at": "2026-11-18T15:58:32.637Z",
+      "kind": "tool_result",
+      "summary": "list_documents: received",
+      "tool": "list_documents"
+    },
+    {
+      "index": 34,
+      "at": "2026-11-18T15:58:32.637Z",
+      "kind": "tool_call",
+      "summary": "get_erp_record(S-0020)",
+      "tool": "get_erp_record",
+      "input": {
+        "supplierId": "S-0020"
+      }
+    },
+    {
+      "index": 35,
+      "at": "2026-11-18T15:58:32.637Z",
+      "kind": "tool_result",
+      "summary": "get_erp_record: received",
+      "tool": "get_erp_record"
+    },
+    {
+      "index": 36,
+      "at": "2026-11-18T15:58:32.637Z",
+      "kind": "tool_call",
+      "summary": "get_pcf(P-ALU-HSG-01, S-0020)",
+      "tool": "get_pcf",
+      "input": {
+        "partId": "P-ALU-HSG-01",
+        "supplierId": "S-0020"
+      }
+    },
+    {
+      "index": 37,
+      "at": "2026-11-18T15:58:32.637Z",
+      "kind": "tool_result",
+      "summary": "get_pcf: received",
+      "tool": "get_pcf"
+    },
+    {
+      "index": 38,
+      "at": "2026-11-18T15:58:32.637Z",
+      "kind": "tool_call",
+      "summary": "get_rating(S-0020)",
+      "tool": "get_rating",
+      "input": {
+        "supplierId": "S-0020"
+      }
+    },
+    {
+      "index": 39,
+      "at": "2026-11-18T15:58:32.637Z",
+      "kind": "tool_result",
+      "summary": "get_rating: received",
+      "tool": "get_rating"
+    },
+    {
+      "index": 40,
+      "at": "2026-11-18T15:58:32.637Z",
+      "kind": "tool_call",
+      "summary": "list_documents(S-0020)",
+      "tool": "list_documents",
+      "input": {
+        "supplierId": "S-0020"
+      }
+    },
+    {
+      "index": 41,
+      "at": "2026-11-18T15:58:32.637Z",
+      "kind": "tool_result",
+      "summary": "list_documents: received",
+      "tool": "list_documents"
+    },
+    {
+      "index": 42,
+      "at": "2026-11-18T15:58:37.737Z",
+      "kind": "model",
+      "summary": "Model asks for read_document, read_document, read_document, read_document, read_document"
+    },
+    {
+      "index": 43,
+      "at": "2026-11-18T15:58:37.737Z",
+      "kind": "tool_call",
+      "summary": "read_document(DOC-OFFER-S-0013-P-ALU-HSG-01)",
+      "tool": "read_document",
+      "input": {
+        "documentId": "DOC-OFFER-S-0013-P-ALU-HSG-01"
+      }
+    },
+    {
+      "index": 44,
+      "at": "2026-11-18T15:58:37.738Z",
+      "kind": "tool_result",
+      "summary": "read_document: received",
+      "tool": "read_document"
+    },
+    {
+      "index": 45,
+      "at": "2026-11-18T15:58:37.738Z",
+      "kind": "tool_call",
+      "summary": "read_document(DOC-OFFER-S-0015-P-ALU-HSG-01)",
+      "tool": "read_document",
+      "input": {
+        "documentId": "DOC-OFFER-S-0015-P-ALU-HSG-01"
+      }
+    },
+    {
+      "index": 46,
+      "at": "2026-11-18T15:58:37.738Z",
+      "kind": "tool_result",
+      "summary": "read_document: received",
+      "tool": "read_document"
+    },
+    {
+      "index": 47,
+      "at": "2026-11-18T15:58:37.738Z",
+      "kind": "tool_call",
+      "summary": "read_document(DOC-OFFER-S-0018-P-ALU-HSG-01)",
+      "tool": "read_document",
+      "input": {
+        "documentId": "DOC-OFFER-S-0018-P-ALU-HSG-01"
+      }
+    },
+    {
+      "index": 48,
+      "at": "2026-11-18T15:58:37.738Z",
+      "kind": "tool_result",
+      "summary": "read_document: received",
+      "tool": "read_document"
+    },
+    {
+      "index": 49,
+      "at": "2026-11-18T15:58:37.738Z",
+      "kind": "tool_call",
+      "summary": "read_document(DOC-OFFER-S-0014-P-ALU-HSG-01)",
+      "tool": "read_document",
+      "input": {
+        "documentId": "DOC-OFFER-S-0014-P-ALU-HSG-01"
+      }
+    },
+    {
+      "index": 50,
+      "at": "2026-11-18T15:58:37.738Z",
+      "kind": "tool_result",
+      "summary": "read_document: received",
+      "tool": "read_document"
+    },
+    {
+      "index": 51,
+      "at": "2026-11-18T15:58:37.738Z",
+      "kind": "tool_call",
+      "summary": "read_document(DOC-OFFER-S-0020-P-ALU-HSG-01)",
+      "tool": "read_document",
+      "input": {
+        "documentId": "DOC-OFFER-S-0020-P-ALU-HSG-01"
+      }
+    },
+    {
+      "index": 52,
+      "at": "2026-11-18T15:58:37.738Z",
+      "kind": "tool_result",
+      "summary": "read_document: received",
+      "tool": "read_document"
+    },
+    {
+      "index": 53,
+      "at": "2026-11-18T15:59:07.647Z",
+      "kind": "model",
+      "summary": "Model asks for submit_evidence"
+    },
+    {
+      "index": 54,
+      "at": "2026-11-18T15:59:07.647Z",
+      "kind": "tool_call",
+      "summary": "Agent submits its evidence",
+      "tool": "submit_evidence"
+    },
+    {
+      "index": 55,
+      "at": "2026-11-18T15:59:07.651Z",
+      "kind": "tool_result",
+      "summary": "24 pieces of evidence, 6 gaps",
+      "tool": "submit_evidence"
+    },
+    {
+      "index": 56,
+      "at": "2026-11-18T15:59:07.659Z",
+      "kind": "check",
+      "summary": "Evidence check: 24 verified, 0 not verified"
+    }
+  ],
+  "evidence": [
+    {
+      "evidenceId": "40dab381-9c43-491e-b72d-8627d29ff05b",
+      "supplierId": "S-0013",
+      "topic": "quality",
+      "value": 0.8,
+      "unit": "%",
+      "sentence": "The complaint rate for Alucast Schwaben GmbH is 0.8%.",
+      "system": "erp",
+      "recordId": "ERP-S-0013",
+      "location": {
+        "kind": "field",
+        "field": "complaintRatePercent"
+      },
+      "retrievedAt": "2026-11-18T15:58:32.635Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": null,
+      "sourceDate": "2026-02-04",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "c9763c58-8bae-470c-a98d-92381d338311",
+      "supplierId": "S-0013",
+      "topic": "delivery",
+      "value": 95,
+      "unit": "%",
+      "sentence": "The on-time delivery rate for Alucast Schwaben GmbH is 95%.",
+      "system": "erp",
+      "recordId": "ERP-S-0013",
+      "location": {
+        "kind": "field",
+        "field": "onTimeDeliveryPercent"
+      },
+      "retrievedAt": "2026-11-18T15:58:32.635Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": null,
+      "sourceDate": "2026-02-04",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "6f4c9fda-8064-498e-a85c-6e532e0d9f58",
+      "supplierId": "S-0013",
+      "topic": "co2",
+      "value": 38,
+      "unit": "kg CO2e/piece",
+      "sentence": "The product carbon footprint for Alucast Schwaben GmbH is 38 kg CO2e per piece.",
+      "system": "pcf",
+      "recordId": "PCF-S-0013-P-ALU-HSG-01",
+      "location": {
+        "kind": "field",
+        "field": "pcfKgPerPiece"
+      },
+      "retrievedAt": "2026-11-18T15:58:32.636Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": null,
+      "sourceDate": "2025-12-31",
+      "sourceBadge": "Supplier-specific",
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "e5eadeca-1f80-48b4-94a4-624d33b778ad",
+      "supplierId": "S-0013",
+      "topic": "price",
+      "value": 84.5,
+      "unit": "EUR/piece",
+      "sentence": "The unit price from Alucast Schwaben GmbH is 84.50 EUR per piece.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0013-P-ALU-HSG-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Unit price: EUR 84.50 per piece"
+      },
+      "retrievedAt": "2026-11-18T15:58:37.738Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-11-03",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "faec6689-1617-4aa7-8cee-64e5586c1143",
+      "supplierId": "S-0013",
+      "topic": "leadTime",
+      "value": 24,
+      "unit": "days",
+      "sentence": "The lead time for Alucast Schwaben GmbH is 24 days.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0013-P-ALU-HSG-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Lead time: 24 days"
+      },
+      "retrievedAt": "2026-11-18T15:58:37.738Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-11-03",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "4d764820-c81a-428a-9ec0-f19b2b3b0375",
+      "supplierId": "S-0013",
+      "topic": "compliance",
+      "value": "Low",
+      "unit": "",
+      "sentence": "Alucast Schwaben GmbH has a Low LkSG country risk and no known controversies.",
+      "system": "ratings",
+      "recordId": "RAT-S-0013",
+      "location": {
+        "kind": "field",
+        "field": "lksgCountryRisk"
+      },
+      "retrievedAt": "2026-11-18T15:58:32.636Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": null,
+      "sourceDate": "2026-02-04",
+      "sourceBadge": null,
+      "socialAudit": false
+    },
+    {
+      "evidenceId": "7e4dde1b-3452-41d7-8c34-74e9a508f23d",
+      "supplierId": "S-0015",
+      "topic": "quality",
+      "value": 1,
+      "unit": "%",
+      "sentence": "The complaint rate for Alu-Druckguss Erzgebirge GmbH is 1%.",
+      "system": "erp",
+      "recordId": "ERP-S-0015",
+      "location": {
+        "kind": "field",
+        "field": "complaintRatePercent"
+      },
+      "retrievedAt": "2026-11-18T15:58:32.636Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": null,
+      "sourceDate": "2025-09-08",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "f153449a-85c0-4e50-b51d-d17627fa3a29",
+      "supplierId": "S-0015",
+      "topic": "delivery",
+      "value": 97,
+      "unit": "%",
+      "sentence": "The on-time delivery rate for Alu-Druckguss Erzgebirge GmbH is 97%.",
+      "system": "erp",
+      "recordId": "ERP-S-0015",
+      "location": {
+        "kind": "field",
+        "field": "onTimeDeliveryPercent"
+      },
+      "retrievedAt": "2026-11-18T15:58:32.636Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": null,
+      "sourceDate": "2025-09-08",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "977c7443-2712-4c7f-a159-5d573ae9a56e",
+      "supplierId": "S-0015",
+      "topic": "co2",
+      "value": 22.6,
+      "unit": "kg CO2e/piece",
+      "sentence": "The product carbon footprint for Alu-Druckguss Erzgebirge GmbH is 22.6 kg CO2e per piece.",
+      "system": "pcf",
+      "recordId": "PCF-S-0015-P-ALU-HSG-01",
+      "location": {
+        "kind": "field",
+        "field": "pcfKgPerPiece"
+      },
+      "retrievedAt": "2026-11-18T15:58:32.636Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": null,
+      "sourceDate": "2025-12-31",
+      "sourceBadge": "Verified",
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "aa9388fa-013f-4280-808e-edd88c9dbeac",
+      "supplierId": "S-0015",
+      "topic": "price",
+      "value": 85.35,
+      "unit": "EUR/piece",
+      "sentence": "The unit price from Alu-Druckguss Erzgebirge GmbH is 85.35 EUR per piece.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0015-P-ALU-HSG-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Unit price: EUR 85.35 per piece"
+      },
+      "retrievedAt": "2026-11-18T15:58:37.738Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-11-04",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "57f403ff-5cea-498e-93fd-b18b0822c1c4",
+      "supplierId": "S-0015",
+      "topic": "leadTime",
+      "value": 27,
+      "unit": "days",
+      "sentence": "The lead time for Alu-Druckguss Erzgebirge GmbH is 27 days.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0015-P-ALU-HSG-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Lead time: 27 days"
+      },
+      "retrievedAt": "2026-11-18T15:58:37.738Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-11-04",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "13f25933-9183-43f9-a240-f834fe7ed5ad",
+      "supplierId": "S-0015",
+      "topic": "compliance",
+      "value": "Low",
+      "unit": "",
+      "sentence": "Alu-Druckguss Erzgebirge GmbH has a Low LkSG country risk and no known controversies.",
+      "system": "ratings",
+      "recordId": "RAT-S-0015",
+      "location": {
+        "kind": "field",
+        "field": "lksgCountryRisk"
+      },
+      "retrievedAt": "2026-11-18T15:58:32.636Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": null,
+      "sourceDate": "2025-09-08",
+      "sourceBadge": null,
+      "socialAudit": false
+    },
+    {
+      "evidenceId": "00bb028f-29d4-419f-9b0b-1db8029b3a7a",
+      "supplierId": "S-0018",
+      "topic": "co2",
+      "value": 41.5,
+      "unit": "kg CO2e/piece",
+      "sentence": "The product carbon footprint for Alu Balkan d.o.o. is 41.5 kg CO2e per piece.",
+      "system": "pcf",
+      "recordId": "PCF-S-0018-P-ALU-HSG-01",
+      "location": {
+        "kind": "field",
+        "field": "pcfKgPerPiece"
+      },
+      "retrievedAt": "2026-11-18T15:58:32.637Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": null,
+      "sourceDate": "2024-12-31",
+      "sourceBadge": "Company estimate",
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "f3b29549-f3d6-48e9-9754-ce3efb40523a",
+      "supplierId": "S-0018",
+      "topic": "price",
+      "value": 72.8,
+      "unit": "EUR/piece",
+      "sentence": "The unit price from Alu Balkan d.o.o. is 72.80 EUR per piece.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0018-P-ALU-HSG-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Unit price: EUR 72.80 per piece"
+      },
+      "retrievedAt": "2026-11-18T15:58:37.738Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-11-02",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "3d6e3e80-8f2a-4e46-97f3-2496a82f8140",
+      "supplierId": "S-0018",
+      "topic": "leadTime",
+      "value": 32,
+      "unit": "days",
+      "sentence": "The lead time for Alu Balkan d.o.o. is 32 days.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0018-P-ALU-HSG-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Lead time: 32 days"
+      },
+      "retrievedAt": "2026-11-18T15:58:37.738Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-11-02",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "1fb6675f-fe9e-42ad-87da-0d7e92ef4035",
+      "supplierId": "S-0018",
+      "topic": "compliance",
+      "value": "Medium",
+      "unit": "",
+      "sentence": "Alu Balkan d.o.o. has a Medium LkSG country risk and no known controversies.",
+      "system": "ratings",
+      "recordId": "RAT-S-0018",
+      "location": {
+        "kind": "field",
+        "field": "lksgCountryRisk"
+      },
+      "retrievedAt": "2026-11-18T15:58:32.637Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": null,
+      "sourceDate": "2026-06-25",
+      "sourceBadge": null,
+      "socialAudit": false
+    },
+    {
+      "evidenceId": "97fa5714-3a5c-4862-bae4-1c683cd01a2d",
+      "supplierId": "S-0014",
+      "topic": "co2",
+      "value": 52.6,
+      "unit": "kg CO2e/piece",
+      "sentence": "The product carbon footprint for Ningbo Silverline Die Casting Co., Ltd. is 52.6 kg CO2e per piece.",
+      "system": "pcf",
+      "recordId": "PCF-S-0014-P-ALU-HSG-01",
+      "location": {
+        "kind": "field",
+        "field": "pcfKgPerPiece"
+      },
+      "retrievedAt": "2026-11-18T15:58:32.637Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": null,
+      "sourceDate": "2026-10-30",
+      "sourceBadge": "Industry average",
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "e08bd4ba-4011-4090-88fc-642bfa4f19da",
+      "supplierId": "S-0014",
+      "topic": "price",
+      "value": 61.9,
+      "unit": "EUR/piece",
+      "sentence": "The unit price from Ningbo Silverline Die Casting Co., Ltd. is 61.90 EUR per piece.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0014-P-ALU-HSG-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Unit price: EUR 61.90 per piece"
+      },
+      "retrievedAt": "2026-11-18T15:58:37.738Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-10-30",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "c4fd8949-c8de-4a25-a30f-cc4dcc26caa5",
+      "supplierId": "S-0014",
+      "topic": "leadTime",
+      "value": 55,
+      "unit": "days",
+      "sentence": "The lead time for Ningbo Silverline Die Casting Co., Ltd. is 55 days.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0014-P-ALU-HSG-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Lead time: 55 days"
+      },
+      "retrievedAt": "2026-11-18T15:58:37.738Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-10-30",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "cfa1f41b-ea1c-4c62-80d6-f16c75946686",
+      "supplierId": "S-0014",
+      "topic": "compliance",
+      "value": "High",
+      "unit": "",
+      "sentence": "Ningbo Silverline Die Casting Co., Ltd. has a High LkSG country risk and no known controversies.",
+      "system": "ratings",
+      "recordId": "RAT-S-0014",
+      "location": {
+        "kind": "field",
+        "field": "lksgCountryRisk"
+      },
+      "retrievedAt": "2026-11-18T15:58:32.637Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": null,
+      "sourceDate": "2024-05-04",
+      "sourceBadge": null,
+      "socialAudit": false
+    },
+    {
+      "evidenceId": "350bf8cc-627e-4ba1-9a19-4af9fb51c156",
+      "supplierId": "S-0020",
+      "topic": "co2",
+      "value": 50.5,
+      "unit": "kg CO2e/piece",
+      "sentence": "The product carbon footprint for Saigon Lightmetal JSC is 50.5 kg CO2e per piece.",
+      "system": "pcf",
+      "recordId": "PCF-S-0020-P-ALU-HSG-01",
+      "location": {
+        "kind": "field",
+        "field": "pcfKgPerPiece"
+      },
+      "retrievedAt": "2026-11-18T15:58:32.637Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": null,
+      "sourceDate": "2026-10-31",
+      "sourceBadge": "Industry average",
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "0c8e6ff2-172b-4629-acd9-fd4ce77adbdb",
+      "supplierId": "S-0020",
+      "topic": "price",
+      "value": 59.4,
+      "unit": "EUR/piece",
+      "sentence": "The unit price from Saigon Lightmetal JSC is 59.40 EUR per piece.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0020-P-ALU-HSG-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Unit price: EUR 59.40 per piece"
+      },
+      "retrievedAt": "2026-11-18T15:58:37.738Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-10-31",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "59bc0733-9507-43d1-ab68-0c23532521ff",
+      "supplierId": "S-0020",
+      "topic": "leadTime",
+      "value": 58,
+      "unit": "days",
+      "sentence": "The lead time for Saigon Lightmetal JSC is 58 days.",
+      "system": "documents",
+      "recordId": "DOC-OFFER-S-0020-P-ALU-HSG-01",
+      "location": {
+        "kind": "document",
+        "page": 1,
+        "quote": "Lead time: 58 days"
+      },
+      "retrievedAt": "2026-11-18T15:58:37.738Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": "offer",
+      "sourceDate": "2026-10-31",
+      "sourceBadge": null,
+      "socialAudit": null
+    },
+    {
+      "evidenceId": "d4708637-e0ad-430c-83ea-f1e0badc9bfd",
+      "supplierId": "S-0020",
+      "topic": "compliance",
+      "value": "High",
+      "unit": "",
+      "sentence": "Saigon Lightmetal JSC has a High LkSG country risk and no known controversies.",
+      "system": "ratings",
+      "recordId": "RAT-S-0020",
+      "location": {
+        "kind": "field",
+        "field": "lksgCountryRisk"
+      },
+      "retrievedAt": "2026-11-18T15:58:32.637Z",
+      "status": "verified",
+      "checkFailures": [],
+      "sourceDocumentType": null,
+      "sourceDate": "2026-10-14",
+      "sourceBadge": null,
+      "socialAudit": false
+    }
+  ],
+  "gaps": [
+    {
+      "supplierId": "S-0018",
+      "topic": "quality",
+      "reason": "Complaint rate is missing in the ERP record."
+    },
+    {
+      "supplierId": "S-0018",
+      "topic": "delivery",
+      "reason": "On-time delivery rate is missing in the ERP record."
+    },
+    {
+      "supplierId": "S-0014",
+      "topic": "quality",
+      "reason": "Complaint rate is missing in the ERP record."
+    },
+    {
+      "supplierId": "S-0014",
+      "topic": "delivery",
+      "reason": "On-time delivery rate is missing in the ERP record."
+    },
+    {
+      "supplierId": "S-0020",
+      "topic": "quality",
+      "reason": "Complaint rate is missing in the ERP record."
+    },
+    {
+      "supplierId": "S-0020",
+      "topic": "delivery",
+      "reason": "On-time delivery rate is missing in the ERP record."
+    }
+  ],
+  "error": null
+}
