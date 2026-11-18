@@ -167,17 +167,22 @@ export function RecommendationBlock(props: BlockProps) {
           <>
             {/* Name and result on one line (feedback 18 Nov 2026): the result is the same soft pill as in the
                 offer table, in words ("9 % better than today"), coloured by band; never colour alone. */}
-            <Flex gap={8} align="center" wrap>
-              <Typography.Title level={4} style={{ margin: 0, lineHeight: 1.25 }}>
-                {name(rec.supplierId)}
-              </Typography.Title>
-              <Tooltip title={`Weighted average of how many % better or worse the offer is than today on each criterion (up to 50 % either way). ${SCORE_BAND_LABEL[scoreBand(rec.score)]}.`}>
-                <span tabIndex={0} className={`score-pill score-pill-lg score-${scoreBand(rec.score)}`}>
-                  {formatVsToday(rec.score)}
+            {/* Same three rows as the figure tiles (18 Nov 2026): label, value line, small line. The value line
+                holds the name and the same pill as the offer table ("9 % better"); a long name is cut with "…"
+                and shown in full in its tooltip, so the box never grows a row. */}
+            <div className="rec-name-line">
+              <Tooltip title={name(rec.supplierId)}>
+                <Typography.Title level={4} className="rec-name" tabIndex={0}>
+                  {name(rec.supplierId)}
+                </Typography.Title>
+              </Tooltip>
+              <Tooltip title={`${formatVsToday(rec.score)}: weighted average of how many % better or worse the offer is than today on each criterion (up to 50 % either way). ${SCORE_BAND_LABEL[scoreBand(rec.score)]}.`}>
+                <span tabIndex={0} className={`score-pill score-${scoreBand(rec.score)}`} aria-label={formatVsToday(rec.score)}>
+                  {formatVsTodayShort(rec.score) === "same" ? "Same as today" : formatVsTodayShort(rec.score)}
                 </span>
               </Tooltip>
-            </Flex>
-            <Flex gap={8} align="center" wrap style={{ marginTop: 6 }}>
+            </div>
+            <Flex gap={8} align="center" wrap className="rec-actions">
               <Button type="primary" size="small" icon={<FileSearchOutlined />} onClick={onWhy}>
                 View details
               </Button>
