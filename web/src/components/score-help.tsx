@@ -1,7 +1,7 @@
 "use client";
 
 import { Modal, Typography } from "antd";
-import { CRITERIA, WEIGHT_DEVIATION_LIMIT, type BuyerRules, type Weights } from "@scc/shared";
+import { CRITERIA, WEIGHT_MAX, WEIGHT_MIN, type BuyerRules, type Weights } from "@scc/shared";
 import { HowItWorks } from "./how-it-works";
 import { SCORE_BAND_LABEL, TOPIC_LABEL, formatDateTime } from "@/lib/labels";
 
@@ -58,8 +58,8 @@ export function ScoreHelp({ open, title, onClose, rules, weights, defaults }: Pr
         </li>
         <li>
           <strong>Weighting.</strong> The weights (together 100 %) weight the four criteria: product quality, price, CO₂ and delivery
-          reliability. The company sets a default per commodity group; the buyer may move each weight by at most {WEIGHT_DEVIATION_LIMIT}{" "}
-          percentage points and must justify a change.
+          reliability. The company sets a default per commodity group; the buyer may set each weight between {WEIGHT_MIN} % and{" "}
+          {WEIGHT_MAX} % and must justify a change.
         </li>
         <li>
           <strong>Result.</strong> The weighted average, e.g. “Ø 9 % better than today” (range −50 % to +50 %). Colours:{" "}

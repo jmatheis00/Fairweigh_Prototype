@@ -61,7 +61,7 @@ export interface DecisionInput {
   recordId: string;
   recordedAt: string;
   decidedBy: DecidedBy | null;
-  /** Company default weights; when given, the weights may differ by at most WEIGHT_DEVIATION_LIMIT points each. */
+  /** Company default weights; when given, each weight must stay between WEIGHT_MIN and WEIGHT_MAX. */
   defaultWeights?: Weights;
   /** Required (10+ characters) when the weights differ from the defaults. */
   weightsReason?: string;

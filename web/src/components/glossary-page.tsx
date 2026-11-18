@@ -3,7 +3,7 @@
 import { SearchOutlined } from "@ant-design/icons";
 import { Card, Flex, Input, Table, Typography } from "antd";
 import { useState } from "react";
-import { WEIGHT_DEVIATION_LIMIT, type BuyerRules } from "@scc/shared";
+import { WEIGHT_MAX, WEIGHT_MIN, type BuyerRules } from "@scc/shared";
 import { COMPLAINT_THRESHOLDS, RATING_THRESHOLDS } from "@/lib/risk-levels";
 import { useIsPhone } from "@/lib/use-phone";
 import { PageHeader } from "./page-header";
@@ -39,7 +39,7 @@ function terms(rules: BuyerRules | null): Term[] {
     },
     {
       term: "Weights",
-      means: `How much each criterion counts, together 100 %. The company sets a default per commodity group; the buyer may move each weight by at most ${WEIGHT_DEVIATION_LIMIT} percentage points.`,
+      means: `How much each criterion counts, together 100 %. The company sets a default per commodity group; the buyer may set each weight between ${WEIGHT_MIN} % and ${WEIGHT_MAX} %, so no criterion can be switched off or take over.`,
       helps: "Fits the ranking to the purchase without letting one person tune it until a favourite wins.",
       where: "Compare step: Weights. Changes are saved in the Decision Log",
     },

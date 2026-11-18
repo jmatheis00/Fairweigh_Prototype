@@ -2,7 +2,7 @@
 
 import { CheckCircleOutlined, WarningOutlined } from "@ant-design/icons";
 import { Button, Flex, InputNumber, Slider, Typography } from "antd";
-import { CRITERIA, DEFAULT_WEIGHTS, WEIGHT_DEVIATION_LIMIT, weightBounds, type Criterion, type WeightSensitivity, type Weights } from "@scc/shared";
+import { CRITERIA, DEFAULT_WEIGHTS, WEIGHT_MAX, WEIGHT_MIN, weightBounds, type Criterion, type WeightSensitivity, type Weights } from "@scc/shared";
 import { TOPIC_LABEL } from "@/lib/labels";
 
 interface Props {
@@ -36,10 +36,10 @@ export function WeightsPanel({ weights, defaults = DEFAULT_WEIGHTS, onChange, se
   const isDefault = CRITERIA.every((c) => weights[c] === defaults[c]);
   const equal = CRITERIA.every((c) => defaults[c] === 25);
   const sum = weightSum(weights);
-  // Company default ±10 points per criterion (expert interviews, 10 Nov 2026).
+  // 10–50 % per criterion (Sprint 3 expert interview, 18 Nov 2026).
   const bounds = weightBounds(defaults);
   // One scale for all four sliders (18 Nov 2026), so 22 % sits visibly left of 34 %.
-  // At least 0–60 %; the allowed band (default ±10) is shaded and the handle stops at its ends.
+  // At least 0–60 %; the allowed band is shaded and the handle stops at its ends.
   const scaleMax = Math.max(60, Math.ceil(Math.max(...CRITERIA.map((c) => bounds[c].max)) / 10) * 10);
   const pos = (v: number) => `${(100 * v) / scaleMax}%`;
   const set = (c: Criterion, v: number | null) => {
@@ -55,22 +55,24 @@ export function WeightsPanel({ weights, defaults = DEFAULT_WEIGHTS, onChange, se
           title={(() => {
             const s = sensitivity.find((x) => x.criterion === c);
             return s?.flipsAt != null && s.newLeaderId
-              ? `${TOPIC_LABEL[c]} (${HINT[c]}): at ${s.direction === "up" ? "≥" : "≤"}${s.flipsAt} %, ${supplierLabel(s.newLeaderId)} takes the lead`
-              : `${TOPIC_LABEL[c]} (${HINT[c]}): the recommendation holds across the allowed range`;
+              ? `${TOPIC_LABEL[c]} (${HINT[c]}), allowed ${bounds[c].min}–${bounds[c].max} %: at ${s.direction === "up" ? "≥" : "≤"}${s.flipsAt} %, ${supplierLabel(s.newLeaderId)} takes the lead`
+              : `${TOPIC_LABEL[c]} (${HINT[c]}), allowed ${bounds[c].min}–${bounds[c].max} %: the recommendation holds across the allowed range`;
           })()}
         >
           <Flex justify="space-between" align="center" gap={8}>
             <label htmlFor={`weight-input-${c}`}>
-              <Typography.Text>{TOPIC_LABEL[c]}</Typography.Text>{" "}
-              <Typography.Text type="secondary" style={{ fontSize: 12 }}>
-                {(() => {
-                  const s = sensitivity.find((x) => x.criterion === c);
-                  const inRange = s?.flipsAt != null && s.flipsAt >= bounds[c].min && s.flipsAt <= bounds[c].max;
-                  return inRange && s?.newLeaderId
-                    ? `· leader changes at ${s.direction === "up" ? "≥" : "≤"}${s.flipsAt} %`
-                    : `${HINT[c]} · ${bounds[c].min}–${bounds[c].max} %`;
-                })()}
-              </Typography.Text>
+              <Typography.Text>{TOPIC_LABEL[c]}</Typography.Text>
+              {(() => {
+                // Only the note that helps the decision; hint and range are in the row tooltip.
+                const s = sensitivity.find((x) => x.criterion === c);
+                const inRange = s?.flipsAt != null && s.flipsAt >= bounds[c].min && s.flipsAt <= bounds[c].max;
+                return inRange && s?.newLeaderId ? (
+                  <Typography.Text type="secondary" style={{ fontSize: 12 }}>
+                    {" "}· leader changes at {s.direction === "up" ? "≥" : "≤"}
+                    {s.flipsAt} %
+                  </Typography.Text>
+                ) : null;
+              })()}
             </label>
             <InputNumber<number>
               id={`weight-input-${c}`}
@@ -127,4 +129,4 @@ export function WeightsPanel({ weights, defaults = DEFAULT_WEIGHTS, onChange, se
 }
 
 /** Tooltip text next to the weights panel title. */
-export const WEIGHTS_TIP = `Company default per commodity group; you may move each weight by up to ${WEIGHT_DEVIATION_LIMIT} points. Changes need a justification when you decide. All sliders share one scale from 0 to 60 %; the shaded band is the allowed range.`;
+export const WEIGHTS_TIP = `Company default per commodity group; you may set each weight between ${WEIGHT_MIN} % and ${WEIGHT_MAX} % (shaded band on the shared 0–60 % scale). Changes need a justification when you decide.`;

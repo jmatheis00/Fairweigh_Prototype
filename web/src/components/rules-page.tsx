@@ -3,7 +3,7 @@
 import { CheckCircleOutlined, LockOutlined } from "@ant-design/icons";
 import { Alert, Button, Card, Flex, Form, InputNumber, Switch, Typography } from "antd";
 import { useState } from "react";
-import { RULE_LIMITS, WEIGHT_DEVIATION_LIMIT, type BuyerRules } from "@scc/shared";
+import { RULE_LIMITS, WEIGHT_MAX, WEIGHT_MIN, type BuyerRules } from "@scc/shared";
 import { api } from "@/lib/api";
 import { formatDateTime } from "@/lib/labels";
 import type { DemoUser } from "@/lib/users";
@@ -161,7 +161,7 @@ export function RulesPage({ rules, user, onSaved }: Props) {
               "An offer is excluded for a proven legal violation (final fine notice), LkSG risk High without a social audit (SA8000), or a known child or forced labour controversy. Other allegations, medium risk and long lead times are warnings.",
               "A missing or unverified value gets 0 points and a visible note. Gaps never improve an offer.",
               "The ranking is fixed code, not AI: % better or worse than today per criterion, then the weights.",
-              `Weights start at the company default of the commodity group. A buyer may move each weight by at most ${WEIGHT_DEVIATION_LIMIT} percentage points and must justify the change in the Decision Log.`,
+              `Weights start at the company default of the commodity group. A buyer may set each weight between ${WEIGHT_MIN} % and ${WEIGHT_MAX} % and must justify the change in the Decision Log.`,
               "Every value needs a verified source the buyer can open.",
               "CO₂ in euros is shown for information and does not count towards the score.",
             ].map((text) => (
