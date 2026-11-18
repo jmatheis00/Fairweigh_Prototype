@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowDownOutlined, ArrowUpOutlined, MailOutlined, MinusOutlined, SafetyCertificateOutlined, WarningOutlined } from "@ant-design/icons";
+import { ArrowDownOutlined, ArrowUpOutlined, FileSearchOutlined, MailOutlined, MinusOutlined, SafetyCertificateOutlined, WarningOutlined } from "@ant-design/icons";
 import { Button, Flex, Tag, Tooltip, Typography } from "antd";
 import { CRITERIA, compareWithBaseline, formatDay, totalCo2Tonnes, totalCostEur, verifiedEvidence, type AgentRun, type DecisionResult } from "@scc/shared";
 import { formatEur, formatNumber, knockOutLabel } from "@/lib/labels";
@@ -155,13 +155,9 @@ export function RecommendationBlock(props: BlockProps) {
 
   return (
     <div className="decision-summary rec-block" role="note">
-      {/* The whole recommendation tile opens "Why?" (feedback 17 Nov 2026), so it is clear there is more behind it.
-          "Why? →" stays the keyboard entry; "Request current price" keeps its own action. */}
-      <div
-        className={rec ? "rec-main rec-main-clickable" : "rec-main"}
-        onClick={rec ? onWhy : undefined}
-        title={rec ? "Open why this offer is recommended" : undefined}
-      >
+      {/* One clear target (feedback 18 Nov 2026): only the "View details" button opens the "Why this recommendation?"
+          panel; the tile background is no longer clickable. */}
+      <div className="rec-main">
         <div className="rec-label">Recommended</div>
         {rec ? (
           <>
@@ -172,16 +168,8 @@ export function RecommendationBlock(props: BlockProps) {
               <Tag bordered style={{ marginInlineEnd: 0, color: BRAND.text, background: BRAND.white, borderColor: BRAND.textTertiary }}>
                 {formatNumber(rec.score, 0)} / 100
               </Tag>
-              <Button
-                type="link"
-                size="small"
-                className="inline-link"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onWhy();
-                }}
-              >
-                Why? →
+              <Button type="primary" size="small" icon={<FileSearchOutlined />} onClick={onWhy}>
+                View details
               </Button>
               {/* A current price matters before deciding (feedback 17 Nov 2026): the e-mail draft is on the first screen. */}
               <Tooltip
@@ -193,7 +181,6 @@ export function RecommendationBlock(props: BlockProps) {
                   size="small"
                   icon={<MailOutlined />}
                   href={priceRequestMailto(run, rec.supplierId, supplierNames[rec.supplierId] ?? rec.supplierId, partName)}
-                  onClick={(e) => e.stopPropagation()}
                   aria-label={`Request a current price from ${supplierNames[rec.supplierId] ?? rec.supplierId}`}
                 >
                   Request current price
