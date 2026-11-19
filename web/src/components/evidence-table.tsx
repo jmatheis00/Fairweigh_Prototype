@@ -1,7 +1,9 @@
 "use client";
 
-import { Button, Table, Typography } from "antd";
-import type { AgentRun, Evidence, EvidenceTopic } from "@scc/shared";
+import { MailOutlined, StopOutlined } from "@ant-design/icons";
+import { Button, Flex, Table, Typography } from "antd";
+import { CRITERIA, type AgentRun, type DecisionResult, type Evidence, type EvidenceTopic } from "@scc/shared";
+import { dataRequestText, offerDataRequest, requestItems, requestMailto } from "@/lib/data-request";
 import { SYSTEM_LABEL, TOPIC_LABEL, TOPIC_ORDER, formatNumber, displayUnit } from "@/lib/labels";
 import { StatusTag } from "./status-tag";
 
@@ -49,40 +51,81 @@ interface Props {
   supplierNames: Record<string, string>;
   selectedId: string | null;
   onOpen: (evidence: Evidence) => void;
+  /** With the result and part name, each supplier with gaps gets a "Request missing data" e-mail draft. */
+  result?: DecisionResult | null;
+  partName?: string;
 }
 
-export function EvidenceTable({ run, supplierNames, selectedId, onOpen }: Props) {
+/**
+ * One table per supplier (19 Nov 2026), so the offers are clearly apart; the header of each says how many of
+ * the four criteria are verified and, when something is missing or only estimated, offers the same data request
+ * as "What's missing to decide" (an e-mail draft, nothing is sent). Excluded offers get no request.
+ */
+export function EvidenceTable({ run, supplierNames, selectedId, onOpen, result = null, partName }: Props) {
+  const rows = buildRows(run);
+  return (
+    <Flex vertical gap={24}>
+      {run.request.supplierIds.map((id) => {
+        const name = supplierNames[id] ?? id;
+        const own = rows.filter((r) => r.supplierId === id);
+        const ranked = result?.ranked.find((r) => r.supplierId === id) ?? null;
+        const excluded = result?.excluded.some((x) => x.supplierId === id) ?? false;
+        const request = result && partName && !excluded ? offerDataRequest(run, result, id, name, partName) : null;
+        const asks = request ? requestItems(request).length : 0;
+        return (
+          <section key={id} aria-label={`Evidence of ${name}`}>
+            <Flex justify="space-between" align="center" gap={12} wrap style={{ marginBottom: 8 }}>
+              <div>
+                <Typography.Text strong style={{ fontSize: 15 }}>
+                  {name}
+                </Typography.Text>{" "}
+                <Typography.Text type="secondary">{id}</Typography.Text>
+                {excluded ? (
+                  <Typography.Text style={{ fontSize: 12, color: "var(--bad)", marginInlineStart: 8 }}>
+                    <StopOutlined aria-hidden /> Excluded
+                  </Typography.Text>
+                ) : ranked ? (
+                  <Typography.Text type="secondary" style={{ fontSize: 12, marginInlineStart: 8 }}>
+                    {ranked.verifiedCount} of {CRITERIA.length} criteria verified
+                  </Typography.Text>
+                ) : null}
+              </div>
+              {request && asks > 0 && (
+                <Button size="small" icon={<MailOutlined />} href={requestMailto(dataRequestText(request))} aria-label={`Request missing data from ${name}`}>
+                  Request missing data
+                </Button>
+              )}
+            </Flex>
+            <SupplierTable rows={own} selectedId={selectedId} onOpen={onOpen} />
+          </section>
+        );
+      })}
+    </Flex>
+  );
+}
+
+function SupplierTable({ rows, selectedId, onOpen }: { rows: Row[]; selectedId: string | null; onOpen: (evidence: Evidence) => void }) {
   return (
     <Table<Row>
       size="small"
       pagination={false}
-      // Fixed column widths, so status tags never run into the next column; the table scrolls when narrow.
+      // Fixed column widths, so status tags never run into the next column and the tables line up; scrolls when narrow.
       tableLayout="fixed"
-      scroll={{ x: 900 }}
-      dataSource={buildRows(run)}
+      scroll={{ x: 760 }}
+      dataSource={rows}
       rowClassName={(row) => (row.evidence && row.evidence.evidenceId === selectedId ? "row-selected" : row.evidence ? "row-clickable" : "")}
       onRow={(row) => ({ onClick: () => row.evidence && onOpen(row.evidence) })}
       columns={[
-        {
-          title: "Supplier",
-          dataIndex: "supplierId",
-          width: 180,
-          render: (id: string) => (
-            <>
-              {supplierNames[id] ?? id} <Typography.Text type="secondary">{id}</Typography.Text>
-            </>
-          ),
-        },
-        { title: "Criterion", dataIndex: "topic", width: 120, render: (t: EvidenceTopic) => TOPIC_LABEL[t] },
+        { title: "Criterion", dataIndex: "topic", width: 140, render: (t: EvidenceTopic) => TOPIC_LABEL[t] },
         {
           title: "Value",
           align: "right",
-          width: 120,
+          width: 150,
           render: (_, row) => (row.evidence ? formatValue(row.evidence) : <Typography.Text type="secondary">—</Typography.Text>),
         },
         {
           title: "Status",
-          width: 190,
+          width: 170,
           render: (_, row) => <StatusTag status={row.evidence ? row.evidence.status : "missing"} />,
         },
         {

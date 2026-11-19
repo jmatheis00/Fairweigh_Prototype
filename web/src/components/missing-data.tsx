@@ -3,7 +3,7 @@
 import { MailOutlined } from "@ant-design/icons";
 import { Button, Flex, Typography } from "antd";
 import { CRITERIA, type AgentRun, type Criterion, type DecisionResult, type LeadRequirement } from "@scc/shared";
-import { dataRequestText, requestItems, requestMailto } from "@/lib/data-request";
+import { dataRequestText, offerDataRequest, requestItems, requestMailto } from "@/lib/data-request";
 import { TOPIC_LABEL, formatNumber, formatEur, formatVsToday } from "@/lib/labels";
 import { pcfBadgeTooltip } from "./pcf-badge-tag";
 
@@ -54,15 +54,7 @@ export function MissingData({ run, result, supplierNames, requirements, partName
       const missing = ranked?.missing ?? [];
       const stale = (ranked?.warnings ?? []).filter((w) => /outdated|Indicative|Lead time not verified/.test(w));
       const co2Badge = run.evidence.find((e) => e.supplierId === id && e.topic === "co2" && e.status === "verified")?.sourceBadge ?? null;
-      const request = {
-        supplierName: supplierNames[id] ?? id,
-        partName,
-        quantity: run.request.quantity,
-        neededBy: run.request.neededBy,
-        missing,
-        warnings: ranked?.warnings ?? [],
-        co2Badge,
-      };
+      const request = offerDataRequest(run, result, id, supplierNames[id] ?? id, partName);
       return { id, ranked, excluded, missing, stale, co2Badge, request, asks: requestItems(request) };
     })
     .filter((i) => !i.excluded && (i.missing.length > 0 || i.stale.length > 0 || i.asks.length > 0));

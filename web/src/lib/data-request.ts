@@ -1,4 +1,4 @@
-import { formatDay, isSupplierSpecific, type Criterion, type PcfBadge } from "@scc/shared";
+import { formatDay, isSupplierSpecific, type AgentRun, type Criterion, type DecisionResult, type PcfBadge } from "@scc/shared";
 
 /** What we ask a supplier for, per gap. Plain wording a supplier understands. */
 const ASK: Record<Criterion, string> = {
@@ -19,6 +19,20 @@ export interface DataRequestInput {
   warnings: string[];
   /** Data-quality level of a verified CO₂ value, or null. */
   co2Badge: PcfBadge | null;
+}
+
+/** The data request for one offer of a run: its gaps, warnings and CO₂ data quality. */
+export function offerDataRequest(run: AgentRun, result: DecisionResult, supplierId: string, supplierName: string, partName: string): DataRequestInput {
+  const ranked = result.ranked.find((r) => r.supplierId === supplierId);
+  return {
+    supplierName,
+    partName,
+    quantity: run.request.quantity,
+    neededBy: run.request.neededBy,
+    missing: ranked?.missing ?? [],
+    warnings: ranked?.warnings ?? [],
+    co2Badge: run.evidence.find((e) => e.supplierId === supplierId && e.topic === "co2" && e.status === "verified")?.sourceBadge ?? null,
+  };
 }
 
 /** The lines of the request, from the gaps only. Empty when nothing needs asking. */
