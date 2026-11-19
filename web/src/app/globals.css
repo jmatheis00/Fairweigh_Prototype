@@ -354,6 +354,12 @@ body {
 .row-excluded .matrix-note .anticon-stop {
   color: var(--bad);
 }
+.matrix-note.note-bad {
+  color: var(--bad);
+}
+.matrix-note.note-warn {
+  color: var(--warn);
+}
 
 /* Notes in the offer table wrap inside their column instead of running out of the card. */
 .matrix-table .ant-tag {

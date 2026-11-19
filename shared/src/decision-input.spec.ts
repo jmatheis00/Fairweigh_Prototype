@@ -62,6 +62,9 @@ describe('knock-out', () => {
     expect(input([risk('Medium', false)]).knockOut).toBeNull();
     // Unknown audit status never excludes.
     expect(input([risk('High', null)]).knockOut).toBeNull();
+    expect(input([risk('Medium', false)]).warnings).toEqual(['LkSG country risk: Medium']);
+    // Low is no warning at all.
+    expect(input([risk('Low', false)]).warnings).toEqual([]);
   });
 
   it('K3: excludes a child or forced labour controversy; other controversies stay warnings', () => {

@@ -330,7 +330,8 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
                   <>
                     {shown.map((n) => (
                       <Tooltip key={n} title={n}>
-                        <span className="matrix-note" tabIndex={0}>
+                        {/* LkSG risk in the colour of its level, always with the word (19 Nov 2026). */}
+                        <span className={`matrix-note${/^LkSG country risk: High/i.test(n) ? " note-bad" : /^LkSG country risk: Medium/i.test(n) ? " note-warn" : ""}`} tabIndex={0}>
                           <WarningOutlined aria-hidden /> {shortNote(n)}
                         </span>
                       </Tooltip>
