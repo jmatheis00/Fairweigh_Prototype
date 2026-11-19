@@ -691,7 +691,7 @@ body .ant-tag.ant-tag-success.ant-tag-filled:not(.ant-tag-disabled) {
   cursor: help;
   margin-inline-start: 2px;
 }
-/* "Why this recommendation?": exclusions and gaps as a short list with icons. */
+/* "Recommendation details": exclusions and gaps as a short list with icons. */
 .why-list {
   list-style: none;
   margin: 0;

@@ -167,7 +167,7 @@ export function RecommendationBlock(props: BlockProps) {
 
   return (
     <div className="decision-summary rec-block" role="note">
-      {/* One clear target (feedback 18 Nov 2026): only the "View details" button opens the "Why this recommendation?"
+      {/* One clear target (feedback 18 Nov 2026): only the "View details" button opens the "Recommendation details"
           panel; the tile background is no longer clickable. */}
       <div className="rec-main">
         <div className="rec-label">Recommended</div>

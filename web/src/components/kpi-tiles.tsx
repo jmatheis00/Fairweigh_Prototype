@@ -51,7 +51,7 @@ function valueText(c: Criterion, v: number): string {
 }
 
 /**
- * Content of the "Why this recommendation?" side panel: everything the compact block on the compare step leaves out.
+ * Content of the "Recommendation details" side panel: everything the compact block on the compare step leaves out.
  * Layout (feedback 17 Nov 2026): header with score and status tags, how the score adds up per criterion,
  * two figure cards against the current supplier, then exclusions and gaps as a short list.
  */
