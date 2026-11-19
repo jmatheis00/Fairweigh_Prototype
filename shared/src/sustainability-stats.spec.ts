@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { DocumentRecord, ErpRecord, PcfRecord, PurchaseOrderRecord, RatingRecord } from './sources.js';
-import { sustainabilityStats } from './sustainability-stats.js';
+import { supplierFlags, sustainabilityStats } from './sustainability-stats.js';
 
 const prov = { file: 'x', sheet: 'x', row: 1, assumedFields: [] };
 const erp = (supplierId: string, relationshipStatus = 'Active contract') => ({ supplierId, relationshipStatus }) as ErpRecord;
@@ -93,6 +93,13 @@ describe('sustainabilityStats', () => {
       { supplierId: 'B', flags: ['LkSG risk High'] },
       { supplierId: 'C', flags: ['Controversy reported'] },
     ]);
+  });
+
+  it('flags the same suppliers on every page: supplierFlags equals the flags of the stats', () => {
+    const flags = supplierFlags(input.ratings, input.documents);
+    expect(flags).toEqual(sustainabilityStats(input)!.flagged);
+    expect(flags.find((f) => f.supplierId === 'X')?.flags).toEqual(['Proven violation', 'LkSG risk High']);
+    expect(flags.some((f) => f.supplierId === 'A')).toBe(false);
   });
 
   it('returns nothing without purchase orders', () => {

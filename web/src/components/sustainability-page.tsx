@@ -1,7 +1,7 @@
 "use client";
 
-import { AuditOutlined, CheckCircleOutlined, CloudOutlined, ExclamationCircleOutlined, InfoCircleOutlined, SafetyCertificateOutlined, StopOutlined, TeamOutlined, WarningOutlined } from "@ant-design/icons";
-import { Alert, Card, Flex, Popover, Select, Table, Tag, Tooltip, Typography } from "antd";
+import { AuditOutlined, CheckCircleOutlined, CloudOutlined, ExclamationCircleOutlined, InfoCircleOutlined, SafetyCertificateOutlined, TeamOutlined, WarningOutlined } from "@ant-design/icons";
+import { Alert, Button, Card, Flex, Popover, Select, Table, Tooltip, Typography } from "antd";
 import { useEffect, useMemo, useState } from "react";
 import dayjs from "dayjs";
 import {
@@ -29,7 +29,8 @@ import { DataRequestsCard } from "./data-requests-card";
 import { Co2TargetChart, SupplierBaseFacts, SupplierBaseMap } from "./analytics-charts";
 import { usePartnerData } from "@/lib/partner-data";
 import { FilterBar, defaultFilter, type StatsFilter } from "./filter-bar";
-import { SupplierNameLink, relationshipLabel } from "@/lib/supplier-labels";
+import { FLAG_NAMES, FlagTags, SupplierNameLink, relationshipLabel } from "@/lib/supplier-labels";
+import { ANY_FLAG, type SupplierFilter } from "./suppliers-page";
 import { BRAND } from "@/lib/theme";
 
 
@@ -41,11 +42,6 @@ interface Data {
   fines: DocumentRecord[];
 }
 
-const FLAG_ICON: Record<string, React.ReactNode> = {
-  "Proven violation": <StopOutlined />,
-  "LkSG risk High": <ExclamationCircleOutlined />,
-  "Controversy reported": <WarningOutlined />,
-};
 
 /** Status class for a share: at least `good` % is good, at least `warn` % needs attention, below is bad. */
 function toneOf(value: number | null, good: number, warn: number): string {
@@ -95,10 +91,13 @@ function SupplierListPopover({
 export function SustainabilityPage({
   settings,
   onOpenSupplier,
+  onShowSuppliers,
 }: {
   settings: DemoSettings;
   /** Opens the supplier side panel; `context` is shown at its top. */
   onOpenSupplier?: (supplierId: string, context?: React.ReactNode) => void;
+  /** Opens the suppliers page with these filters ("Show all in Suppliers"). */
+  onShowSuppliers?: (filter: SupplierFilter) => void;
 }) {
   const [data, setData] = useState<Data | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -283,6 +282,7 @@ export function SustainabilityPage({
           onOpenSupplier={openPlain}
           keep={(id) => hasRelationship(id, dataRelationship)}
           relationshipFilter={relationshipSelect(dataRelationship, setDataRelationship)}
+          onShowAll={onShowSuppliers ? (level) => onShowSuppliers({ data: level, relationship: dataRelationship }) : undefined}
         />
 
         <Card
@@ -300,7 +300,7 @@ export function SustainabilityPage({
                 value={flagFilter}
                 onChange={setFlagFilter}
                 style={{ width: 150 }}
-                options={Object.keys(FLAG_ICON).map((f) => ({ value: f, label: f }))}
+                options={FLAG_NAMES.map((f) => ({ value: f, label: f }))}
               />
             </Flex>
           }
@@ -331,15 +331,7 @@ export function SustainabilityPage({
                 title: "Flags",
                 key: "f",
                 width: 190,
-                render: (_, f) => (
-                  <Flex wrap gap={4}>
-                    {f.flags.map((flag) => (
-                      <Tag key={flag} icon={FLAG_ICON[flag]} color={flag === "Controversy reported" ? "warning" : "error"} style={{ marginInlineEnd: 0 }}>
-                        {flag}
-                      </Tag>
-                    ))}
-                  </Flex>
-                ),
+                render: (_, f) => <FlagTags flags={f.flags} />,
               },
               {
                 title: `Main alert · ${RISK_MONITORING.label}`,
@@ -368,6 +360,20 @@ export function SustainabilityPage({
             Excluded: proven violations, high LkSG risk without a social audit (SA8000), child or forced labour. Other risks and controversies
             are warnings. Active suppliers with SBTi target: {stats.risk.sbtiPercent === null ? "—" : `${formatNumber(stats.risk.sbtiPercent, 0)} %`} · with
             sustainability report: {stats.risk.reportPercent === null ? "—" : `${formatNumber(stats.risk.reportPercent, 0)} %`}.
+                      {onShowSuppliers && (
+              <>
+                {" "}
+                <Button
+                  type="link"
+                  size="small"
+                  className="inline-link"
+                  style={{ fontSize: "inherit" }}
+                  onClick={() => onShowSuppliers({ flag: flagFilter ?? ANY_FLAG, relationship: riskRelationship })}
+                >
+                  Show all {flagFilter ? `“${flagFilter}”` : "flagged"} in Suppliers
+                </Button>
+              </>
+            )}
           </Typography.Text>
         </Card>
       </div>

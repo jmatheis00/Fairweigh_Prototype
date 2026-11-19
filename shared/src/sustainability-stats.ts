@@ -88,6 +88,28 @@ export interface SustainabilityStats {
 const round1 = (n: number) => Math.round(n * 10) / 10;
 const percent = (part: number, whole: number) => (whole > 0 ? round1((part / whole) * 100) : null);
 
+const hasControversy = (r: RatingRecord) => r.controversies !== null && r.controversies !== 'None known';
+
+/**
+ * Risk flags per supplier (the team rule set): a proven violation (fine notice), LkSG country risk High,
+ * a reported controversy. Only suppliers with at least one flag, most flags first. Shared by the
+ * sustainability page and the suppliers page, so both flag the same suppliers (19 Nov 2026).
+ */
+export function supplierFlags(ratings: RatingRecord[], documents: DocumentRecord[]): SupplierFlag[] {
+  const violations = new Set(documents.filter((d) => d.documentType === 'fine_notice').map((d) => d.supplierId));
+  return ratings
+    .map((r) => ({
+      supplierId: r.supplierId,
+      flags: [
+        ...(violations.has(r.supplierId) ? ['Proven violation'] : []),
+        ...(r.lksgCountryRisk === 'High' ? ['LkSG risk High'] : []),
+        ...(hasControversy(r) ? ['Controversy reported'] : []),
+      ],
+    }))
+    .filter((f) => f.flags.length > 0)
+    .sort((a, b) => b.flags.length - a.flags.length || a.supplierId.localeCompare(b.supplierId));
+}
+
 export interface SustainabilityInput {
   orders: PurchaseOrderRecord[];
   erp: ErpRecord[];
@@ -156,18 +178,7 @@ export function sustainabilityStats(input: SustainabilityInput): SustainabilityS
   const active = new Set(erp.filter((e) => e.relationshipStatus === 'Active contract').map((e) => e.supplierId));
   const activeRatings = ratings.filter((r) => active.has(r.supplierId));
   const violations = new Set(documents.filter((d) => d.documentType === 'fine_notice').map((d) => d.supplierId));
-  const hasControversy = (r: RatingRecord) => r.controversies !== null && r.controversies !== 'None known';
-  const flagged: SupplierFlag[] = ratings
-    .map((r) => ({
-      supplierId: r.supplierId,
-      flags: [
-        ...(violations.has(r.supplierId) ? ['Proven violation'] : []),
-        ...(r.lksgCountryRisk === 'High' ? ['LkSG risk High'] : []),
-        ...(hasControversy(r) ? ['Controversy reported'] : []),
-      ],
-    }))
-    .filter((f) => f.flags.length > 0)
-    .sort((a, b) => b.flags.length - a.flags.length || a.supplierId.localeCompare(b.supplierId));
+  const flagged = supplierFlags(ratings, documents);
 
   const spend = current.reduce((a, o) => a + o.unitPriceEur * o.quantity, 0);
   const specificSpend = current.filter((o) => isSupplierSpecific(o.pcfBadge)).reduce((a, o) => a + o.unitPriceEur * o.quantity, 0);

@@ -3,11 +3,23 @@
 import { ExclamationCircleOutlined, SearchOutlined, StarFilled, WarningOutlined } from "@ant-design/icons";
 import { Alert, Button, Card, Checkbox, Flex, Input, Select, Table, Typography } from "antd";
 import { useEffect, useMemo, useState, type ReactNode } from "react";
-import { formatDay, type DecisionRecord, type ErpRecord, type RatingRecord } from "@scc/shared";
+import { dataLevel, formatDay, supplierFlags, type DataLevel, type DecisionRecord, type DocumentRecord, type ErpRecord, type RatingRecord } from "@scc/shared";
 import { api } from "@/lib/api";
 import { formatNumber, formatEur } from "@/lib/labels";
 import type { DemoUser } from "@/lib/users";
-import { Co2Source, ExplainedTitle, NoValue, RELATIONSHIP_OPTIONS, Relationship, hasNoOrders, relationshipLabel } from "@/lib/supplier-labels";
+import {
+  Co2Source,
+  DATA_LEVEL_OPTIONS,
+  DataLevelLabel,
+  ExplainedTitle,
+  FLAG_NAMES,
+  FlagTags,
+  NoValue,
+  RELATIONSHIP_OPTIONS,
+  Relationship,
+  hasNoOrders,
+  relationshipLabel,
+} from "@/lib/supplier-labels";
 import { complaintLevel, ratingLevel, type RiskLevel } from "@/lib/risk-levels";
 import { RiskTag, SupplierInfoPanel } from "./supplier-info-panel";
 
@@ -15,6 +27,19 @@ interface Row {
   key: string;
   erp: ErpRecord;
   rating: RatingRecord | null;
+  /** Sustainability data level; no rating = insufficient (missing never counts as present). */
+  level: DataLevel;
+  flags: string[];
+}
+
+/** Flag filter value: suppliers with at least one risk flag. */
+export const ANY_FLAG = "any";
+
+/** Filters another page can open this one with, e.g. "Show all in Suppliers" on CO₂ and risks (19 Nov 2026). */
+export interface SupplierFilter {
+  relationship?: string | null;
+  data?: DataLevel | null;
+  flag?: string | null;
 }
 
 interface Props {
@@ -29,6 +54,8 @@ interface Props {
   onOpenDecision: (record: DecisionRecord) => void;
   /** Supplier to open, e.g. from a link in the Decision Log. */
   openSupplierId: string | null;
+  /** Filters to start with; the page is re-created (new key) when they change. */
+  initialFilter?: SupplierFilter | null;
 }
 
 /** A value with its level: colour plus icon plus word, never colour alone (thresholds in the glossary). */
@@ -57,13 +84,17 @@ export function SuppliersPage({
   partNames,
   onOpenDecision,
   openSupplierId,
+  initialFilter,
 }: Props) {
   const [erp, setErp] = useState<ErpRecord[] | null>(null);
   const [ratings, setRatings] = useState<RatingRecord[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState<string | null>(null);
-  const [status, setStatus] = useState<string | null>(null);
+  const [status, setStatus] = useState<string | null>(initialFilter?.relationship ?? null);
+  const [level, setLevel] = useState<DataLevel | null>(initialFilter?.data ?? null);
+  const [flag, setFlag] = useState<string | null>(initialFilter?.flag ?? null);
+  const [documents, setDocuments] = useState<DocumentRecord[]>([]);
   const [risk, setRisk] = useState<string | null>(null);
   const [openId, setOpenId] = useState<string | null>(openSupplierId);
   const [onlyFavourites, setOnlyFavourites] = useState(false);
@@ -74,18 +105,29 @@ export function SuppliersPage({
   }, [openSupplierId]);
 
   useEffect(() => {
-    Promise.all([api.erpList(), api.ratingList()])
-      .then(([e, r]) => {
+    Promise.all([api.erpList(), api.ratingList(), api.fineNotices()])
+      .then(([e, r, d]) => {
         setErp(e);
         setRatings(r);
+        setDocuments(d);
       })
       .catch((e: unknown) => setError(e instanceof Error ? e.message : String(e)));
   }, []);
 
   const rows: Row[] = useMemo(() => {
     const byId = new Map(ratings.map((r) => [r.supplierId, r]));
-    return (erp ?? []).map((e) => ({ key: e.supplierId, erp: e, rating: byId.get(e.supplierId) ?? null }));
-  }, [erp, ratings]);
+    const flagsOf = new Map(supplierFlags(ratings, documents).map((f) => [f.supplierId, f.flags]));
+    return (erp ?? []).map((e) => {
+      const rating = byId.get(e.supplierId) ?? null;
+      return {
+        key: e.supplierId,
+        erp: e,
+        rating,
+        level: rating ? dataLevel(rating).level : "insufficient",
+        flags: flagsOf.get(e.supplierId) ?? [],
+      };
+    });
+  }, [erp, ratings, documents]);
 
   const shown = rows.filter((r) => {
     const q = search.trim().toLowerCase();
@@ -93,6 +135,8 @@ export function SuppliersPage({
     if (category && r.erp.category !== category) return false;
     if (status && r.erp.relationshipStatus !== status) return false;
     if (risk && (r.rating?.lksgCountryRisk ?? "Not rated") !== risk) return false;
+    if (level && r.level !== level) return false;
+    if (flag && (flag === ANY_FLAG ? r.flags.length === 0 : !r.flags.includes(flag))) return false;
     if (onlyFavourites && !favourites.includes(r.key)) return false;
     return true;
   });
@@ -120,18 +164,28 @@ export function SuppliersPage({
           aria-label="Search suppliers"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          style={{ width: 280 }}
+          style={{ width: 240 }}
         />
-        <Select allowClear placeholder="Category" aria-label="Filter by category" style={{ width: 220 }} value={category} onChange={setCategory} options={unique(rows.map((r) => r.erp.category))} />
-        <Select allowClear placeholder="Relationship" aria-label="Filter by relationship" style={{ width: 200 }} value={status} onChange={setStatus} options={RELATIONSHIP_OPTIONS} />
+        <Select allowClear placeholder="Category" aria-label="Filter by category" style={{ width: 180 }} value={category} onChange={setCategory} options={unique(rows.map((r) => r.erp.category))} />
+        <Select allowClear placeholder="Relationship" aria-label="Filter by relationship" style={{ width: 170 }} value={status} onChange={setStatus} options={RELATIONSHIP_OPTIONS} />
         <Select
           allowClear
           placeholder="LkSG risk"
           aria-label="Filter by LkSG country risk"
-          style={{ width: 140 }}
+          style={{ width: 120 }}
           value={risk}
           onChange={setRisk}
           options={["Low", "Medium", "High", "Not rated"].map((v) => ({ value: v, label: v }))}
+        />
+        <Select allowClear placeholder="Data" aria-label="Filter by sustainability data" style={{ width: 130 }} value={level} onChange={setLevel} options={DATA_LEVEL_OPTIONS} />
+        <Select
+          allowClear
+          placeholder="Flags"
+          aria-label="Filter by risk flag"
+          style={{ width: 175 }}
+          value={flag}
+          onChange={setFlag}
+          options={[{ value: ANY_FLAG, label: "Any flag" }, ...FLAG_NAMES.map((f) => ({ value: f, label: f }))]}
         />
         {/* Every user keeps their own favourites (16 Nov 2026). */}
         <Checkbox checked={onlyFavourites} onChange={(e) => setOnlyFavourites(e.target.checked)} style={{ alignSelf: "center" }}>
@@ -144,7 +198,8 @@ export function SuppliersPage({
         pagination={false}
         dataSource={shown}
         // Fits a 1280 px laptop (16 Nov 2026): country under the name, spend and contract end in one column.
-        scroll={{ y: "calc(100vh - 260px)", x: user.seesCommercials ? 1218 : 1088 }}
+        // Data and flags added 19 Nov 2026: the full lists behind the two tables on CO₂ and risks.
+        scroll={{ y: "calc(100vh - 260px)", x: user.seesCommercials ? 1528 : 1398 }}
         className="table-clickable"
         onRow={(r) => ({ onClick: () => setOpenId(r.key) })}
         rowClassName={(r) => (r.key === openId ? "cell-selected" : "")}
@@ -208,6 +263,8 @@ export function SuppliersPage({
           },
           { title: "LkSG risk", key: "risk", width: 100, render: (_, r) => <RiskTag risk={r.rating?.lksgCountryRisk ?? null} /> },
           { title: <ExplainedTitle title="Company CO₂ data" kind="co2Source" />, key: "co2src", width: 130, render: (_, r) => <Co2Source source={r.rating?.co2DataSource} /> },
+          { title: "Data", key: "level", width: 120, render: (_, r) => <DataLevelLabel level={r.level} /> },
+          { title: "Flags", key: "flags", width: 190, render: (_, r) => <FlagTags flags={r.flags} /> },
           ...(user.seesCommercials
             ? [
                 {

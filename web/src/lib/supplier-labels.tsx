@@ -1,7 +1,8 @@
 "use client";
 
-import { InfoCircleOutlined } from "@ant-design/icons";
-import { Button, Tooltip, Typography } from "antd";
+import { CheckCircleOutlined, CloseCircleOutlined, ExclamationCircleOutlined, InfoCircleOutlined, MinusCircleOutlined, StopOutlined, WarningOutlined } from "@ant-design/icons";
+import { Button, Flex, Tag, Tooltip, Typography } from "antd";
+import type { DataLevel } from "@scc/shared";
 
 /**
  * Plain words for the coded values of the source systems (Excel dropdowns).
@@ -111,5 +112,41 @@ export function SupplierNameLink({ supplierId, name, onOpen }: { supplierId: str
     <Button type="link" size="small" className="inline-link" style={{ fontSize: "inherit", textAlign: "left", whiteSpace: "normal" }} onClick={() => onOpen(supplierId)}>
       {name}
     </Button>
+  );
+}
+
+/** Data level as icon plus word (never colour alone). */
+export function DataLevelLabel({ level }: { level: DataLevel }) {
+  if (level === "sufficient") return <span className="tone-good"><CheckCircleOutlined /> Sufficient</span>;
+  if (level === "partial") return <span className="tone-warn"><MinusCircleOutlined /> Partly</span>;
+  return <span className="tone-bad"><CloseCircleOutlined /> Insufficient</span>;
+}
+
+export const DATA_LEVEL_OPTIONS: { value: DataLevel; label: string }[] = [
+  { value: "insufficient", label: "Insufficient" },
+  { value: "partial", label: "Partly" },
+  { value: "sufficient", label: "Sufficient" },
+];
+
+const FLAG_ICON: Record<string, React.ReactNode> = {
+  "Proven violation": <StopOutlined />,
+  "LkSG risk High": <ExclamationCircleOutlined />,
+  "Controversy reported": <WarningOutlined />,
+};
+
+/** The risk flags of the team rule set, in the order of the filters. */
+export const FLAG_NAMES = Object.keys(FLAG_ICON);
+
+/** Risk flags as tags with icon and word: violation and LkSG High red, controversy yellow. */
+export function FlagTags({ flags }: { flags: string[] }) {
+  if (!flags.length) return <Typography.Text type="secondary">—</Typography.Text>;
+  return (
+    <Flex wrap gap={4}>
+      {flags.map((flag) => (
+        <Tag key={flag} icon={FLAG_ICON[flag]} color={flag === "Controversy reported" ? "warning" : "error"} style={{ marginInlineEnd: 0 }}>
+          {flag}
+        </Tag>
+      ))}
+    </Flex>
   );
 }

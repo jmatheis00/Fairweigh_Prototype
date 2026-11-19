@@ -1,21 +1,14 @@
 "use client";
 
-import { CheckCircleOutlined, CloseCircleOutlined, MailOutlined, MinusCircleOutlined } from "@ant-design/icons";
+import { MailOutlined } from "@ant-design/icons";
 import { Button, Card, Flex, Segmented, Table, Tag, Typography } from "antd";
 import { useState, type ReactNode } from "react";
 import { formatDay, type Co2DataQuality, type DataLevel, type ErpRecord } from "@scc/shared";
 import { requestMailto, sustainabilityRequestText } from "@/lib/data-request";
 import { usePartnerData } from "@/lib/partner-data";
-import { SupplierNameLink, relationshipLabel } from "@/lib/supplier-labels";
+import { DataLevelLabel, SupplierNameLink, relationshipLabel } from "@/lib/supplier-labels";
 
 const DEMO_DATE = "2026-11-06";
-
-/** Data level as icon plus word (never colour alone). */
-export function DataLevelLabel({ level }: { level: DataLevel }) {
-  if (level === "sufficient") return <span className="tone-good"><CheckCircleOutlined /> Sufficient</span>;
-  if (level === "partial") return <span className="tone-warn"><MinusCircleOutlined /> Partly</span>;
-  return <span className="tone-bad"><CloseCircleOutlined /> Insufficient</span>;
-}
 
 interface Row {
   supplierId: string;
@@ -28,7 +21,8 @@ interface Row {
   items: string[];
 }
 
-type View = "request" | "insufficient" | "partial";
+/** Worst data first (19 Nov 2026); "update" = data is there but outdated, only estimated or a certificate expires. */
+type View = "insufficient" | "partial" | "update";
 
 interface Props {
   erp: ErpRecord[];
@@ -41,6 +35,8 @@ interface Props {
   keep: (supplierId: string) => boolean;
   /** The relationship select, shown in the card header. */
   relationshipFilter: ReactNode;
+  /** Opens the suppliers page with this data level as filter ("Show all in Suppliers"). */
+  onShowAll?: (level: DataLevel) => void;
 }
 
 /**
@@ -48,9 +44,9 @@ interface Props {
  * which supplier to ask for which data, and which suppliers have data gaps. Built in code from what
  * the connected systems are missing; a request opens as an e-mail draft, never sent.
  */
-export function DataRequestsCard({ erp, dataQuality, dataGaps, name, onOpenSupplier, keep, relationshipFilter }: Props) {
+export function DataRequestsCard({ erp, dataQuality, dataGaps, name, onOpenSupplier, keep, relationshipFilter, onShowAll }: Props) {
   const { data } = usePartnerData();
-  const [view, setView] = useState<View>("request");
+  const [view, setView] = useState<View>("insufficient");
   const active = new Set(erp.filter((e) => e.relationshipStatus === "Active contract").map((e) => e.supplierId));
   const levelOf = new Map(dataGaps.map((g) => [g.supplierId, g.level]));
   const rows = new Map<string, Row>();
@@ -98,10 +94,9 @@ export function DataRequestsCard({ erp, dataQuality, dataGaps, name, onOpenSuppl
     .filter((r) => keep(r.supplierId))
     .sort((a, b) => a.priority - b.priority || b.items.length - a.items.length || a.supplierId.localeCompare(b.supplierId));
   const lists: Record<View, Row[]> = {
-    // Our own suppliers first: in our purchases or with an active contract. The other views have a request button too.
-    request: all.filter((r) => r.priority <= 1),
     insufficient: all.filter((r) => r.level === "insufficient"),
     partial: all.filter((r) => r.level === "partial"),
+    update: all.filter((r) => r.level === "sufficient"),
   };
   const shown = lists[view];
   const erpOf = (id: string) => erp.find((e) => e.supplierId === id);
@@ -119,9 +114,9 @@ export function DataRequestsCard({ erp, dataQuality, dataGaps, name, onOpenSuppl
             value={view}
             onChange={setView}
             options={[
-              { value: "request", label: `To request (${lists.request.length})` },
               { value: "insufficient", label: `Insufficient (${lists.insufficient.length})` },
               { value: "partial", label: `Partly (${lists.partial.length})` },
+              { value: "update", label: `Needs update (${lists.update.length})` },
             ]}
           />
           {relationshipFilter}
@@ -134,7 +129,7 @@ export function DataRequestsCard({ erp, dataQuality, dataGaps, name, onOpenSuppl
         pagination={false}
         rowKey="supplierId"
         dataSource={shown}
-        locale={{ emptyText: view === "request" ? "Nothing to request from our suppliers." : "No supplier at this level." }}
+        locale={{ emptyText: view === "update" ? "No supplier data needs an update." : "No supplier at this level." }}
         scroll={{ y: 220, x: 620 }}
         columns={[
           {
@@ -187,9 +182,18 @@ export function DataRequestsCard({ erp, dataQuality, dataGaps, name, onOpenSuppl
         ]}
       />
       <Typography.Text type="secondary" style={{ fontSize: 12, display: "block", padding: "6px 12px 10px" }}>
-        “To request” = suppliers in our purchases and current suppliers; every supplier with a gap can be asked, and requests open as
-        e-mail drafts. Sufficient = CO₂ data from the supplier (report, self-assessment or PCF declaration) and a sustainability rating;
-        industry averages and web searches do not count. CO₂ values per product are in the supplier panel.
+        Worst data first; within each view, suppliers in our purchases and current suppliers come first. Requests open as e-mail
+        drafts. Sufficient = CO₂ data from the supplier (report, self-assessment or PCF declaration) and a sustainability rating;
+        industry averages and web searches do not count. “Needs update” = data is there, but outdated, only estimated or a
+        certificate expires.
+        {onShowAll && view !== "update" && (
+          <>
+            {" "}
+            <Button type="link" size="small" className="inline-link" style={{ fontSize: "inherit" }} onClick={() => onShowAll(view)}>
+              Show all {view === "insufficient" ? "insufficient" : "partly"} in Suppliers
+            </Button>
+          </>
+        )}
       </Typography.Text>
     </Card>
   );
