@@ -340,12 +340,12 @@ export function RecommendationDetails({
       <ul className="why-list">
         {summary.exclusions && (
           <li>
-            <StopOutlined aria-hidden /> {summary.exclusions}
+            <StopOutlined aria-hidden style={{ color: "var(--bad)" }} /> {summary.exclusions}
           </li>
         )}
         {summary.gaps && (
           <li>
-            <WarningOutlined aria-hidden /> {summary.gaps}
+            <WarningOutlined aria-hidden style={{ color: "var(--warn)" }} /> {summary.gaps}
           </li>
         )}
         {summary.couldLead && (
@@ -355,11 +355,11 @@ export function RecommendationDetails({
         )}
         {!summary.exclusions && !summary.gaps && !summary.couldLead && (
           <li>
-            <CheckCircleOutlined aria-hidden /> No offer is excluded and no offer has data gaps.
+            <CheckCircleOutlined aria-hidden style={{ color: "var(--good)" }} /> No offer is excluded and no offer has data gaps.
           </li>
         )}
         <li>
-          <CheckCircleOutlined aria-hidden /> {verified} values verified
+          <CheckCircleOutlined aria-hidden style={{ color: "var(--good)" }} /> {verified} values verified
           {run.evidence.length - verified > 0 ? `, ${run.evidence.length - verified} rejected by the evidence check` : ""}. {co2Specific} of{" "}
           {result.ranked.length} scored {result.ranked.length === 1 ? "offer has" : "offers have"} supplier-specific CO₂ data.
         </li>

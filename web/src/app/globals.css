@@ -351,9 +351,6 @@ body {
   line-height: 18px;
   color: var(--text-secondary);
 }
-.row-excluded .matrix-note .anticon-stop {
-  color: var(--bad);
-}
 .matrix-note.note-bad {
   color: var(--bad);
 }

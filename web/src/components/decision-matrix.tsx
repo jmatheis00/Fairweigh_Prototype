@@ -81,6 +81,17 @@ function versusBenchmark(c: Criterion, value: number, benchmark: number): string
   return `${Math.abs(p)} % ${p > 0 ? "better" : "worse"}`;
 }
 
+/**
+ * Colour of a note under the supplier name (19 Nov 2026), always together with its words: red for
+ * LkSG risk High (knock-outs are red too), amber for the other rule warnings (LkSG risk Medium,
+ * controversy reported, lead time too late), grey for data notes (gaps, outdated or estimated values).
+ */
+function noteTone(note: string): string {
+  if (/^LkSG country risk: High/i.test(note)) return " note-bad";
+  if (/^LkSG country risk: Medium|^Reported: |^Lead time \d+ days?, too late/i.test(note)) return " note-warn";
+  return "";
+}
+
 /** What each column measures, shown above the points rule. */
 const MEASURE: Record<Criterion, string> = {
   quality: "Complaint rate from the ERP. Lower is better. Scored on the share of deliveries without a complaint.",
@@ -316,7 +327,7 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
             <Flex vertical gap={2} align="flex-start">
               {row.exclusion && (
                 <Tooltip title={`${row.exclusion.replace(/^EXCLUDED: /, "")}.`}>
-                  <span className="matrix-note" tabIndex={0}>
+                  <span className="matrix-note note-bad" tabIndex={0}>
                     <StopOutlined aria-hidden /> {knockOutLabel(row.exclusion.replace(/^EXCLUDED: /, ""))}
                   </span>
                 </Tooltip>
@@ -330,8 +341,7 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
                   <>
                     {shown.map((n) => (
                       <Tooltip key={n} title={n}>
-                        {/* LkSG risk in the colour of its level, always with the word (19 Nov 2026). */}
-                        <span className={`matrix-note${/^LkSG country risk: High/i.test(n) ? " note-bad" : /^LkSG country risk: Medium/i.test(n) ? " note-warn" : ""}`} tabIndex={0}>
+                        <span className={`matrix-note${noteTone(n)}`} tabIndex={0}>
                           <WarningOutlined aria-hidden /> {shortNote(n)}
                         </span>
                       </Tooltip>
