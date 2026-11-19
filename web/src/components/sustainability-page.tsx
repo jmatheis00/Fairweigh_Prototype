@@ -6,10 +6,12 @@ import { useEffect, useMemo, useState } from "react";
 import dayjs from "dayjs";
 import {
   formatDay,
+  RISK_MONITORING,
   co2TargetPath,
   periodOptions,
   supplierBaseStats,
   sustainabilityStats,
+  type Co2DataQuality,
   type DataLevel,
   type DemoSettings,
   type DocumentRecord,
@@ -17,20 +19,20 @@ import {
   type PcfRecord,
   type PurchaseOrderRecord,
   type RatingRecord,
+  type RiskAlert,
 } from "@scc/shared";
 import { api } from "@/lib/api";
 import { formatNumber, shortPartName } from "@/lib/labels";
 import { shortName } from "@/lib/names";
-import { PART_COLOR } from "./co2-month-chart";
 import { PcfBadgeTag } from "./pcf-badge-tag";
 import { InfoTip } from "./info-tip";
 import { PageHeader } from "./page-header";
-import { RiskAlertsCard } from "./risk-alerts-card";
+import { RiskLevelTag } from "./risk-level-tag";
 import { DataRequestsCard } from "./data-requests-card";
 import { Co2TargetChart, SupplierBaseFacts, SupplierBaseMap } from "./analytics-charts";
 import { usePartnerData } from "@/lib/partner-data";
 import { FilterBar, defaultFilter, type StatsFilter } from "./filter-bar";
-import { Co2Source, ExplainedTitle, Relationship, relationshipLabel } from "@/lib/supplier-labels";
+import { ExplainedTitle, Relationship, SupplierNameLink, relationshipLabel } from "@/lib/supplier-labels";
 import { BRAND } from "@/lib/theme";
 
 const TEAL = BRAND.secondary;
@@ -41,6 +43,14 @@ interface Data {
   ratings: RatingRecord[];
   pcf: PcfRecord[];
   fines: DocumentRecord[];
+}
+
+/** One row of "CO₂ data per supplier": the data level over the whole base plus the CO₂ values behind our purchases. */
+interface DataRow {
+  supplierId: string;
+  level: DataLevel;
+  missing: string[];
+  parts: Co2DataQuality[];
 }
 
 /** Data level as icon plus word (never colour alone). */
@@ -63,7 +73,19 @@ function toneOf(value: number | null, good: number, warn: number): string {
 }
 
 /** Click a count to see which suppliers it is about. */
-function SupplierListPopover({ title, ids, name, children }: { title: string; ids: string[]; name: (id: string) => string; children: React.ReactNode }) {
+function SupplierListPopover({
+  title,
+  ids,
+  name,
+  onOpen,
+  children,
+}: {
+  title: string;
+  ids: string[];
+  name: (id: string) => string;
+  onOpen?: (id: string) => void;
+  children: React.ReactNode;
+}) {
   return (
     <Popover
       trigger="click"
@@ -74,7 +96,7 @@ function SupplierListPopover({ title, ids, name, children }: { title: string; id
           <ul style={{ margin: 0, paddingLeft: 18, maxHeight: 240, overflow: "auto" }}>
             {ids.map((id) => (
               <li key={id}>
-                {name(id)} <Typography.Text type="secondary">{id}</Typography.Text>
+                <SupplierNameLink supplierId={id} name={name(id)} onOpen={onOpen} /> <Typography.Text type="secondary">{id}</Typography.Text>
               </li>
             ))}
           </ul>
@@ -153,7 +175,30 @@ export function SustainabilityPage({
   const relationships = [...new Set(data.erp.map((e) => e.relationshipStatus).filter(Boolean))].sort();
   const hasRelationship = (id: string, wanted: string | null) => !wanted || erpOf(id)?.relationshipStatus === wanted;
   const dataGaps = stats.dataGaps.filter((g) => hasRelationship(g.supplierId, dataRelationship));
-  const flagged = stats.flagged.filter((f) => hasRelationship(f.supplierId, riskRelationship) && (!flagFilter || f.flags.includes(flagFilter)));
+  const isActive = (id: string) => erpOf(id)?.relationshipStatus === "Active contract";
+  // Current suppliers first: they are the ones Sarah has to act on.
+  const flagged = stats.flagged
+    .filter((f) => hasRelationship(f.supplierId, riskRelationship) && (!flagFilter || f.flags.includes(flagFilter)))
+    .sort((x, y) => Number(isActive(y.supplierId)) - Number(isActive(x.supplierId)));
+  // Alerts of the risk-monitoring partner per supplier, most severe first, then newest (merged into the risk table, 19 Nov 2026).
+  const SEVERITY_ORDER: Record<string, number> = { High: 0, Medium: 1, Low: 2 };
+  const alertsOf = (id: string): RiskAlert[] =>
+    (partner?.alerts ?? [])
+      .filter((a) => a.supplierId === id)
+      .sort((x, y) => SEVERITY_ORDER[x.severity]! - SEVERITY_ORDER[y.severity]! || y.date.localeCompare(x.date));
+  // CO₂ data per supplier: suppliers we bought from first (with their CO₂ values), then the other data gaps.
+  const levelOf = new Map(stats.dataGaps.map((g) => [g.supplierId, g]));
+  const purchased = [...new Set(stats.dataQuality.map((d) => d.supplierId))];
+  const dataRows: DataRow[] = [
+    ...purchased.map((id) => ({
+      supplierId: id,
+      level: levelOf.get(id)?.level ?? ("sufficient" as DataLevel),
+      missing: levelOf.get(id)?.missing ?? [],
+      parts: stats.dataQuality.filter((d) => d.supplierId === id),
+    })),
+    ...stats.dataGaps.filter((g) => !purchased.includes(g.supplierId)).map((g) => ({ ...g, parts: [] })),
+  ].filter((r) => hasRelationship(r.supplierId, dataRelationship));
+  const openPlain = onOpenSupplier ? (id: string) => onOpenSupplier(id) : undefined;
   const relationshipSelect = (value: string | null, onChange: (v: string | null) => void) => (
     <Select
       size="small"
@@ -171,7 +216,6 @@ export function SustainabilityPage({
       ? Math.round(((stats.co2Tonnes - stats.previous.co2Tonnes) / stats.previous.co2Tonnes) * 1000) / 10
       : null;
 
-  const maxHotspot = Math.max(...stats.hotspots.map((h) => h.co2Tonnes), 1);
   const lv = stats.dataLevels;
   const levelParts = [
     { key: "Sufficient", n: lv.sufficient, color: TEAL },
@@ -243,17 +287,17 @@ export function SustainabilityPage({
         </Card>
         <Card className="dash-card" size="small">
           <div className="kpi-label"><AuditOutlined /> Risks among active suppliers</div>
-          <SupplierListPopover title="High LkSG country risk" ids={riskLists.lksgHigh} name={name}>
+          <SupplierListPopover title="High LkSG country risk" ids={riskLists.lksgHigh} name={name} onOpen={openPlain}>
             <button type="button" className={`kpi-value kpi-link ${riskLists.lksgHigh.length ? "kpi-bad" : "kpi-good"}`}>
               {riskLists.lksgHigh.length ? <ExclamationCircleOutlined /> : <CheckCircleOutlined />} {riskLists.lksgHigh.length} high LkSG risk
             </button>
           </SupplierListPopover>
           <div className="kpi-sub">
-            <SupplierListPopover title="Controversies reported" ids={riskLists.controversies} name={name}>
+            <SupplierListPopover title="Controversies reported" ids={riskLists.controversies} name={name} onOpen={openPlain}>
               <button type="button" className="link-button">{riskLists.controversies.length} controversies</button>
             </SupplierListPopover>{" "}
             ·{" "}
-            <SupplierListPopover title="Proven violations" ids={riskLists.violations} name={name}>
+            <SupplierListPopover title="Proven violations" ids={riskLists.violations} name={name} onOpen={openPlain}>
               <button type="button" className="link-button">{riskLists.violations.length} proven violations</button>
             </SupplierListPopover>
             <br />
@@ -267,7 +311,103 @@ export function SustainabilityPage({
         </Card>
       </div>
 
-      <DataRequestsCard erp={data.erp} dataQuality={stats.dataQuality} dataGaps={stats.dataGaps} flagged={stats.flagged} name={name} />
+      {/* Sarah's two to-do lists side by side on the first screen (decision 19 Nov 2026). */}
+      <div className="sus-grid">
+        <DataRequestsCard
+          erp={data.erp}
+          dataQuality={stats.dataQuality}
+          dataGaps={stats.dataGaps}
+          flagged={stats.flagged}
+          name={name}
+          onOpenSupplier={openPlain}
+        />
+
+        <Card
+          className="dash-card"
+          size="small"
+          title={`Risks and alerts (${riskRelationship ? `${relationshipLabel(riskRelationship)}: ${flagged.length} flagged` : `${flagged.length} of ${data.ratings.length} suppliers flagged`})`}
+          extra={
+            <Flex gap={8} wrap>
+              {relationshipSelect(riskRelationship, setRiskRelationship)}
+              <Select
+                size="small"
+                allowClear
+                aria-label="Filter by flag"
+                placeholder="All flags"
+                value={flagFilter}
+                onChange={setFlagFilter}
+                style={{ width: 150 }}
+                options={Object.keys(FLAG_ICON).map((f) => ({ value: f, label: f }))}
+              />
+            </Flex>
+          }
+          styles={{ body: { padding: 0 } }}
+        >
+          <Table
+            size="small"
+            pagination={false}
+            rowKey="supplierId"
+            dataSource={flagged}
+            locale={{ emptyText: "No supplier with these flags." }}
+            scroll={{ y: 220, x: 640 }}
+            columns={[
+              {
+                title: "Supplier",
+                key: "s",
+                width: 170,
+                render: (_, f) => (
+                  <Flex vertical align="start">
+                    <SupplierNameLink supplierId={f.supplierId} name={name(f.supplierId)} onOpen={openPlain} />
+                    <Typography.Text type="secondary" style={{ fontSize: 12 }}>
+                      {relationshipLabel(erpOf(f.supplierId)?.relationshipStatus)}
+                    </Typography.Text>
+                  </Flex>
+                ),
+              },
+              {
+                title: "Flags",
+                key: "f",
+                width: 190,
+                render: (_, f) => (
+                  <Flex wrap gap={4}>
+                    {f.flags.map((flag) => (
+                      <Tag key={flag} icon={FLAG_ICON[flag]} color={flag === "Controversy reported" ? "warning" : "error"} style={{ marginInlineEnd: 0 }}>
+                        {flag}
+                      </Tag>
+                    ))}
+                  </Flex>
+                ),
+              },
+              {
+                title: `Main alert · ${RISK_MONITORING.label}`,
+                key: "a",
+                render: (_, f) => {
+                  const list = alertsOf(f.supplierId);
+                  const main = list[0];
+                  if (!main) return <Typography.Text type="secondary">No alert</Typography.Text>;
+                  return (
+                    <Flex gap={6} align="start">
+                      <RiskLevelTag level={main.severity} />
+                      <span style={{ fontSize: 13 }}>
+                        {main.title}
+                        <Typography.Text type="secondary" style={{ fontSize: 12, display: "block" }}>
+                          {formatDay(main.date)}
+                          {list.length > 1 && ` · ${list.length - 1} more in the supplier panel`}
+                        </Typography.Text>
+                      </span>
+                    </Flex>
+                  );
+                },
+              },
+            ]}
+          />
+          <Typography.Text type="secondary" style={{ fontSize: 12, display: "block", padding: "6px 12px 10px" }}>
+            Excluded: proven violations, high LkSG risk without a social audit (SA8000), child or forced labour. Other risks and controversies
+            are warnings. Active suppliers with SBTi target: {stats.risk.sbtiPercent === null ? "—" : `${formatNumber(stats.risk.sbtiPercent, 0)} %`} · with
+            sustainability report: {stats.risk.reportPercent === null ? "—" : `${formatNumber(stats.risk.reportPercent, 0)} %`}.
+          </Typography.Text>
+        </Card>
+      </div>
 
       {partner && (() => {
         const base = supplierBaseStats(data.erp, partner.performance, partner.emissions);
@@ -312,9 +452,20 @@ export function SustainabilityPage({
                   }
                 />
                 <Typography.Text type="secondary" style={{ fontSize: 12, display: "block" }}>
-                  {candidates.length
-                    ? `Switch candidates: ${candidates.map((c) => `${name(c.supplierId)} (+${formatNumber(c.versusAveragePercent, 0)} %)`).join(", ")}. `
-                    : "No supplier with high spend is above its category average."}
+                  {candidates.length ? (
+                    <>
+                      Switch candidates:{" "}
+                      {candidates.map((c, i) => (
+                        <span key={c.supplierId}>
+                          {i > 0 && ", "}
+                          <SupplierNameLink supplierId={c.supplierId} name={name(c.supplierId)} onOpen={openPlain} /> (+{formatNumber(c.versusAveragePercent, 0)} %)
+                        </span>
+                      ))}
+                      .
+                    </>
+                  ) : (
+                    "No supplier with high spend is above its category average."
+                  )}
                 </Typography.Text>
               </Card>
             )}
@@ -348,164 +499,74 @@ export function SustainabilityPage({
         );
       })()}
 
-      <div className="sus-grid">
-        <Card className="dash-card" size="small" title={`CO₂ hotspots: purchased CO₂e by supplier, ${stats.period.label}`}>
-          <Flex vertical gap={10} role="list">
-            {stats.hotspots.map((h) => (
-              <div key={`${h.supplierId}-${h.partId}`} role="listitem">
-                <Flex justify="space-between" style={{ fontSize: 13 }}>
-                  <span>
-                    <strong>{name(h.supplierId)}</strong> · {part(h.partId)}
-                  </span>
-                  <span>
-                    {formatNumber(h.co2Tonnes, 1)} t · {formatNumber(h.sharePercent, 0)} %
-                  </span>
-                </Flex>
-                <div className="hbar-track" aria-hidden="true">
-                  <div className="hbar-fill" style={{ width: `${(h.co2Tonnes / maxHotspot) * 100}%`, background: PART_COLOR[h.partId] ?? TEAL }} />
-                </div>
-              </div>
+
+      <Card
+        className="dash-card"
+        size="small"
+        title={`CO₂ data per supplier (${dataRelationship ? `${relationshipLabel(dataRelationship)}: ${dataRows.length}` : `${dataGaps.length} of ${stats.allSuppliers} with gaps`})`}
+        extra={relationshipSelect(dataRelationship, setDataRelationship)}
+        styles={{ body: { padding: 0 } }}
+      >
+        <div style={{ padding: "10px 12px 6px" }}>
+          <div className="stack-track" role="img" aria-label={levelParts.map((p) => `${p.key} ${p.n}`).join(", ")}>
+            {levelParts.map((p) => (
+              <div key={p.key} style={{ flex: p.n, background: p.color }} />
+            ))}
+          </div>
+          <Flex gap={14} wrap style={{ fontSize: 12, marginTop: 6 }}>
+            {levelParts.map((p) => (
+              <Flex key={p.key} align="center" gap={6}>
+                <span aria-hidden="true" style={{ width: 10, height: 10, borderRadius: 2, background: p.color, border: `1px solid ${BRAND.borderStrong}` }} />
+                {p.key}: {p.n}
+              </Flex>
             ))}
           </Flex>
-          <Typography.Text type="secondary" style={{ fontSize: 12, display: "block", marginTop: 10 }}>
-            Purchase orders × CO₂ per piece from each supplier&apos;s PCF record. Bar colour = product, as on the overview.
+          <Typography.Text type="secondary" style={{ fontSize: 12, display: "block", marginTop: 6 }}>
+            Sufficient = CO₂ data from the supplier (report, self-assessment or PCF declaration) and a sustainability rating. Industry averages
+            and web searches do not count. Suppliers we bought from in {stats.period.label} come first, with the CO₂ value behind each product.
           </Typography.Text>
-        </Card>
-
-        <Card className="dash-card" size="small" title="Data quality behind these CO₂ values" styles={{ body: { padding: 0 } }}>
-          <Table
-            size="small"
-            pagination={false}
-            scroll={{ x: 560 }}
-            rowKey="pcfRecordId"
-            dataSource={stats.dataQuality}
-            columns={[
-              { title: "Supplier", key: "s", render: (_, d) => name(d.supplierId) },
-              { title: "Product", key: "p", render: (_, d) => part(d.partId) },
-              { title: "Value", key: "b", width: 110, render: (_, d) => <PcfBadgeTag badge={d.badge} /> },
-              { title: "Source", key: "src", render: (_, d) => <Co2Source source={d.dataSource} /> },
-              {
-                title: "As of",
-                key: "age",
-                width: 150,
-                render: (_, d) =>
-                  d.outdated ? (
-                    <Tooltip title="Older than 1 year: ask the supplier for an update">
-                      <span>
-                        <WarningOutlined /> {formatDay(d.referenceDate)}
-                      </span>
-                    </Tooltip>
-                  ) : (
-                    formatDay(d.referenceDate)
-                  ),
-              },
-            ]}
-          />
-        </Card>
-
-        <Card
-          className="dash-card"
+        </div>
+        <Table<DataRow>
           size="small"
-          title={`Suppliers with data gaps (${dataRelationship ? `${relationshipLabel(dataRelationship)}: ${dataGaps.length}` : `${dataGaps.length} of ${stats.allSuppliers}`})`}
-          extra={relationshipSelect(dataRelationship, setDataRelationship)}
-          styles={{ body: { padding: 0 } }}
-        >
-          <div style={{ padding: "10px 12px 6px" }}>
-            <div className="stack-track" role="img" aria-label={levelParts.map((p) => `${p.key} ${p.n}`).join(", ")}>
-              {levelParts.map((p) => (
-                <div key={p.key} style={{ flex: p.n, background: p.color }} />
-              ))}
-            </div>
-            <Flex gap={14} wrap style={{ fontSize: 12, marginTop: 6 }}>
-              {levelParts.map((p) => (
-                <Flex key={p.key} align="center" gap={6}>
-                  <span aria-hidden="true" style={{ width: 10, height: 10, borderRadius: 2, background: p.color, border: `1px solid ${BRAND.borderStrong}` }} />
-                  {p.key}: {p.n}
-                </Flex>
-              ))}
-            </Flex>
-            <Typography.Text type="secondary" style={{ fontSize: 12, display: "block", marginTop: 6 }}>
-              Sufficient = CO₂ data from the supplier (report, self-assessment or PCF declaration) and a sustainability rating. Industry
-              averages and web searches do not count.
-            </Typography.Text>
-          </div>
-          <Table
-            size="small"
-            pagination={false}
-            rowKey="supplierId"
-            dataSource={dataGaps}
-            locale={{ emptyText: `No ${dataRelationship ? relationshipLabel(dataRelationship).toLowerCase() : "supplier"} with data gaps: all have sufficient data.` }}
-            scroll={{ y: 190, x: 600 }}
-            columns={[
-              { title: "Supplier", key: "s", render: (_, r) => name(r.supplierId) },
-              { title: <ExplainedTitle title="Relationship" kind="relationship" />, key: "rel", render: (_, r) => <Relationship status={erpOf(r.supplierId)?.relationshipStatus} /> },
-              { title: "Data", key: "lv", width: 120, render: (_, r) => <DataLevelLabel level={r.level} /> },
-              { title: "Missing", key: "m", render: (_, r) => r.missing.join(", ") },
-            ]}
-          />
-        </Card>
-
-        <Card
-          className="dash-card"
-          size="small"
-          title={`Risk and rules (${riskRelationship ? `${relationshipLabel(riskRelationship)}: ${flagged.length} flagged` : `${flagged.length} of ${data.ratings.length} suppliers flagged`})`}
-          extra={
-            <Flex gap={8} wrap>
-              {relationshipSelect(riskRelationship, setRiskRelationship)}
-              <Select
-              size="small"
-              allowClear
-              aria-label="Filter by flag"
-              placeholder="All flags"
-              value={flagFilter}
-              onChange={setFlagFilter}
-              style={{ width: 170 }}
-              options={Object.keys(FLAG_ICON).map((f) => ({ value: f, label: f }))}
-              />
-            </Flex>
-          }
-          styles={{ body: { padding: 0 } }}
-        >
-          <Flex gap={16} wrap style={{ padding: "10px 12px 6px", fontSize: 13 }}>
-            <span>
-              Active suppliers with SBTi target: <strong>{stats.risk.sbtiPercent === null ? "—" : `${formatNumber(stats.risk.sbtiPercent, 0)} %`}</strong>
-            </span>
-            <span>
-              with sustainability report: <strong>{stats.risk.reportPercent === null ? "—" : `${formatNumber(stats.risk.reportPercent, 0)} %`}</strong>
-            </span>
-          </Flex>
-          <Table
-            size="small"
-            pagination={false}
-            rowKey="supplierId"
-            dataSource={flagged}
-            locale={{ emptyText: "No supplier with these flags." }}
-            scroll={{ y: 190, x: 520 }}
-            columns={[
-              { title: "Supplier", key: "s", render: (_, f) => name(f.supplierId) },
-              { title: <ExplainedTitle title="Relationship" kind="relationship" />, key: "r", width: 170, render: (_, f) => <Relationship status={erpOf(f.supplierId)?.relationshipStatus} /> },
-              {
-                title: "Flags",
-                key: "f",
-                render: (_, f) => (
-                  <Flex wrap gap={4}>
-                    {f.flags.map((flag) => (
-                      <Tag key={flag} icon={FLAG_ICON[flag]} color={flag === "Controversy reported" ? "warning" : "error"} style={{ marginInlineEnd: 0 }}>
-                        {flag}
-                      </Tag>
+          pagination={false}
+          rowKey="supplierId"
+          dataSource={dataRows}
+          locale={{ emptyText: `No ${dataRelationship ? relationshipLabel(dataRelationship).toLowerCase() : "supplier"} with CO₂ purchases or data gaps.` }}
+          scroll={{ y: 260, x: 860 }}
+          columns={[
+            { title: "Supplier", key: "s", width: 200, render: (_, r) => <SupplierNameLink supplierId={r.supplierId} name={name(r.supplierId)} onOpen={openPlain} /> },
+            { title: <ExplainedTitle title="Relationship" kind="relationship" />, key: "rel", width: 170, render: (_, r) => <Relationship status={erpOf(r.supplierId)?.relationshipStatus} /> },
+            { title: "Data", key: "lv", width: 120, render: (_, r) => <DataLevelLabel level={r.level} /> },
+            {
+              title: `CO₂ value in purchases, ${stats.period.label}`,
+              key: "pcf",
+              render: (_, r) =>
+                r.parts.length === 0 ? (
+                  <Typography.Text type="secondary">Not bought in this period</Typography.Text>
+                ) : (
+                  <Flex vertical gap={4}>
+                    {r.parts.map((d) => (
+                      <Flex key={d.pcfRecordId} gap={6} align="center" wrap>
+                        <span>{part(d.partId)}</span>
+                        <PcfBadgeTag badge={d.badge} />
+                        {d.outdated ? (
+                          <Tooltip title="Older than 1 year: ask the supplier for an update">
+                            <span tabIndex={0} style={{ fontSize: 12 }}>
+                              <WarningOutlined /> as of {formatDay(d.referenceDate)}
+                            </span>
+                          </Tooltip>
+                        ) : (
+                          <Typography.Text type="secondary" style={{ fontSize: 12 }}>as of {formatDay(d.referenceDate)}</Typography.Text>
+                        )}
+                      </Flex>
                     ))}
                   </Flex>
                 ),
-              },
-            ]}
-          />
-          <Typography.Text type="secondary" style={{ fontSize: 12, display: "block", padding: "6px 12px 10px" }}>
-            Excluded: proven violations, high LkSG risk without a social audit (SA8000), child or forced labour. Other risks and controversies are warnings.
-          </Typography.Text>
-        </Card>
-      </div>
-
-      <RiskAlertsCard supplierName={name} />
+            },
+            { title: "Missing", key: "m", width: 220, render: (_, r) => (r.missing.length ? r.missing.join(", ") : "—") },
+          ]}
+        />
+      </Card>
     </Flex>
   );
 }

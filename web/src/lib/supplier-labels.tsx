@@ -1,7 +1,7 @@
 "use client";
 
 import { InfoCircleOutlined } from "@ant-design/icons";
-import { Tooltip, Typography } from "antd";
+import { Button, Tooltip, Typography } from "antd";
 
 /**
  * Plain words for the coded values of the source systems (Excel dropdowns).
@@ -99,3 +99,17 @@ export function ExplainedTitle({ title, kind }: { title: string; kind: "relation
 }
 
 export const RELATIONSHIP_OPTIONS = Object.entries(RELATIONSHIP).map(([value, e]) => ({ value, label: e.label }));
+
+/**
+ * A supplier name that opens the supplier side panel (Sarah's view, 19 Nov 2026).
+ * Without `onOpen` it is plain text, so the same list works where no panel is available.
+ */
+export function SupplierNameLink({ supplierId, name, onOpen }: { supplierId: string; name: string; onOpen?: (supplierId: string) => void }) {
+  if (!onOpen) return <>{name}</>;
+  return (
+    // Same petrol link as the supplier names on Results and in the Decision log.
+    <Button type="link" size="small" className="inline-link" style={{ fontSize: "inherit", textAlign: "left", whiteSpace: "normal" }} onClick={() => onOpen(supplierId)}>
+      {name}
+    </Button>
+  );
+}

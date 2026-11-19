@@ -5,6 +5,7 @@ import { Button, Card, Table, Tag, Typography } from "antd";
 import type { Co2DataQuality, ErpRecord, SupplierFlag } from "@scc/shared";
 import { requestMailto, sustainabilityRequestText } from "@/lib/data-request";
 import { usePartnerData } from "@/lib/partner-data";
+import { SupplierNameLink } from "@/lib/supplier-labels";
 
 const DEMO_DATE = "2026-11-06";
 
@@ -22,13 +23,15 @@ interface Props {
   dataGaps: { supplierId: string; missing: string[] }[];
   flagged: SupplierFlag[];
   name: (id: string) => string;
+  /** Opens the supplier side panel. */
+  onOpenSupplier?: (supplierId: string) => void;
 }
 
 /**
  * Next steps for the Scope 3 manager: which supplier to ask for which data, from what the
  * connected systems are missing. Built in code; the request opens as an e-mail draft, never sent.
  */
-export function DataRequestsCard({ erp, dataQuality, dataGaps, name }: Props) {
+export function DataRequestsCard({ erp, dataQuality, dataGaps, name, onOpenSupplier }: Props) {
   const { data } = usePartnerData();
   const active = new Set(erp.filter((e) => e.relationshipStatus === "Active contract").map((e) => e.supplierId));
   const rows = new Map<string, Row>();
@@ -84,7 +87,7 @@ export function DataRequestsCard({ erp, dataQuality, dataGaps, name }: Props) {
         columns={[
           { title: "Supplier", key: "s", width: 220, render: (_, r) => (
             <span>
-              {name(r.supplierId)}
+              <SupplierNameLink supplierId={r.supplierId} name={name(r.supplierId)} onOpen={onOpenSupplier} />
               {r.priority === 0 && <Tag style={{ marginInlineStart: 6 }}>in our purchases</Tag>}
             </span>
           ) },
