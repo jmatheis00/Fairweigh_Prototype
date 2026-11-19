@@ -272,12 +272,12 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
       // Totals and CO₂ in euros are in the supplier profile; the cell keeps value and points.
       const second = !row.points ? "" : `${formatNumber(row.points[c], 0)} pts${!benchmarks && row.points[c] === 100 ? " · best" : ""}`;
       const pointsValue = row.points?.[c] ?? null;
-      const secondHint = benchmarks
-        ? `${versusBenchmark(c, evidence.value, benchmarks[c].value)} than today (${benchmarkValue(c, benchmarks[c].value)})`.replace("same as today than today", "the same as today") +
-          (pointsValue !== null && (pointsValue <= 0 || pointsValue >= 100)
-            ? `. Counts as ${CRITERION_LIMIT} % ${pointsValue <= 0 ? "worse" : "better"} in the score (limit).`
-            : "")
-        : null;
+      // Tooltip only where the cell hides the real size: "> 50 % worse" (feedback 19 Nov 2026). Elsewhere the
+      // cell already says it all, and a rounded copy with today's value read like a second, wrong result.
+      const secondHint =
+        benchmarks && pointsValue !== null && (pointsValue <= 0 || pointsValue >= 100)
+          ? `Real difference: ${versusBenchmark(c, evidence.value, benchmarks[c].value)} than today's ${benchmarkValue(c, benchmarks[c].value)}. The score counts at most ${CRITERION_LIMIT} %.`
+          : null;
       // Slim matrix (10 Nov 2026): the "as of" date is in the source panel; old data keeps a warning icon here.
       const age = row.ageWarnings.find((w) => (c === "price" ? w.startsWith("Price") : c === "co2" ? w.startsWith("CO₂") : false));
       const oldIcon = age ? (
