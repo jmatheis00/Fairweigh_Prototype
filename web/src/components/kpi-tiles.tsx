@@ -139,6 +139,7 @@ export function RecommendationDetails({
           missing: first.missing.includes(c),
           adds: ((first.points[c] - 50) * weights[c]) / 100,
           runnerUpAdds: runnerUp ? ((runnerUp.points[c] - 50) * weights[c]) / 100 : null,
+          runnerUpPoints: runnerUp ? runnerUp.points[c] : null,
         };
       })
     : [];
@@ -149,6 +150,14 @@ export function RecommendationDetails({
     qualityValue !== null && qualityToday !== null && qualityValue !== qualityToday
       ? `Product quality: ${formatNumber(100 - qualityValue, 1)} % vs ${formatNumber(100 - qualityToday, 1)} % today of deliveries without a complaint (${formatNumber(qualityValue, 1)} % vs ${formatNumber(qualityToday, 1)} % with one) = ${formatNumber(Math.abs(percentBetter("quality", qualityValue, qualityToday)), 1)} % ${percentBetter("quality", qualityValue, qualityToday) > 0 ? "better" : "worse"}.`
       : null;
+
+  // Same colours as the offer table (19 Nov 2026, the drawer looked all grey): green from 5 % better, red from
+  // 5 % worse, amber in between, plain text for "today". The words always carry the meaning.
+  const tone = (points: number) => (points - 50 >= 5 ? "score-better" : points - 50 <= -5 ? "score-worse" : "score-same");
+  const colored = (points: number, text: string, strong = false) => {
+    const node = text === AS_TODAY || text === "0 %" ? text : <span className={`score-number ${tone(points)}`}>{text}</span>;
+    return strong ? <strong>{node}</strong> : node;
+  };
 
   const figure = (title: ReactNode, delta: ReactNode, lines: ReactNode) => (
     <Card size="small" style={{ flex: "1 1 240px" }} title={title}>
@@ -188,7 +197,7 @@ export function RecommendationDetails({
             </div>
             <div style={{ textAlign: "right", flex: "none" }}>
               <div style={{ fontSize: 32, fontWeight: 600, lineHeight: 1 }}>
-                {formatVsTodayShort(rec.score) === AS_TODAY ? "As today" : formatVsTodayShort(rec.score)}
+                {formatVsTodayShort(rec.score) === AS_TODAY ? "As today" : colored(rec.score, formatVsTodayShort(rec.score))}
                 <Typography.Text type="secondary" style={{ fontSize: 14, fontWeight: 400 }}>
                   {formatVsTodayShort(rec.score) === AS_TODAY ? "" : " than today"}
                 </Typography.Text>
@@ -235,11 +244,11 @@ export function RecommendationDetails({
             columns={[
               { title: "Criterion", key: "c", render: (_, r) => TOPIC_LABEL[r.c] },
               { title: "Value", key: "v", render: (_, r) => r.value },
-              { title: "vs today", key: "p", align: "right", render: (_, r) => formatCriterionVsToday(r.points, r.missing) },
+              { title: "vs today", key: "p", align: "right", render: (_, r) => colored(r.points, formatCriterionVsToday(r.points, r.missing)) },
               { title: "Weight", key: "w", align: "right", render: (_, r) => `${weights[r.c]} %` },
-              { title: "Adds", key: "a", align: "right", render: (_, r) => <strong>{formatDiff(r.adds, 1, "0 %")}</strong> },
+              { title: "Adds", key: "a", align: "right", render: (_, r) => colored(r.points, formatDiff(r.adds, 1, "0 %"), true) },
               ...(runnerUp
-                ? [{ title: name(runnerUp.supplierId), key: "r", align: "right" as const, render: (_: unknown, r: (typeof rows)[number]) => formatDiff(r.runnerUpAdds ?? 0, 1, "0 %") }]
+                ? [{ title: name(runnerUp.supplierId), key: "r", align: "right" as const, render: (_: unknown, r: (typeof rows)[number]) => colored(r.runnerUpPoints ?? 50, formatDiff(r.runnerUpAdds ?? 0, 1, "0 %")) }]
                 : []),
             ]}
             summary={() => (
@@ -248,11 +257,11 @@ export function RecommendationDetails({
                   <strong>Weighted average vs today</strong>
                 </Table.Summary.Cell>
                 <Table.Summary.Cell index={4} align="right">
-                  <strong>{formatVsTodayShort(first.score, 1)}</strong>
+                  {colored(first.score, formatVsTodayShort(first.score, 1), true)}
                 </Table.Summary.Cell>
                 {runnerUp && (
                   <Table.Summary.Cell index={5} align="right">
-                    {formatVsTodayShort(runnerUp.score, 1)}
+                    {colored(runnerUp.score, formatVsTodayShort(runnerUp.score, 1))}
                   </Table.Summary.Cell>
                 )}
               </Table.Summary.Row>
