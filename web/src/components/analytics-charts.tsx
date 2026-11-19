@@ -2,7 +2,6 @@
 
 import { CheckCircleOutlined } from "@ant-design/icons";
 import { Descriptions, Flex, Table, Tag, Tooltip, Typography } from "antd";
-import { useState } from "react";
 import type { AbatementOption, Co2TrendPoint, SupplierBasePoint, SupplierQuadrant } from "@scc/shared";
 import { formatMonth, formatNumber, formatEur } from "@/lib/labels";
 import { BRAND } from "@/lib/theme";
@@ -41,7 +40,7 @@ const QUADRANT_TEXT: Record<SupplierQuadrant, string> = {
   Fine: "Lower spend, less CO₂ per € than the category",
 };
 
-/** The chart's hover facts for one supplier, for the top of the supplier side panel. */
+/** The chart's facts for one supplier, shown at the top of the supplier side panel (no hover tooltip, 19 Nov 2026). */
 export function SupplierBaseFacts({ point }: { point: SupplierBasePoint }) {
   const sign = point.versusAveragePercent > 0 ? "+" : "";
   return (
@@ -76,7 +75,6 @@ export function SupplierBaseMap({
   name: (supplierId: string) => string;
   onOpen?: (supplierId: string) => void;
 }) {
-  const [hover, setHover] = useState<SupplierBasePoint | null>(null);
   const W = 1200;
   const H = 300;
   const M = { l: 60, r: 16, t: 14, b: 36 };
@@ -136,8 +134,6 @@ export function SupplierBaseMap({
             stroke={BRAND.white}
             strokeWidth="1"
             style={{ cursor: onOpen ? "pointer" : "default" }}
-            onMouseEnter={() => setHover(p)}
-            onMouseLeave={() => setHover(null)}
             onClick={() => onOpen?.(p.supplierId)}
             onKeyDown={(e) => {
               if (onOpen && (e.key === "Enter" || e.key === " ")) {
@@ -168,16 +164,6 @@ export function SupplierBaseMap({
             </text>
           ))}
       </svg>
-      {hover && (
-        <div className="chart-tooltip" style={{ left: `${(x(hover.spendEur) / W) * 100}%` }}>
-          <strong>{name(hover.supplierId)}</strong> · {hover.category}
-          <div>
-            {formatEur(hover.spendEur, 0)} · {formatNumber(hover.intensityKgPerEur, 3)} kg CO₂e per € ({hover.versusAveragePercent > 0 ? "+" : ""}
-            {hover.versusAveragePercent} % vs category {formatNumber(hover.categoryAverageKgPerEur, 3)})
-          </div>
-          <div>about {formatNumber(hover.co2Tonnes, 0)} t CO₂e bought · {QUADRANT_TEXT[hover.quadrant]}</div>
-        </div>
-      )}
     </div>
   );
 }
