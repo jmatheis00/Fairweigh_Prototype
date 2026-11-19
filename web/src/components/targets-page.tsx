@@ -122,7 +122,7 @@ export function TargetsPage({ rules, inputs, buyers, user, onSaved }: Props) {
         </Button>
       </Flex>
       {!editable && (
-        <Alert type="info" showIcon icon={<LockOutlined />} title="Only the Scope 3 manager (Sarah) sets the targets." />
+        <Alert type="info" showIcon icon={<LockOutlined />} title="Only the sustainability manager (Sarah) sets the targets." />
       )}
 
       <Card

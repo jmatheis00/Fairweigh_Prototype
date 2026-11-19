@@ -110,7 +110,7 @@ function warningsOf(run: AgentRun, supplierId: string, options: DecisionInputOpt
     }
   }
   if (options.flagEstimatedCo2 && co2?.sourceBadge && !isSupplierSpecific(co2.sourceBadge)) {
-    warnings.push('CO₂ value estimated, not supplier-specific (rule of the Scope 3 manager)');
+    warnings.push('CO₂ value estimated, not supplier-specific (rule of the sustainability manager)');
   }
   if (price?.location.kind === 'document' && /indicative/i.test(price.location.quote)) {
     warnings.push('Indicative price only, not binding');

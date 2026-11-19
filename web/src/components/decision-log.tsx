@@ -35,8 +35,7 @@ export function DecisionLog({ records, supplierNames, partNames, storageAvailabl
     <Flex vertical gap={12}>
       <Flex justify="space-between" align="center" gap={8} wrap>
         <Typography.Text type="secondary">
-          {STATIC_PREVIEW ? "New decisions are saved in this browser." : "New decisions are saved for the whole team."} Entries marked
-          &quot;Example&quot; were recorded before.
+          {STATIC_PREVIEW ? "New decisions are saved in this browser." : "New decisions are saved for the whole team."}
         </Typography.Text>
         <Button
           className="decision-export"
@@ -66,7 +65,6 @@ export function DecisionLog({ records, supplierNames, partNames, storageAvailabl
                 <Flex justify="space-between" align="center" gap={8} wrap>
                   <Typography.Text strong>{name(r.chosenSupplierId)}</Typography.Text>
                   <Flex gap={4} wrap>
-                    {r.mode.kind === "example" && <Tag style={{ marginInlineEnd: 0 }}>Example</Tag>}
                     <Tag style={{ marginInlineEnd: 0 }}>{r.followsRecommendation ? "Follows recommendation" : "Differs from recommendation"}</Tag>
                     {r.weightsReason && <Tag style={{ marginInlineEnd: 0 }}>Weights changed</Tag>}
                   </Flex>

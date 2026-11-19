@@ -226,7 +226,7 @@ export function WorkQueuePage({
               <AimOutlined /> Your CO₂ target {progress ? progress.year : ""}{" "}
               <InfoTip
                 label="the CO₂ target"
-                title="Set by the Scope 3 manager. Achieved = CO₂ avoided this year by Fairweigh decisions in your commodity groups, from orders placed or, if not ordered yet, from the decision."
+                title="Set by the sustainability manager. Achieved = CO₂ avoided this year by Fairweigh decisions in your commodity groups, from orders placed or, if not ordered yet, from the decision."
               />
             </span>
           }

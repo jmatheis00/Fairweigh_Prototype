@@ -48,7 +48,7 @@ export function ScoreHelp({ open, title, onClose, rules, weights, defaults }: Pr
       {rules && (
         <>
           <Typography.Title level={5} style={{ marginTop: 16 }}>
-            Rules in force, set by the Scope 3 manager
+            Rules in force, set by the sustainability manager
           </Typography.Title>
           <ul style={{ paddingLeft: 20, lineHeight: 1.7, marginBottom: 4 }}>
             <li>Prices older than {rules.priceMaxAgeDays} days are flagged as outdated.</li>

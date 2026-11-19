@@ -301,7 +301,7 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
       // Slim matrix (10 Nov 2026): the "as of" date is in the source panel; old data keeps a warning icon here.
       const age = row.ageWarnings.find((w) => (c === "price" ? w.startsWith("Price") : c === "co2" ? w.startsWith("CO₂") : false));
       const oldIcon = age ? (
-        <Tooltip title={`${age}. Past the limit set by the Scope 3 manager. The score is unchanged.`}>
+        <Tooltip title={`${age}. Past the limit set by the sustainability manager. The score is unchanged.`}>
           <WarningOutlined aria-label="old data" className="as-of-old" style={{ marginInlineStart: 4 }} />
         </Tooltip>
       ) : null;

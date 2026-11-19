@@ -286,7 +286,7 @@ export function CpoDashboard({ settings, orders, log, overview, onOpenSupplier }
         <Tile
           icon={<AimOutlined />}
           label={group ? `CO₂ target ${overview.year}: ${group}` : `Company CO₂ target ${overview.year}`}
-          info="Avoided CO₂ from Fairweigh decisions this year against the target set by the Scope 3 manager. Always the whole year, whatever period is selected."
+          info="Avoided CO₂ from Fairweigh decisions this year against the target set by the sustainability manager. Always the whole year, whatever period is selected."
           onOpen={() => setDrill("target")}
         >
           <Flex align="center" justify="space-between" gap={8}>
