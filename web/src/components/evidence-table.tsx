@@ -54,6 +54,8 @@ interface Props {
   /** With the result and part name, each supplier with gaps gets a "Request missing data" e-mail draft. */
   result?: DecisionResult | null;
   partName?: string;
+  /** Suppliers that never delivered: they are asked for a sample delivery instead of quality and delivery figures. */
+  neverDelivered?: Set<string>;
 }
 
 /**
@@ -61,7 +63,7 @@ interface Props {
  * the four criteria are verified and, when something is missing or only estimated, offers the same data request
  * as "What's missing to decide" (an e-mail draft, nothing is sent). Excluded offers get no request.
  */
-export function EvidenceTable({ run, supplierNames, selectedId, onOpen, result = null, partName }: Props) {
+export function EvidenceTable({ run, supplierNames, selectedId, onOpen, result = null, partName, neverDelivered }: Props) {
   const rows = buildRows(run);
   return (
     <Flex vertical gap={24}>
@@ -70,7 +72,10 @@ export function EvidenceTable({ run, supplierNames, selectedId, onOpen, result =
         const own = rows.filter((r) => r.supplierId === id);
         const ranked = result?.ranked.find((r) => r.supplierId === id) ?? null;
         const excluded = result?.excluded.some((x) => x.supplierId === id) ?? false;
-        const request = result && partName && !excluded ? offerDataRequest(run, result, id, name, partName) : null;
+        // Excluded offers only get a request when a document can lift the knock-out (LkSG: an SA8000 audit).
+        const lksgExcluded = result?.excluded.some((x) => x.supplierId === id && x.knockOut.reason.startsWith("LkSG")) ?? false;
+        const request =
+          result && partName && (!excluded || lksgExcluded) ? offerDataRequest(run, result, id, name, partName, neverDelivered?.has(id) ?? false) : null;
         const asks = request ? requestItems(request).length : 0;
         return (
           <section key={id} aria-label={`Evidence of ${name}`}>
@@ -92,7 +97,7 @@ export function EvidenceTable({ run, supplierNames, selectedId, onOpen, result =
               </div>
               {request && asks > 0 && (
                 <Button size="small" icon={<MailOutlined />} href={requestMailto(dataRequestText(request))} aria-label={`Request missing data from ${name}`}>
-                  Request missing data
+                  {lksgExcluded ? "Request SA8000 audit" : "Request missing data"}
                 </Button>
               )}
             </Flex>

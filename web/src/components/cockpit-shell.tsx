@@ -986,10 +986,11 @@ export function CockpitShell() {
             />
           )}
           {run && panel === "evidence" && (
-            <EvidenceTable run={run} supplierNames={supplierNames} selectedId={null} onOpen={openEvidence} result={result} partName={catalogPart?.partName ?? run.request.partId} />
+            <EvidenceTable run={run} supplierNames={supplierNames} selectedId={null} onOpen={openEvidence} result={result} partName={catalogPart?.partName ?? run.request.partId} neverDelivered={neverDelivered} />
           )}
           {run && result && panel === "missing" && (
             <MissingData
+              neverDelivered={neverDelivered}
               partName={catalogPart?.partName ?? run.request.partId}
               run={run}
               result={result}
