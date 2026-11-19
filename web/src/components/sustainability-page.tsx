@@ -1,6 +1,6 @@
 "use client";
 
-import { AuditOutlined, CheckCircleOutlined, CloseCircleOutlined, CloudOutlined, ExclamationCircleOutlined, InfoCircleOutlined, MinusCircleOutlined, SafetyCertificateOutlined, StopOutlined, TeamOutlined, WarningOutlined } from "@ant-design/icons";
+import { AuditOutlined, CheckCircleOutlined, CloudOutlined, ExclamationCircleOutlined, InfoCircleOutlined, SafetyCertificateOutlined, StopOutlined, TeamOutlined, WarningOutlined } from "@ant-design/icons";
 import { Alert, Card, Flex, Popover, Select, Table, Tag, Tooltip, Typography } from "antd";
 import { useEffect, useMemo, useState } from "react";
 import dayjs from "dayjs";
@@ -11,8 +11,6 @@ import {
   periodOptions,
   supplierBaseStats,
   sustainabilityStats,
-  type Co2DataQuality,
-  type DataLevel,
   type DemoSettings,
   type DocumentRecord,
   type ErpRecord,
@@ -24,7 +22,6 @@ import {
 import { api } from "@/lib/api";
 import { formatNumber, shortPartName } from "@/lib/labels";
 import { shortName } from "@/lib/names";
-import { PcfBadgeTag } from "./pcf-badge-tag";
 import { InfoTip } from "./info-tip";
 import { PageHeader } from "./page-header";
 import { RiskLevelTag } from "./risk-level-tag";
@@ -32,10 +29,9 @@ import { DataRequestsCard } from "./data-requests-card";
 import { Co2TargetChart, SupplierBaseFacts, SupplierBaseMap } from "./analytics-charts";
 import { usePartnerData } from "@/lib/partner-data";
 import { FilterBar, defaultFilter, type StatsFilter } from "./filter-bar";
-import { ExplainedTitle, Relationship, SupplierNameLink, relationshipLabel } from "@/lib/supplier-labels";
+import { SupplierNameLink, relationshipLabel } from "@/lib/supplier-labels";
 import { BRAND } from "@/lib/theme";
 
-const TEAL = BRAND.secondary;
 
 interface Data {
   orders: PurchaseOrderRecord[];
@@ -43,21 +39,6 @@ interface Data {
   ratings: RatingRecord[];
   pcf: PcfRecord[];
   fines: DocumentRecord[];
-}
-
-/** One row of "CO₂ data per supplier": the data level over the whole base plus the CO₂ values behind our purchases. */
-interface DataRow {
-  supplierId: string;
-  level: DataLevel;
-  missing: string[];
-  parts: Co2DataQuality[];
-}
-
-/** Data level as icon plus word (never colour alone). */
-function DataLevelLabel({ level }: { level: DataLevel }) {
-  if (level === "sufficient") return <span className="tone-good"><CheckCircleOutlined /> Sufficient</span>;
-  if (level === "partial") return <span className="tone-warn"><MinusCircleOutlined /> Partly</span>;
-  return <span className="tone-bad"><CloseCircleOutlined /> Insufficient</span>;
 }
 
 const FLAG_ICON: Record<string, React.ReactNode> = {
@@ -159,7 +140,6 @@ export function SustainabilityPage({
 
   const erpOf = (id: string) => data.erp.find((e) => e.supplierId === id);
   const name = (id: string) => shortName(erpOf(id)?.supplierName ?? id);
-  const part = (id: string) => (settings.catalog.find((p) => p.partId === id)?.partName ?? id).split(",")[0]!;
   const outdated = stats.dataQuality.filter((d) => d.outdated);
   // Who is behind the risk counts (active suppliers), so the tile can list them on click.
   const activeIds = new Set(data.erp.filter((e) => e.relationshipStatus === "Active contract").map((e) => e.supplierId));
@@ -174,7 +154,6 @@ export function SustainabilityPage({
     .map((p) => ({ partId: p.partId, label: shortPartName(p.partId, p.partName), name: p.partName }));
   const relationships = [...new Set(data.erp.map((e) => e.relationshipStatus).filter(Boolean))].sort();
   const hasRelationship = (id: string, wanted: string | null) => !wanted || erpOf(id)?.relationshipStatus === wanted;
-  const dataGaps = stats.dataGaps.filter((g) => hasRelationship(g.supplierId, dataRelationship));
   const isActive = (id: string) => erpOf(id)?.relationshipStatus === "Active contract";
   // Current suppliers first: they are the ones Sarah has to act on.
   const flagged = stats.flagged
@@ -186,18 +165,6 @@ export function SustainabilityPage({
     (partner?.alerts ?? [])
       .filter((a) => a.supplierId === id)
       .sort((x, y) => SEVERITY_ORDER[x.severity]! - SEVERITY_ORDER[y.severity]! || y.date.localeCompare(x.date));
-  // CO₂ data per supplier: suppliers we bought from first (with their CO₂ values), then the other data gaps.
-  const levelOf = new Map(stats.dataGaps.map((g) => [g.supplierId, g]));
-  const purchased = [...new Set(stats.dataQuality.map((d) => d.supplierId))];
-  const dataRows: DataRow[] = [
-    ...purchased.map((id) => ({
-      supplierId: id,
-      level: levelOf.get(id)?.level ?? ("sufficient" as DataLevel),
-      missing: levelOf.get(id)?.missing ?? [],
-      parts: stats.dataQuality.filter((d) => d.supplierId === id),
-    })),
-    ...stats.dataGaps.filter((g) => !purchased.includes(g.supplierId)).map((g) => ({ ...g, parts: [] })),
-  ].filter((r) => hasRelationship(r.supplierId, dataRelationship));
   const openPlain = onOpenSupplier ? (id: string) => onOpenSupplier(id) : undefined;
   const relationshipSelect = (value: string | null, onChange: (v: string | null) => void) => (
     <Select
@@ -217,11 +184,6 @@ export function SustainabilityPage({
       : null;
 
   const lv = stats.dataLevels;
-  const levelParts = [
-    { key: "Sufficient", n: lv.sufficient, color: TEAL },
-    { key: "Partly", n: lv.partial, color: BRAND.textTertiary },
-    { key: "Insufficient", n: lv.insufficient, color: BRAND.borderStrong },
-  ].filter((p) => p.n > 0);
 
   return (
     <Flex vertical gap={12}>
@@ -317,9 +279,10 @@ export function SustainabilityPage({
           erp={data.erp}
           dataQuality={stats.dataQuality}
           dataGaps={stats.dataGaps}
-          flagged={stats.flagged}
           name={name}
           onOpenSupplier={openPlain}
+          keep={(id) => hasRelationship(id, dataRelationship)}
+          relationshipFilter={relationshipSelect(dataRelationship, setDataRelationship)}
         />
 
         <Card
@@ -501,73 +464,6 @@ export function SustainabilityPage({
       })()}
 
 
-      <Card
-        className="dash-card"
-        size="small"
-        title={`CO₂ data per supplier (${dataRelationship ? `${relationshipLabel(dataRelationship)}: ${dataRows.length}` : `${dataGaps.length} of ${stats.allSuppliers} with gaps`})`}
-        extra={relationshipSelect(dataRelationship, setDataRelationship)}
-        styles={{ body: { padding: 0 } }}
-      >
-        <div style={{ padding: "10px 12px 6px" }}>
-          <div className="stack-track" role="img" aria-label={levelParts.map((p) => `${p.key} ${p.n}`).join(", ")}>
-            {levelParts.map((p) => (
-              <div key={p.key} style={{ flex: p.n, background: p.color }} />
-            ))}
-          </div>
-          <Flex gap={14} wrap style={{ fontSize: 12, marginTop: 6 }}>
-            {levelParts.map((p) => (
-              <Flex key={p.key} align="center" gap={6}>
-                <span aria-hidden="true" style={{ width: 10, height: 10, borderRadius: 2, background: p.color, border: `1px solid ${BRAND.borderStrong}` }} />
-                {p.key}: {p.n}
-              </Flex>
-            ))}
-          </Flex>
-          <Typography.Text type="secondary" style={{ fontSize: 12, display: "block", marginTop: 6 }}>
-            Sufficient = CO₂ data from the supplier (report, self-assessment or PCF declaration) and a sustainability rating. Industry averages
-            and web searches do not count. Suppliers we bought from in {stats.period.label} come first, with the CO₂ value behind each product.
-          </Typography.Text>
-        </div>
-        <Table<DataRow>
-          size="small"
-          pagination={false}
-          rowKey="supplierId"
-          dataSource={dataRows}
-          locale={{ emptyText: `No ${dataRelationship ? relationshipLabel(dataRelationship).toLowerCase() : "supplier"} with CO₂ purchases or data gaps.` }}
-          scroll={{ y: 260, x: 860 }}
-          columns={[
-            { title: "Supplier", key: "s", width: 200, render: (_, r) => <SupplierNameLink supplierId={r.supplierId} name={name(r.supplierId)} onOpen={openPlain} /> },
-            { title: <ExplainedTitle title="Relationship" kind="relationship" />, key: "rel", width: 170, render: (_, r) => <Relationship status={erpOf(r.supplierId)?.relationshipStatus} /> },
-            { title: "Data", key: "lv", width: 120, render: (_, r) => <DataLevelLabel level={r.level} /> },
-            {
-              title: `CO₂ value in purchases, ${stats.period.label}`,
-              key: "pcf",
-              render: (_, r) =>
-                r.parts.length === 0 ? (
-                  <Typography.Text type="secondary">Not bought in this period</Typography.Text>
-                ) : (
-                  <Flex vertical gap={4}>
-                    {r.parts.map((d) => (
-                      <Flex key={d.pcfRecordId} gap={6} align="center" wrap>
-                        <span>{part(d.partId)}</span>
-                        <PcfBadgeTag badge={d.badge} />
-                        {d.outdated ? (
-                          <Tooltip title="Older than 1 year: ask the supplier for an update">
-                            <span tabIndex={0} style={{ fontSize: 12 }}>
-                              <WarningOutlined /> as of {formatDay(d.referenceDate)}
-                            </span>
-                          </Tooltip>
-                        ) : (
-                          <Typography.Text type="secondary" style={{ fontSize: 12 }}>as of {formatDay(d.referenceDate)}</Typography.Text>
-                        )}
-                      </Flex>
-                    ))}
-                  </Flex>
-                ),
-            },
-            { title: "Missing", key: "m", width: 220, render: (_, r) => (r.missing.length ? r.missing.join(", ") : "—") },
-          ]}
-        />
-      </Card>
     </Flex>
   );
 }
