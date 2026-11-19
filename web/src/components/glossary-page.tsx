@@ -99,13 +99,13 @@ function terms(rules: BuyerRules | null): Term[] {
     },
     {
       term: "CO₂ price",
-      means: `${co2Price} € per tonne CO₂e, set by the Scope 3 manager. Turns CO₂ into euros for information.`,
+      means: `${co2Price} € per tonne CO₂e, set by the sustainability manager. Turns CO₂ into euros for information.`,
       helps: "Puts CO₂ and price side by side. Never part of the score.",
       where: "Compare step: price vs. current supplier; Results",
     },
     {
       term: "CO₂ target",
-      means: "CO₂ to avoid this year, set by the Scope 3 manager for the company, each buyer and each commodity group. Achieved = CO₂ avoided by Fairweigh decisions this year. Status: achieved; on track = at least the share of the year passed; otherwise at risk.",
+      means: "CO₂ to avoid this year, set by the sustainability manager for the company, each buyer and each commodity group. Achieved = CO₂ avoided by Fairweigh decisions this year. Status: achieved; on track = at least the share of the year passed; otherwise at risk.",
       helps: "Makes the CO₂ effect of each decision visible and shows where the company falls behind.",
       where: "Work queue: progress bar; CO₂ targets page; CPO dashboard",
     },

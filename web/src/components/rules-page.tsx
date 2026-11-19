@@ -69,14 +69,14 @@ export function RulesPage({ rules, user, onSaved }: Props) {
       />
 
       <div className="sus-grid">
-        <Card className="dash-card" size="small" title="Set by the Scope 3 manager">
+        <Card className="dash-card" size="small" title="Set by the sustainability manager">
           {!editable && (
             <Alert
               type="info"
               showIcon
               icon={<LockOutlined />}
               style={{ marginBottom: 12 }}
-              title="Only the Scope 3 manager (Sarah) can change these rules. Switch user in the account menu to try it."
+              title="Only the sustainability manager (Sarah) can change these rules. Switch user in the account menu to try it."
             />
           )}
           <Form<Values>
@@ -170,7 +170,7 @@ export function RulesPage({ rules, user, onSaved }: Props) {
               </Typography.Text>
             ))}
             <Typography.Text type="secondary" style={{ fontSize: 12 }}>
-              These rules protect buyers from misleading results and cannot be changed. Only the Scope 3 manager can change the rules
+              These rules protect buyers from misleading results and cannot be changed. Only the sustainability manager can change the rules
               above.
             </Typography.Text>
           </Flex>

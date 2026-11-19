@@ -103,7 +103,7 @@ describe('warnings', () => {
     const co2 = ev({ topic: 'co2', value: 11.2, unit: 'kg', system: 'pcf', recordId: 'PCF-S-1', location: { kind: 'field', field: 'pcfKgPerPiece' }, sourceDate: '2026-09-01', sourceBadge: 'Company estimate' });
     expect(input([co2]).warnings).toEqual([]);
     const flagged = buildDecisionInput(run([co2]), { ...options, flagEstimatedCo2: true })[0]!;
-    expect(flagged.warnings).toEqual(['CO₂ value estimated, not supplier-specific (rule of the Scope 3 manager)']);
+    expect(flagged.warnings).toEqual(['CO₂ value estimated, not supplier-specific (rule of the sustainability manager)']);
     expect(flagged.values.co2).toBe(11.2);
     const actual = buildDecisionInput(run([{ ...co2, sourceBadge: 'Supplier-specific' }]), { ...options, flagEstimatedCo2: true })[0]!;
     expect(actual.warnings).toEqual([]);
