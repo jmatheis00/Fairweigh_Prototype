@@ -54,7 +54,8 @@ export function ScoreHelp({ open, title, onClose, rules, weights, defaults }: Pr
         </li>
         <li>
           <strong>Gaps never help.</strong> A missing or unverified value counts as 50 % worse and gets a visible notice. A supplier
-          that never delivered gets a range for quality and delivery and is ranked after all offers with real data.
+          that never delivered gets a range for quality and delivery and is ranked after all offers with real data. An estimated CO₂ value
+          (company estimate or industry average) never counts better than today.
         </li>
         <li>
           <strong>Weighting.</strong> The weights (together 100 %) weight the four criteria: product quality, price, CO₂ and delivery

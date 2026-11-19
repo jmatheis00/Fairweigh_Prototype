@@ -5,7 +5,7 @@ import { Button, Flex, Typography } from "antd";
 import { CRITERIA, type AgentRun, type Criterion, type DecisionResult, type LeadRequirement } from "@scc/shared";
 import { dataRequestText, requestItems, requestMailto } from "@/lib/data-request";
 import { TOPIC_LABEL, formatNumber, formatEur, formatVsToday } from "@/lib/labels";
-import { pcfBadgeTooltip } from "./pcf-badge-tag";
+import { pcfBadgeLabel, pcfBadgeTooltip } from "./pcf-badge-tag";
 
 interface Props {
   run: AgentRun;
@@ -106,7 +106,7 @@ export function MissingData({ run, result, supplierNames, requirements, partName
             </div>
           )}
           {i.co2Badge && !i.missing.includes("co2") && i.asks.some((a) => a.includes("estimate")) && (
-            <div title={pcfBadgeTooltip(i.co2Badge)}>CO₂ value is only an estimate ({i.co2Badge}).</div>
+            <div title={pcfBadgeTooltip(i.co2Badge)}>CO₂ value is only an estimate ({pcfBadgeLabel(i.co2Badge)}).</div>
           )}
           {i.asks.length > 0 && (
             <Flex vertical gap={4} style={{ marginTop: 6 }}>

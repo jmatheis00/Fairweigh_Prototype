@@ -87,6 +87,16 @@ describe('values', () => {
     expect(result.values).toEqual({ quality: 0.8, price: null, co2: null, delivery: null });
     expect(result.warnings).toContain('Price: evidence not verified');
   });
+
+  it("marks CO₂ as estimated unless it is the supplier's own figure for the part (19 Nov 2026)", () => {
+    const co2 = (sourceBadge: Evidence['sourceBadge']) =>
+      ev({ topic: 'co2', value: 11.2, unit: 'kg', system: 'pcf', recordId: 'PCF-S-1', location: { kind: 'field', field: 'pcfKgPerPiece' }, sourceBadge });
+    expect(input([co2('Company estimate')]).estimated).toEqual(['co2']);
+    expect(input([co2('Industry average')]).estimated).toEqual(['co2']);
+    expect(input([co2('Supplier-specific')]).estimated).toEqual([]);
+    expect(input([co2('Verified')]).estimated).toEqual([]);
+    expect(input([co2('Company estimate')]).values.co2).toBe(11.2);
+  });
 });
 
 describe('warnings', () => {

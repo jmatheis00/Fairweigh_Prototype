@@ -17,8 +17,8 @@ const run: AgentRun = {
 const points = { quality: 0, price: 0, co2: 0, delivery: 0 };
 const result: DecisionResult = {
   ranked: [
-    { rank: 1, supplierId: 'A', score: 66, points, verifiedCount: 4, missing: [], assumed: [], scoreRange: null, pointsHigh: null, warnings: [] },
-    { rank: 2, supplierId: 'B', score: 45, points, verifiedCount: 4, missing: [], assumed: [], scoreRange: null, pointsHigh: null, warnings: [] },
+    { rank: 1, supplierId: 'A', score: 66, points, verifiedCount: 4, missing: [], assumed: [], capped: [], scoreRange: null, pointsHigh: null, warnings: [] },
+    { rank: 2, supplierId: 'B', score: 45, points, verifiedCount: 4, missing: [], assumed: [], capped: [], scoreRange: null, pointsHigh: null, warnings: [] },
   ],
   excluded: [{ supplierId: 'X', knockOut: { reason: 'fine', recordId: 'DOC-FINE-X' }, warnings: [] }],
   recommendation: { supplierId: 'A', score: 66, runnerUpId: 'B', margin: 21, bestIn: [], couldLead: [] },
