@@ -15,7 +15,7 @@ import {
   type DecisionResult,
   type Evidence,
 } from "@scc/shared";
-import { AGE_NOTE, SCORE_BAND_LABEL, knockOutLabel, TOPIC_LABEL, formatNumber, scoreBand, formatEur, formatVsToday, formatVsTodayShort, formatVsTodayRange, formatCriterionVsToday, formatCriterionRange, AS_TODAY, scorePillClass } from "@/lib/labels";
+import { AGE_NOTE, SCORE_BAND_LABEL, knockOutLabel, TOPIC_LABEL, formatNumber, scoreBand, formatEur, formatVsToday, formatVsTodayShort, formatVsTodayRange, formatCriterionVsToday, formatCriterionRange, CRITERION_LIMIT, AS_TODAY, scorePillClass } from "@/lib/labels";
 import { shortNote } from "@/lib/notes";
 import { priceRequestMailto } from "@/lib/price-request";
 import { PcfBadgeTag } from "./pcf-badge-tag";
@@ -273,7 +273,10 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
       const second = !row.points ? "" : `${formatNumber(row.points[c], 0)} pts${!benchmarks && row.points[c] === 100 ? " · best" : ""}`;
       const pointsValue = row.points?.[c] ?? null;
       const secondHint = benchmarks
-        ? `${versusBenchmark(c, evidence.value, benchmarks[c].value)} than today (${benchmarkValue(c, benchmarks[c].value)})`.replace("same as today than today", "the same as today")
+        ? `${versusBenchmark(c, evidence.value, benchmarks[c].value)} than today (${benchmarkValue(c, benchmarks[c].value)})`.replace("same as today than today", "the same as today") +
+          (pointsValue !== null && (pointsValue <= 0 || pointsValue >= 100)
+            ? `. Counts as ${CRITERION_LIMIT} % ${pointsValue <= 0 ? "worse" : "better"} in the score (limit).`
+            : "")
         : null;
       // Slim matrix (10 Nov 2026): the "as of" date is in the source panel; old data keeps a warning icon here.
       const age = row.ageWarnings.find((w) => (c === "price" ? w.startsWith("Price") : c === "co2" ? w.startsWith("CO₂") : false));

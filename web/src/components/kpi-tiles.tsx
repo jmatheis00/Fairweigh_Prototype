@@ -136,6 +136,7 @@ export function RecommendationDetails({
           c,
           value: v !== null ? valueText(c, v) : first.assumed.includes(c) ? "range: never delivered" : "missing",
           points: first.points[c],
+          missing: first.missing.includes(c),
           adds: ((first.points[c] - 50) * weights[c]) / 100,
           runnerUpAdds: runnerUp ? ((runnerUp.points[c] - 50) * weights[c]) / 100 : null,
         };
@@ -234,7 +235,7 @@ export function RecommendationDetails({
             columns={[
               { title: "Criterion", key: "c", render: (_, r) => TOPIC_LABEL[r.c] },
               { title: "Value", key: "v", render: (_, r) => r.value },
-              { title: "vs today", key: "p", align: "right", render: (_, r) => formatCriterionVsToday(r.points) },
+              { title: "vs today", key: "p", align: "right", render: (_, r) => formatCriterionVsToday(r.points, r.missing) },
               { title: "Weight", key: "w", align: "right", render: (_, r) => `${weights[r.c]} %` },
               { title: "Adds", key: "a", align: "right", render: (_, r) => <strong>{formatDiff(r.adds, 1, "0 %")}</strong> },
               ...(runnerUp
