@@ -30,12 +30,14 @@ import {
   type PurchaseRequisitionRecord,
   type QueueEntry,
   type RunMode,
+  type StartedProcess,
   type Weights,
 } from "@scc/shared";
 import { api } from "@/lib/api";
 import { useRuns } from "@/lib/use-runs";
 import { loadFavourites, saveFavourites } from "@/lib/favourites";
 import { loadManualRequisitions, saveManualRequisitions } from "@/lib/manual-requisitions";
+import { loadStartedProcesses, saveStartedProcesses } from "@/lib/started-processes";
 import { TOPIC_LABEL } from "@/lib/labels";
 import { shortName } from "@/lib/names";
 import { theme } from "@/lib/theme";
@@ -84,15 +86,7 @@ const PAGE_SLUGS: Partial<Record<AppPage, string>> = { queue: "work-queue", impa
 const pageFromSlug = (slug: string): string => (Object.entries(PAGE_SLUGS).find(([, v]) => v === slug)?.[0] ?? slug);
 
 /** One purchase process started from the work queue (expert interviews, 10 Nov 2026). */
-interface Process {
-  requisition: PurchaseRequisitionRecord;
-  quantity: number;
-  neededBy: string | null;
-  step: ProcessStep;
-  reached: ProcessStep;
-  run: AgentRun | null;
-  record: DecisionRecord | null;
-}
+type Process = StartedProcess;
 
 /** Which AI service collects the evidence, for "About Fairweigh". */
 function aiService(mode: RunMode | null): string {
@@ -156,6 +150,8 @@ export function CockpitShell() {
   const [routeReady, setRouteReady] = useState(false);
   const [orders, setOrders] = useState<PurchaseOrderRecord[]>([]);
   const [processes, setProcesses] = useState<Record<string, Process>>({});
+  // Whose processes are in state; nothing is saved before they were read from this browser (18 Nov 2026).
+  const [processesOwner, setProcessesOwner] = useState<string | null>(null);
   const [activeReqId, setActiveReqId] = useState<string | null>(null);
   // Product of the open process, kept as its own value so the weights do not depend on the process object.
   const [activePartId, setActivePartId] = useState<string | null>(null);
@@ -170,6 +166,11 @@ export function CockpitShell() {
   const updateProcess = useCallback((id: string, change: Partial<Process>) => {
     setProcesses((prev) => (prev[id] ? { ...prev, [id]: { ...prev[id]!, ...change } } : prev));
   }, []);
+
+  // Started processes are kept in this browser, so a reload continues where the buyer was (18 Nov 2026).
+  useEffect(() => {
+    if (processesOwner === user.id) saveStartedProcesses(user, processes);
+  }, [processes, processesOwner, user]);
 
   const refreshUsage = useCallback(() => {
     api.usage().then(setUsage).catch(() => {});
@@ -192,6 +193,8 @@ export function CockpitShell() {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- reading browser storage once after mount
     setFavourites(loadFavourites(stored));
     setManualRequisitions(loadManualRequisitions(stored));
+    setProcesses(loadStartedProcesses(stored));
+    setProcessesOwner(stored.id);
     setUser(stored);
     setPage(START_PAGE[stored.role] as AppPage);
   }, []);
@@ -200,6 +203,11 @@ export function CockpitShell() {
     setUser(next);
     setFavourites(loadFavourites(next));
     setManualRequisitions(loadManualRequisitions(next));
+    // Each user continues their own started processes.
+    setProcesses(loadStartedProcesses(next));
+    setProcessesOwner(next.id);
+    setActiveReqId(null);
+    setActivePartId(null);
     saveUser(next);
     setSignedOut(false);
     setPanel(null);
@@ -530,7 +538,7 @@ export function CockpitShell() {
           }
           return;
         }
-        // After a reload the evidence of the earlier run is gone, so the process starts again at "Request".
+        // A requisition not started in this browser starts at "Request".
         const entry = queue.find((e) => e.requisition.recordId === id);
         if (entry && user.canRun && entry.status !== "decided") startProcess(entry.requisition);
         return;
