@@ -2,10 +2,11 @@
 
 import { MailOutlined } from "@ant-design/icons";
 import { Button, Card, Flex, Segmented, Table, Tag, Typography } from "antd";
-import { useState, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import { formatDay, type Co2DataQuality, type DataLevel, type ErpRecord } from "@scc/shared";
 import { requestMailto, sustainabilityRequestText } from "@/lib/data-request";
 import { usePartnerData } from "@/lib/partner-data";
+import { InfoTip } from "./info-tip";
 import { DataLevelLabel, SupplierNameLink, relationshipLabel } from "@/lib/supplier-labels";
 
 const DEMO_DATE = "2026-11-06";
@@ -22,7 +23,8 @@ interface Row {
 }
 
 /** Worst data first (19 Nov 2026); "update" = data is there but outdated, only estimated or a certificate expires. */
-type View = "insufficient" | "partial" | "update";
+export type SupplierDataView = "insufficient" | "partial" | "update";
+type View = SupplierDataView;
 
 interface Props {
   erp: ErpRecord[];
@@ -37,6 +39,11 @@ interface Props {
   relationshipFilter: ReactNode;
   /** Opens the suppliers page with this data level as filter ("Show all in Suppliers"). */
   onShowAll?: (level: DataLevel) => void;
+  /** The shown view; the page holds it, so a KPI tile can switch it (19 Nov 2026). */
+  view: View;
+  onViewChange: (view: View) => void;
+  /** Period of the purchases behind "Needs update", e.g. "Q3 2026". */
+  periodLabel: string;
 }
 
 /**
@@ -44,9 +51,8 @@ interface Props {
  * which supplier to ask for which data, and which suppliers have data gaps. Built in code from what
  * the connected systems are missing; a request opens as an e-mail draft, never sent.
  */
-export function DataRequestsCard({ erp, dataQuality, dataGaps, name, onOpenSupplier, keep, relationshipFilter, onShowAll }: Props) {
+export function DataRequestsCard({ erp, dataQuality, dataGaps, name, onOpenSupplier, keep, relationshipFilter, onShowAll, view, onViewChange, periodLabel }: Props) {
   const { data } = usePartnerData();
-  const [view, setView] = useState<View>("insufficient");
   const active = new Set(erp.filter((e) => e.relationshipStatus === "Active contract").map((e) => e.supplierId));
   const levelOf = new Map(dataGaps.map((g) => [g.supplierId, g.level]));
   const rows = new Map<string, Row>();
@@ -105,14 +111,14 @@ export function DataRequestsCard({ erp, dataQuality, dataGaps, name, onOpenSuppl
     <Card
       className="dash-card"
       size="small"
-      title="Supplier data"
+      title="Supplier data, today"
       extra={
         <Flex gap={8} wrap justify="end">
           <Segmented<View>
             size="small"
             aria-label="Which suppliers"
             value={view}
-            onChange={setView}
+            onChange={onViewChange}
             options={[
               { value: "insufficient", label: `Insufficient (${lists.insufficient.length})` },
               { value: "partial", label: `Partly (${lists.partial.length})` },
@@ -140,12 +146,25 @@ export function DataRequestsCard({ erp, dataQuality, dataGaps, name, onOpenSuppl
               <Flex vertical align="start">
                 <SupplierNameLink supplierId={r.supplierId} name={name(r.supplierId)} onOpen={onOpenSupplier} />
                 <Typography.Text type="secondary" style={{ fontSize: 12 }}>
-                  {r.priority === 0 ? "In our purchases" : relationshipLabel(erpOf(r.supplierId)?.relationshipStatus)}
+                  {r.priority === 0 ? `In our purchases, ${periodLabel}` : relationshipLabel(erpOf(r.supplierId)?.relationshipStatus)}
                 </Typography.Text>
               </Flex>
             ),
           },
-          { title: "Data", key: "lv", width: 115, render: (_, r) => <DataLevelLabel level={r.level} /> },
+          {
+            title: (
+              <span>
+                Data{" "}
+                <InfoTip
+                  label="data levels"
+                  title="Sufficient = the supplier's own CO₂ data (report, self-assessment or PCF declaration) and a sustainability rating. Industry averages and web searches do not count."
+                />
+              </span>
+            ),
+            key: "lv",
+            width: 115,
+            render: (_, r) => <DataLevelLabel level={r.level} />,
+          },
           {
             title: "Why",
             key: "w",
@@ -182,13 +201,10 @@ export function DataRequestsCard({ erp, dataQuality, dataGaps, name, onOpenSuppl
         ]}
       />
       <Typography.Text type="secondary" style={{ fontSize: 12, display: "block", padding: "6px 12px 10px" }}>
-        Worst data first; within each view, suppliers in our purchases and current suppliers come first. Requests open as e-mail
-        drafts. Sufficient = CO₂ data from the supplier (report, self-assessment or PCF declaration) and a sustainability rating;
-        industry averages and web searches do not count. “Needs update” = data is there, but outdated, only estimated or a
-        certificate expires.
+        Our own suppliers first · requests open as e-mail drafts
         {onShowAll && view !== "update" && (
           <>
-            {" "}
+            {" · "}
             <Button type="link" size="small" className="inline-link" style={{ fontSize: "inherit" }} onClick={() => onShowAll(view)}>
               Show all {view === "insufficient" ? "insufficient" : "partly"} in Suppliers
             </Button>

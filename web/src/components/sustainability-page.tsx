@@ -1,7 +1,7 @@
 "use client";
 
-import { AuditOutlined, CheckCircleOutlined, CloudOutlined, ExclamationCircleOutlined, InfoCircleOutlined, SafetyCertificateOutlined, TeamOutlined, WarningOutlined } from "@ant-design/icons";
-import { Alert, Button, Card, Flex, Popover, Select, Table, Tooltip, Typography } from "antd";
+import { AuditOutlined, CheckCircleOutlined, CloudOutlined, MailOutlined, ExclamationCircleOutlined, InfoCircleOutlined, SafetyCertificateOutlined, TeamOutlined, WarningOutlined } from "@ant-design/icons";
+import { Alert, Button, Card, Flex, Select, Table, Tooltip, Typography } from "antd";
 import { useEffect, useMemo, useState } from "react";
 import dayjs from "dayjs";
 import {
@@ -20,12 +20,13 @@ import {
   type RiskAlert,
 } from "@scc/shared";
 import { api } from "@/lib/api";
-import { formatNumber, shortPartName } from "@/lib/labels";
+import { requestMailto, riskRequest, riskRequestText } from "@/lib/data-request";
+import { formatMonth, formatNumber, shortPartName } from "@/lib/labels";
 import { shortName } from "@/lib/names";
 import { InfoTip } from "./info-tip";
 import { PageHeader } from "./page-header";
 import { RiskLevelTag } from "./risk-level-tag";
-import { DataRequestsCard } from "./data-requests-card";
+import { DataRequestsCard, type SupplierDataView } from "./data-requests-card";
 import { Co2TargetChart, SupplierBaseFacts, SupplierBaseMap } from "./analytics-charts";
 import { usePartnerData } from "@/lib/partner-data";
 import { FilterBar, defaultFilter, type StatsFilter } from "./filter-bar";
@@ -49,44 +50,6 @@ function toneOf(value: number | null, good: number, warn: number): string {
   return value >= good ? "kpi-good" : value >= warn ? "kpi-warn" : "kpi-bad";
 }
 
-/** Click a count to see which suppliers it is about. */
-function SupplierListPopover({
-  title,
-  ids,
-  name,
-  onOpen,
-  children,
-}: {
-  title: string;
-  ids: string[];
-  name: (id: string) => string;
-  onOpen?: (id: string) => void;
-  children: React.ReactNode;
-}) {
-  return (
-    <Popover
-      trigger="click"
-      placement="bottomLeft"
-      title={`${title} (${ids.length})`}
-      content={
-        ids.length ? (
-          <ul style={{ margin: 0, paddingLeft: 18, maxHeight: 240, overflow: "auto" }}>
-            {ids.map((id) => (
-              <li key={id}>
-                <SupplierNameLink supplierId={id} name={name(id)} onOpen={onOpen} /> <Typography.Text type="secondary">{id}</Typography.Text>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          "None"
-        )
-      }
-    >
-      {children}
-    </Popover>
-  );
-}
-
 /** Sarah's view: Scope 3 hotspots, data quality, data requests, risk and rules. */
 export function SustainabilityPage({
   settings,
@@ -107,6 +70,8 @@ export function SustainabilityPage({
   const [dataRelationship, setDataRelationship] = useState<string | null>(null);
   const [riskRelationship, setRiskRelationship] = useState<string | null>(null);
   const [flagFilter, setFlagFilter] = useState<string | null>(null);
+  // Supplier data view; a KPI tile can switch it (19 Nov 2026).
+  const [dataView, setDataView] = useState<SupplierDataView>("insufficient");
   const partner = usePartnerData().data;
 
   useEffect(() => {
@@ -138,6 +103,7 @@ export function SustainabilityPage({
   if (!data || !stats || !options || !active) return null;
 
   const erpOf = (id: string) => data.erp.find((e) => e.supplierId === id);
+  const ratingOf = (id: string) => data.ratings.find((r) => r.supplierId === id);
   const name = (id: string) => shortName(erpOf(id)?.supplierName ?? id);
   const outdated = stats.dataQuality.filter((d) => d.outdated);
   // Who is behind the risk counts (active suppliers), so the tile can list them on click.
@@ -164,6 +130,10 @@ export function SustainabilityPage({
     (partner?.alerts ?? [])
       .filter((a) => a.supplierId === id)
       .sort((x, y) => SEVERITY_ORDER[x.severity]! - SEVERITY_ORDER[y.severity]! || y.date.localeCompare(x.date));
+  const showRisk = (flag: string) => {
+    setRiskRelationship("Active contract");
+    setFlagFilter(flag);
+  };
   const openPlain = onOpenSupplier ? (id: string) => onOpenSupplier(id) : undefined;
   const relationshipSelect = (value: string | null, onChange: (v: string | null) => void) => (
     <Select
@@ -189,10 +159,10 @@ export function SustainabilityPage({
       <PageHeader
         title={
           <>
-            CO₂ and risks, {stats.period.label}{" "}
+            CO₂ and risks{" "}
             <InfoTip
               label="what matters most on this page"
-              title="Most important for decisions: purchased CO₂ against the target path, suppliers whose CO₂ data is estimated or outdated (“Data to request”), and suppliers with LkSG risk High. Every term is explained in the Glossary (? menu)."
+              title="Most important for decisions: purchased CO₂ against the target path, suppliers with missing or outdated data (“Supplier data”), and suppliers with LkSG risk High. Each card says the time span it covers; the period filter changes the cards marked with a quarter. Every term is explained in the Glossary (? menu)."
             />
           </>
         }
@@ -208,7 +178,7 @@ export function SustainabilityPage({
 
       <div className="kpi-grid kpi-grid-4">
         <Card className="dash-card" size="small">
-          <div className="kpi-label"><CloudOutlined /> Purchased CO₂e (Scope 3, category 1)</div>
+          <div className="kpi-label"><CloudOutlined /> Purchased CO₂e, {stats.period.label} (Scope 3, cat. 1)</div>
           <div className="kpi-value">{formatNumber(stats.co2Tonnes, 1)} t</div>
           <div className="kpi-sub">
             {trend !== null && stats.previous && (
@@ -223,49 +193,58 @@ export function SustainabilityPage({
           </div>
         </Card>
         <Card className="dash-card" size="small">
-          <div className="kpi-label"><SafetyCertificateOutlined /> Spend with supplier-specific CO₂ data</div>
+          <div className="kpi-label"><SafetyCertificateOutlined /> Spend with supplier-specific CO₂ data, {stats.period.label}</div>
           <div className={`kpi-value ${toneOf(stats.supplierSpecificSpendPercent, 80, 50)}`}>
             {stats.supplierSpecificSpendPercent === null ? "—" : `${formatNumber(stats.supplierSpecificSpendPercent, 0)} %`}
           </div>
           <div className="kpi-sub">
             {outdated.length > 0 ? (
-              <>
+              <button type="button" className="link-button" onClick={() => setDataView("update")}>
                 <WarningOutlined /> {outdated.length} of {stats.dataQuality.length} values older than 1 year
-              </>
+              </button>
             ) : (
               "All values younger than 1 year"
             )}
           </div>
         </Card>
         <Card className="dash-card" size="small">
-          <div className="kpi-label"><TeamOutlined /> Suppliers with sufficient sustainability data</div>
+          <div className="kpi-label"><TeamOutlined /> Suppliers with sufficient sustainability data, today</div>
           <div className={`kpi-value ${toneOf((100 * lv.sufficient) / stats.allSuppliers, 80, 50)}`}>
             {lv.sufficient} of {stats.allSuppliers}
           </div>
           <div className="kpi-sub">
-            {lv.partial} partly · {lv.insufficient} insufficient · from the source systems
+            <button type="button" className="link-button" onClick={() => setDataView("partial")}>
+              {lv.partial} partly
+            </button>{" "}
+            ·{" "}
+            <button type="button" className="link-button" onClick={() => setDataView("insufficient")}>
+              {lv.insufficient} insufficient
+            </button>
           </div>
         </Card>
         <Card className="dash-card" size="small">
-          <div className="kpi-label"><AuditOutlined /> Risks among active suppliers</div>
-          <SupplierListPopover title="High LkSG country risk" ids={riskLists.lksgHigh} name={name} onOpen={openPlain}>
-            <button type="button" className={`kpi-value kpi-link ${riskLists.lksgHigh.length ? "kpi-bad" : "kpi-good"}`}>
-              {riskLists.lksgHigh.length ? <ExclamationCircleOutlined /> : <CheckCircleOutlined />} {riskLists.lksgHigh.length} high LkSG risk
-            </button>
-          </SupplierListPopover>
+          <div className="kpi-label"><AuditOutlined /> Risks among current suppliers, today</div>
+          {/* A click filters the risk table below to current suppliers with this flag (19 Nov 2026). */}
+          <button
+            type="button"
+            className={`kpi-value kpi-link ${riskLists.lksgHigh.length ? "kpi-bad" : "kpi-good"}`}
+            onClick={() => showRisk("LkSG risk High")}
+          >
+            {riskLists.lksgHigh.length ? <ExclamationCircleOutlined /> : <CheckCircleOutlined />} {riskLists.lksgHigh.length} high LkSG risk
+          </button>
           <div className="kpi-sub">
-            <SupplierListPopover title="Controversies reported" ids={riskLists.controversies} name={name} onOpen={openPlain}>
-              <button type="button" className="link-button">{riskLists.controversies.length} controversies</button>
-            </SupplierListPopover>{" "}
+            <button type="button" className="link-button" onClick={() => showRisk("Controversy reported")}>
+              {riskLists.controversies.length} controversies
+            </button>{" "}
             ·{" "}
-            <SupplierListPopover title="Proven violations" ids={riskLists.violations} name={name} onOpen={openPlain}>
-              <button type="button" className="link-button">{riskLists.violations.length} proven violations</button>
-            </SupplierListPopover>
+            <button type="button" className="link-button" onClick={() => showRisk("Proven violation")}>
+              {riskLists.violations.length} proven violations
+            </button>
             <br />
-            <Tooltip title="Share of active suppliers with an emissions reduction target validated by the Science Based Targets initiative (SBTi). Higher is better.">
+            <Tooltip title="Share of current suppliers with an emissions reduction target validated by the Science Based Targets initiative (SBTi), and with a sustainability report. Higher is better.">
               <span tabIndex={0}>
-                Climate target (SBTi): {stats.risk.sbtiPercent === null ? "—" : `${formatNumber(stats.risk.sbtiPercent, 0)} % of suppliers`}{" "}
-                <InfoCircleOutlined />
+                SBTi target {stats.risk.sbtiPercent === null ? "—" : `${formatNumber(stats.risk.sbtiPercent, 0)} %`} · report{" "}
+                {stats.risk.reportPercent === null ? "—" : `${formatNumber(stats.risk.reportPercent, 0)} %`} <InfoCircleOutlined />
               </span>
             </Tooltip>
           </div>
@@ -283,12 +262,15 @@ export function SustainabilityPage({
           keep={(id) => hasRelationship(id, dataRelationship)}
           relationshipFilter={relationshipSelect(dataRelationship, setDataRelationship)}
           onShowAll={onShowSuppliers ? (level) => onShowSuppliers({ data: level, relationship: dataRelationship }) : undefined}
+          view={dataView}
+          onViewChange={setDataView}
+          periodLabel={stats.period.label}
         />
 
         <Card
           className="dash-card"
           size="small"
-          title={`Risks and alerts (${riskRelationship ? `${relationshipLabel(riskRelationship)}: ${flagged.length} flagged` : `${flagged.length} of ${data.ratings.length} suppliers flagged`})`}
+          title={`Risks and alerts, today (${flagged.length} flagged)`}
           extra={
             <Flex gap={8} wrap>
               {relationshipSelect(riskRelationship, setRiskRelationship)}
@@ -312,12 +294,12 @@ export function SustainabilityPage({
             rowKey="supplierId"
             dataSource={flagged}
             locale={{ emptyText: "No supplier with these flags." }}
-            scroll={{ y: 220, x: 640 }}
+            scroll={{ y: 220, x: 620 }}
             columns={[
               {
                 title: "Supplier",
                 key: "s",
-                width: 170,
+                width: 160,
                 render: (_, f) => (
                   <Flex vertical align="start">
                     <SupplierNameLink supplierId={f.supplierId} name={name(f.supplierId)} onOpen={openPlain} />
@@ -330,8 +312,26 @@ export function SustainabilityPage({
               {
                 title: "Flags",
                 key: "f",
-                width: 190,
-                render: (_, f) => <FlagTags flags={f.flags} />,
+                width: 160,
+                // Next step per flag under the tags (19 Nov 2026): SA8000 audit for LkSG High, a statement for a
+                // controversy. A proven violation gets no button: the rule already excludes the supplier.
+                render: (_, f) => {
+                  const { excluded, items } = riskRequest(f.flags, ratingOf(f.supplierId), erpOf(f.supplierId)?.country ?? null);
+                  return (
+                    <Flex vertical gap={6} align="start">
+                      <FlagTags flags={f.flags} />
+                      {items.length ? (
+                        <Tooltip title={items.join(" · ")}>
+                          <Button size="small" icon={<MailOutlined />} href={requestMailto(riskRequestText(name(f.supplierId), items))}>
+                            {items.length === 1 ? (f.flags.includes("LkSG risk High") ? "Request audit" : "Request statement") : `Request (${items.length})`}
+                          </Button>
+                        </Tooltip>
+                      ) : excluded ? (
+                        <Typography.Text type="secondary" style={{ fontSize: 12 }}>{excluded}</Typography.Text>
+                      ) : null}
+                    </Flex>
+                  );
+                },
               },
               {
                 title: `Main alert · ${RISK_MONITORING.label}`,
@@ -357,12 +357,10 @@ export function SustainabilityPage({
             ]}
           />
           <Typography.Text type="secondary" style={{ fontSize: 12, display: "block", padding: "6px 12px 10px" }}>
-            Excluded: proven violations, high LkSG risk without a social audit (SA8000), child or forced labour. Other risks and controversies
-            are warnings. Active suppliers with SBTi target: {stats.risk.sbtiPercent === null ? "—" : `${formatNumber(stats.risk.sbtiPercent, 0)} %`} · with
-            sustainability report: {stats.risk.reportPercent === null ? "—" : `${formatNumber(stats.risk.reportPercent, 0)} %`}.
-                      {onShowSuppliers && (
+            Excluded: proven violation, LkSG High without SA8000, child or forced labour; all other flags are warnings
+            {onShowSuppliers && (
               <>
-                {" "}
+                {" · "}
                 <Button
                   type="link"
                   size="small"
@@ -395,17 +393,11 @@ export function SustainabilityPage({
                 size="small"
                 title={
                   <span>
-                    Current suppliers against their category{" "}
-                    <Tooltip title="Bubble = CO₂ bought: spend × the supplier's CO₂ per € (rating partner). Benchmark = average of all suppliers in the category. Last 12 months. Switch candidates: high spend and more CO₂ per € than the category. Click a bubble to open the supplier.">
+                    Current suppliers vs their category, last 12 months{" "}
+                    <Tooltip title="Bubble = CO₂ bought: spend × the supplier's CO₂ per € (rating partner). Benchmark = average of all suppliers in the category. Switch candidates: high spend and more CO₂ per € than the category. Click a bubble to open the supplier.">
                       <InfoCircleOutlined aria-label="How this chart works" style={{ color: BRAND.textSecondary }} />
                     </Tooltip>
                   </span>
-                }
-                extra={
-                  <Typography.Text type="secondary" style={{ fontSize: 12 }}>
-                    {base.pareto.suppliers} of {base.points.length} suppliers = {formatNumber(base.pareto.spendSharePercent, 0)} % of spend and{" "}
-                    {formatNumber(base.pareto.co2SharePercent, 0)} % of the CO₂
-                  </Typography.Text>
                 }
               >
                 <SupplierBaseMap
@@ -422,6 +414,8 @@ export function SustainabilityPage({
                   }
                 />
                 <Typography.Text type="secondary" style={{ fontSize: 12, display: "block" }}>
+                  {base.pareto.suppliers} of {base.points.length} suppliers = {formatNumber(base.pareto.spendSharePercent, 0)} % of spend and{" "}
+                  {formatNumber(base.pareto.co2SharePercent, 0)} % of the CO₂.{" "}
                   {candidates.length ? (
                     <>
                       Switch candidates:{" "}
@@ -444,7 +438,8 @@ export function SustainabilityPage({
               size="small"
               title={
                 <span>
-                  Purchased CO₂ per month against the target path{" "}
+                  CO₂ per month vs target path
+                  {trend.length > 1 && `, ${formatMonth(`${trend[0]!.month}-01`)} – ${formatMonth(`${trend.at(-1)!.month}-01`)}`}{" "}
                   <Tooltip title="t CO₂e per month from purchase orders × CO₂ per piece. Dashed: the 2025 average reduced by 4.2 % per year (SBTi 1.5 °C cross-sector rate).">
                     <InfoCircleOutlined aria-label="How this chart works" style={{ color: BRAND.textSecondary }} />
                   </Tooltip>
