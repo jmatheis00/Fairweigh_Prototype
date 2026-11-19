@@ -22,7 +22,7 @@
         ]
       },
       "documentType": "fine_notice",
-      "title": "Notice of administrative fine, Shandong Muster Casting Co., Ltd.",
+      "title": "Notice of administrative fine, Xinmo Casting Co., Ltd.",
       "file": "supplier-documents/authority-notices/DOC-FINE-S-0005.pdf",
       "heldBy": "documents",
       "issuedOn": "2024-06-12",
@@ -33,7 +33,7 @@
             "Notice of administrative fine",
             "Issued by: Local environmental authority, Jinan (fictitious)",
             "Date: 12 Jun 2024",
-            "Company: Shandong Muster Casting Co., Ltd., Jinan, China",
+            "Company: Xinmo Casting Co., Ltd., Jinan, China",
             "Supplier ID: S-0005",
             "Decision: Fine of CNY 200,000 for unlawful discharge of untreated wastewater",
             "Status: Final and binding",
@@ -72,11 +72,11 @@
         {
           "page": 1,
           "lines": [
-            "Donautal Stahl GmbH",
+            "Stavio Steel GmbH",
             "Linz, Austria",
             "Quotation OFF-S-0007-P-STL-HSG-01",
             "Date: 15 Oct 2026",
-            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "To: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier ID: S-0007",
             "Part: Steel-cast gearbox housing (P-STL-HSG-01)",
             "Quantity: 5,000 pcs",
@@ -120,11 +120,11 @@
         {
           "page": 1,
           "lines": [
-            "Mustermann Stahlguss GmbH",
+            "Mustermann Steel Castings GmbH",
             "Dortmund, Germany",
             "Quotation OFF-S-0001-P-STL-HSG-01",
             "Date: 22 Oct 2026",
-            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "To: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier ID: S-0001",
             "Part: Steel-cast gearbox housing (P-STL-HSG-01)",
             "Quantity: 5,000 pcs",
@@ -168,11 +168,11 @@
         {
           "page": 1,
           "lines": [
-            "Moselle Acier Europe S.A.",
+            "Novacier Europe S.A.",
             "Esch-sur-Alzette, Luxembourg",
             "Quotation OFF-S-0008-P-STL-HSG-01",
             "Date: 1 Jul 2026",
-            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "To: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier ID: S-0008",
             "Part: Steel-cast gearbox housing (P-STL-HSG-01)",
             "Quantity: 5,000 pcs",
@@ -216,11 +216,11 @@
         {
           "page": 1,
           "lines": [
-            "Anatolia Döküm A.Ş.",
+            "Yıldızer Döküm A.Ş.",
             "Bursa, Türkiye",
             "Quotation OFF-S-0006-P-STL-HSG-01",
             "Date: 8 Oct 2026",
-            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "To: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier ID: S-0006",
             "Part: Steel-cast gearbox housing (P-STL-HSG-01)",
             "Quantity: 5,000 pcs",
@@ -264,11 +264,11 @@
         {
           "page": 1,
           "lines": [
-            "Harzland Flachstahl GmbH",
+            "Feralis Flat Steel GmbH",
             "Salzgitter, Germany",
             "Indicative quotation OFF-S-0003-P-STL-HSG-01",
             "Date: 25 Oct 2026",
-            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "To: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier ID: S-0003",
             "Part: Steel-cast gearbox housing (P-STL-HSG-01)",
             "Quantity: 5,000 pcs",
@@ -312,11 +312,11 @@
         {
           "page": 1,
           "lines": [
-            "Elbkupfer AG",
+            "Cuprion AG",
             "Hamburg, Germany",
             "Quotation OFF-S-0021-P-CU-WIRE-01",
             "Date: 18 Oct 2026",
-            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "To: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier ID: S-0021",
             "Part: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
             "Quantity: 2,000 pcs",
@@ -360,11 +360,11 @@
         {
           "page": 1,
           "lines": [
-            "Elektrisolar Drahtwerk GmbH",
+            "Elektrisolar Wire Works GmbH",
             "Reichshof, Germany",
             "Quotation OFF-S-0022-P-CU-WIRE-01",
             "Date: 21 Oct 2026",
-            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "To: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier ID: S-0022",
             "Part: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
             "Quantity: 2,000 pcs",
@@ -408,11 +408,11 @@
         {
           "page": 1,
           "lines": [
-            "Jiangsu Goldwire Copper Co., Ltd.",
+            "Goldwire Copper Co., Ltd.",
             "Changzhou, China",
             "Quotation OFF-S-0025-P-CU-WIRE-01",
             "Date: 10 Oct 2026",
-            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "To: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier ID: S-0025",
             "Part: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
             "Quantity: 2,000 pcs",
@@ -456,11 +456,11 @@
         {
           "page": 1,
           "lines": [
-            "Kupferwerk Mansfeld Muster GmbH",
+            "Muster Copper Works GmbH",
             "Hettstedt, Germany",
             "Quotation OFF-S-0024-P-CU-WIRE-01",
             "Date: 27 Oct 2026",
-            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "To: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier ID: S-0024",
             "Part: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
             "Quantity: 2,000 pcs",
@@ -508,7 +508,7 @@
             "Poznań, Poland",
             "Quotation OFF-S-0026-P-CU-WIRE-01",
             "Date: 14 Oct 2026",
-            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "To: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier ID: S-0026",
             "Part: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
             "Quantity: 2,000 pcs",
@@ -553,11 +553,11 @@
         {
           "page": 1,
           "lines": [
-            "Kugellager Schweinfurt Muster GmbH",
+            "Muster Ball Bearings GmbH",
             "Schweinfurt, Germany",
             "Quotation OFF-S-0046-P-BRG-01",
             "Date: 20 Oct 2026",
-            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "To: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier ID: S-0046",
             "Part: Deep-groove ball bearing 6208 for gearboxes (P-BRG-01)",
             "Quantity: 20,000 pcs",
@@ -601,11 +601,11 @@
         {
           "page": 1,
           "lines": [
-            "Frankenlager AG",
+            "Ferrolan Bearings AG",
             "Herzogenaurach, Germany",
             "Quotation OFF-S-0041-P-BRG-01",
             "Date: 28 Oct 2026",
-            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "To: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier ID: S-0041",
             "Part: Deep-groove ball bearing 6208 for gearboxes (P-BRG-01)",
             "Quantity: 20,000 pcs",
@@ -649,11 +649,11 @@
         {
           "page": 1,
           "lines": [
-            "Vänern Lager AB",
+            "Lindqvist Lager AB",
             "Gothenburg, Sweden",
             "Quotation OFF-S-0042-P-BRG-01",
             "Date: 30 Oct 2026",
-            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "To: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier ID: S-0042",
             "Part: Deep-groove ball bearing 6208 for gearboxes (P-BRG-01)",
             "Quantity: 20,000 pcs",
@@ -697,11 +697,11 @@
         {
           "page": 1,
           "lines": [
-            "Carpați Rulmenți S.A.",
+            "Dinamic Rulmenți S.A.",
             "Ploiești, Romania",
             "Quotation OFF-S-0044-P-BRG-01",
             "Date: 25 Oct 2026",
-            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "To: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier ID: S-0044",
             "Part: Deep-groove ball bearing 6208 for gearboxes (P-BRG-01)",
             "Quantity: 20,000 pcs",
@@ -745,11 +745,11 @@
         {
           "page": 1,
           "lines": [
-            "Liaoning Rolltech Bearing Co., Ltd.",
+            "Rolltech Bearing Co., Ltd.",
             "Dalian, China",
             "Quotation OFF-S-0045-P-BRG-01",
             "Date: 18 Oct 2026",
-            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "To: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier ID: S-0045",
             "Part: Deep-groove ball bearing 6208 for gearboxes (P-BRG-01)",
             "Quantity: 20,000 pcs",
@@ -793,11 +793,11 @@
         {
           "page": 1,
           "lines": [
-            "Gummiwerk Musterhausen GmbH",
+            "Muster Rubber Works GmbH",
             "Kassel, Germany",
             "Quotation OFF-S-0055-P-SEAL-01",
             "Date: 21 Oct 2026",
-            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "To: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier ID: S-0055",
             "Part: Radial shaft seal 40x62x7, EPDM (P-SEAL-01)",
             "Quantity: 20,000 pcs",
@@ -841,11 +841,11 @@
         {
           "page": 1,
           "lines": [
-            "Bergstraße Dichtungstechnik SE",
+            "Dichtex Sealing Technology SE",
             "Weinheim, Germany",
             "Quotation OFF-S-0051-P-SEAL-01",
             "Date: 29 Oct 2026",
-            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "To: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier ID: S-0051",
             "Part: Radial shaft seal 40x62x7, EPDM (P-SEAL-01)",
             "Quantity: 20,000 pcs",
@@ -889,11 +889,11 @@
         {
           "page": 1,
           "lines": [
-            "Schwaben Dichtsysteme GmbH",
+            "Sealtron Systems GmbH",
             "Bietigheim-Bissingen, Germany",
             "Quotation OFF-S-0053-P-SEAL-01",
             "Date: 24 Oct 2026",
-            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "To: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier ID: S-0053",
             "Part: Radial shaft seal 40x62x7, EPDM (P-SEAL-01)",
             "Quantity: 20,000 pcs",
@@ -937,11 +937,11 @@
         {
           "page": 1,
           "lines": [
-            "Elastomer Česko s.r.o.",
+            "Elastomer Novotný s.r.o.",
             "Zlín, Czech Republic",
             "Quotation OFF-S-0058-P-SEAL-01",
             "Date: 27 Oct 2026",
-            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "To: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier ID: S-0058",
             "Part: Radial shaft seal 40x62x7, EPDM (P-SEAL-01)",
             "Quantity: 20,000 pcs",
@@ -989,7 +989,7 @@
             "Freiburg, Germany",
             "Indicative quotation OFF-S-0059-P-SEAL-01",
             "Date: 2 Nov 2026",
-            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "To: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier ID: S-0059",
             "Part: Radial shaft seal 40x62x7, EPDM (P-SEAL-01)",
             "Quantity: 20,000 pcs",
@@ -1029,11 +1029,11 @@
         {
           "page": 1,
           "lines": [
-            "Alucast Schwaben GmbH",
+            "Alucast Vertis GmbH",
             "Ulm, Germany",
             "Quotation O-001",
             "Date: 3 Nov 2026",
-            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "To: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier ID: S-0013",
             "Part: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
             "Quantity: 2,000 pcs",
@@ -1073,11 +1073,11 @@
         {
           "page": 1,
           "lines": [
-            "Alu-Druckguss Erzgebirge GmbH",
+            "Brightform Die Casting GmbH",
             "Chemnitz, Germany",
             "Quotation O-002",
             "Date: 4 Nov 2026",
-            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "To: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier ID: S-0015",
             "Part: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
             "Quantity: 2,000 pcs",
@@ -1117,11 +1117,11 @@
         {
           "page": 1,
           "lines": [
-            "Alu Balkan d.o.o.",
+            "Alunova d.o.o.",
             "Novi Sad, Serbia",
             "Quotation O-003",
             "Date: 2 Nov 2026",
-            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "To: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier ID: S-0018",
             "Part: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
             "Quantity: 2,000 pcs",
@@ -1161,11 +1161,11 @@
         {
           "page": 1,
           "lines": [
-            "Ningbo Silverline Die Casting Co., Ltd.",
+            "Silverline Die Casting Co., Ltd.",
             "Ningbo, China",
             "Quotation O-004",
             "Date: 30 Oct 2026",
-            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "To: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier ID: S-0014",
             "Part: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
             "Quantity: 2,000 pcs",
@@ -1205,11 +1205,11 @@
         {
           "page": 1,
           "lines": [
-            "Saigon Lightmetal JSC",
+            "Phuc Thinh Lightmetal JSC",
             "Ho Chi Minh City, Vietnam",
             "Quotation O-005",
             "Date: 31 Oct 2026",
-            "To: Rheintal Antriebe GmbH, Heilbronn, Germany",
+            "To: Torvane Drive Systems GmbH, Heilbronn, Germany",
             "Supplier ID: S-0020",
             "Part: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
             "Quantity: 2,000 pcs",
@@ -1239,7 +1239,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 9001, Mustermann Stahlguss GmbH",
+      "title": "Certificate ISO 9001, Mustermann Steel Castings GmbH",
       "file": "supplier-documents/certificates/DOC-CERT-S-0001-ISO9001.pdf",
       "heldBy": "documents",
       "issuedOn": "2025-01-14",
@@ -1248,7 +1248,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 9001",
-            "Holder: Mustermann Stahlguss GmbH, supplier ID S-0001",
+            "Holder: Mustermann Steel Castings GmbH, supplier ID S-0001",
             "Standard: ISO 9001",
             "Valid from: 14 Jan 2025",
             "Valid until: 14 Jan 2028",
@@ -1274,7 +1274,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 14001, Mustermann Stahlguss GmbH",
+      "title": "Certificate ISO 14001, Mustermann Steel Castings GmbH",
       "file": "supplier-documents/certificates/DOC-CERT-S-0001-ISO14001.pdf",
       "heldBy": "documents",
       "issuedOn": "2026-02-09",
@@ -1283,7 +1283,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 14001",
-            "Holder: Mustermann Stahlguss GmbH, supplier ID S-0001",
+            "Holder: Mustermann Steel Castings GmbH, supplier ID S-0001",
             "Standard: ISO 14001",
             "Valid from: 9 Feb 2026",
             "Valid until: 8 Feb 2029",
@@ -1309,7 +1309,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate SA8000, Harzland Flachstahl GmbH",
+      "title": "Certificate SA8000, Feralis Flat Steel GmbH",
       "file": "supplier-documents/certificates/DOC-CERT-S-0003-SA8000.pdf",
       "heldBy": "documents",
       "issuedOn": "2025-09-23",
@@ -1318,7 +1318,7 @@
           "page": 1,
           "lines": [
             "Certificate SA8000",
-            "Holder: Harzland Flachstahl GmbH, supplier ID S-0003",
+            "Holder: Feralis Flat Steel GmbH, supplier ID S-0003",
             "Standard: SA8000",
             "Valid from: 23 Sept 2025",
             "Valid until: 22 Sept 2028",
@@ -1344,7 +1344,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 14001, Harzland Flachstahl GmbH",
+      "title": "Certificate ISO 14001, Feralis Flat Steel GmbH",
       "file": "supplier-documents/certificates/DOC-CERT-S-0003-ISO14001.pdf",
       "heldBy": "documents",
       "issuedOn": "2025-12-06",
@@ -1353,7 +1353,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 14001",
-            "Holder: Harzland Flachstahl GmbH, supplier ID S-0003",
+            "Holder: Feralis Flat Steel GmbH, supplier ID S-0003",
             "Standard: ISO 14001",
             "Valid from: 6 Dec 2025",
             "Valid until: 5 Dec 2028",
@@ -1379,7 +1379,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 14001, Anatolia Döküm A.Ş.",
+      "title": "Certificate ISO 14001, Yıldızer Döküm A.Ş.",
       "file": "supplier-documents/certificates/DOC-CERT-S-0006-ISO14001.pdf",
       "heldBy": "documents",
       "issuedOn": "2026-01-27",
@@ -1388,7 +1388,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 14001",
-            "Holder: Anatolia Döküm A.Ş., supplier ID S-0006",
+            "Holder: Yıldızer Döküm A.Ş., supplier ID S-0006",
             "Standard: ISO 14001",
             "Valid from: 27 Jan 2026",
             "Valid until: 26 Jan 2029",
@@ -1414,7 +1414,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate SA8000, Donautal Stahl GmbH",
+      "title": "Certificate SA8000, Stavio Steel GmbH",
       "file": "supplier-documents/certificates/DOC-CERT-S-0007-SA8000.pdf",
       "heldBy": "documents",
       "issuedOn": "2024-06-26",
@@ -1423,7 +1423,7 @@
           "page": 1,
           "lines": [
             "Certificate SA8000",
-            "Holder: Donautal Stahl GmbH, supplier ID S-0007",
+            "Holder: Stavio Steel GmbH, supplier ID S-0007",
             "Standard: SA8000",
             "Valid from: 26 Jun 2024",
             "Valid until: 26 Jun 2027",
@@ -1449,7 +1449,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 14001, Moselle Acier Europe S.A.",
+      "title": "Certificate ISO 14001, Novacier Europe S.A.",
       "file": "supplier-documents/certificates/DOC-CERT-S-0008-ISO14001.pdf",
       "heldBy": "documents",
       "issuedOn": "2024-10-01",
@@ -1458,7 +1458,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 14001",
-            "Holder: Moselle Acier Europe S.A., supplier ID S-0008",
+            "Holder: Novacier Europe S.A., supplier ID S-0008",
             "Standard: ISO 14001",
             "Valid from: 1 Oct 2024",
             "Valid until: 1 Oct 2027",
@@ -1484,7 +1484,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 14001, Alucast Schwaben GmbH",
+      "title": "Certificate ISO 14001, Alucast Vertis GmbH",
       "file": "supplier-documents/certificates/DOC-CERT-S-0013-ISO14001.pdf",
       "heldBy": "documents",
       "issuedOn": "2025-06-06",
@@ -1493,7 +1493,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 14001",
-            "Holder: Alucast Schwaben GmbH, supplier ID S-0013",
+            "Holder: Alucast Vertis GmbH, supplier ID S-0013",
             "Standard: ISO 14001",
             "Valid from: 6 Jun 2025",
             "Valid until: 5 Jun 2028",
@@ -1519,7 +1519,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 9001, Ningbo Silverline Die Casting Co., Ltd.",
+      "title": "Certificate ISO 9001, Silverline Die Casting Co., Ltd.",
       "file": "supplier-documents/certificates/DOC-CERT-S-0014-ISO9001.pdf",
       "heldBy": "documents",
       "issuedOn": "2024-09-03",
@@ -1528,7 +1528,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 9001",
-            "Holder: Ningbo Silverline Die Casting Co., Ltd., supplier ID S-0014",
+            "Holder: Silverline Die Casting Co., Ltd., supplier ID S-0014",
             "Standard: ISO 9001",
             "Valid from: 3 Sept 2024",
             "Valid until: 3 Sept 2027",
@@ -1554,7 +1554,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 9001, Alu-Druckguss Erzgebirge GmbH",
+      "title": "Certificate ISO 9001, Brightform Die Casting GmbH",
       "file": "supplier-documents/certificates/DOC-CERT-S-0015-ISO9001.pdf",
       "heldBy": "documents",
       "issuedOn": "2026-05-04",
@@ -1563,7 +1563,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 9001",
-            "Holder: Alu-Druckguss Erzgebirge GmbH, supplier ID S-0015",
+            "Holder: Brightform Die Casting GmbH, supplier ID S-0015",
             "Standard: ISO 9001",
             "Valid from: 4 May 2026",
             "Valid until: 3 May 2029",
@@ -1589,7 +1589,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 14001, Alu-Druckguss Erzgebirge GmbH",
+      "title": "Certificate ISO 14001, Brightform Die Casting GmbH",
       "file": "supplier-documents/certificates/DOC-CERT-S-0015-ISO14001.pdf",
       "heldBy": "documents",
       "issuedOn": "2026-04-29",
@@ -1598,7 +1598,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 14001",
-            "Holder: Alu-Druckguss Erzgebirge GmbH, supplier ID S-0015",
+            "Holder: Brightform Die Casting GmbH, supplier ID S-0015",
             "Standard: ISO 14001",
             "Valid from: 29 Apr 2026",
             "Valid until: 28 Apr 2029",
@@ -1624,7 +1624,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 45001, Alu-Druckguss Erzgebirge GmbH",
+      "title": "Certificate ISO 45001, Brightform Die Casting GmbH",
       "file": "supplier-documents/certificates/DOC-CERT-S-0015-ISO45001.pdf",
       "heldBy": "documents",
       "issuedOn": "2026-02-01",
@@ -1633,7 +1633,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 45001",
-            "Holder: Alu-Druckguss Erzgebirge GmbH, supplier ID S-0015",
+            "Holder: Brightform Die Casting GmbH, supplier ID S-0015",
             "Standard: ISO 45001",
             "Valid from: 1 Feb 2026",
             "Valid until: 31 Jan 2029",
@@ -1659,7 +1659,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 9001, Saigon Lightmetal JSC",
+      "title": "Certificate ISO 9001, Phuc Thinh Lightmetal JSC",
       "file": "supplier-documents/certificates/DOC-CERT-S-0020-ISO9001.pdf",
       "heldBy": "documents",
       "issuedOn": "2025-01-27",
@@ -1668,7 +1668,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 9001",
-            "Holder: Saigon Lightmetal JSC, supplier ID S-0020",
+            "Holder: Phuc Thinh Lightmetal JSC, supplier ID S-0020",
             "Standard: ISO 9001",
             "Valid from: 27 Jan 2025",
             "Valid until: 27 Jan 2028",
@@ -1694,7 +1694,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 50001, Elbkupfer AG",
+      "title": "Certificate ISO 50001, Cuprion AG",
       "file": "supplier-documents/certificates/DOC-CERT-S-0021-ISO50001.pdf",
       "heldBy": "documents",
       "issuedOn": "2026-01-01",
@@ -1703,7 +1703,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 50001",
-            "Holder: Elbkupfer AG, supplier ID S-0021",
+            "Holder: Cuprion AG, supplier ID S-0021",
             "Standard: ISO 50001",
             "Valid from: 1 Jan 2026",
             "Valid until: 31 Dec 2028",
@@ -1729,7 +1729,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 45001, Elbkupfer AG",
+      "title": "Certificate ISO 45001, Cuprion AG",
       "file": "supplier-documents/certificates/DOC-CERT-S-0021-ISO45001.pdf",
       "heldBy": "documents",
       "issuedOn": "2025-08-28",
@@ -1738,7 +1738,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 45001",
-            "Holder: Elbkupfer AG, supplier ID S-0021",
+            "Holder: Cuprion AG, supplier ID S-0021",
             "Standard: ISO 45001",
             "Valid from: 28 Aug 2025",
             "Valid until: 27 Aug 2028",
@@ -1764,7 +1764,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 45001, Elektrisolar Drahtwerk GmbH",
+      "title": "Certificate ISO 45001, Elektrisolar Wire Works GmbH",
       "file": "supplier-documents/certificates/DOC-CERT-S-0022-ISO45001.pdf",
       "heldBy": "documents",
       "issuedOn": "2026-01-02",
@@ -1773,7 +1773,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 45001",
-            "Holder: Elektrisolar Drahtwerk GmbH, supplier ID S-0022",
+            "Holder: Elektrisolar Wire Works GmbH, supplier ID S-0022",
             "Standard: ISO 45001",
             "Valid from: 2 Jan 2026",
             "Valid until: 1 Jan 2029",
@@ -1799,7 +1799,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 45001, Nordwick Magnetdraht GmbH",
+      "title": "Certificate ISO 45001, Nordwick Magnet Wire GmbH",
       "file": "supplier-documents/certificates/DOC-CERT-S-0023-ISO45001.pdf",
       "heldBy": "documents",
       "issuedOn": "2024-03-18",
@@ -1808,7 +1808,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 45001",
-            "Holder: Nordwick Magnetdraht GmbH, supplier ID S-0023",
+            "Holder: Nordwick Magnet Wire GmbH, supplier ID S-0023",
             "Standard: ISO 45001",
             "Valid from: 18 Mar 2024",
             "Valid until: 18 Mar 2027",
@@ -1834,7 +1834,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 9001, Nordwick Magnetdraht GmbH",
+      "title": "Certificate ISO 9001, Nordwick Magnet Wire GmbH",
       "file": "supplier-documents/certificates/DOC-CERT-S-0023-ISO9001.pdf",
       "heldBy": "documents",
       "issuedOn": "2025-05-03",
@@ -1843,7 +1843,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 9001",
-            "Holder: Nordwick Magnetdraht GmbH, supplier ID S-0023",
+            "Holder: Nordwick Magnet Wire GmbH, supplier ID S-0023",
             "Standard: ISO 9001",
             "Valid from: 3 May 2025",
             "Valid until: 2 May 2028",
@@ -1869,7 +1869,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 14001, Nordwick Magnetdraht GmbH",
+      "title": "Certificate ISO 14001, Nordwick Magnet Wire GmbH",
       "file": "supplier-documents/certificates/DOC-CERT-S-0023-ISO14001.pdf",
       "heldBy": "documents",
       "issuedOn": "2024-02-23",
@@ -1878,7 +1878,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 14001",
-            "Holder: Nordwick Magnetdraht GmbH, supplier ID S-0023",
+            "Holder: Nordwick Magnet Wire GmbH, supplier ID S-0023",
             "Standard: ISO 14001",
             "Valid from: 23 Feb 2024",
             "Valid until: 22 Feb 2027",
@@ -1904,7 +1904,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 45001, Kupferwerk Mansfeld Muster GmbH",
+      "title": "Certificate ISO 45001, Muster Copper Works GmbH",
       "file": "supplier-documents/certificates/DOC-CERT-S-0024-ISO45001.pdf",
       "heldBy": "documents",
       "issuedOn": "2024-05-09",
@@ -1913,7 +1913,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 45001",
-            "Holder: Kupferwerk Mansfeld Muster GmbH, supplier ID S-0024",
+            "Holder: Muster Copper Works GmbH, supplier ID S-0024",
             "Standard: ISO 45001",
             "Valid from: 9 May 2024",
             "Valid until: 9 May 2027",
@@ -1939,7 +1939,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 50001, Kupferwerk Mansfeld Muster GmbH",
+      "title": "Certificate ISO 50001, Muster Copper Works GmbH",
       "file": "supplier-documents/certificates/DOC-CERT-S-0024-ISO50001.pdf",
       "heldBy": "documents",
       "issuedOn": "2025-05-10",
@@ -1948,7 +1948,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 50001",
-            "Holder: Kupferwerk Mansfeld Muster GmbH, supplier ID S-0024",
+            "Holder: Muster Copper Works GmbH, supplier ID S-0024",
             "Standard: ISO 50001",
             "Valid from: 10 May 2025",
             "Valid until: 9 May 2028",
@@ -1974,7 +1974,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 14001, Kupferwerk Mansfeld Muster GmbH",
+      "title": "Certificate ISO 14001, Muster Copper Works GmbH",
       "file": "supplier-documents/certificates/DOC-CERT-S-0024-ISO14001.pdf",
       "heldBy": "documents",
       "issuedOn": "2025-05-18",
@@ -1983,7 +1983,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 14001",
-            "Holder: Kupferwerk Mansfeld Muster GmbH, supplier ID S-0024",
+            "Holder: Muster Copper Works GmbH, supplier ID S-0024",
             "Standard: ISO 14001",
             "Valid from: 18 May 2025",
             "Valid until: 17 May 2028",
@@ -2009,7 +2009,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 9001, Jiangsu Goldwire Copper Co., Ltd.",
+      "title": "Certificate ISO 9001, Goldwire Copper Co., Ltd.",
       "file": "supplier-documents/certificates/DOC-CERT-S-0025-ISO9001.pdf",
       "heldBy": "documents",
       "issuedOn": "2025-10-01",
@@ -2018,7 +2018,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 9001",
-            "Holder: Jiangsu Goldwire Copper Co., Ltd., supplier ID S-0025",
+            "Holder: Goldwire Copper Co., Ltd., supplier ID S-0025",
             "Standard: ISO 9001",
             "Valid from: 1 Oct 2025",
             "Valid until: 30 Sept 2028",
@@ -2114,7 +2114,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 14001, Frankenlager AG",
+      "title": "Certificate ISO 14001, Ferrolan Bearings AG",
       "file": "supplier-documents/certificates/DOC-CERT-S-0041-ISO14001.pdf",
       "heldBy": "documents",
       "issuedOn": "2026-05-28",
@@ -2123,7 +2123,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 14001",
-            "Holder: Frankenlager AG, supplier ID S-0041",
+            "Holder: Ferrolan Bearings AG, supplier ID S-0041",
             "Standard: ISO 14001",
             "Valid from: 28 May 2026",
             "Valid until: 27 May 2029",
@@ -2149,7 +2149,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate SA8000, Frankenlager AG",
+      "title": "Certificate SA8000, Ferrolan Bearings AG",
       "file": "supplier-documents/certificates/DOC-CERT-S-0041-SA8000.pdf",
       "heldBy": "documents",
       "issuedOn": "2023-11-27",
@@ -2158,7 +2158,7 @@
           "page": 1,
           "lines": [
             "Certificate SA8000",
-            "Holder: Frankenlager AG, supplier ID S-0041",
+            "Holder: Ferrolan Bearings AG, supplier ID S-0041",
             "Standard: SA8000",
             "Valid from: 27 Nov 2023",
             "Valid until: 26 Nov 2026",
@@ -2184,7 +2184,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate EMAS, Vänern Lager AB",
+      "title": "Certificate EMAS, Lindqvist Lager AB",
       "file": "supplier-documents/certificates/DOC-CERT-S-0042-EMAS.pdf",
       "heldBy": "documents",
       "issuedOn": "2025-01-07",
@@ -2193,7 +2193,7 @@
           "page": 1,
           "lines": [
             "Certificate EMAS",
-            "Holder: Vänern Lager AB, supplier ID S-0042",
+            "Holder: Lindqvist Lager AB, supplier ID S-0042",
             "Standard: EMAS",
             "Valid from: 7 Jan 2025",
             "Valid until: 7 Jan 2028",
@@ -2219,7 +2219,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 45001, Vänern Lager AB",
+      "title": "Certificate ISO 45001, Lindqvist Lager AB",
       "file": "supplier-documents/certificates/DOC-CERT-S-0042-ISO45001.pdf",
       "heldBy": "documents",
       "issuedOn": "2023-12-28",
@@ -2228,7 +2228,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 45001",
-            "Holder: Vänern Lager AB, supplier ID S-0042",
+            "Holder: Lindqvist Lager AB, supplier ID S-0042",
             "Standard: ISO 45001",
             "Valid from: 28 Dec 2023",
             "Valid until: 27 Dec 2026",
@@ -2254,7 +2254,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate SA8000, Vänern Lager AB",
+      "title": "Certificate SA8000, Lindqvist Lager AB",
       "file": "supplier-documents/certificates/DOC-CERT-S-0042-SA8000.pdf",
       "heldBy": "documents",
       "issuedOn": "2023-12-19",
@@ -2263,7 +2263,7 @@
           "page": 1,
           "lines": [
             "Certificate SA8000",
-            "Holder: Vänern Lager AB, supplier ID S-0042",
+            "Holder: Lindqvist Lager AB, supplier ID S-0042",
             "Standard: SA8000",
             "Valid from: 19 Dec 2023",
             "Valid until: 18 Dec 2026",
@@ -2289,7 +2289,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 9001, Carpați Rulmenți S.A.",
+      "title": "Certificate ISO 9001, Dinamic Rulmenți S.A.",
       "file": "supplier-documents/certificates/DOC-CERT-S-0044-ISO9001.pdf",
       "heldBy": "documents",
       "issuedOn": "2023-12-20",
@@ -2298,7 +2298,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 9001",
-            "Holder: Carpați Rulmenți S.A., supplier ID S-0044",
+            "Holder: Dinamic Rulmenți S.A., supplier ID S-0044",
             "Standard: ISO 9001",
             "Valid from: 20 Dec 2023",
             "Valid until: 19 Dec 2026",
@@ -2324,7 +2324,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 14001, Carpați Rulmenți S.A.",
+      "title": "Certificate ISO 14001, Dinamic Rulmenți S.A.",
       "file": "supplier-documents/certificates/DOC-CERT-S-0044-ISO14001.pdf",
       "heldBy": "documents",
       "issuedOn": "2026-04-23",
@@ -2333,7 +2333,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 14001",
-            "Holder: Carpați Rulmenți S.A., supplier ID S-0044",
+            "Holder: Dinamic Rulmenți S.A., supplier ID S-0044",
             "Standard: ISO 14001",
             "Valid from: 23 Apr 2026",
             "Valid until: 22 Apr 2029",
@@ -2359,7 +2359,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 9001, Liaoning Rolltech Bearing Co., Ltd.",
+      "title": "Certificate ISO 9001, Rolltech Bearing Co., Ltd.",
       "file": "supplier-documents/certificates/DOC-CERT-S-0045-ISO9001.pdf",
       "heldBy": "documents",
       "issuedOn": "2026-08-19",
@@ -2368,7 +2368,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 9001",
-            "Holder: Liaoning Rolltech Bearing Co., Ltd., supplier ID S-0045",
+            "Holder: Rolltech Bearing Co., Ltd., supplier ID S-0045",
             "Standard: ISO 9001",
             "Valid from: 19 Aug 2026",
             "Valid until: 18 Aug 2029",
@@ -2394,7 +2394,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 50001, Kugellager Schweinfurt Muster GmbH",
+      "title": "Certificate ISO 50001, Muster Ball Bearings GmbH",
       "file": "supplier-documents/certificates/DOC-CERT-S-0046-ISO50001.pdf",
       "heldBy": "documents",
       "issuedOn": "2025-04-16",
@@ -2403,7 +2403,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 50001",
-            "Holder: Kugellager Schweinfurt Muster GmbH, supplier ID S-0046",
+            "Holder: Muster Ball Bearings GmbH, supplier ID S-0046",
             "Standard: ISO 50001",
             "Valid from: 16 Apr 2025",
             "Valid until: 15 Apr 2028",
@@ -2429,7 +2429,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 9001, Kugellager Schweinfurt Muster GmbH",
+      "title": "Certificate ISO 9001, Muster Ball Bearings GmbH",
       "file": "supplier-documents/certificates/DOC-CERT-S-0046-ISO9001.pdf",
       "heldBy": "documents",
       "issuedOn": "2025-08-29",
@@ -2438,7 +2438,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 9001",
-            "Holder: Kugellager Schweinfurt Muster GmbH, supplier ID S-0046",
+            "Holder: Muster Ball Bearings GmbH, supplier ID S-0046",
             "Standard: ISO 9001",
             "Valid from: 29 Aug 2025",
             "Valid until: 28 Aug 2028",
@@ -2464,7 +2464,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 14001, Kugellager Schweinfurt Muster GmbH",
+      "title": "Certificate ISO 14001, Muster Ball Bearings GmbH",
       "file": "supplier-documents/certificates/DOC-CERT-S-0046-ISO14001.pdf",
       "heldBy": "documents",
       "issuedOn": "2024-12-08",
@@ -2473,7 +2473,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 14001",
-            "Holder: Kugellager Schweinfurt Muster GmbH, supplier ID S-0046",
+            "Holder: Muster Ball Bearings GmbH, supplier ID S-0046",
             "Standard: ISO 14001",
             "Valid from: 8 Dec 2024",
             "Valid until: 8 Dec 2027",
@@ -2499,7 +2499,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 45001, Bergstraße Dichtungstechnik SE",
+      "title": "Certificate ISO 45001, Dichtex Sealing Technology SE",
       "file": "supplier-documents/certificates/DOC-CERT-S-0051-ISO45001.pdf",
       "heldBy": "documents",
       "issuedOn": "2024-03-12",
@@ -2508,7 +2508,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 45001",
-            "Holder: Bergstraße Dichtungstechnik SE, supplier ID S-0051",
+            "Holder: Dichtex Sealing Technology SE, supplier ID S-0051",
             "Standard: ISO 45001",
             "Valid from: 12 Mar 2024",
             "Valid until: 12 Mar 2027",
@@ -2534,7 +2534,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 45001, Schwaben Dichtsysteme GmbH",
+      "title": "Certificate ISO 45001, Sealtron Systems GmbH",
       "file": "supplier-documents/certificates/DOC-CERT-S-0053-ISO45001.pdf",
       "heldBy": "documents",
       "issuedOn": "2024-04-13",
@@ -2543,7 +2543,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 45001",
-            "Holder: Schwaben Dichtsysteme GmbH, supplier ID S-0053",
+            "Holder: Sealtron Systems GmbH, supplier ID S-0053",
             "Standard: ISO 45001",
             "Valid from: 13 Apr 2024",
             "Valid until: 13 Apr 2027",
@@ -2569,7 +2569,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 50001, Schwaben Dichtsysteme GmbH",
+      "title": "Certificate ISO 50001, Sealtron Systems GmbH",
       "file": "supplier-documents/certificates/DOC-CERT-S-0053-ISO50001.pdf",
       "heldBy": "documents",
       "issuedOn": "2025-06-06",
@@ -2578,7 +2578,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 50001",
-            "Holder: Schwaben Dichtsysteme GmbH, supplier ID S-0053",
+            "Holder: Sealtron Systems GmbH, supplier ID S-0053",
             "Standard: ISO 50001",
             "Valid from: 6 Jun 2025",
             "Valid until: 5 Jun 2028",
@@ -2604,7 +2604,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 9001, Gummiwerk Musterhausen GmbH",
+      "title": "Certificate ISO 9001, Muster Rubber Works GmbH",
       "file": "supplier-documents/certificates/DOC-CERT-S-0055-ISO9001.pdf",
       "heldBy": "documents",
       "issuedOn": "2026-06-06",
@@ -2613,7 +2613,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 9001",
-            "Holder: Gummiwerk Musterhausen GmbH, supplier ID S-0055",
+            "Holder: Muster Rubber Works GmbH, supplier ID S-0055",
             "Standard: ISO 9001",
             "Valid from: 6 Jun 2026",
             "Valid until: 5 Jun 2029",
@@ -2639,7 +2639,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 50001, Gummiwerk Musterhausen GmbH",
+      "title": "Certificate ISO 50001, Muster Rubber Works GmbH",
       "file": "supplier-documents/certificates/DOC-CERT-S-0055-ISO50001.pdf",
       "heldBy": "documents",
       "issuedOn": "2025-06-22",
@@ -2648,7 +2648,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 50001",
-            "Holder: Gummiwerk Musterhausen GmbH, supplier ID S-0055",
+            "Holder: Muster Rubber Works GmbH, supplier ID S-0055",
             "Standard: ISO 50001",
             "Valid from: 22 Jun 2025",
             "Valid until: 21 Jun 2028",
@@ -2674,7 +2674,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 14001, Gummiwerk Musterhausen GmbH",
+      "title": "Certificate ISO 14001, Muster Rubber Works GmbH",
       "file": "supplier-documents/certificates/DOC-CERT-S-0055-ISO14001.pdf",
       "heldBy": "documents",
       "issuedOn": "2026-02-25",
@@ -2683,7 +2683,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 14001",
-            "Holder: Gummiwerk Musterhausen GmbH, supplier ID S-0055",
+            "Holder: Muster Rubber Works GmbH, supplier ID S-0055",
             "Standard: ISO 14001",
             "Valid from: 25 Feb 2026",
             "Valid until: 24 Feb 2029",
@@ -2709,7 +2709,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 45001, Elastomer Česko s.r.o.",
+      "title": "Certificate ISO 45001, Elastomer Novotný s.r.o.",
       "file": "supplier-documents/certificates/DOC-CERT-S-0058-ISO45001.pdf",
       "heldBy": "documents",
       "issuedOn": "2024-05-05",
@@ -2718,7 +2718,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 45001",
-            "Holder: Elastomer Česko s.r.o., supplier ID S-0058",
+            "Holder: Elastomer Novotný s.r.o., supplier ID S-0058",
             "Standard: ISO 45001",
             "Valid from: 5 May 2024",
             "Valid until: 5 May 2027",
@@ -2744,7 +2744,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 50001, Elastomer Česko s.r.o.",
+      "title": "Certificate ISO 50001, Elastomer Novotný s.r.o.",
       "file": "supplier-documents/certificates/DOC-CERT-S-0058-ISO50001.pdf",
       "heldBy": "documents",
       "issuedOn": "2025-11-29",
@@ -2753,7 +2753,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 50001",
-            "Holder: Elastomer Česko s.r.o., supplier ID S-0058",
+            "Holder: Elastomer Novotný s.r.o., supplier ID S-0058",
             "Standard: ISO 50001",
             "Valid from: 29 Nov 2025",
             "Valid until: 28 Nov 2028",
@@ -2779,7 +2779,7 @@
         ]
       },
       "documentType": "certificate",
-      "title": "Certificate ISO 14001, Elastomer Česko s.r.o.",
+      "title": "Certificate ISO 14001, Elastomer Novotný s.r.o.",
       "file": "supplier-documents/certificates/DOC-CERT-S-0058-ISO14001.pdf",
       "heldBy": "documents",
       "issuedOn": "2024-04-19",
@@ -2788,7 +2788,7 @@
           "page": 1,
           "lines": [
             "Certificate ISO 14001",
-            "Holder: Elastomer Česko s.r.o., supplier ID S-0058",
+            "Holder: Elastomer Novotný s.r.o., supplier ID S-0058",
             "Standard: ISO 14001",
             "Valid from: 19 Apr 2024",
             "Valid until: 19 Apr 2027",
@@ -2886,7 +2886,7 @@
         ]
       },
       "documentType": "pcf_datasheet",
-      "title": "PCF data sheet, Donautal Stahl GmbH, P-STL-HSG-01",
+      "title": "PCF data sheet, Stavio Steel GmbH, P-STL-HSG-01",
       "file": "supplier-documents/pcf-datasheets/DOC-PCF-S-0007-P-STL-HSG-01.pdf",
       "heldBy": "documents",
       "issuedOn": "2026-06-26",
@@ -2895,7 +2895,7 @@
           "page": 1,
           "lines": [
             "Product carbon footprint data sheet",
-            "Supplier: Donautal Stahl GmbH, supplier ID S-0007",
+            "Supplier: Stavio Steel GmbH, supplier ID S-0007",
             "Product: Steel-cast gearbox housing (P-STL-HSG-01)",
             "PCF: 13.8 kg CO2e per piece",
             "Method: Supplier-specific PCF from the supplier's self-assessment, electric arc furnace steel (fictitious)",
@@ -2925,7 +2925,7 @@
         ]
       },
       "documentType": "pcf_datasheet",
-      "title": "PCF data sheet, Mustermann Stahlguss GmbH, P-STL-HSG-01",
+      "title": "PCF data sheet, Mustermann Steel Castings GmbH, P-STL-HSG-01",
       "file": "supplier-documents/pcf-datasheets/DOC-PCF-S-0001-P-STL-HSG-01.pdf",
       "heldBy": "documents",
       "issuedOn": "2026-10-28",
@@ -2934,7 +2934,7 @@
           "page": 1,
           "lines": [
             "Product carbon footprint data sheet",
-            "Supplier: Mustermann Stahlguss GmbH, supplier ID S-0001",
+            "Supplier: Mustermann Steel Castings GmbH, supplier ID S-0001",
             "Product: Steel-cast gearbox housing (P-STL-HSG-01)",
             "PCF: 24.6 kg CO2e per piece",
             "Method: Supplier-specific PCF stated in the supplier's sustainability report (fictitious)",
@@ -2964,7 +2964,7 @@
         ]
       },
       "documentType": "pcf_datasheet",
-      "title": "PCF data sheet, Elbkupfer AG, P-CU-WIRE-01",
+      "title": "PCF data sheet, Cuprion AG, P-CU-WIRE-01",
       "file": "supplier-documents/pcf-datasheets/DOC-PCF-S-0021-P-CU-WIRE-01.pdf",
       "heldBy": "documents",
       "issuedOn": "2025-07-17",
@@ -2973,7 +2973,7 @@
           "page": 1,
           "lines": [
             "Product carbon footprint data sheet",
-            "Supplier: Elbkupfer AG, supplier ID S-0021",
+            "Supplier: Cuprion AG, supplier ID S-0021",
             "Product: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
             "PCF: 10.9 kg CO2e per piece",
             "Method: Supplier-specific PCF stated in the supplier's sustainability report (fictitious)",
@@ -3003,7 +3003,7 @@
         ]
       },
       "documentType": "pcf_datasheet",
-      "title": "PCF data sheet, Elektrisolar Drahtwerk GmbH, P-CU-WIRE-01",
+      "title": "PCF data sheet, Elektrisolar Wire Works GmbH, P-CU-WIRE-01",
       "file": "supplier-documents/pcf-datasheets/DOC-PCF-S-0022-P-CU-WIRE-01.pdf",
       "heldBy": "documents",
       "issuedOn": "2025-02-09",
@@ -3012,7 +3012,7 @@
           "page": 1,
           "lines": [
             "Product carbon footprint data sheet",
-            "Supplier: Elektrisolar Drahtwerk GmbH, supplier ID S-0022",
+            "Supplier: Elektrisolar Wire Works GmbH, supplier ID S-0022",
             "Product: Enamelled copper magnet wire, 5 kg spool (P-CU-WIRE-01)",
             "PCF: 22.4 kg CO2e per piece",
             "Method: Supplier-specific PCF from the supplier's self-assessment (fictitious)",
@@ -3043,7 +3043,7 @@
         ]
       },
       "documentType": "pcf_datasheet",
-      "title": "PCF data sheet, Kugellager Schweinfurt Muster GmbH, P-BRG-01",
+      "title": "PCF data sheet, Muster Ball Bearings GmbH, P-BRG-01",
       "file": "supplier-documents/pcf-datasheets/DOC-PCF-S-0046-P-BRG-01.pdf",
       "heldBy": "documents",
       "issuedOn": "2025-11-10",
@@ -3052,7 +3052,7 @@
           "page": 1,
           "lines": [
             "Product carbon footprint data sheet",
-            "Supplier: Kugellager Schweinfurt Muster GmbH, supplier ID S-0046",
+            "Supplier: Muster Ball Bearings GmbH, supplier ID S-0046",
             "Product: Deep-groove ball bearing 6208 for gearboxes (P-BRG-01)",
             "PCF: 1.1 kg CO2e per piece",
             "Method: Supplier-specific PCF from the supplier's self-assessment",
@@ -3082,7 +3082,7 @@
         ]
       },
       "documentType": "pcf_datasheet",
-      "title": "PCF data sheet, Frankenlager AG, P-BRG-01",
+      "title": "PCF data sheet, Ferrolan Bearings AG, P-BRG-01",
       "file": "supplier-documents/pcf-datasheets/DOC-PCF-S-0041-P-BRG-01.pdf",
       "heldBy": "documents",
       "issuedOn": "2026-01-25",
@@ -3091,7 +3091,7 @@
           "page": 1,
           "lines": [
             "Product carbon footprint data sheet",
-            "Supplier: Frankenlager AG, supplier ID S-0041",
+            "Supplier: Ferrolan Bearings AG, supplier ID S-0041",
             "Product: Deep-groove ball bearing 6208 for gearboxes (P-BRG-01)",
             "PCF: 0.6 kg CO2e per piece",
             "Method: Supplier-specific PCF stated in the supplier's sustainability report, green steel share",
@@ -3121,7 +3121,7 @@
         ]
       },
       "documentType": "pcf_datasheet",
-      "title": "PCF data sheet, Vänern Lager AB, P-BRG-01",
+      "title": "PCF data sheet, Lindqvist Lager AB, P-BRG-01",
       "file": "supplier-documents/pcf-datasheets/DOC-PCF-S-0042-P-BRG-01.pdf",
       "heldBy": "documents",
       "issuedOn": "2025-01-03",
@@ -3130,7 +3130,7 @@
           "page": 1,
           "lines": [
             "Product carbon footprint data sheet",
-            "Supplier: Vänern Lager AB, supplier ID S-0042",
+            "Supplier: Lindqvist Lager AB, supplier ID S-0042",
             "Product: Deep-groove ball bearing 6208 for gearboxes (P-BRG-01)",
             "PCF: 0.7 kg CO2e per piece",
             "Method: Supplier-specific PCF stated in the supplier's sustainability report",
@@ -3160,7 +3160,7 @@
         ]
       },
       "documentType": "pcf_datasheet",
-      "title": "PCF data sheet, Gummiwerk Musterhausen GmbH, P-SEAL-01",
+      "title": "PCF data sheet, Muster Rubber Works GmbH, P-SEAL-01",
       "file": "supplier-documents/pcf-datasheets/DOC-PCF-S-0055-P-SEAL-01.pdf",
       "heldBy": "documents",
       "issuedOn": "2026-08-25",
@@ -3169,7 +3169,7 @@
           "page": 1,
           "lines": [
             "Product carbon footprint data sheet",
-            "Supplier: Gummiwerk Musterhausen GmbH, supplier ID S-0055",
+            "Supplier: Muster Rubber Works GmbH, supplier ID S-0055",
             "Product: Radial shaft seal 40x62x7, EPDM (P-SEAL-01)",
             "PCF: 0.3 kg CO2e per piece",
             "Method: Supplier-specific PCF from the supplier's self-assessment",
@@ -3199,7 +3199,7 @@
         ]
       },
       "documentType": "pcf_datasheet",
-      "title": "PCF data sheet, Bergstraße Dichtungstechnik SE, P-SEAL-01",
+      "title": "PCF data sheet, Dichtex Sealing Technology SE, P-SEAL-01",
       "file": "supplier-documents/pcf-datasheets/DOC-PCF-S-0051-P-SEAL-01.pdf",
       "heldBy": "documents",
       "issuedOn": "2025-12-06",
@@ -3208,7 +3208,7 @@
           "page": 1,
           "lines": [
             "Product carbon footprint data sheet",
-            "Supplier: Bergstraße Dichtungstechnik SE, supplier ID S-0051",
+            "Supplier: Dichtex Sealing Technology SE, supplier ID S-0051",
             "Product: Radial shaft seal 40x62x7, EPDM (P-SEAL-01)",
             "PCF: 0.2 kg CO2e per piece",
             "Method: Supplier-specific PCF stated in the supplier's sustainability report",
@@ -3238,7 +3238,7 @@
         ]
       },
       "documentType": "pcf_datasheet",
-      "title": "PCF data sheet, Schwaben Dichtsysteme GmbH, P-SEAL-01",
+      "title": "PCF data sheet, Sealtron Systems GmbH, P-SEAL-01",
       "file": "supplier-documents/pcf-datasheets/DOC-PCF-S-0053-P-SEAL-01.pdf",
       "heldBy": "documents",
       "issuedOn": "2026-10-11",
@@ -3247,7 +3247,7 @@
           "page": 1,
           "lines": [
             "Product carbon footprint data sheet",
-            "Supplier: Schwaben Dichtsysteme GmbH, supplier ID S-0053",
+            "Supplier: Sealtron Systems GmbH, supplier ID S-0053",
             "Product: Radial shaft seal 40x62x7, EPDM (P-SEAL-01)",
             "PCF: 0.3 kg CO2e per piece",
             "Method: Supplier-specific PCF stated in the supplier's sustainability report",
@@ -3274,7 +3274,7 @@
         ]
       },
       "documentType": "pcf_datasheet",
-      "title": "PCF data sheet, Alucast Schwaben GmbH, P-ALU-HSG-01",
+      "title": "PCF data sheet, Alucast Vertis GmbH, P-ALU-HSG-01",
       "file": "supplier-documents/pcf-datasheets/DOC-PCF-S-0013-P-ALU-HSG-01.pdf",
       "heldBy": "documents",
       "issuedOn": "2025-12-31",
@@ -3283,7 +3283,7 @@
           "page": 1,
           "lines": [
             "Product carbon footprint data sheet",
-            "Supplier: Alucast Schwaben GmbH, supplier ID S-0013",
+            "Supplier: Alucast Vertis GmbH, supplier ID S-0013",
             "Product: Die-cast aluminium gearbox housing GH-200 (P-ALU-HSG-01)",
             "PCF: 38.0 kg CO2e per piece",
             "Method: Cradle-to-gate, declared unit 1 housing",

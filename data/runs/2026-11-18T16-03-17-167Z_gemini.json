@@ -496,7 +496,7 @@
       "topic": "quality",
       "value": 0.8,
       "unit": "%",
-      "sentence": "The complaint rate for Bergstraße Dichtungstechnik SE is 0.8%.",
+      "sentence": "The complaint rate for Dichtex Sealing Technology SE is 0.8%.",
       "system": "erp",
       "recordId": "ERP-S-0051",
       "location": {
@@ -517,7 +517,7 @@
       "topic": "delivery",
       "value": 90,
       "unit": "%",
-      "sentence": "The on-time delivery rate for Bergstraße Dichtungstechnik SE is 90%.",
+      "sentence": "The on-time delivery rate for Dichtex Sealing Technology SE is 90%.",
       "system": "erp",
       "recordId": "ERP-S-0051",
       "location": {
@@ -538,7 +538,7 @@
       "topic": "co2",
       "value": 0.21,
       "unit": "kg CO2e/piece",
-      "sentence": "The product carbon footprint for part P-SEAL-01 from Bergstraße Dichtungstechnik SE is 0.21 kg CO2e per piece.",
+      "sentence": "The product carbon footprint for part P-SEAL-01 from Dichtex Sealing Technology SE is 0.21 kg CO2e per piece.",
       "system": "pcf",
       "recordId": "PCF-S-0051-P-SEAL-01",
       "location": {
@@ -559,7 +559,7 @@
       "topic": "price",
       "value": 1.94,
       "unit": "EUR/piece",
-      "sentence": "The unit price offered by Bergstraße Dichtungstechnik SE is 1.94 EUR/piece.",
+      "sentence": "The unit price offered by Dichtex Sealing Technology SE is 1.94 EUR/piece.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0051-P-SEAL-01",
       "location": {
@@ -581,7 +581,7 @@
       "topic": "leadTime",
       "value": 4,
       "unit": "days",
-      "sentence": "The lead time offered by Bergstraße Dichtungstechnik SE is 4 days.",
+      "sentence": "The lead time offered by Dichtex Sealing Technology SE is 4 days.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0051-P-SEAL-01",
       "location": {
@@ -603,7 +603,7 @@
       "topic": "compliance",
       "value": "Low risk, controversies: None known",
       "unit": "",
-      "sentence": "The LkSG country risk for Bergstraße Dichtungstechnik SE is Low and there are no known controversies.",
+      "sentence": "The LkSG country risk for Dichtex Sealing Technology SE is Low and there are no known controversies.",
       "system": "ratings",
       "recordId": "RAT-S-0051",
       "location": {
@@ -626,7 +626,7 @@
       "topic": "quality",
       "value": 1.5,
       "unit": "%",
-      "sentence": "The complaint rate for Schwaben Dichtsysteme GmbH is 1.5%.",
+      "sentence": "The complaint rate for Sealtron Systems GmbH is 1.5%.",
       "system": "erp",
       "recordId": "ERP-S-0053",
       "location": {
@@ -647,7 +647,7 @@
       "topic": "delivery",
       "value": 92,
       "unit": "%",
-      "sentence": "The on-time delivery rate for Schwaben Dichtsysteme GmbH is 92%.",
+      "sentence": "The on-time delivery rate for Sealtron Systems GmbH is 92%.",
       "system": "erp",
       "recordId": "ERP-S-0053",
       "location": {
@@ -668,7 +668,7 @@
       "topic": "co2",
       "value": 0.31,
       "unit": "kg CO2e/piece",
-      "sentence": "The product carbon footprint for part P-SEAL-01 from Schwaben Dichtsysteme GmbH is 0.31 kg CO2e per piece.",
+      "sentence": "The product carbon footprint for part P-SEAL-01 from Sealtron Systems GmbH is 0.31 kg CO2e per piece.",
       "system": "pcf",
       "recordId": "PCF-S-0053-P-SEAL-01",
       "location": {
@@ -689,7 +689,7 @@
       "topic": "price",
       "value": 1.91,
       "unit": "EUR/piece",
-      "sentence": "The unit price offered by Schwaben Dichtsysteme GmbH is 1.91 EUR/piece.",
+      "sentence": "The unit price offered by Sealtron Systems GmbH is 1.91 EUR/piece.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0053-P-SEAL-01",
       "location": {
@@ -711,7 +711,7 @@
       "topic": "leadTime",
       "value": 3,
       "unit": "days",
-      "sentence": "The lead time offered by Schwaben Dichtsysteme GmbH is 3 days.",
+      "sentence": "The lead time offered by Sealtron Systems GmbH is 3 days.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0053-P-SEAL-01",
       "location": {
@@ -733,7 +733,7 @@
       "topic": "compliance",
       "value": "Low risk, controversies: None known",
       "unit": "",
-      "sentence": "The LkSG country risk for Schwaben Dichtsysteme GmbH is Low and there are no known controversies.",
+      "sentence": "The LkSG country risk for Sealtron Systems GmbH is Low and there are no known controversies.",
       "system": "ratings",
       "recordId": "RAT-S-0053",
       "location": {
@@ -756,7 +756,7 @@
       "topic": "quality",
       "value": 1.1,
       "unit": "%",
-      "sentence": "The complaint rate for Gummiwerk Musterhausen GmbH is 1.1%.",
+      "sentence": "The complaint rate for Muster Rubber Works GmbH is 1.1%.",
       "system": "erp",
       "recordId": "ERP-S-0055",
       "location": {
@@ -777,7 +777,7 @@
       "topic": "delivery",
       "value": 92,
       "unit": "%",
-      "sentence": "The on-time delivery rate for Gummiwerk Musterhausen GmbH is 92%.",
+      "sentence": "The on-time delivery rate for Muster Rubber Works GmbH is 92%.",
       "system": "erp",
       "recordId": "ERP-S-0055",
       "location": {
@@ -798,7 +798,7 @@
       "topic": "co2",
       "value": 0.33,
       "unit": "kg CO2e/piece",
-      "sentence": "The product carbon footprint for part P-SEAL-01 from Gummiwerk Musterhausen GmbH is 0.33 kg CO2e per piece.",
+      "sentence": "The product carbon footprint for part P-SEAL-01 from Muster Rubber Works GmbH is 0.33 kg CO2e per piece.",
       "system": "pcf",
       "recordId": "PCF-S-0055-P-SEAL-01",
       "location": {
@@ -819,7 +819,7 @@
       "topic": "price",
       "value": 1.82,
       "unit": "EUR/piece",
-      "sentence": "The unit price offered by Gummiwerk Musterhausen GmbH is 1.82 EUR/piece.",
+      "sentence": "The unit price offered by Muster Rubber Works GmbH is 1.82 EUR/piece.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0055-P-SEAL-01",
       "location": {
@@ -841,7 +841,7 @@
       "topic": "leadTime",
       "value": 9,
       "unit": "days",
-      "sentence": "The lead time offered by Gummiwerk Musterhausen GmbH is 9 days.",
+      "sentence": "The lead time offered by Muster Rubber Works GmbH is 9 days.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0055-P-SEAL-01",
       "location": {
@@ -863,7 +863,7 @@
       "topic": "compliance",
       "value": "Low risk, controversies: None known",
       "unit": "",
-      "sentence": "The LkSG country risk for Gummiwerk Musterhausen GmbH is Low and there are no known controversies.",
+      "sentence": "The LkSG country risk for Muster Rubber Works GmbH is Low and there are no known controversies.",
       "system": "ratings",
       "recordId": "RAT-S-0055",
       "location": {
@@ -886,7 +886,7 @@
       "topic": "co2",
       "value": 0.34,
       "unit": "kg CO2e/piece",
-      "sentence": "The product carbon footprint for part P-SEAL-01 from Elastomer Česko s.r.o. is 0.34 kg CO2e per piece.",
+      "sentence": "The product carbon footprint for part P-SEAL-01 from Elastomer Novotný s.r.o. is 0.34 kg CO2e per piece.",
       "system": "pcf",
       "recordId": "PCF-S-0058-P-SEAL-01",
       "location": {
@@ -907,7 +907,7 @@
       "topic": "price",
       "value": 1.76,
       "unit": "EUR/piece",
-      "sentence": "The unit price offered by Elastomer Česko s.r.o. is 1.76 EUR/piece.",
+      "sentence": "The unit price offered by Elastomer Novotný s.r.o. is 1.76 EUR/piece.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0058-P-SEAL-01",
       "location": {
@@ -929,7 +929,7 @@
       "topic": "leadTime",
       "value": 14,
       "unit": "days",
-      "sentence": "The lead time offered by Elastomer Česko s.r.o. is 14 days.",
+      "sentence": "The lead time offered by Elastomer Novotný s.r.o. is 14 days.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0058-P-SEAL-01",
       "location": {
@@ -951,7 +951,7 @@
       "topic": "compliance",
       "value": "Low risk, controversies: None known",
       "unit": "",
-      "sentence": "The LkSG country risk for Elastomer Česko s.r.o. is Low and there are no known controversies.",
+      "sentence": "The LkSG country risk for Elastomer Novotný s.r.o. is Low and there are no known controversies.",
       "system": "ratings",
       "recordId": "RAT-S-0058",
       "location": {

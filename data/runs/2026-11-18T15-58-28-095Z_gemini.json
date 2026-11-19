@@ -496,7 +496,7 @@
       "topic": "quality",
       "value": 0.8,
       "unit": "%",
-      "sentence": "The complaint rate for Alucast Schwaben GmbH is 0.8%.",
+      "sentence": "The complaint rate for Alucast Vertis GmbH is 0.8%.",
       "system": "erp",
       "recordId": "ERP-S-0013",
       "location": {
@@ -517,7 +517,7 @@
       "topic": "delivery",
       "value": 95,
       "unit": "%",
-      "sentence": "The on-time delivery rate for Alucast Schwaben GmbH is 95%.",
+      "sentence": "The on-time delivery rate for Alucast Vertis GmbH is 95%.",
       "system": "erp",
       "recordId": "ERP-S-0013",
       "location": {
@@ -538,7 +538,7 @@
       "topic": "co2",
       "value": 38,
       "unit": "kg CO2e/piece",
-      "sentence": "The product carbon footprint for Alucast Schwaben GmbH is 38 kg CO2e per piece.",
+      "sentence": "The product carbon footprint for Alucast Vertis GmbH is 38 kg CO2e per piece.",
       "system": "pcf",
       "recordId": "PCF-S-0013-P-ALU-HSG-01",
       "location": {
@@ -559,7 +559,7 @@
       "topic": "price",
       "value": 84.5,
       "unit": "EUR/piece",
-      "sentence": "The unit price from Alucast Schwaben GmbH is 84.50 EUR per piece.",
+      "sentence": "The unit price from Alucast Vertis GmbH is 84.50 EUR per piece.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0013-P-ALU-HSG-01",
       "location": {
@@ -581,7 +581,7 @@
       "topic": "leadTime",
       "value": 24,
       "unit": "days",
-      "sentence": "The lead time for Alucast Schwaben GmbH is 24 days.",
+      "sentence": "The lead time for Alucast Vertis GmbH is 24 days.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0013-P-ALU-HSG-01",
       "location": {
@@ -603,7 +603,7 @@
       "topic": "compliance",
       "value": "Low",
       "unit": "",
-      "sentence": "Alucast Schwaben GmbH has a Low LkSG country risk and no known controversies.",
+      "sentence": "Alucast Vertis GmbH has a Low LkSG country risk and no known controversies.",
       "system": "ratings",
       "recordId": "RAT-S-0013",
       "location": {
@@ -624,7 +624,7 @@
       "topic": "quality",
       "value": 1,
       "unit": "%",
-      "sentence": "The complaint rate for Alu-Druckguss Erzgebirge GmbH is 1%.",
+      "sentence": "The complaint rate for Brightform Die Casting GmbH is 1%.",
       "system": "erp",
       "recordId": "ERP-S-0015",
       "location": {
@@ -645,7 +645,7 @@
       "topic": "delivery",
       "value": 97,
       "unit": "%",
-      "sentence": "The on-time delivery rate for Alu-Druckguss Erzgebirge GmbH is 97%.",
+      "sentence": "The on-time delivery rate for Brightform Die Casting GmbH is 97%.",
       "system": "erp",
       "recordId": "ERP-S-0015",
       "location": {
@@ -666,7 +666,7 @@
       "topic": "co2",
       "value": 22.6,
       "unit": "kg CO2e/piece",
-      "sentence": "The product carbon footprint for Alu-Druckguss Erzgebirge GmbH is 22.6 kg CO2e per piece.",
+      "sentence": "The product carbon footprint for Brightform Die Casting GmbH is 22.6 kg CO2e per piece.",
       "system": "pcf",
       "recordId": "PCF-S-0015-P-ALU-HSG-01",
       "location": {
@@ -687,7 +687,7 @@
       "topic": "price",
       "value": 85.35,
       "unit": "EUR/piece",
-      "sentence": "The unit price from Alu-Druckguss Erzgebirge GmbH is 85.35 EUR per piece.",
+      "sentence": "The unit price from Brightform Die Casting GmbH is 85.35 EUR per piece.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0015-P-ALU-HSG-01",
       "location": {
@@ -709,7 +709,7 @@
       "topic": "leadTime",
       "value": 27,
       "unit": "days",
-      "sentence": "The lead time for Alu-Druckguss Erzgebirge GmbH is 27 days.",
+      "sentence": "The lead time for Brightform Die Casting GmbH is 27 days.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0015-P-ALU-HSG-01",
       "location": {
@@ -731,7 +731,7 @@
       "topic": "compliance",
       "value": "Low",
       "unit": "",
-      "sentence": "Alu-Druckguss Erzgebirge GmbH has a Low LkSG country risk and no known controversies.",
+      "sentence": "Brightform Die Casting GmbH has a Low LkSG country risk and no known controversies.",
       "system": "ratings",
       "recordId": "RAT-S-0015",
       "location": {
@@ -752,7 +752,7 @@
       "topic": "co2",
       "value": 41.5,
       "unit": "kg CO2e/piece",
-      "sentence": "The product carbon footprint for Alu Balkan d.o.o. is 41.5 kg CO2e per piece.",
+      "sentence": "The product carbon footprint for Alunova d.o.o. is 41.5 kg CO2e per piece.",
       "system": "pcf",
       "recordId": "PCF-S-0018-P-ALU-HSG-01",
       "location": {
@@ -773,7 +773,7 @@
       "topic": "price",
       "value": 72.8,
       "unit": "EUR/piece",
-      "sentence": "The unit price from Alu Balkan d.o.o. is 72.80 EUR per piece.",
+      "sentence": "The unit price from Alunova d.o.o. is 72.80 EUR per piece.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0018-P-ALU-HSG-01",
       "location": {
@@ -795,7 +795,7 @@
       "topic": "leadTime",
       "value": 32,
       "unit": "days",
-      "sentence": "The lead time for Alu Balkan d.o.o. is 32 days.",
+      "sentence": "The lead time for Alunova d.o.o. is 32 days.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0018-P-ALU-HSG-01",
       "location": {
@@ -817,7 +817,7 @@
       "topic": "compliance",
       "value": "Medium",
       "unit": "",
-      "sentence": "Alu Balkan d.o.o. has a Medium LkSG country risk and no known controversies.",
+      "sentence": "Alunova d.o.o. has a Medium LkSG country risk and no known controversies.",
       "system": "ratings",
       "recordId": "RAT-S-0018",
       "location": {
@@ -838,7 +838,7 @@
       "topic": "co2",
       "value": 52.6,
       "unit": "kg CO2e/piece",
-      "sentence": "The product carbon footprint for Ningbo Silverline Die Casting Co., Ltd. is 52.6 kg CO2e per piece.",
+      "sentence": "The product carbon footprint for Silverline Die Casting Co., Ltd. is 52.6 kg CO2e per piece.",
       "system": "pcf",
       "recordId": "PCF-S-0014-P-ALU-HSG-01",
       "location": {
@@ -859,7 +859,7 @@
       "topic": "price",
       "value": 61.9,
       "unit": "EUR/piece",
-      "sentence": "The unit price from Ningbo Silverline Die Casting Co., Ltd. is 61.90 EUR per piece.",
+      "sentence": "The unit price from Silverline Die Casting Co., Ltd. is 61.90 EUR per piece.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0014-P-ALU-HSG-01",
       "location": {
@@ -881,7 +881,7 @@
       "topic": "leadTime",
       "value": 55,
       "unit": "days",
-      "sentence": "The lead time for Ningbo Silverline Die Casting Co., Ltd. is 55 days.",
+      "sentence": "The lead time for Silverline Die Casting Co., Ltd. is 55 days.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0014-P-ALU-HSG-01",
       "location": {
@@ -903,7 +903,7 @@
       "topic": "compliance",
       "value": "High",
       "unit": "",
-      "sentence": "Ningbo Silverline Die Casting Co., Ltd. has a High LkSG country risk and no known controversies.",
+      "sentence": "Silverline Die Casting Co., Ltd. has a High LkSG country risk and no known controversies.",
       "system": "ratings",
       "recordId": "RAT-S-0014",
       "location": {
@@ -924,7 +924,7 @@
       "topic": "co2",
       "value": 50.5,
       "unit": "kg CO2e/piece",
-      "sentence": "The product carbon footprint for Saigon Lightmetal JSC is 50.5 kg CO2e per piece.",
+      "sentence": "The product carbon footprint for Phuc Thinh Lightmetal JSC is 50.5 kg CO2e per piece.",
       "system": "pcf",
       "recordId": "PCF-S-0020-P-ALU-HSG-01",
       "location": {
@@ -945,7 +945,7 @@
       "topic": "price",
       "value": 59.4,
       "unit": "EUR/piece",
-      "sentence": "The unit price from Saigon Lightmetal JSC is 59.40 EUR per piece.",
+      "sentence": "The unit price from Phuc Thinh Lightmetal JSC is 59.40 EUR per piece.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0020-P-ALU-HSG-01",
       "location": {
@@ -967,7 +967,7 @@
       "topic": "leadTime",
       "value": 58,
       "unit": "days",
-      "sentence": "The lead time for Saigon Lightmetal JSC is 58 days.",
+      "sentence": "The lead time for Phuc Thinh Lightmetal JSC is 58 days.",
       "system": "documents",
       "recordId": "DOC-OFFER-S-0020-P-ALU-HSG-01",
       "location": {
@@ -989,7 +989,7 @@
       "topic": "compliance",
       "value": "High",
       "unit": "",
-      "sentence": "Saigon Lightmetal JSC has a High LkSG country risk and no known controversies.",
+      "sentence": "Phuc Thinh Lightmetal JSC has a High LkSG country risk and no known controversies.",
       "system": "ratings",
       "recordId": "RAT-S-0020",
       "location": {

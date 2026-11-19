@@ -18,12 +18,14 @@ import {
   withAssumedValues,
   whatItTakesToLead,
   workQueue,
+  manualRequisition,
   runModeLabel,
   type AgentRun,
   type BuyerRules,
   type DecisionRecord,
   type DemoSettings,
   type Evidence,
+  type ManualRequisitionInput,
   type PurchaseOrderRecord,
   type PurchaseRequisitionRecord,
   type QueueEntry,
@@ -33,6 +35,7 @@ import {
 import { api } from "@/lib/api";
 import { useRuns } from "@/lib/use-runs";
 import { loadFavourites, saveFavourites } from "@/lib/favourites";
+import { loadManualRequisitions, saveManualRequisitions } from "@/lib/manual-requisitions";
 import { TOPIC_LABEL } from "@/lib/labels";
 import { shortName } from "@/lib/names";
 import { theme } from "@/lib/theme";
@@ -144,8 +147,10 @@ export function CockpitShell() {
   const [notice, setNotice] = useState<string | null>(null);
   // Latest saved real run per product (fallback, PLAN.md section 4).
   const [savedRuns, setSavedRuns] = useState<AgentRun[]>([]);
-  // Work queue: open requisitions from the ERP only; the cockpit never creates requisitions or orders (17 Nov 2026).
+  // Work queue: requisitions from the ERP, plus the ones the buyer added by hand (18 Nov 2026, revises 17 Nov 2026).
+  // The cockpit still never creates orders.
   const [requisitions, setRequisitions] = useState<PurchaseRequisitionRecord[]>([]);
+  const [manualRequisitions, setManualRequisitions] = useState<PurchaseRequisitionRecord[]>([]);
   const [requisitionsLoaded, setRequisitionsLoaded] = useState(false);
   /** True once the address of the first load has been applied; only then does the app write addresses. */
   const [routeReady, setRouteReady] = useState(false);
@@ -186,6 +191,7 @@ export function CockpitShell() {
     const stored = loadUser();
     // eslint-disable-next-line react-hooks/set-state-in-effect -- reading browser storage once after mount
     setFavourites(loadFavourites(stored));
+    setManualRequisitions(loadManualRequisitions(stored));
     setUser(stored);
     setPage(START_PAGE[stored.role] as AppPage);
   }, []);
@@ -193,6 +199,7 @@ export function CockpitShell() {
   const switchUser = useCallback((next: DemoUser) => {
     setUser(next);
     setFavourites(loadFavourites(next));
+    setManualRequisitions(loadManualRequisitions(next));
     saveUser(next);
     setSignedOut(false);
     setPanel(null);
@@ -260,8 +267,39 @@ export function CockpitShell() {
   const log = useMemo(() => [...examples, ...decisions], [examples, decisions]);
   const queue: QueueEntry[] = useMemo(
     // The example decisions close their sample requisitions from July 2026, so they count here too.
-    () => workQueue(requisitions, log, new Set(Object.keys(processes))),
-    [requisitions, log, processes],
+    // Manual requisitions join the ERP ones, earliest required date first.
+    () =>
+      workQueue(
+        [...requisitions, ...manualRequisitions].sort((a, b) => a.neededBy.localeCompare(b.neededBy)),
+        log,
+        new Set(Object.keys(processes)),
+      ),
+    [requisitions, manualRequisitions, log, processes],
+  );
+  const addManualRequisition = useCallback(
+    (input: ManualRequisitionInput): PurchaseRequisitionRecord | null => {
+      const created = manualRequisition(
+        input,
+        settings?.catalog ?? [],
+        [...requisitions, ...manualRequisitions].map((r) => r.recordId),
+        user.name,
+        dayjs().format("YYYY-MM-DD"),
+      );
+      if (!created) return null;
+      const next = [...manualRequisitions, created];
+      setManualRequisitions(next);
+      saveManualRequisitions(user, next);
+      return created;
+    },
+    [settings, requisitions, manualRequisitions, user],
+  );
+  const removeManualRequisition = useCallback(
+    (recordId: string) => {
+      const next = manualRequisitions.filter((r) => r.recordId !== recordId);
+      setManualRequisitions(next);
+      saveManualRequisitions(user, next);
+    },
+    [manualRequisitions, user],
   );
   // CO₂ targets on three levels (expert interviews, 10 Nov 2026); the buyer's own row feeds the work queue.
   const today = dayjs().format("YYYY-MM-DD");
@@ -834,6 +872,9 @@ export function CockpitShell() {
               progress={orders.length > 0 ? progress : null}
               supplierNames={allNames}
               onStart={(e) => startProcess(e.requisition)}
+              catalog={settings?.catalog ?? []}
+              onAddManual={addManualRequisition}
+              onRemoveManual={removeManualRequisition}
               onResume={resumeProcess}
               onOpenDecision={openDecision}
               canRun={user.canRun}

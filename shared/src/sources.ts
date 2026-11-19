@@ -215,6 +215,8 @@ export interface PurchaseRequisitionRecord {
    * ordered). Progress within the cockpit is tracked by the cockpit itself.
    */
   status: 'open' | 'in progress' | 'closed';
+  /** Set when the buyer added the requisition by hand in Fairweigh instead of it coming from the ERP (18 Nov 2026). */
+  origin?: 'manual';
 }
 
 /** One page of a document, as the lines of text printed on it. */

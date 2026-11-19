@@ -37,7 +37,7 @@ function row(overrides: Record<string, unknown> = {}): SupplierRow {
     row: 15,
     values: {
       supplier_id: 'S-0013',
-      supplier_name: 'Alucast Schwaben GmbH',
+      supplier_name: 'Alucast Vertis GmbH',
       country: 'Germany',
       city: 'Ulm',
       category: 'Aluminium & Die Casting',
@@ -222,7 +222,7 @@ describe('offer document', () => {
     expect(document).toMatchObject({ documentId: 'DOC-OFFER-S-0013-P-1', supplierId: 'S-0013' });
     const lines = document!.pages[0]!.lines;
     // The supplier's name is the letterhead; only a small sample line at the bottom (decision of 8 Nov 2026).
-    expect(lines[0]).toBe('Alucast Schwaben GmbH');
+    expect(lines[0]).toBe('Alucast Vertis GmbH');
     expect(lines.at(-1)).toBe('Sample document from the Fairweigh prototype.');
     expect(lines).toContain('Unit price: EUR 18.36 per piece');
     expect(lines).toContain('Quantity: 10,000 pcs');

@@ -25,7 +25,7 @@ describe('Simulated source systems (e2e)', () => {
     const res = await request(app.getHttpServer()).get('/api/sim/erp/suppliers/S-0013').expect(200);
     expect(res.body).toMatchObject({
       recordId: 'ERP-S-0013',
-      supplierName: 'Alucast Schwaben GmbH',
+      supplierName: 'Alucast Vertis GmbH',
       onTimeDeliveryPercent: 95,
       complaintRatePercent: 0.8,
       notice: 'Demo data, fictitious',
@@ -171,11 +171,11 @@ describe('Simulated source systems (e2e)', () => {
     const settings = (await request(app.getHttpServer()).get('/api/sim/settings').expect(200)).body as DemoSettings;
     const aluPart = settings.catalog.find((p) => p.partId === 'P-ALU-HSG-01')!;
     const alu = aluPart.benchmarks!;
-    // Today = suppliers of the last three purchases (all Alucast Schwaben): ERP complaint rate and on-time delivery, PCF footprint
+    // Today = suppliers of the last three purchases (all Alucast Vertis): ERP complaint rate and on-time delivery, PCF footprint
     expect(alu.quality).toMatchObject({ value: 0.8, short: 'Today', kind: 'internal' });
     expect(alu.delivery).toMatchObject({ value: 95, short: 'Today' });
     expect(alu.co2).toMatchObject({ value: 38, short: 'Today', sourceUrl: null });
-    // Price we pay today: average of the last three purchase orders of GH-200 in the client ERP (all Alucast Schwaben, EUR 84.50)
+    // Price we pay today: average of the last three purchase orders of GH-200 in the client ERP (all Alucast Vertis, EUR 84.50)
     expect(alu.price).toMatchObject({ value: 84.5, short: 'Price today', kind: 'internal', sourceUrl: null });
     expect(alu.price.basis).toContain('average of the last 3 purchases');
     // Bearings have no purchase orders yet: the current contract and the current supplier are used instead

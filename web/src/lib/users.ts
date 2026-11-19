@@ -28,7 +28,7 @@ export interface DemoUser {
   defaultFavourites: string[];
 }
 
-export const COMPANY = "Rheintal Antriebe GmbH";
+export const COMPANY = "Torvane Drive Systems GmbH";
 
 export const DEMO_USERS: DemoUser[] = [
   {
@@ -44,7 +44,7 @@ export const DEMO_USERS: DemoUser[] = [
     canDecide: true,
     seesCommercials: true,
     canEditRules: false,
-    // Current suppliers of his categories: Alucast Schwaben (aluminium), Donautal Stahl (steel).
+    // Current suppliers of his categories: Alucast Vertis (aluminium), Stavio Steel (steel).
     defaultFavourites: ["S-0013", "S-0007"],
   },
   {
@@ -60,7 +60,7 @@ export const DEMO_USERS: DemoUser[] = [
     canDecide: false,
     seesCommercials: false,
     canEditRules: true,
-    // Suppliers with good CO₂ data: Alu-Druckguss Erzgebirge (verified footprint), Elbkupfer.
+    // Suppliers with good CO₂ data: Brightform Die Casting (verified footprint), Cuprion.
     defaultFavourites: ["S-0015", "S-0021"],
   },
   {
@@ -76,7 +76,7 @@ export const DEMO_USERS: DemoUser[] = [
     canDecide: false,
     seesCommercials: true,
     canEditRules: false,
-    // The two largest suppliers by annual spend: Weserland Aluminium, Neckartal Elektronik.
+    // The two largest suppliers by annual spend: Lumarex Aluminium, Elnova Electronics.
     defaultFavourites: ["S-0012", "S-0032"],
   },
 ];

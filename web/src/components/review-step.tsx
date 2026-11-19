@@ -36,7 +36,7 @@ export function ReviewStep({ requisition, quantity, neededBy, canRun, onNext, fo
           column={1}
           bordered
           style={{ flex: "1 1 300px", minWidth: 0 }}
-          title="From the client ERP"
+          title={requisition.origin === "manual" ? "Added manually in Fairweigh" : "From the client ERP"}
           items={[
             { label: "Requisition", children: requisition.recordId },
             { label: "Material", children: `${requisition.partName} (${requisition.partId})` },
