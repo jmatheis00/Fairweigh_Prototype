@@ -1,12 +1,10 @@
 "use client";
 
-import { AuditOutlined, CheckCircleOutlined, MailOutlined, ExclamationCircleOutlined, InfoCircleOutlined, TeamOutlined } from "@ant-design/icons";
+import { AuditOutlined, CheckCircleOutlined, MailOutlined, ExclamationCircleOutlined, InfoCircleOutlined, StopOutlined, TeamOutlined } from "@ant-design/icons";
 import { Alert, Button, Card, Flex, Select, Table, Tooltip, Typography } from "antd";
 import { useEffect, useMemo, useState } from "react";
 import dayjs from "dayjs";
 import {
-  formatDay,
-  RISK_MONITORING,
   supplierBaseStats,
   sustainabilityStats,
   type DemoSettings,
@@ -15,7 +13,6 @@ import {
   type PcfRecord,
   type PurchaseOrderRecord,
   type RatingRecord,
-  type RiskAlert,
 } from "@scc/shared";
 import { api } from "@/lib/api";
 import { requestMailto, riskRequest, riskRequestText } from "@/lib/data-request";
@@ -23,8 +20,7 @@ import { formatNumber } from "@/lib/labels";
 import { shortName } from "@/lib/names";
 import { InfoTip } from "./info-tip";
 import { PageHeader } from "./page-header";
-import { RiskLevelTag } from "./risk-level-tag";
-import { DataRequestsCard, type SupplierDataView } from "./data-requests-card";
+import { DataRequestsCard, LIST_ROWS, type SupplierDataView } from "./data-requests-card";
 import { SupplierBaseFacts, SupplierBaseMap } from "./analytics-charts";
 import { usePartnerData } from "@/lib/partner-data";
 import { FLAG_NAMES, FlagTags, SupplierNameLink, relationshipLabel } from "@/lib/supplier-labels";
@@ -116,12 +112,6 @@ export function SustainabilityPage({
   const flagged = stats.flagged
     .filter((f) => hasRelationship(f.supplierId, riskRelationship) && (!flagFilter || f.flags.includes(flagFilter)))
     .sort((x, y) => Number(isActive(y.supplierId)) - Number(isActive(x.supplierId)));
-  // Alerts of the risk-monitoring partner per supplier, most severe first, then newest (merged into the risk table, 19 Nov 2026).
-  const SEVERITY_ORDER: Record<string, number> = { High: 0, Medium: 1, Low: 2 };
-  const alertsOf = (id: string): RiskAlert[] =>
-    (partner?.alerts ?? [])
-      .filter((a) => a.supplierId === id)
-      .sort((x, y) => SEVERITY_ORDER[x.severity]! - SEVERITY_ORDER[y.severity]! || y.date.localeCompare(x.date));
   const showRisk = (flag: string) => {
     setRiskRelationship("Active contract");
     setFlagFilter(flag);
@@ -222,7 +212,7 @@ export function SustainabilityPage({
         <Card
           className="dash-card"
           size="small"
-          title={`Risks and alerts, today (${flagged.length} flagged)`}
+          title={`Supplier risks, today (${flagged.length} flagged)`}
           extra={
             <Flex gap={8} wrap>
               {relationshipSelect(riskRelationship, setRiskRelationship)}
@@ -240,19 +230,20 @@ export function SustainabilityPage({
           }
           styles={{ body: { padding: 0 } }}
         >
+          {/* Short to-do list without inner scrolling (20 Nov 2026): the first rows in full, the rest in Suppliers.
+              The alerts of the risk monitoring repeated the flags; they are in the supplier panel. */}
           <Table
             size="small"
             pagination={false}
             rowKey="supplierId"
-            dataSource={flagged}
-            className="table-top"
+            dataSource={flagged.slice(0, LIST_ROWS)}
             locale={{ emptyText: "No supplier with these flags." }}
-            scroll={{ y: 220, x: 640 }}
+            scroll={{ x: 560 }}
             columns={[
               {
                 title: "Supplier",
                 key: "s",
-                width: 160,
+                width: 190,
                 render: (_, f) => (
                   <Flex vertical align="start">
                     <SupplierNameLink supplierId={f.supplierId} name={name(f.supplierId)} onOpen={openPlain} />
@@ -262,55 +253,35 @@ export function SustainabilityPage({
                   </Flex>
                 ),
               },
+              { title: "Flags", key: "f", render: (_, f) => <FlagTags flags={f.flags} /> },
               {
-                title: "Flags",
-                key: "f",
-                width: 200,
-                // Next step per flag under the tags (19 Nov 2026): SA8000 audit for LkSG High, a statement for a
-                // controversy. A proven violation gets no button: the rule already excludes the supplier.
+                title: "",
+                key: "n",
+                width: 160,
+                align: "right",
+                // Next step per the knock-out rules (19 Nov 2026): SA8000 audit for LkSG High, a statement for a
+                // controversy; a proven violation or child or forced labour already excludes the supplier.
                 render: (_, f) => {
                   const { excluded, items } = riskRequest(f.flags, ratingOf(f.supplierId), erpOf(f.supplierId)?.country ?? null);
-                  return (
-                    <Flex vertical gap={6} align="start">
-                      <FlagTags flags={f.flags} />
-                      {items.length ? (
-                        <Tooltip title={items.join(" · ")}>
-                          <Button size="small" icon={<MailOutlined />} href={requestMailto(riskRequestText(name(f.supplierId), items))}>
-                            {items.length === 1 ? (f.flags.includes("LkSG risk High") ? "Request audit" : "Request statement") : `Request (${items.length})`}
-                          </Button>
-                        </Tooltip>
-                      ) : excluded ? (
-                        <Typography.Text type="secondary" style={{ fontSize: 12 }}>{excluded}</Typography.Text>
-                      ) : null}
-                    </Flex>
-                  );
-                },
-              },
-              {
-                title: `Main alert · ${RISK_MONITORING.label}`,
-                key: "a",
-                render: (_, f) => {
-                  const list = alertsOf(f.supplierId);
-                  const main = list[0];
-                  if (!main) return <Typography.Text type="secondary">No alert</Typography.Text>;
-                  return (
-                    <Flex gap={6} align="start">
-                      <RiskLevelTag level={main.severity} />
-                      <span style={{ fontSize: 13 }}>
-                        {main.title}
-                        <Typography.Text type="secondary" style={{ fontSize: 12, display: "block" }}>
-                          {formatDay(main.date)}
-                          {list.length > 1 && ` · ${list.length - 1} more in the supplier panel`}
-                        </Typography.Text>
-                      </span>
-                    </Flex>
-                  );
+                  return items.length ? (
+                    <Tooltip title={items.join(" · ")}>
+                      <Button size="small" icon={<MailOutlined />} href={requestMailto(riskRequestText(name(f.supplierId), items))}>
+                        {items.length === 1 ? (f.flags.includes("LkSG risk High") ? "Request audit" : "Request statement") : `Request (${items.length})`}
+                      </Button>
+                    </Tooltip>
+                  ) : excluded ? (
+                    <Tooltip title={excluded}>
+                      <Typography.Text type="secondary" style={{ fontSize: 12 }} tabIndex={0}>
+                        <StopOutlined /> Excluded
+                      </Typography.Text>
+                    </Tooltip>
+                  ) : null;
                 },
               },
             ]}
           />
           <Typography.Text type="secondary" style={{ fontSize: 12, display: "block", padding: "6px 12px 10px" }}>
-            Excluded: proven violation, LkSG High without SA8000, child or forced labour; all other flags are warnings
+            {flagged.length > LIST_ROWS ? `${LIST_ROWS} of ${flagged.length} shown · ` : ""}alerts in the supplier panel
             {onShowSuppliers && (
               <>
                 {" · "}

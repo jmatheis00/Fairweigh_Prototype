@@ -7,9 +7,12 @@ import { formatDay, type Co2DataQuality, type DataLevel, type ErpRecord } from "
 import { requestMailto, sustainabilityRequestText } from "@/lib/data-request";
 import { usePartnerData } from "@/lib/partner-data";
 import { InfoTip } from "./info-tip";
-import { DataLevelLabel, SupplierNameLink, relationshipLabel } from "@/lib/supplier-labels";
+import { SupplierNameLink, relationshipLabel } from "@/lib/supplier-labels";
 
 const DEMO_DATE = "2026-11-06";
+
+/** Rows shown in each to-do list on CO₂ and risks; the full list is one click away in Suppliers (20 Nov 2026). */
+export const LIST_ROWS = 5;
 
 interface Row {
   supplierId: string;
@@ -104,14 +107,23 @@ export function DataRequestsCard({ erp, dataQuality, dataGaps, name, onOpenSuppl
     partial: all.filter((r) => r.level === "partial"),
     update: all.filter((r) => r.level === "sufficient"),
   };
-  const shown = lists[view];
+  const shown = lists[view].slice(0, LIST_ROWS);
+  const total = lists[view].length;
   const erpOf = (id: string) => erp.find((e) => e.supplierId === id);
 
   return (
     <Card
       className="dash-card"
       size="small"
-      title="Supplier data, today"
+      title={
+        <span>
+          Supplier data, today{" "}
+          <InfoTip
+            label="data levels"
+            title="Sufficient = the supplier's own CO₂ data (report, self-assessment or PCF declaration) and a sustainability rating. Industry averages and web searches do not count. Partly = one of the two is missing; insufficient = both."
+          />
+        </span>
+      }
       extra={
         <Flex gap={8} wrap justify="end">
           <Segmented<View>
@@ -136,12 +148,12 @@ export function DataRequestsCard({ erp, dataQuality, dataGaps, name, onOpenSuppl
         rowKey="supplierId"
         dataSource={shown}
         locale={{ emptyText: view === "update" ? "No supplier data needs an update." : "No supplier at this level." }}
-        scroll={{ y: 220, x: 620 }}
+        scroll={{ x: 520 }}
         columns={[
           {
             title: "Supplier",
             key: "s",
-            width: 190,
+            width: 210,
             render: (_, r) => (
               <Flex vertical align="start">
                 <SupplierNameLink supplierId={r.supplierId} name={name(r.supplierId)} onOpen={onOpenSupplier} />
@@ -150,20 +162,6 @@ export function DataRequestsCard({ erp, dataQuality, dataGaps, name, onOpenSuppl
                 </Typography.Text>
               </Flex>
             ),
-          },
-          {
-            title: (
-              <span>
-                Data{" "}
-                <InfoTip
-                  label="data levels"
-                  title="Sufficient = the supplier's own CO₂ data (report, self-assessment or PCF declaration) and a sustainability rating. Industry averages and web searches do not count."
-                />
-              </span>
-            ),
-            key: "lv",
-            width: 115,
-            render: (_, r) => <DataLevelLabel level={r.level} />,
           },
           {
             title: "Why",
@@ -201,7 +199,7 @@ export function DataRequestsCard({ erp, dataQuality, dataGaps, name, onOpenSuppl
         ]}
       />
       <Typography.Text type="secondary" style={{ fontSize: 12, display: "block", padding: "6px 12px 10px" }}>
-        Our own suppliers first · requests open as e-mail drafts
+        {total > LIST_ROWS ? `${LIST_ROWS} of ${total} shown · ` : ""}our own suppliers first · requests open as e-mail drafts
         {onShowAll && view !== "update" && (
           <>
             {" · "}

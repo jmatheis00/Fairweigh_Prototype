@@ -88,6 +88,8 @@ export const theme: ThemeConfig = {
       rowHoverBg: "transparent",
       rowSelectedBg: BRAND.tintStrong,
       rowSelectedHoverBg: BRAND.tintStrong,
+      // Every table sits in a card that rounds and clips the corners (20 Nov 2026), so the header stays square.
+      headerBorderRadius: 0,
     },
     Select: { colorBorder: FIELD_BORDER },
     Input: { colorBorder: FIELD_BORDER },
