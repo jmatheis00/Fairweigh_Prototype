@@ -3,7 +3,7 @@
 import { MailOutlined } from "@ant-design/icons";
 import { Button, Flex, Typography } from "antd";
 import { CRITERIA, type AgentRun, type Criterion, type DecisionResult, type LeadRequirement } from "@scc/shared";
-import { dataRequestText, requestItems, requestMailto } from "@/lib/data-request";
+import { dataRequestText, offerDataRequest, requestItems, requestMailto } from "@/lib/data-request";
 import { TOPIC_LABEL, formatNumber, formatEur, formatVsToday } from "@/lib/labels";
 import { pcfBadgeTooltip } from "./pcf-badge-tag";
 
@@ -14,6 +14,8 @@ interface Props {
   /** What each offer with gaps would need to lead (from the decision engine). */
   requirements: Record<string, LeadRequirement | null>;
   partName: string;
+  /** Suppliers that never delivered: asked for a sample delivery instead of quality and delivery figures. */
+  neverDelivered?: Set<string>;
 }
 
 /** "quality ≤ 0.9 % complaints", "delivery ≥ 93 % on time". */
@@ -46,7 +48,7 @@ const list = (items: string[]) => (items.length <= 1 ? items.join("") : `${items
  * Page "What's missing to decide": per offer the gaps and whether closing
  * them could change the result. Outdated data is listed too.
  */
-export function MissingData({ run, result, supplierNames, requirements, partName }: Props) {
+export function MissingData({ run, result, supplierNames, requirements, partName, neverDelivered }: Props) {
   const items = run.request.supplierIds
     .map((id) => {
       const ranked = result.ranked.find((r) => r.supplierId === id);
@@ -54,15 +56,7 @@ export function MissingData({ run, result, supplierNames, requirements, partName
       const missing = ranked?.missing ?? [];
       const stale = (ranked?.warnings ?? []).filter((w) => /outdated|Indicative|Lead time not verified/.test(w));
       const co2Badge = run.evidence.find((e) => e.supplierId === id && e.topic === "co2" && e.status === "verified")?.sourceBadge ?? null;
-      const request = {
-        supplierName: supplierNames[id] ?? id,
-        partName,
-        quantity: run.request.quantity,
-        neededBy: run.request.neededBy,
-        missing,
-        warnings: ranked?.warnings ?? [],
-        co2Badge,
-      };
+      const request = offerDataRequest(run, result, id, supplierNames[id] ?? id, partName, neverDelivered?.has(id) ?? false);
       return { id, ranked, excluded, missing, stale, co2Badge, request, asks: requestItems(request) };
     })
     .filter((i) => !i.excluded && (i.missing.length > 0 || i.stale.length > 0 || i.asks.length > 0));

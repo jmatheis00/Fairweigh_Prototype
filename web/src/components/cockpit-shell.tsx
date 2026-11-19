@@ -957,7 +957,7 @@ export function CockpitShell() {
           size={panel === "evidence" ? 980 : 760}
           title={
             panel === "why" ? (
-              "Why this recommendation?"
+              "Recommendation details"
             ) : panel === "evidence"
               ? `All evidence (${run?.evidence.length ?? 0}) and gaps (${run?.gaps.length ?? 0})`
               : panel === "missing"
@@ -986,10 +986,11 @@ export function CockpitShell() {
             />
           )}
           {run && panel === "evidence" && (
-            <EvidenceTable run={run} supplierNames={supplierNames} selectedId={null} onOpen={openEvidence} />
+            <EvidenceTable run={run} supplierNames={supplierNames} selectedId={null} onOpen={openEvidence} result={result} partName={catalogPart?.partName ?? run.request.partId} neverDelivered={neverDelivered} />
           )}
           {run && result && panel === "missing" && (
             <MissingData
+              neverDelivered={neverDelivered}
               partName={catalogPart?.partName ?? run.request.partId}
               run={run}
               result={result}

@@ -15,7 +15,7 @@ import {
   type DecisionResult,
   type Evidence,
 } from "@scc/shared";
-import { AGE_NOTE, SCORE_BAND_LABEL, knockOutLabel, TOPIC_LABEL, formatNumber, scoreBand, formatEur, formatVsToday, formatVsTodayShort, formatVsTodayRange, formatCriterionVsToday, formatCriterionRange, AS_TODAY, scorePillClass } from "@/lib/labels";
+import { AGE_NOTE, SCORE_BAND_LABEL, knockOutLabel, TOPIC_LABEL, formatNumber, scoreBand, formatEur, formatVsToday, formatVsTodayShort, formatVsTodayRange, formatCriterionVsToday, formatCriterionRange, CRITERION_LIMIT, AS_TODAY, scorePillClass } from "@/lib/labels";
 import { shortNote } from "@/lib/notes";
 import { priceRequestMailto } from "@/lib/price-request";
 import { PcfBadgeTag } from "./pcf-badge-tag";
@@ -79,6 +79,26 @@ function versusBenchmark(c: Criterion, value: number, benchmark: number): string
   const p = Math.round(percentBetter(c, value, benchmark));
   if (p === 0) return "same as today";
   return `${Math.abs(p)} % ${p > 0 ? "better" : "worse"}`;
+}
+
+/**
+ * Colour of a note under the supplier name (19 Nov 2026), always together with its words: red for
+ * LkSG risk High (knock-outs are red too), amber for the other rule warnings (LkSG risk Medium,
+ * controversy reported, lead time too late), grey for data notes (gaps, outdated or estimated values).
+ */
+function noteTone(note: string): string {
+  if (/^LkSG country risk: High/i.test(note)) return " note-bad";
+  if (/^LkSG country risk: Medium|^Reported: |^Lead time \d+ days?, too late/i.test(note)) return " note-warn";
+  return "";
+}
+
+/**
+ * Whether the full note says more than its short label (19 Nov 2026): only then it gets a tooltip, e.g.
+ * the allegation behind "Controversy reported" or the date behind "Too late". "2 of 4 verified" and
+ * "LkSG risk Medium" would only repeat themselves.
+ */
+function noteHasMore(note: string): boolean {
+  return shortNote(note) !== note && !/^LkSG country risk: /i.test(note);
 }
 
 /** What each column measures, shown above the points rule. */
@@ -272,9 +292,12 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
       // Totals and CO₂ in euros are in the supplier profile; the cell keeps value and points.
       const second = !row.points ? "" : `${formatNumber(row.points[c], 0)} pts${!benchmarks && row.points[c] === 100 ? " · best" : ""}`;
       const pointsValue = row.points?.[c] ?? null;
-      const secondHint = benchmarks
-        ? `${versusBenchmark(c, evidence.value, benchmarks[c].value)} than today (${benchmarkValue(c, benchmarks[c].value)})`.replace("same as today than today", "the same as today")
-        : null;
+      // Tooltip only where the cell hides the real size: "> 50 % worse" (feedback 19 Nov 2026). Elsewhere the
+      // cell already says it all, and a rounded copy with today's value read like a second, wrong result.
+      const secondHint =
+        benchmarks && pointsValue !== null && (pointsValue <= 0 || pointsValue >= 100)
+          ? `Real difference: ${versusBenchmark(c, evidence.value, benchmarks[c].value)} than today's ${benchmarkValue(c, benchmarks[c].value)}. The score counts at most ${CRITERION_LIMIT} %.`
+          : null;
       // Slim matrix (10 Nov 2026): the "as of" date is in the source panel; old data keeps a warning icon here.
       const age = row.ageWarnings.find((w) => (c === "price" ? w.startsWith("Price") : c === "co2" ? w.startsWith("CO₂") : false));
       const oldIcon = age ? (
@@ -311,13 +334,17 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
   const renderNotes = (row: Row) => (
             // Notes as small text lines with an icon instead of grey boxes (16 Nov 2026): lighter under the name.
             <Flex vertical gap={2} align="flex-start">
-              {row.exclusion && (
-                <Tooltip title={`${row.exclusion.replace(/^EXCLUDED: /, "")}.`}>
-                  <span className="matrix-note" tabIndex={0}>
-                    <StopOutlined aria-hidden /> {knockOutLabel(row.exclusion.replace(/^EXCLUDED: /, ""))}
+              {row.exclusion && (() => {
+                const reason = row.exclusion.replace(/^EXCLUDED: /, "");
+                // The LkSG label says it all; proven violations and labour reports keep the finding in a tooltip.
+                const hasMore = !reason.startsWith("LkSG");
+                const note = (
+                  <span className="matrix-note note-bad" tabIndex={hasMore ? 0 : undefined}>
+                    <StopOutlined aria-hidden /> {knockOutLabel(reason)}
                   </span>
-                </Tooltip>
-              )}
+                );
+                return hasMore ? <Tooltip title={`${reason}.`}>{note}</Tooltip> : note;
+              })()}
               {/* An excluded offer shows only its knock-out reason; its other warnings are in the offer side panel. */}
               {!row.exclusion && (() => {
                 const max = 3;
@@ -325,13 +352,14 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
                 const rest = row.notes.slice(shown.length);
                 return (
                   <>
-                    {shown.map((n) => (
-                      <Tooltip key={n} title={n}>
-                        <span className="matrix-note" tabIndex={0}>
+                    {shown.map((n) => {
+                      const note = (
+                        <span className={`matrix-note${noteTone(n)}`} tabIndex={noteHasMore(n) ? 0 : undefined}>
                           <WarningOutlined aria-hidden /> {shortNote(n)}
                         </span>
-                      </Tooltip>
-                    ))}
+                      );
+                      return noteHasMore(n) ? <Tooltip key={n} title={n}>{note}</Tooltip> : <span key={n}>{note}</span>;
+                    })}
                     {rest.length > 0 && (
                       <Tooltip title={<ul style={{ margin: 0, paddingLeft: 16 }}>{rest.map((n) => <li key={n}>{n}</li>)}</ul>}>
                         <span className="matrix-note" tabIndex={0}>+{rest.length} more</span>

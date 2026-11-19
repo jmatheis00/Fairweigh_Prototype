@@ -49,7 +49,8 @@ export function formatMonth(isoDate: string): string {
 
 /** Short label for a knock-out reason (decision engine, rules K2/K3 and fine notices). */
 export function knockOutLabel(reason: string): string {
-  if (reason.startsWith("LkSG")) return "Excluded: LkSG, no audit";
+  // Says it all, so it needs no tooltip (19 Nov 2026); the other two keep the finding in a tooltip.
+  if (reason.startsWith("LkSG")) return "Excluded: LkSG High, no SA8000";
   if (reason.startsWith("Child or forced labour")) return "Excluded: child or forced labour";
   return "Excluded: proven violation";
 }
@@ -124,10 +125,18 @@ export function formatPercentDiff(d: number): string {
   return formatDiff(d, CRITERION_DIGITS);
 }
 
-/** Points of one criterion against today in words: "40.5 % better", "0.2 % worse", "today". */
-export function formatCriterionVsToday(points: number): string {
-  const d = points - 50;
-  return formatDiff(d, CRITERION_DIGITS);
+/** The score counts at most 50 % better or worse per criterion (points capped at 0–100). */
+export const CRITERION_LIMIT = 50;
+
+/**
+ * Points of one criterion against today in words: "40.5 % better", "0.2 % worse", "today".
+ * A real value that hits the 0–100 limit reads "> 50 % worse" / "> 50 % better" (19 Nov 2026), so a
+ * value far past the limit is not shown as exactly 50 %. A missing value (0 points) stays "50.0 % worse".
+ */
+export function formatCriterionVsToday(points: number, missing = false): string {
+  if (!missing && points <= 0) return `> ${CRITERION_LIMIT} % worse`;
+  if (!missing && points >= 100) return `> ${CRITERION_LIMIT} % better`;
+  return formatDiff(points - 50, CRITERION_DIGITS);
 }
 
 /** Range of one criterion (supplier that never delivered): "0.4 % worse to 0.4 % better". */

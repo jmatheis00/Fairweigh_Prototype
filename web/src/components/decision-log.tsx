@@ -186,6 +186,8 @@ function CalculationTable({ record: r, name }: { record: DecisionRecord; name: (
     defaultWeight: r.defaultWeights?.[c] ?? null,
     reference: r.reference?.[c] ?? null,
     points: chosen.points![c],
+    // The record keeps the evidence of the chosen offer: no verified number means the value was missing.
+    missing: !r.evidence.some((e) => e.topic === c && e.status === "verified" && typeof e.value === "number"),
     adds: ((chosen.points![c] - 50) * r.weights[c]) / 100,
   }));
   return (
@@ -212,7 +214,7 @@ function CalculationTable({ record: r, name }: { record: DecisionRecord; name: (
             align: "right",
             render: (_, x) => (x.reference ? <span title={x.reference.basis}>{referenceText(x.c, x.reference.value)}</span> : "—"),
           },
-          { title: "vs today", key: "p", align: "right", render: (_, x) => formatCriterionVsToday(x.points) },
+          { title: "vs today", key: "p", align: "right", render: (_, x) => formatCriterionVsToday(x.points, x.missing) },
           { title: "Adds", key: "a", align: "right", render: (_, x) => `${x.adds > 0 ? "+" : x.adds < 0 ? "-" : "±"}${formatNumber(Math.abs(x.adds), 1)} %` },
         ]}
         summary={() => (

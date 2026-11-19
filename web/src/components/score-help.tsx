@@ -18,7 +18,19 @@ interface Props {
 /** "How it works" from the help menu and "How is the score calculated?" from the recommendation. Mirrors PLAN.md section 3. */
 export function ScoreHelp({ open, title, onClose, rules, weights, defaults }: Props) {
   return (
-    <Modal open={open} onCancel={onClose} onOk={onClose} cancelButtonProps={{ style: { display: "none" } }} okText="Close" title={title} width={680}>
+    // Wide, in two columns (19 Nov 2026): the whole help fits on a 1440 × 900 laptop without scrolling; one column on small screens.
+    <Modal
+      open={open}
+      onCancel={onClose}
+      onOk={onClose}
+      cancelButtonProps={{ style: { display: "none" } }}
+      okText="Close"
+      title={title}
+      width="min(1160px, calc(100vw - 32px))"
+      style={{ top: 24 }}
+    >
+      <div className="help-columns">
+        <div>
       <Typography.Paragraph>
         The ranking is fixed code, not AI. The AI only collects the evidence; code checks every value at its source. The recommendation is a
         suggestion: the buyer decides, and every decision is saved with the buyer&apos;s name in the Decision Log.
@@ -33,7 +45,28 @@ export function ScoreHelp({ open, title, onClose, rules, weights, defaults }: Pr
         </Typography.Paragraph>
       )}
       <HowItWorks title={false} />
-      <Typography.Title level={5}>The score in detail</Typography.Title>
+      {rules && (
+        <>
+          <Typography.Title level={5} style={{ marginTop: 16 }}>
+            Rules in force, set by the Scope 3 manager
+          </Typography.Title>
+          <ul style={{ paddingLeft: 20, lineHeight: 1.7, marginBottom: 4 }}>
+            <li>Prices older than {rules.priceMaxAgeDays} days are flagged as outdated.</li>
+            <li>CO₂ data older than {rules.co2MaxAgeDays} days is flagged as old.</li>
+            <li>CO₂ price for the euro display: {rules.co2PricePerTonneEur} € per tonne.</li>
+            <li>{rules.flagEstimatedCo2 ? "Estimated CO₂ values are flagged." : "Estimated CO₂ values are not flagged."}</li>
+          </ul>
+          <Typography.Text type="secondary" style={{ fontSize: 12 }}>
+            {rules.updatedBy && rules.updatedAt ? `Last changed by ${rules.updatedBy}, ${formatDateTime(rules.updatedAt)}.` : "Defaults, not changed yet."} These
+            rules only add notes; they never change the score.
+          </Typography.Text>
+        </>
+      )}
+        </div>
+        <div>
+      <Typography.Title level={5} style={{ marginTop: 0 }}>
+        The score in detail
+      </Typography.Title>
       <ol style={{ paddingLeft: 20, lineHeight: 1.7 }}>
         <li>
           <strong>Knock-outs first.</strong> An offer is excluded for a proven legal violation (fine notice), LkSG country risk High
@@ -67,23 +100,8 @@ export function ScoreHelp({ open, title, onClose, rules, weights, defaults }: Pr
         </li>
       </ol>
       <Typography.Text type="secondary">CO₂ in euros is shown for information only and does not count towards the score.</Typography.Text>
-      {rules && (
-        <>
-          <Typography.Title level={5} style={{ marginTop: 16 }}>
-            Rules in force, set by the Scope 3 manager
-          </Typography.Title>
-          <ul style={{ paddingLeft: 20, lineHeight: 1.7, marginBottom: 4 }}>
-            <li>Prices older than {rules.priceMaxAgeDays} days are flagged as outdated.</li>
-            <li>CO₂ data older than {rules.co2MaxAgeDays} days is flagged as old.</li>
-            <li>CO₂ price for the euro display: {rules.co2PricePerTonneEur} € per tonne.</li>
-            <li>{rules.flagEstimatedCo2 ? "Estimated CO₂ values are flagged." : "Estimated CO₂ values are not flagged."}</li>
-          </ul>
-          <Typography.Text type="secondary" style={{ fontSize: 12 }}>
-            {rules.updatedBy && rules.updatedAt ? `Last changed by ${rules.updatedBy}, ${formatDateTime(rules.updatedAt)}.` : "Defaults, not changed yet."} These
-            rules only add notes; they never change the score.
-          </Typography.Text>
-        </>
-      )}
+        </div>
+      </div>
     </Modal>
   );
 }

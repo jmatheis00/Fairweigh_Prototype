@@ -1,11 +1,10 @@
 "use client";
 
-import { CheckCircleOutlined, CloudOutlined, EuroOutlined, InfoCircleOutlined, RobotOutlined, StopOutlined, WarningOutlined } from "@ant-design/icons";
+import { CheckCircleOutlined, CloudOutlined, EuroOutlined, InfoCircleOutlined, RobotOutlined, StopOutlined, TrophyOutlined, WarningOutlined } from "@ant-design/icons";
 import type { ReactNode } from "react";
 import { Button, Card, Flex, Table, Tag, Tooltip, Typography } from "antd";
 import { CRITERIA, cellEvidence, compareWithBaseline, isSupplierSpecific, percentBetter, type Benchmark, type Criterion, type AgentRun, type DecisionResult, type Weights, type WeightSensitivity } from "@scc/shared";
 import { TOPIC_LABEL, formatNumber, formatEur, formatCriterionVsToday, formatDiff, formatVsToday, formatVsTodayShort, AS_TODAY } from "@/lib/labels";
-import { shortName } from "@/lib/names";
 import { Delta, decisionSummaryParts, signed } from "./decision-summary";
 
 interface Props {
@@ -52,7 +51,7 @@ function valueText(c: Criterion, v: number): string {
 }
 
 /**
- * Content of the "Why this recommendation?" side panel: everything the compact block on the compare step leaves out.
+ * Content of the "Recommendation details" side panel: everything the compact block on the compare step leaves out.
  * Layout (feedback 17 Nov 2026): header with score and status tags, how the score adds up per criterion,
  * two figure cards against the current supplier, then exclusions and gaps as a short list.
  */
@@ -75,7 +74,8 @@ export function RecommendationDetails({
   const rec = result.recommendation;
   const first = result.ranked[0];
   const runnerUp = rec?.runnerUpId ? result.ranked.find((r) => r.supplierId === rec.runnerUpId) : undefined;
-  const name = (id: string) => shortName(supplierNames[id] ?? id);
+  // Full company names in the drawer (feedback 19 Nov 2026): it has the room, and the legal name is what the buyer signs with.
+  const name = (id: string) => supplierNames[id] ?? id;
   const cmp = rec && currentSupplierId ? compareWithBaseline(run, rec.supplierId, currentSupplierId, co2PricePerTonneEur) : null;
   const isCurrent = rec?.supplierId === currentSupplierId;
   const verified = run.evidence.filter((e) => e.status === "verified").length;
@@ -136,8 +136,10 @@ export function RecommendationDetails({
           c,
           value: v !== null ? valueText(c, v) : first.assumed.includes(c) ? "range: never delivered" : "missing",
           points: first.points[c],
+          missing: first.missing.includes(c),
           adds: ((first.points[c] - 50) * weights[c]) / 100,
           runnerUpAdds: runnerUp ? ((runnerUp.points[c] - 50) * weights[c]) / 100 : null,
+          runnerUpPoints: runnerUp ? runnerUp.points[c] : null,
         };
       })
     : [];
@@ -148,6 +150,14 @@ export function RecommendationDetails({
     qualityValue !== null && qualityToday !== null && qualityValue !== qualityToday
       ? `Product quality: ${formatNumber(100 - qualityValue, 1)} % vs ${formatNumber(100 - qualityToday, 1)} % today of deliveries without a complaint (${formatNumber(qualityValue, 1)} % vs ${formatNumber(qualityToday, 1)} % with one) = ${formatNumber(Math.abs(percentBetter("quality", qualityValue, qualityToday)), 1)} % ${percentBetter("quality", qualityValue, qualityToday) > 0 ? "better" : "worse"}.`
       : null;
+
+  // Same colours as the offer table (19 Nov 2026, the drawer looked all grey): green from 5 % better, red from
+  // 5 % worse, amber in between, plain text for "today". The words always carry the meaning.
+  const tone = (points: number) => (points - 50 >= 5 ? "score-better" : points - 50 <= -5 ? "score-worse" : "score-same");
+  const colored = (points: number, text: string, strong = false) => {
+    const node = text === AS_TODAY || text === "0 %" ? text : <span className={`score-number ${tone(points)}`}>{text}</span>;
+    return strong ? <strong>{node}</strong> : node;
+  };
 
   const figure = (title: ReactNode, delta: ReactNode, lines: ReactNode) => (
     <Card size="small" style={{ flex: "1 1 240px" }} title={title}>
@@ -162,7 +172,7 @@ export function RecommendationDetails({
     <div>
       <Typography.Text type="secondary">{requestLabel}</Typography.Text>
       {rec && first ? (
-        <Card size="small" style={{ marginTop: 8, background: "var(--surface-muted, #f5f5f5)" }}>
+        <Card size="small" className="rec-card" style={{ marginTop: 8, background: "var(--brand-tint)", borderColor: "var(--brand-tint-strong)" }}>
           <Flex justify="space-between" align="flex-start" gap={16}>
             <div style={{ minWidth: 0, flex: 1 }}>
               <Typography.Text type="secondary" style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.04em", textTransform: "uppercase" }}>
@@ -172,14 +182,22 @@ export function RecommendationDetails({
                 {name(rec.supplierId)}
               </Typography.Title>
               <Flex gap={6} wrap align="center">
-                <Tag icon={<CheckCircleOutlined />} style={{ marginInlineEnd: 0 }}>
+                <Tag
+                  icon={first.verifiedCount === CRITERIA.length ? <CheckCircleOutlined /> : <WarningOutlined />}
+                  color={first.verifiedCount === CRITERIA.length ? "success" : "warning"}
+                  style={{ marginInlineEnd: 0 }}
+                >
                   {first.verifiedCount}/{CRITERIA.length} criteria verified
                 </Tag>
-                <Tag icon={<CloudOutlined />} style={{ marginInlineEnd: 0 }}>
+                <Tag
+                  icon={<CloudOutlined />}
+                  color={recBadge === "Verified" ? "success" : recBadge === null ? "warning" : undefined}
+                  style={{ marginInlineEnd: 0 }}
+                >
                   CO₂ value: {recBadge ?? "not verified"}
                 </Tag>
                 {rec.bestIn.map((c) => (
-                  <Tag key={c} style={{ marginInlineEnd: 0 }}>
+                  <Tag key={c} icon={<TrophyOutlined />} className="tag-brand" style={{ marginInlineEnd: 0 }}>
                     Best in {criterionWord(c)}
                   </Tag>
                 ))}
@@ -187,7 +205,7 @@ export function RecommendationDetails({
             </div>
             <div style={{ textAlign: "right", flex: "none" }}>
               <div style={{ fontSize: 32, fontWeight: 600, lineHeight: 1 }}>
-                {formatVsTodayShort(rec.score) === AS_TODAY ? "As today" : formatVsTodayShort(rec.score)}
+                {formatVsTodayShort(rec.score) === AS_TODAY ? "As today" : colored(rec.score, formatVsTodayShort(rec.score))}
                 <Typography.Text type="secondary" style={{ fontSize: 14, fontWeight: 400 }}>
                   {formatVsTodayShort(rec.score) === AS_TODAY ? "" : " than today"}
                 </Typography.Text>
@@ -207,11 +225,11 @@ export function RecommendationDetails({
           <div style={{ marginTop: 10, paddingTop: 8, borderTop: "1px solid var(--border)" }}>
             {flipText ? (
               <>
-                <WarningOutlined /> {flipText}
+                <WarningOutlined style={{ color: "var(--warn)" }} /> {flipText}
               </>
             ) : (
               <>
-                <CheckCircleOutlined /> Robust: stays first for every allowed weight
+                <CheckCircleOutlined style={{ color: "var(--good)" }} /> Robust: stays first for every allowed weight
               </>
             )}
           </div>
@@ -234,11 +252,11 @@ export function RecommendationDetails({
             columns={[
               { title: "Criterion", key: "c", render: (_, r) => TOPIC_LABEL[r.c] },
               { title: "Value", key: "v", render: (_, r) => r.value },
-              { title: "vs today", key: "p", align: "right", render: (_, r) => formatCriterionVsToday(r.points) },
+              { title: "vs today", key: "p", align: "right", render: (_, r) => colored(r.points, formatCriterionVsToday(r.points, r.missing)) },
               { title: "Weight", key: "w", align: "right", render: (_, r) => `${weights[r.c]} %` },
-              { title: "Adds", key: "a", align: "right", render: (_, r) => <strong>{formatDiff(r.adds, 1, "0 %")}</strong> },
+              { title: "Adds", key: "a", align: "right", render: (_, r) => colored(r.points, formatDiff(r.adds, 1, "0 %"), true) },
               ...(runnerUp
-                ? [{ title: name(runnerUp.supplierId), key: "r", align: "right" as const, render: (_: unknown, r: (typeof rows)[number]) => formatDiff(r.runnerUpAdds ?? 0, 1, "0 %") }]
+                ? [{ title: name(runnerUp.supplierId), key: "r", align: "right" as const, render: (_: unknown, r: (typeof rows)[number]) => colored(r.runnerUpPoints ?? 50, formatDiff(r.runnerUpAdds ?? 0, 1, "0 %")) }]
                 : []),
             ]}
             summary={() => (
@@ -247,11 +265,11 @@ export function RecommendationDetails({
                   <strong>Weighted average vs today</strong>
                 </Table.Summary.Cell>
                 <Table.Summary.Cell index={4} align="right">
-                  <strong>{formatVsTodayShort(first.score, 1)}</strong>
+                  {colored(first.score, formatVsTodayShort(first.score, 1), true)}
                 </Table.Summary.Cell>
                 {runnerUp && (
                   <Table.Summary.Cell index={5} align="right">
-                    {formatVsTodayShort(runnerUp.score, 1)}
+                    {colored(runnerUp.score, formatVsTodayShort(runnerUp.score, 1))}
                   </Table.Summary.Cell>
                 )}
               </Table.Summary.Row>
@@ -322,12 +340,12 @@ export function RecommendationDetails({
       <ul className="why-list">
         {summary.exclusions && (
           <li>
-            <StopOutlined aria-hidden /> {summary.exclusions}
+            <StopOutlined aria-hidden style={{ color: "var(--bad)" }} /> {summary.exclusions}
           </li>
         )}
         {summary.gaps && (
           <li>
-            <WarningOutlined aria-hidden /> {summary.gaps}
+            <WarningOutlined aria-hidden style={{ color: "var(--warn)" }} /> {summary.gaps}
           </li>
         )}
         {summary.couldLead && (
@@ -337,11 +355,11 @@ export function RecommendationDetails({
         )}
         {!summary.exclusions && !summary.gaps && !summary.couldLead && (
           <li>
-            <CheckCircleOutlined aria-hidden /> No offer is excluded and no offer has data gaps.
+            <CheckCircleOutlined aria-hidden style={{ color: "var(--good)" }} /> No offer is excluded and no offer has data gaps.
           </li>
         )}
         <li>
-          <CheckCircleOutlined aria-hidden /> {verified} values verified
+          <CheckCircleOutlined aria-hidden style={{ color: "var(--good)" }} /> {verified} values verified
           {run.evidence.length - verified > 0 ? `, ${run.evidence.length - verified} rejected by the evidence check` : ""}. {co2Specific} of{" "}
           {result.ranked.length} scored {result.ranked.length === 1 ? "offer has" : "offers have"} supplier-specific CO₂ data.
         </li>

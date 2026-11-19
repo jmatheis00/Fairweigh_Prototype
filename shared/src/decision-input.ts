@@ -86,6 +86,8 @@ function warningsOf(run: AgentRun, supplierId: string, options: DecisionInputOpt
     if (e.supplierId !== supplierId || e.topic !== 'compliance' || e.status !== 'verified') continue;
     if (e.sourceDocumentType === 'fine_notice') continue; // already the knock-out
     if (e.location.kind === 'field' && e.location.field === 'lksgCountryRisk') {
+      // Only Medium and High (with an audit) are warnings; "Low" is no risk to flag (feedback 19 Nov 2026).
+      if (String(e.value).toLowerCase() === 'low') continue;
       warnings.push(`LkSG country risk: ${String(e.value)}`);
     } else {
       warnings.push(`Reported: ${String(e.value)}`);
