@@ -138,6 +138,7 @@ export function RecommendationBlock(props: BlockProps) {
   const { run, result, supplierNames, currentSupplierId, co2PricePerTonneEur, partName, onWhy, onShowMissing, onShowEvidence } = props;
   const rec = result.recommendation;
   const name = (id: string) => shortName(supplierNames[id] ?? id);
+  const fullName = (id: string) => supplierNames[id] ?? id;
   const hasCurrent = !!currentSupplierId && run.request.supplierIds.includes(currentSupplierId);
   const isCurrent = !!rec && rec.supplierId === currentSupplierId;
   const cmp = rec && hasCurrent && !isCurrent ? compareWithBaseline(run, rec.supplierId, currentSupplierId!, co2PricePerTonneEur) : null;
@@ -177,9 +178,10 @@ export function RecommendationBlock(props: BlockProps) {
                 holds the name and the same pill as the offer table ("9 % better"); a long name is cut with "…"
                 and shown in full in its tooltip, so the box never grows a row. */}
             <div className="rec-name-line">
-              <Tooltip title={name(rec.supplierId)}>
+              {/* Full company name (feedback 19 Nov 2026), as in the offer table; "…" only as a safety net. */}
+              <Tooltip title={fullName(rec.supplierId)}>
                 <Typography.Title level={4} className="rec-name" tabIndex={0}>
-                  {name(rec.supplierId)}
+                  {fullName(rec.supplierId)}
                 </Typography.Title>
               </Tooltip>
               <Tooltip title={`${formatVsToday(rec.score)}: weighted average of how many % better or worse the offer is than today on each criterion (up to 50 % either way). ${SCORE_BAND_LABEL[scoreBand(rec.score)]}.`}>
