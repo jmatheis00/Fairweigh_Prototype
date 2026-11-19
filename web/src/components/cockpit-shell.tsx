@@ -421,6 +421,7 @@ export function CockpitShell() {
     [partId, defaultWeights],
   );
   const weightsComplete = weightSum(weights) === 100;
+  const weightsIncompleteHint = `Weights add up to ${weightSum(weights)} %. Make them add up to 100 % or reset them to continue.`;
 
   const decisionInput = useMemo(
     () =>
@@ -664,8 +665,14 @@ export function CockpitShell() {
             <Button icon={<ArrowLeftOutlined />} onClick={() => goToStep(1)}>
               Back
             </Button>
-            <Tooltip title={user.canDecide ? undefined : VIEW_ONLY_HINT}>
-              <Button type="primary" disabled={!user.canDecide} icon={<ArrowRightOutlined />} iconPlacement="end" onClick={() => goToStep(3)}>
+            <Tooltip title={!user.canDecide ? VIEW_ONLY_HINT : weightsComplete ? undefined : weightsIncompleteHint}>
+              <Button
+                type="primary"
+                disabled={!user.canDecide || !weightsComplete}
+                icon={<ArrowRightOutlined />}
+                iconPlacement="end"
+                onClick={() => goToStep(3)}
+              >
                 Next: decide
               </Button>
             </Tooltip>
@@ -683,14 +690,18 @@ export function CockpitShell() {
           neededBy={process.neededBy}
           step={process.step}
           reached={process.reached}
-          onStep={goToStep}
+          // Weights that do not add up to 100 % are not carried into the decision (19 Nov 2026).
+          onStep={(next) => {
+            if (process.step === 2 && next > 2 && !weightsComplete) return;
+            goToStep(next);
+          }}
           canAdvance={
             process.step === 0
               ? user.canRun
               : process.step === 1
                 ? activeSlot?.status === "completed" && !!activeSlot.run
                 : process.step === 2
-                  ? !!compareView && user.canDecide
+                  ? !!compareView && user.canDecide && weightsComplete
                   : false
           }
           onAdvance={() => (process.step === 0 ? reviewForm.submit() : goToStep((process.step + 1) as ProcessStep))}
