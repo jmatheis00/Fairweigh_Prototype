@@ -24,7 +24,7 @@ interface Row {
   priority: number;
   /** Why the supplier is listed: short tags. */
   reasons: string[];
-  /** What to ask the supplier for; empty = nothing to request (e.g. a candidate). */
+  /** What to ask the supplier for. */
   items: string[];
 }
 
@@ -60,10 +60,10 @@ export function DataRequestsCard({ erp, dataQuality, dataGaps, name, onOpenSuppl
     rows.set(supplierId, r);
     return r;
   };
-  const add = (supplierId: string, priority: number, reason: string, item: string | null) => {
+  const add = (supplierId: string, priority: number, reason: string, item: string) => {
     const r = row(supplierId, priority);
     if (!r.reasons.includes(reason)) r.reasons.push(reason);
-    if (item && !r.items.includes(item)) r.items.push(item);
+    if (!r.items.includes(item)) r.items.push(item);
   };
 
   // CO₂ values behind our purchases that are estimates or old.
@@ -73,16 +73,16 @@ export function DataRequestsCard({ erp, dataQuality, dataGaps, name, onOpenSuppl
     }
     if (d.outdated) add(d.supplierId, 0, `CO₂ outdated, as of ${formatDay(d.referenceDate)}`, "An updated product carbon footprint per piece");
   }
-  // Data gaps: current suppliers get a request, the others are listed so Sarah sees the gap.
+  // Data gaps: every supplier with a gap can be asked (19 Nov 2026). A missing value scores 0 points,
+  // so a candidate without data can never lead; asking early gives it a fair chance. Current suppliers first.
   for (const g of dataGaps) {
-    const current = active.has(g.supplierId);
     for (const m of g.missing) {
       const rating = m === "sustainability rating";
       add(
         g.supplierId,
-        current ? 1 : 2,
+        active.has(g.supplierId) ? 1 : 2,
         rating ? "No rating" : "No own CO₂ data",
-        current ? (rating ? "Your current sustainability rating (e.g. scorecard)" : "Your company emissions (Scope 1–3) or product footprints") : null,
+        rating ? "Your current sustainability rating (e.g. scorecard)" : "Your company emissions (Scope 1–3) or product footprints",
       );
     }
   }
@@ -98,7 +98,8 @@ export function DataRequestsCard({ erp, dataQuality, dataGaps, name, onOpenSuppl
     .filter((r) => keep(r.supplierId))
     .sort((a, b) => a.priority - b.priority || b.items.length - a.items.length || a.supplierId.localeCompare(b.supplierId));
   const lists: Record<View, Row[]> = {
-    request: all.filter((r) => r.items.length > 0),
+    // Our own suppliers first: in our purchases or with an active contract. The other views have a request button too.
+    request: all.filter((r) => r.priority <= 1),
     insufficient: all.filter((r) => r.level === "insufficient"),
     partial: all.filter((r) => r.level === "partial"),
   };
@@ -133,7 +134,7 @@ export function DataRequestsCard({ erp, dataQuality, dataGaps, name, onOpenSuppl
         pagination={false}
         rowKey="supplierId"
         dataSource={shown}
-        locale={{ emptyText: view === "request" ? "Nothing to request." : "No supplier at this level." }}
+        locale={{ emptyText: view === "request" ? "Nothing to request from our suppliers." : "No supplier at this level." }}
         scroll={{ y: 220, x: 620 }}
         columns={[
           {
@@ -186,9 +187,9 @@ export function DataRequestsCard({ erp, dataQuality, dataGaps, name, onOpenSuppl
         ]}
       />
       <Typography.Text type="secondary" style={{ fontSize: 12, display: "block", padding: "6px 12px 10px" }}>
-        Requests go to suppliers in our purchases and current suppliers and open as e-mail drafts. Sufficient = CO₂ data from the
-        supplier (report, self-assessment or PCF declaration) and a sustainability rating; industry averages and web searches do not
-        count. CO₂ values per product are in the supplier panel.
+        “To request” = suppliers in our purchases and current suppliers; every supplier with a gap can be asked, and requests open as
+        e-mail drafts. Sufficient = CO₂ data from the supplier (report, self-assessment or PCF declaration) and a sustainability rating;
+        industry averages and web searches do not count. CO₂ values per product are in the supplier panel.
       </Typography.Text>
     </Card>
   );
