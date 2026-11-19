@@ -3,7 +3,7 @@
 import { ArrowDownOutlined, ArrowUpOutlined, FileSearchOutlined, MailOutlined, MinusOutlined, SafetyCertificateOutlined, WarningOutlined } from "@ant-design/icons";
 import { Button, Flex, Tag, Tooltip, Typography } from "antd";
 import { CRITERIA, compareWithBaseline, formatDay, totalCo2Tonnes, totalCostEur, verifiedEvidence, type AgentRun, type DecisionResult } from "@scc/shared";
-import { SCORE_BAND_LABEL, formatEur, formatNumber, formatVsToday, formatVsTodayShort, AS_TODAY, knockOutLabel, scoreBand } from "@/lib/labels";
+import { SCORE_BAND_LABEL, formatEur, formatNumber, formatVsToday, formatVsTodayShort, AS_TODAY, formatPercentDiff, scorePillClass, knockOutLabel, scoreBand } from "@/lib/labels";
 import { shortName } from "@/lib/names";
 import { priceRequestMailto } from "@/lib/price-request";
 
@@ -145,7 +145,9 @@ export function RecommendationBlock(props: BlockProps) {
   // Evidence of the recommended offer only (feedback 18 Nov 2026): the count over all offers said little.
   const recVerified = result.ranked.find((r) => r.supplierId === rec?.supplierId)?.verifiedCount ?? 0;
   const couldLead = rec?.couldLead ?? [];
-  const pct = (p: number | null) => (p === null ? "" : p === 0 ? "" : ` · ${p > 0 ? "+" : "-"}${percent(p)} per piece`);
+  // Words, not signs, and the table's rounding (19 Nov 2026): "1.0 % worse per piece", "41 % better per piece".
+  // p is the change in % (positive = more money or CO₂ = worse).
+  const perPiece = (p: number | null, word: string) => (p === null || p === 0 ? word : `${formatPercentDiff(-p)} per piece`);
 
   // Whole order of the recommended offer (feedback 17 Nov 2026): what the buyer commits to, from verified values only.
   const q = run.request.quantity;
@@ -185,7 +187,7 @@ export function RecommendationBlock(props: BlockProps) {
                 </Typography.Title>
               </Tooltip>
               <Tooltip title={`${formatVsToday(rec.score)}: weighted average of how many % better or worse the offer is than today on each criterion (up to 50 % either way). ${SCORE_BAND_LABEL[scoreBand(rec.score)]}.`}>
-                <span tabIndex={0} className={`score-pill score-${scoreBand(rec.score)}`} aria-label={formatVsToday(rec.score)}>
+                <span tabIndex={0} className={`score-pill ${scorePillClass(rec.score)}`} aria-label={formatVsToday(rec.score)}>
                   {formatVsTodayShort(rec.score)}
                 </span>
               </Tooltip>
@@ -248,8 +250,7 @@ export function RecommendationBlock(props: BlockProps) {
             }
             line={
               <>
-                {priceJ.word}
-                {pct(cmp.pricePercent)}
+                {perPiece(cmp.pricePercent, priceJ.word)}
                 {orderPrice && (
                   <>
                     <br />
@@ -270,8 +271,7 @@ export function RecommendationBlock(props: BlockProps) {
             }
             line={
               <>
-                {co2J.word}
-                {pct(cmp.co2Percent)}
+                {perPiece(cmp.co2Percent, co2J.word)}
                 {orderCo2 && (
                   <>
                     <br />

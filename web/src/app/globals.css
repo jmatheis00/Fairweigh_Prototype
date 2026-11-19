@@ -194,6 +194,8 @@ body {
 .score-better { --score-color: var(--good); }
 .score-same { --score-color: var(--warn); }
 .score-worse { --score-color: var(--bad); }
+/* A result that matches today (19 Nov 2026): neutral grey, the pill says "today". */
+.score-today { --score-color: var(--text-secondary); }
 .score-number { color: var(--score-color, inherit); }
 .score-pill {
   display: inline-block;

@@ -16,7 +16,7 @@ import {
   type DecisionResult,
   type Evidence,
 } from "@scc/shared";
-import { AGE_NOTE, SCORE_BAND_LABEL, knockOutLabel, TOPIC_LABEL, formatNumber, scoreBand, formatEur, formatVsToday, formatVsTodayShort, formatVsTodayRange, formatCriterionVsToday, formatCriterionRange, AS_TODAY } from "@/lib/labels";
+import { AGE_NOTE, SCORE_BAND_LABEL, knockOutLabel, TOPIC_LABEL, formatNumber, scoreBand, formatEur, formatVsToday, formatVsTodayShort, formatVsTodayRange, formatCriterionVsToday, formatCriterionRange, AS_TODAY, scorePillClass } from "@/lib/labels";
 import { shortNote } from "@/lib/notes";
 import { priceRequestMailto } from "@/lib/price-request";
 import { PcfBadgeTag } from "./pcf-badge-tag";
@@ -396,7 +396,7 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
         },
         {
           // Score against today (18 Nov 2026): the number on a soft background in its band colour.
-          title: <Tooltip title="Weighted average of how many % better or worse the offer is than today on each criterion, up to 50 % either way. Green from 5 % better, red from 5 % worse, yellow in between.">vs today</Tooltip>,
+          title: <Tooltip title="Weighted average of how many % better or worse the offer is than today on each criterion, up to 50 % either way. Green from 5 % better, red from 5 % worse, yellow in between, grey for the same as today.">vs today</Tooltip>,
           key: "score",
           align: "right",
           width: 124,
@@ -419,7 +419,7 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
             ) : (
               <Tooltip title={`${formatVsToday(row.score, 1)} · ${SCORE_BAND_LABEL[scoreBand(row.score)]}`}>
                 <span
-                  className={`score-pill score-${scoreBand(row.score)}`}
+                  className={`score-pill ${scorePillClass(row.score)}`}
                   role="img"
                   tabIndex={0}
                   aria-label={`${formatVsToday(row.score)}, ${SCORE_BAND_LABEL[scoreBand(row.score)]}`}

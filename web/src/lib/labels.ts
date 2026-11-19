@@ -112,6 +112,15 @@ export function formatDiffRange(low: number, high: number, digits = 0): string {
 /** Digits for one criterion: one decimal below 10 %, so 0.2 % does not round away. */
 const criterionDigits = (d: number) => (Math.abs(d) < 10 ? 1 : 0);
 
+/**
+ * A change in % in words with the table's rounding (19 Nov 2026), so the recommendation tiles and the
+ * offer table always show the same number: "40.5 %" -> "41 % better", "1.04 %" worse -> "1.0 % worse".
+ * d is positive when better.
+ */
+export function formatPercentDiff(d: number): string {
+  return formatDiff(d, criterionDigits(d));
+}
+
 /** Points of one criterion against today in words: "41 % better", "0.2 % worse", "today". */
 export function formatCriterionVsToday(points: number): string {
   const d = points - 50;
@@ -155,6 +164,11 @@ export function scoreBand(score: number): ScoreBand {
   if (d >= SCORE_BAND_LIMIT) return "better";
   if (d <= -SCORE_BAND_LIMIT) return "worse";
   return "same";
+}
+
+/** Pill colour class: grey for a result that matches today (19 Nov 2026), otherwise the band colour. */
+export function scorePillClass(score: number): string {
+  return formatVsTodayShort(score) === AS_TODAY ? "score-today" : `score-${scoreBand(score)}`;
 }
 
 export const SCORE_BAND_LABEL: Record<ScoreBand, string> = {
