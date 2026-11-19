@@ -11,8 +11,11 @@ import { SupplierNameLink, relationshipLabel } from "@/lib/supplier-labels";
 
 const DEMO_DATE = "2026-11-06";
 
-/** Rows shown in each to-do list on CO₂ and risks; the full list is one click away in Suppliers (20 Nov 2026). */
-export const LIST_ROWS = 5;
+/**
+ * Height of the scroll area of both lists on CO₂ and risks: exactly five rows of one height (two text lines, 50.35 px),
+ * so no row is cut at rest and the rest scrolls (20 Nov 2026).
+ */
+export const LIST_HEIGHT = 252;
 
 interface Row {
   supplierId: string;
@@ -107,8 +110,7 @@ export function DataRequestsCard({ erp, dataQuality, dataGaps, name, onOpenSuppl
     partial: all.filter((r) => r.level === "partial"),
     update: all.filter((r) => r.level === "sufficient"),
   };
-  const shown = lists[view].slice(0, LIST_ROWS);
-  const total = lists[view].length;
+  const shown = lists[view];
   const erpOf = (id: string) => erp.find((e) => e.supplierId === id);
 
   return (
@@ -148,7 +150,7 @@ export function DataRequestsCard({ erp, dataQuality, dataGaps, name, onOpenSuppl
         rowKey="supplierId"
         dataSource={shown}
         locale={{ emptyText: view === "update" ? "No supplier data needs an update." : "No supplier at this level." }}
-        scroll={{ x: 520 }}
+        scroll={{ y: LIST_HEIGHT, x: 520 }}
         columns={[
           {
             title: "Supplier",
@@ -156,7 +158,7 @@ export function DataRequestsCard({ erp, dataQuality, dataGaps, name, onOpenSuppl
             width: 210,
             render: (_, r) => (
               <Flex vertical align="start">
-                <SupplierNameLink supplierId={r.supplierId} name={name(r.supplierId)} onOpen={onOpenSupplier} />
+                <SupplierNameLink supplierId={r.supplierId} name={name(r.supplierId)} onOpen={onOpenSupplier} ellipsis />
                 <Typography.Text type="secondary" style={{ fontSize: 12 }}>
                   {r.priority === 0 ? `In our purchases, ${periodLabel}` : relationshipLabel(erpOf(r.supplierId)?.relationshipStatus)}
                 </Typography.Text>
@@ -199,7 +201,7 @@ export function DataRequestsCard({ erp, dataQuality, dataGaps, name, onOpenSuppl
         ]}
       />
       <Typography.Text type="secondary" style={{ fontSize: 12, display: "block", padding: "6px 12px 10px" }}>
-        {total > LIST_ROWS ? `${LIST_ROWS} of ${total} shown · ` : ""}our own suppliers first · requests open as e-mail drafts
+        Our own suppliers first · requests open as e-mail drafts
         {onShowAll && view !== "update" && (
           <>
             {" · "}

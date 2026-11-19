@@ -1,6 +1,6 @@
 "use client";
 
-import { AuditOutlined, CheckCircleOutlined, MailOutlined, ExclamationCircleOutlined, InfoCircleOutlined, StopOutlined, TeamOutlined } from "@ant-design/icons";
+import { AuditOutlined, CheckCircleOutlined, ClockCircleOutlined, MailOutlined, ExclamationCircleOutlined, InfoCircleOutlined, StopOutlined, TeamOutlined, WarningOutlined } from "@ant-design/icons";
 import { Alert, Button, Card, Flex, Select, Table, Tooltip, Typography } from "antd";
 import { useEffect, useMemo, useState } from "react";
 import dayjs from "dayjs";
@@ -20,7 +20,7 @@ import { formatNumber } from "@/lib/labels";
 import { shortName } from "@/lib/names";
 import { InfoTip } from "./info-tip";
 import { PageHeader } from "./page-header";
-import { DataRequestsCard, LIST_ROWS, type SupplierDataView } from "./data-requests-card";
+import { DataRequestsCard, LIST_HEIGHT, type SupplierDataView } from "./data-requests-card";
 import { SupplierBaseFacts, SupplierBaseMap } from "./analytics-charts";
 import { usePartnerData } from "@/lib/partner-data";
 import { FLAG_NAMES, FlagTags, SupplierNameLink, relationshipLabel } from "@/lib/supplier-labels";
@@ -230,50 +230,75 @@ export function SustainabilityPage({
           }
           styles={{ body: { padding: 0 } }}
         >
-          {/* Short to-do list without inner scrolling (20 Nov 2026): the first rows in full, the rest in Suppliers.
+          {/* Rows of one height and a scroll area of exactly five rows, so no row is cut at rest (20 Nov 2026).
               The alerts of the risk monitoring repeated the flags; they are in the supplier panel. */}
           <Table
             size="small"
             pagination={false}
             rowKey="supplierId"
-            dataSource={flagged.slice(0, LIST_ROWS)}
+            dataSource={flagged}
             locale={{ emptyText: "No supplier with these flags." }}
-            scroll={{ x: 560 }}
+            scroll={{ y: LIST_HEIGHT, x: 600 }}
             columns={[
               {
                 title: "Supplier",
                 key: "s",
-                width: 190,
+                width: 145,
                 render: (_, f) => (
-                  <Flex vertical align="start">
-                    <SupplierNameLink supplierId={f.supplierId} name={name(f.supplierId)} onOpen={openPlain} />
+                  <Flex vertical align="start" style={{ minWidth: 0 }}>
+                    <SupplierNameLink supplierId={f.supplierId} name={name(f.supplierId)} onOpen={openPlain} ellipsis />
                     <Typography.Text type="secondary" style={{ fontSize: 12 }}>
                       {relationshipLabel(erpOf(f.supplierId)?.relationshipStatus)}
                     </Typography.Text>
                   </Flex>
                 ),
               },
-              { title: "Flags", key: "f", render: (_, f) => <FlagTags flags={f.flags} /> },
+              { title: "Flags", key: "f", render: (_, f) => <FlagTags flags={f.flags} controversy={ratingOf(f.supplierId)?.controversies} short /> },
+              {
+                // What the knock-out rules make of the flags (20 Nov 2026): a proven violation or child or forced labour
+                // excludes; LkSG High without SA8000 excludes until the audit arrives; anything else is a warning.
+                title: "Status",
+                key: "st",
+                width: 105,
+                render: (_, f) => {
+                  const r = riskRequest(f.flags, ratingOf(f.supplierId), erpOf(f.supplierId)?.country ?? null);
+                  return r.excluded ? (
+                    <Tooltip title={r.excluded}>
+                      <span className="tone-bad" tabIndex={0}>
+                        <StopOutlined /> Excluded
+                      </span>
+                    </Tooltip>
+                  ) : r.untilAudit ? (
+                    <Tooltip title="LkSG country risk High without a social audit (SA8000): excluded until a valid audit arrives.">
+                      <span className="tone-bad" tabIndex={0}>
+                        <ClockCircleOutlined /> Until audit
+                      </span>
+                    </Tooltip>
+                  ) : (
+                    <span className="tone-warn">
+                      <WarningOutlined /> Warning
+                    </span>
+                  );
+                },
+              },
               {
                 title: "",
                 key: "n",
-                width: 160,
+                width: 130,
                 align: "right",
-                // Next step per the knock-out rules (19 Nov 2026): SA8000 audit for LkSG High, a statement for a
-                // controversy; a proven violation or child or forced labour already excludes the supplier.
                 render: (_, f) => {
-                  const { excluded, items } = riskRequest(f.flags, ratingOf(f.supplierId), erpOf(f.supplierId)?.country ?? null);
+                  const { items } = riskRequest(f.flags, ratingOf(f.supplierId), erpOf(f.supplierId)?.country ?? null);
                   return items.length ? (
+                    // Same label as in Supplier data; what is asked shows on hover (20 Nov 2026).
                     <Tooltip title={items.join(" · ")}>
-                      <Button size="small" icon={<MailOutlined />} href={requestMailto(riskRequestText(name(f.supplierId), items))}>
-                        {items.length === 1 ? (f.flags.includes("LkSG risk High") ? "Request audit" : "Request statement") : `Request (${items.length})`}
+                      <Button
+                        size="small"
+                        icon={<MailOutlined />}
+                        href={requestMailto(riskRequestText(name(f.supplierId), items))}
+                        aria-label={`Request ${items.length === 1 ? "this document" : `these ${items.length} documents`} from ${name(f.supplierId)}`}
+                      >
+                        Request ({items.length})
                       </Button>
-                    </Tooltip>
-                  ) : excluded ? (
-                    <Tooltip title={excluded}>
-                      <Typography.Text type="secondary" style={{ fontSize: 12 }} tabIndex={0}>
-                        <StopOutlined /> Excluded
-                      </Typography.Text>
                     </Tooltip>
                   ) : null;
                 },
@@ -281,7 +306,7 @@ export function SustainabilityPage({
             ]}
           />
           <Typography.Text type="secondary" style={{ fontSize: 12, display: "block", padding: "6px 12px 10px" }}>
-            {flagged.length > LIST_ROWS ? `${LIST_ROWS} of ${flagged.length} shown · ` : ""}alerts in the supplier panel
+            Alerts in the supplier panel · requests open as e-mail drafts
             {onShowSuppliers && (
               <>
                 {" · "}

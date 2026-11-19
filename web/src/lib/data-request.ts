@@ -157,15 +157,18 @@ export function riskRequest(
   flags: string[],
   rating: { controversies: string | null; certifications: string | null } | undefined,
   country: string | null,
-): { excluded: string | null; items: string[] } {
+): { excluded: string | null; untilAudit: boolean; items: string[] } {
   const controversy = rating?.controversies ?? null;
-  if (flags.includes("Proven violation")) return { excluded: "Excluded: proven violation", items: [] };
-  if (controversy && CHILD_OR_FORCED_LABOUR.test(controversy)) return { excluded: "Excluded: child or forced labour", items: [] };
+  if (flags.includes("Proven violation")) return { excluded: "Excluded: proven violation", untilAudit: false, items: [] };
+  if (controversy && CHILD_OR_FORCED_LABOUR.test(controversy)) return { excluded: "Excluded: child or forced labour", untilAudit: false, items: [] };
   const hasSa8000 = /SA\s?8000/i.test(rating?.certifications ?? "");
+  // K2: excluded as well, but only until a valid SA8000 audit arrives (20 Nov 2026: said in the risk list).
+  const untilAudit = flags.includes("LkSG risk High") && !hasSa8000;
   return {
     excluded: null,
+    untilAudit,
     items: [
-      ...(flags.includes("LkSG risk High") && !hasSa8000
+      ...(untilAudit
         ? [`A valid SA8000 certificate or a recent social audit report for your production sites${country ? ` in ${country}` : ""}`]
         : []),
       ...(flags.includes("Controversy reported")

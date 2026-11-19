@@ -198,9 +198,9 @@ export function SuppliersPage({
         loading={erp === null && !error}
         pagination={false}
         dataSource={shown}
-        // Fits a 1280 px laptop (16 Nov 2026): country under the name, spend and contract end in one column.
-        // Data and flags added 19 Nov 2026: the full lists behind the two tables on CO₂ and risks.
-        scroll={{ y: "calc(100vh - 260px)", x: user.seesCommercials ? 1606 : 1476 }}
+        // Fits a 1440 px laptop without sideways scrolling for every role (20 Nov 2026): country under the name,
+        // spend and contract end in one column, short flag labels, headers may wrap. Narrower screens scroll.
+        scroll={{ y: "calc(100vh - 260px)", x: user.seesCommercials ? 1340 : 1225 }}
         className="table-clickable"
         onRow={(r) => ({ onClick: () => setOpenId(r.key) })}
         rowClassName={(r) => (r.key === openId ? "cell-selected" : "")}
@@ -208,14 +208,14 @@ export function SuppliersPage({
           {
             title: "Supplier",
             key: "name",
-            width: 230,
+            width: 190,
             sorter: (a, b) => a.erp.supplierName.localeCompare(b.erp.supplierName),
             render: (_, r) => (
               <Flex vertical>
                 <Flex align="center" gap={4}>
                 {favourites.includes(r.key) && <StarFilled className="fav-star" aria-label="Favourite" />}
                 <Button type="link" size="small" style={{ padding: 0, height: "auto", justifyContent: "flex-start" }} onClick={() => setOpenId(r.key)}>
-                  <Typography.Text ellipsis style={{ maxWidth: 190, color: "inherit" }}>{r.erp.supplierName}</Typography.Text>
+                  <Typography.Text ellipsis style={{ maxWidth: 155, color: "inherit" }}>{r.erp.supplierName}</Typography.Text>
                 </Button>
                 </Flex>
                 <Typography.Text type="secondary" style={{ fontSize: 12 }}>
@@ -224,12 +224,12 @@ export function SuppliersPage({
               </Flex>
             ),
           },
-          { title: "Category", key: "category", width: 150, render: (_, r) => r.erp.category },
-          { title: <ExplainedTitle title="Relationship" kind="relationship" />, key: "status", width: 140, render: (_, r) => <Relationship status={r.erp.relationshipStatus} /> },
+          { title: "Category", key: "category", width: 115, render: (_, r) => r.erp.category },
+          { title: <ExplainedTitle title="Relationship" kind="relationship" />, key: "status", width: 120, render: (_, r) => <Relationship status={r.erp.relationshipStatus} /> },
           {
             title: "On time",
             key: "otd",
-            width: 96,
+            width: 80,
             align: "right",
             sorter: (a, b) => (a.erp.onTimeDeliveryPercent ?? -1) - (b.erp.onTimeDeliveryPercent ?? -1),
             render: (_, r) =>
@@ -238,7 +238,7 @@ export function SuppliersPage({
           {
             title: "Complaints",
             key: "compl",
-            width: 130,
+            width: 125,
             align: "right",
             sorter: (a, b) => (a.erp.complaintRatePercent ?? 99) - (b.erp.complaintRatePercent ?? 99),
             render: (_, r) =>
@@ -260,7 +260,7 @@ export function SuppliersPage({
               </span>
             ),
             key: "score",
-            width: 190,
+            width: 140,
             align: "right",
             sorter: (a, b) => (a.rating?.sustainabilityScore ?? -1) - (b.rating?.sustainabilityScore ?? -1),
             // A low rating means a high risk: "25 · high risk", so it cannot be read as a good score (review 16 Nov 2026).
@@ -271,16 +271,16 @@ export function SuppliersPage({
                 <Leveled level={ratingLevel(r.rating.sustainabilityScore)} suffix=" risk">{r.rating.sustainabilityScore}</Leveled>
               ),
           },
-          { title: "LkSG risk", key: "risk", width: 100, render: (_, r) => <RiskTag risk={r.rating?.lksgCountryRisk ?? null} /> },
-          { title: <ExplainedTitle title="Company CO₂ data" kind="co2Source" />, key: "co2src", width: 130, render: (_, r) => <Co2Source source={r.rating?.co2DataSource} /> },
-          { title: "Data", key: "level", width: 120, render: (_, r) => <DataLevelLabel level={r.level} /> },
-          { title: "Flags", key: "flags", width: 190, render: (_, r) => <FlagTags flags={r.flags} /> },
+          { title: "LkSG risk", key: "risk", width: 85, render: (_, r) => <RiskTag risk={r.rating?.lksgCountryRisk ?? null} /> },
+          { title: <ExplainedTitle title="Company CO₂ data" kind="co2Source" />, key: "co2src", width: 120, render: (_, r) => <Co2Source source={r.rating?.co2DataSource} /> },
+          { title: "Data", key: "level", width: 105, render: (_, r) => <DataLevelLabel level={r.level} /> },
+          { title: "Flags", key: "flags", width: 145, render: (_, r) => <FlagTags flags={r.flags} controversy={r.rating?.controversies} short /> },
           ...(user.seesCommercials
             ? [
                 {
                   title: "Spend / year",
                   key: "spend",
-                  width: 130,
+                  width: 115,
                   align: "right" as const,
                   sorter: (a: Row, b: Row) => (a.erp.annualSpendEur ?? 0) - (b.erp.annualSpendEur ?? 0),
                   // Contract end as a second line under the spend, so the table fits a laptop screen.
