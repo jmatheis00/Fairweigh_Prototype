@@ -833,6 +833,10 @@ body .ant-tag.ant-tag-success.ant-tag-filled:not(.ant-tag-disabled) {
   gap: 12px;
   align-items: start;
 }
+/* Cards side by side end at the same line, so no gap opens under the shorter one (19 Nov 2026). */
+.sus-grid.sus-grid-stretch {
+  align-items: stretch;
+}
 
 /* Horizontal bar for CO₂ hotspots: thin, rounded data end. */
 .hbar-track {

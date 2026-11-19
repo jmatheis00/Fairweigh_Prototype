@@ -312,7 +312,7 @@ export function SustainabilityPage({
       </div>
 
       {/* Sarah's two to-do lists side by side on the first screen (decision 19 Nov 2026). */}
-      <div className="sus-grid">
+      <div className="sus-grid sus-grid-stretch">
         <DataRequestsCard
           erp={data.erp}
           dataQuality={stats.dataQuality}
@@ -418,7 +418,8 @@ export function SustainabilityPage({
           : null;
         const candidates = base ? [...base.points].filter((p) => p.quadrant === "Switch candidate").sort((a, b) => b.co2Tonnes - a.co2Tonnes) : [];
         return (
-          <Flex vertical gap={12}>
+          // The two charts side by side (feedback 19 Nov 2026), cards stretched to the same height.
+          <div className="sus-grid sus-grid-stretch">
             {base && (
               <Card
                 className="dash-card"
@@ -495,7 +496,7 @@ export function SustainabilityPage({
                 </Typography.Text>
               )}
             </Card>
-          </Flex>
+          </div>
         );
       })()}
 

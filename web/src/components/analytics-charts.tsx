@@ -75,8 +75,9 @@ export function SupplierBaseMap({
   name: (supplierId: string) => string;
   onOpen?: (supplierId: string) => void;
 }) {
-  const W = 1200;
-  const H = 300;
+  // Drawn for a half-width card (19 Nov 2026), so the text stays at its real size.
+  const W = 680;
+  const H = 320;
   const M = { l: 60, r: 16, t: 14, b: 36 };
   const maxSpend = Math.max(...points.map((p) => p.spendEur)) * 1.08;
   const yMax = Math.max(60, Math.ceil(Math.max(...points.map((p) => p.versusAveragePercent)) / 20) * 20);
@@ -173,8 +174,9 @@ export function SupplierBaseMap({
 /** Purchased CO₂ per month against the target path (dashed). */
 export function Co2TargetChart({ points }: { points: Co2TrendPoint[] }) {
   if (points.length < 2) return null;
-  const W = 1200;
-  const H = 180;
+  // Drawn for a half-width card next to the category chart (19 Nov 2026).
+  const W = 680;
+  const H = 320;
   const M = { l: 44, r: 12, t: 12, b: 26 };
   const max = Math.max(...points.flatMap((p) => [p.actualTonnes, p.targetTonnes])) * 1.1;
   const x = (i: number) => M.l + (i / (points.length - 1)) * (W - M.l - M.r);
@@ -199,8 +201,9 @@ export function Co2TargetChart({ points }: { points: Co2TrendPoint[] }) {
         </Tooltip>
       ))}
       {points.map((p, i) =>
-        i % 3 === 0 || i === points.length - 1 ? (
-          <text key={`m-${p.month}`} x={x(i)} y={H - 6} fontSize="11" textAnchor="middle" fill={MUTED}>
+        // Every third month plus the last one; a quarter label too close to the last one is left out.
+        (i % 3 === 0 && i < points.length - 3) || i === points.length - 1 ? (
+          <text key={`m-${p.month}`} x={x(i)} y={H - 6} fontSize="11" textAnchor={i === points.length - 1 ? "end" : "middle"} fill={MUTED}>
             {formatMonth(`${p.month}-01`)}
           </text>
         ) : null,
