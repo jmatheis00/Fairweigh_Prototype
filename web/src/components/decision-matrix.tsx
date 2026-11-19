@@ -92,6 +92,15 @@ function noteTone(note: string): string {
   return "";
 }
 
+/**
+ * Whether the full note says more than its short label (19 Nov 2026): only then it gets a tooltip, e.g.
+ * the allegation behind "Controversy reported" or the date behind "Too late". "2 of 4 verified" and
+ * "LkSG risk Medium" would only repeat themselves.
+ */
+function noteHasMore(note: string): boolean {
+  return shortNote(note) !== note && !/^LkSG country risk: /i.test(note);
+}
+
 /** What each column measures, shown above the points rule. */
 const MEASURE: Record<Criterion, string> = {
   quality: "Complaint rate from the ERP. Lower is better. Scored on the share of deliveries without a complaint.",
@@ -339,13 +348,14 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
                 const rest = row.notes.slice(shown.length);
                 return (
                   <>
-                    {shown.map((n) => (
-                      <Tooltip key={n} title={n}>
-                        <span className={`matrix-note${noteTone(n)}`} tabIndex={0}>
+                    {shown.map((n) => {
+                      const note = (
+                        <span className={`matrix-note${noteTone(n)}`} tabIndex={noteHasMore(n) ? 0 : undefined}>
                           <WarningOutlined aria-hidden /> {shortNote(n)}
                         </span>
-                      </Tooltip>
-                    ))}
+                      );
+                      return noteHasMore(n) ? <Tooltip key={n} title={n}>{note}</Tooltip> : <span key={n}>{note}</span>;
+                    })}
                     {rest.length > 0 && (
                       <Tooltip title={<ul style={{ margin: 0, paddingLeft: 16 }}>{rest.map((n) => <li key={n}>{n}</li>)}</ul>}>
                         <span className="matrix-note" tabIndex={0}>+{rest.length} more</span>
