@@ -224,7 +224,7 @@ export function SupplierProfile({
                         <line x1={LABEL_W + PLOT_W / 2} x2={LABEL_W + PLOT_W / 2} y1={by - 1} y2={by + BAR_H + 1} className="viz-today" />
                         {w > 0 && <rect x={LABEL_W} y={by} width={w} height={BAR_H} rx={2} className={b.cls} />}
                         <text x={LABEL_W + Math.max(w, 0) + 6} y={by + BAR_H - 2} className="viz-tick">
-                          {b.missing ? "missing · 50 % worse" : formatCriterionVsToday(b.points)}
+                          {b.missing ? "missing · 50.0 % worse" : formatCriterionVsToday(b.points)}
                         </text>
                       </g>
                     );

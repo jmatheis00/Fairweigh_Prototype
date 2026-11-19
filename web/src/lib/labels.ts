@@ -109,29 +109,32 @@ export function formatDiffRange(low: number, high: number, digits = 0): string {
   return `${formatDiff(lo, digits)} to ${formatDiff(hi, digits)}`;
 }
 
-/** Digits for one criterion: one decimal below 10 %, so 0.2 % does not round away. */
-const criterionDigits = (d: number) => (Math.abs(d) < 10 ? 1 : 0);
+/**
+ * Digits for one criterion: always one decimal (feedback 19 Nov 2026), so every value in the table
+ * reads the same way ("40.5 % better", "9.2 % worse", "0.2 % worse") and 0.2 % does not round away.
+ */
+const CRITERION_DIGITS = 1;
 
 /**
  * A change in % in words with the table's rounding (19 Nov 2026), so the recommendation tiles and the
- * offer table always show the same number: "40.5 %" -> "41 % better", "1.04 %" worse -> "1.0 % worse".
+ * offer table always show the same number: "40.5 % better", "1.04 %" worse -> "1.0 % worse".
  * d is positive when better.
  */
 export function formatPercentDiff(d: number): string {
-  return formatDiff(d, criterionDigits(d));
+  return formatDiff(d, CRITERION_DIGITS);
 }
 
-/** Points of one criterion against today in words: "41 % better", "0.2 % worse", "today". */
+/** Points of one criterion against today in words: "40.5 % better", "0.2 % worse", "today". */
 export function formatCriterionVsToday(points: number): string {
   const d = points - 50;
-  return formatDiff(d, criterionDigits(d));
+  return formatDiff(d, CRITERION_DIGITS);
 }
 
 /** Range of one criterion (supplier that never delivered): "0.4 % worse to 0.4 % better". */
 export function formatCriterionRange(lowPoints: number, highPoints: number): string {
   const lo = lowPoints - 50;
   const hi = highPoints - 50;
-  return formatDiffRange(lo, hi, Math.max(criterionDigits(lo), criterionDigits(hi)));
+  return formatDiffRange(lo, hi, CRITERION_DIGITS);
 }
 
 /** Short form for tables and lists: "9 % better", "19 % worse", "today". */
