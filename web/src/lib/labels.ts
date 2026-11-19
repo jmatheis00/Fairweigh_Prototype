@@ -76,16 +76,17 @@ export function formatDateTime(iso: string): string {
 export const vsToday = (score: number): number => score - 50;
 
 /**
- * Mark for a value that matches today (19 Nov 2026): a plain dash instead of the word "same", which
- * repeated in every cell of the current supplier and in every range. The "vs today" column header
- * says what the dash means; tooltips and screen-reader labels still say "same as today".
+ * Short label for a result that matches today (19 Nov 2026): "today" instead of the word "same",
+ * which repeated in every cell of the current supplier and in every range. In the offer table only
+ * the "vs today" pill says it; the cells under the values stay empty. Tooltips and screen-reader
+ * labels still say "same as today".
  */
-export const AS_TODAY = "–";
+export const AS_TODAY = "today";
 
 /**
  * Better/worse in words, never with a sign (feedback 18 Nov 2026): "+9 %" could be read as
  * "9 % more price or CO₂", so signs are kept only for raw changes such as "+0.85 €/pc".
- * d is the difference in % against today (positive = better): "9 % better", "0.2 % worse", "–".
+ * d is the difference in % against today (positive = better): "9 % better", "0.2 % worse", "today".
  */
 export function formatDiff(d: number, digits = 0, zero = AS_TODAY): string {
   const r = Number(d.toFixed(digits));
@@ -111,7 +112,7 @@ export function formatDiffRange(low: number, high: number, digits = 0): string {
 /** Digits for one criterion: one decimal below 10 %, so 0.2 % does not round away. */
 const criterionDigits = (d: number) => (Math.abs(d) < 10 ? 1 : 0);
 
-/** Points of one criterion against today in words: "41 % better", "0.2 % worse", "–" (as today). */
+/** Points of one criterion against today in words: "41 % better", "0.2 % worse", "today". */
 export function formatCriterionVsToday(points: number): string {
   const d = points - 50;
   return formatDiff(d, criterionDigits(d));
@@ -124,7 +125,7 @@ export function formatCriterionRange(lowPoints: number, highPoints: number): str
   return formatDiffRange(lo, hi, Math.max(criterionDigits(lo), criterionDigits(hi)));
 }
 
-/** Short form for tables and lists: "9 % better", "19 % worse", "–" (as today). */
+/** Short form for tables and lists: "9 % better", "19 % worse", "today". */
 export function formatVsTodayShort(score: number, digits = 0): string {
   return formatDiff(vsToday(score), digits);
 }

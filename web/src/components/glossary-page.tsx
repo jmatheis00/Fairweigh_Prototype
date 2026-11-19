@@ -27,7 +27,7 @@ function terms(rules: BuyerRules | null): Term[] {
     },
     {
       term: "% against today",
-      means: "Per criterion, how many % better or worse a value is than today (our last three purchases), capped at ±50 %. Quality counts deliveries without a complaint, delivery the deliveries on time, price and CO₂ less money and less CO₂. An arrow shows better or worse; a dash means the same as today.",
+      means: "Per criterion, how many % better or worse a value is than today (our last three purchases), capped at ±50 %. Quality counts deliveries without a complaint, delivery the deliveries on time, price and CO₂ less money and less CO₂. An arrow shows better or worse; a result that matches today says \"today\".",
       helps: "Shows how good a value really is, not only how it compares with the other offers.",
       where: "Compare step: under each value",
     },

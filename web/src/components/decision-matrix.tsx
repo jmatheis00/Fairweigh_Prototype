@@ -117,20 +117,21 @@ function mainValue(c: Criterion, value: number): string {
 /**
  * Points with a status: above 55 better than today (arrow up), below 45 worse (arrow down),
  * otherwise about the same as today (dash). Colour always comes with the arrow and the number.
- * A value that rounds to today shows only the dash, no word (19 Nov 2026); the label says it in words.
+ * A value that rounds to today shows nothing (19 Nov 2026): the "vs today" pill of the row says it once;
+ * screen readers still hear "same as today".
  */
 function PointsLine({ points, hint }: { points: number; hint: string | null }) {
   const tone = points >= 55 ? "better" : points <= 45 ? "worse" : "same";
   const icon = tone === "better" ? <ArrowUpOutlined /> : tone === "worse" ? <ArrowDownOutlined /> : <MinusOutlined />;
   const text = formatCriterionVsToday(points);
+  if (text === AS_TODAY) return <span className="sr-only">Same as today</span>;
   return (
     <Tooltip title={hint}>
       <span
         className={`points-line delta-${tone}`}
-        aria-label={text === AS_TODAY ? "Same as today" : `${text}, ${tone === "same" ? "about the same as" : `${tone} than`} today`}
+        aria-label={`${text}, ${tone === "same" ? "about the same as" : `${tone} than`} today`}
       >
-        {icon}
-        {text === AS_TODAY ? null : <> {text}</>}
+        {icon} {text}
       </span>
     </Tooltip>
   );
