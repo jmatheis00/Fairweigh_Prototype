@@ -14,7 +14,7 @@ const RELATIONSHIP: Record<string, { label: string; meaning: string }> = {
   "New - found by AI agent": {
     label: "New candidate",
     meaning:
-      "Not yet a business partner: no contact and no orders, so no delivery or quality figures. The supplier master says it was found by a web search.",
+      "In the supplier master, but no contact or orders yet, so no delivery or quality figures.",
   },
 };
 
@@ -80,8 +80,7 @@ export function ExplainedTitle({ title, kind }: { title: string; kind: "relation
         <div>
           {kind === "co2Source" && (
             <div style={{ marginBottom: 6 }}>
-              Where the rating partner got the supplier&apos;s company-wide CO₂ figures. The CO₂ value of a single part has its own
-              level (Verified, Supplier-specific, Company estimate, Industry average) in the supplier details and the cockpit.
+              Where the rating partner got the supplier&apos;s company-wide CO₂ figures.
             </div>
           )}
           {entries.map((e) => (

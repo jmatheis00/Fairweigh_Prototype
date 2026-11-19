@@ -2,8 +2,8 @@
 
 import { ArrowDownOutlined, ArrowUpOutlined, FileSearchOutlined, MailOutlined, MinusOutlined, SafetyCertificateOutlined, WarningOutlined } from "@ant-design/icons";
 import { Button, Flex, Tag, Tooltip, Typography } from "antd";
-import { CRITERIA, compareWithBaseline, formatDay, totalCo2Tonnes, totalCostEur, verifiedEvidence, type AgentRun, type DecisionResult } from "@scc/shared";
-import { SCORE_BAND_LABEL, formatEur, formatNumber, formatVsToday, formatVsTodayShort, AS_TODAY, formatPercentDiff, scorePillClass, knockOutLabel, scoreBand } from "@/lib/labels";
+import { CRITERIA, compareWithBaseline, totalCo2Tonnes, totalCostEur, verifiedEvidence, type AgentRun, type DecisionResult } from "@scc/shared";
+import { formatEur, formatNumber, formatVsToday, formatVsTodayShort, AS_TODAY, formatPercentDiff, scorePillClass, knockOutLabel } from "@/lib/labels";
 import { shortName } from "@/lib/names";
 import { priceRequestMailto } from "@/lib/price-request";
 
@@ -84,8 +84,8 @@ export function decisionSummaryParts({ run, result, supplierNames, currentSuppli
 /** A signed number; values that round to zero show as "±0", never "-0.0". */
 /** Sentence for a supplier that never delivered but could lead at its best; "could match today" when its best is today (19 Nov 2026). */
 function couldLeadSentence(supplier: string, high: number): string {
-  const best = formatVsTodayShort(high) === AS_TODAY ? "could match today at its best" : `could be ahead at its best (up to ${formatVsToday(high)})`;
-  return `${supplier} ${best} but has never delivered: request a sample delivery first.`;
+  const best = formatVsTodayShort(high) === AS_TODAY ? "it could match today" : `it could be ahead (${formatVsToday(high)})`;
+  return `${supplier} has no delivery experience yet. At its best ${best}. Request a sample delivery first.`;
 }
 
 export const signed = (n: number, digits: number, unit = "") => {
@@ -156,7 +156,6 @@ export function RecommendationBlock(props: BlockProps) {
     return e && typeof e.value === "number" ? e.value : null;
   };
   const unitPrice = verifiedValue("price");
-  const priceDate = rec ? (verifiedEvidence(run, rec.supplierId, "price")?.sourceDate ?? null) : null;
   const pcf = verifiedValue("co2");
   const pcs = `${q.toLocaleString("en-GB")} pcs`;
   const orderPrice = unitPrice === null ? null : formatEur(totalCostEur(unitPrice, q), 0);
@@ -186,7 +185,7 @@ export function RecommendationBlock(props: BlockProps) {
                   {fullName(rec.supplierId)}
                 </Typography.Title>
               </Tooltip>
-              <Tooltip title={`${formatVsToday(rec.score)}: weighted average of how many % better or worse the offer is than today on each criterion (up to 50 % either way). ${SCORE_BAND_LABEL[scoreBand(rec.score)]}.`}>
+              <Tooltip title={formatVsToday(rec.score, 1)}>
                 <span tabIndex={0} className={`score-pill ${scorePillClass(rec.score)}`} aria-label={formatVsToday(rec.score)}>
                   {formatVsTodayShort(rec.score)}
                 </span>
@@ -197,20 +196,14 @@ export function RecommendationBlock(props: BlockProps) {
                 View details
               </Button>
               {/* A current price matters before deciding (feedback 17 Nov 2026): the e-mail draft is on the first screen. */}
-              <Tooltip
-                title={`Opens an e-mail draft asking ${supplierNames[rec.supplierId] ?? rec.supplierId} for a current, binding price${
-                  priceDate ? ` (quoted ${formatDay(priceDate)})` : ""
-                }. Nothing is sent automatically.`}
+              <Button
+                size="small"
+                icon={<MailOutlined />}
+                href={priceRequestMailto(run, rec.supplierId, supplierNames[rec.supplierId] ?? rec.supplierId, partName)}
+                aria-label={`Request a current price from ${supplierNames[rec.supplierId] ?? rec.supplierId}`}
               >
-                <Button
-                  size="small"
-                  icon={<MailOutlined />}
-                  href={priceRequestMailto(run, rec.supplierId, supplierNames[rec.supplierId] ?? rec.supplierId, partName)}
-                  aria-label={`Request a current price from ${supplierNames[rec.supplierId] ?? rec.supplierId}`}
-                >
-                  Request current price
-                </Button>
-              </Tooltip>
+                Request current price
+              </Button>
             </Flex>
             {/* One short line (feedback 18 Nov 2026); the full sentence is in the tooltip and in "View details". */}
             {couldLead.map((c) => (

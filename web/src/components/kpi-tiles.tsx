@@ -308,7 +308,7 @@ export function RecommendationDetails({
               : `${formatEur(Math.abs(cmp.totalWithCo2DeltaEur), 0)} ${cmp.totalWithCo2DeltaEur < 0 ? "cheaper" : "more expensive"} overall`}
           </strong>{" "}
           <Tooltip
-            title={`Your internal CO₂ price of ${co2PricePerTonneEur} € per tonne${co2PriceToConfirm ? " (to confirm)" : ""}, added to the price. Display only: it does not count towards the score. CO₂ already counts in the score as its own criterion.`}
+            title={`Internal CO₂ price: ${co2PricePerTonneEur} € per tonne${co2PriceToConfirm ? " (to confirm)" : ""}, added to the price for information. CO₂ is already scored as its own criterion.`}
           >
             <InfoCircleOutlined tabIndex={0} aria-label="Display only, does not count towards the score" />
           </Tooltip>{" "}

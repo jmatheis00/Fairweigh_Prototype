@@ -61,7 +61,7 @@ interface Props {
 
 /** What the points under each value mean (PLAN.md section 3, decision of 17 Nov 2026: against today). */
 const POINTS_HELP =
-  "Under each value: how many % better or worse than today. Quality counts deliveries without a complaint, delivery the deliveries on time, price and CO₂ less money and less CO₂. Capped at ±50 %; a missing or unverified value counts as 50 % worse.";
+  "Below each value: % better or worse than today, capped at 50 %. A missing or unverified value counts as 50 % worse.";
 const POINTS_HELP_RELATIVE =
   "Points 0–100 among the scored offers: the best verified value gets 100, the worst 0, the others in between. Missing or unverified values get 0.";
 
@@ -88,7 +88,7 @@ function versusBenchmark(c: Criterion, value: number, benchmark: number): string
 
 /** What each column measures, shown above the points rule. */
 const MEASURE: Record<Criterion, string> = {
-  quality: "Complaint rate from the ERP: share of deliveries with a complaint. Lower is better.",
+  quality: "Complaint rate from the ERP. Lower is better. Scored on the share of deliveries without a complaint.",
   price: "Unit price from the supplier's offer. Lower is better.",
   co2: "Product carbon footprint per piece (kg CO₂e) from the CO₂ record. Lower is better. The tag shows the data quality.",
   delivery: "Share of on-time deliveries from the ERP. Higher is better.",
@@ -234,7 +234,7 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
         const hi = row.pointsHigh?.[c] ?? lo;
         return (
           <Tooltip
-            title={`Never delivered to us, so no own figure yet. Range of our ${assumption.peers} current suppliers in this category: weakest ${formatNumber(weak, decimals)} %, best ${formatNumber(best, decimals)} %. The ranking uses the weakest, so a gap never beats real data.`}
+            title={`No delivery experience yet. Estimated from ${assumption.peers} current suppliers in this category: ${formatNumber(weak, decimals)} % (weakest) to ${formatNumber(best, decimals)} % (best). The ranking uses the weakest value.`}
           >
             <Flex vertical align="end" tabIndex={0} className="assumed-cell">
               <span>
@@ -259,7 +259,7 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
           <Tooltip
             title={
               never
-                ? "This supplier has never delivered to us, so the ERP has no complaint or on-time figures yet. Counts as 50 % worse than today until a sample delivery is rated."
+                ? "No delivery experience yet, so no ERP figures. Counts as 50 % worse than today until a sample delivery is rated."
                 : "No verified value in the connected systems. Counts as 50 % worse than today."
             }
           >
@@ -293,7 +293,7 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
       // Slim matrix (10 Nov 2026): the "as of" date is in the source panel; old data keeps a warning icon here.
       const age = row.ageWarnings.find((w) => (c === "price" ? w.startsWith("Price") : c === "co2" ? w.startsWith("CO₂") : false));
       const oldIcon = age ? (
-        <Tooltip title={`${age}. Older than the limit set by the Scope 3 manager; the score is unchanged.`}>
+        <Tooltip title={`${age}. Past the limit set by the Scope 3 manager. The score is unchanged.`}>
           <WarningOutlined aria-label="old data" className="as-of-old" style={{ marginInlineStart: 4 }} />
         </Tooltip>
       ) : null;
@@ -327,7 +327,7 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
             // Notes as small text lines with an icon instead of grey boxes (16 Nov 2026): lighter under the name.
             <Flex vertical gap={2} align="flex-start">
               {row.exclusion && (
-                <Tooltip title={row.exclusion}>
+                <Tooltip title={`${row.exclusion.replace(/^EXCLUDED: /, "")}.`}>
                   <span className="matrix-note" tabIndex={0}>
                     <StopOutlined aria-hidden /> {knockOutLabel(row.exclusion.replace(/^EXCLUDED: /, ""))}
                   </span>
@@ -396,7 +396,7 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
         },
         {
           // Score against today (18 Nov 2026): the number on a soft background in its band colour.
-          title: <Tooltip title="Weighted average of how many % better or worse the offer is than today on each criterion, up to 50 % either way. Green from 5 % better, red from 5 % worse, yellow in between, grey for the same as today.">vs today</Tooltip>,
+          title: <Tooltip title="Weighted average of the change against today on each criterion, capped at 50 %. Green: 5 % better or more. Red: 5 % worse or more. Yellow: in between. Grey: same as today.">vs today</Tooltip>,
           key: "score",
           align: "right",
           width: 124,
@@ -405,7 +405,7 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
               "—"
             ) : row.scoreRange ? (
               <Tooltip
-                title={`Never delivered to us, so quality and delivery are a range: ${formatVsToday(row.scoreRange.low)} with the weakest values of our current suppliers, up to ${formatVsToday(row.scoreRange.high).replace(/^Same/, "the same")} with their best. It is ranked after all offers with real data.`}
+                title={`No delivery experience yet. Quality and delivery are estimated from current suppliers: ${formatVsToday(row.scoreRange.low).replace(/^Same/, "the same")} (weakest) to ${formatVsTodayShort(row.scoreRange.high) === AS_TODAY ? "the same as today" : formatVsTodayShort(row.scoreRange.high)} (best). Ranked below offers with real data.`}
               >
                 <span
                   className={`score-pill score-${scoreBand(row.scoreRange.low)}`}
@@ -417,7 +417,7 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
                 </span>
               </Tooltip>
             ) : (
-              <Tooltip title={`${formatVsToday(row.score, 1)} · ${SCORE_BAND_LABEL[scoreBand(row.score)]}`}>
+              <Tooltip title={formatVsToday(row.score, 1)}>
                 <span
                   className={`score-pill ${scorePillClass(row.score)}`}
                   role="img"

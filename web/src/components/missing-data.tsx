@@ -1,7 +1,7 @@
 "use client";
 
 import { MailOutlined } from "@ant-design/icons";
-import { Button, Flex, Tooltip, Typography } from "antd";
+import { Button, Flex, Typography } from "antd";
 import { CRITERIA, type AgentRun, type Criterion, type DecisionResult, type LeadRequirement } from "@scc/shared";
 import { dataRequestText, requestItems, requestMailto } from "@/lib/data-request";
 import { TOPIC_LABEL, formatNumber, formatEur, formatVsToday } from "@/lib/labels";
@@ -111,16 +111,14 @@ export function MissingData({ run, result, supplierNames, requirements, partName
           {i.asks.length > 0 && (
             <Flex vertical gap={4} style={{ marginTop: 6 }}>
               <Flex gap={8} align="center" wrap>
-                <Tooltip title="Opens an e-mail draft in your mail program. Nothing is sent automatically.">
-                  <Button
-                    size="small"
-                    icon={<MailOutlined />}
-                    href={requestMailto(dataRequestText(i.request))}
-                    aria-label={`Request missing data from ${supplierNames[i.id] ?? i.id}`}
-                  >
-                    Request missing data
-                  </Button>
-                </Tooltip>
+                <Button
+                  size="small"
+                  icon={<MailOutlined />}
+                  href={requestMailto(dataRequestText(i.request))}
+                  aria-label={`Request missing data from ${supplierNames[i.id] ?? i.id}`}
+                >
+                  Request missing data
+                </Button>
                 <Typography.Text type="secondary" style={{ fontSize: 12 }}>
                   Asks for {i.asks.length} {i.asks.length === 1 ? "item" : "items"}
                 </Typography.Text>
