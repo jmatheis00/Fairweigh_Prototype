@@ -76,7 +76,11 @@ export function DecisionLog({ records, supplierNames, partNames, storageAvailabl
                   {r.decidedBy ? ` · ${r.decidedBy.name}` : ""}
                 </Typography.Text>
                 <span>{r.reason}</span>
-                {r.weightsReason && <span>Why the weights changed: {r.weightsReason}</span>}
+                {r.weightsReason && (
+                  <span>
+                    <Typography.Text strong>Why the weights changed:</Typography.Text> {r.weightsReason}
+                  </span>
+                )}
               </Flex>
             ),
             children: (
@@ -95,7 +99,7 @@ export function DecisionLog({ records, supplierNames, partNames, storageAvailabl
                     { label: "Decided by", children: r.decidedBy ? `${r.decidedBy.name} (${r.decidedBy.role})` : "Not recorded" },
                     { label: "Awarded to", children: supplier(r.chosenSupplierId) },
                     { label: "Justification", children: r.reason },
-                    ...(r.weightsReason ? [{ label: "Why the weights changed", children: r.weightsReason }] : []),
+                    ...(r.weightsReason ? [{ label: <Typography.Text strong>Why the weights changed</Typography.Text>, children: r.weightsReason }] : []),
                     {
                       label: "Compared offers",
                       children: (
