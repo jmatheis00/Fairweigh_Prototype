@@ -1,8 +1,7 @@
 "use client";
 
 import { CheckCircleOutlined } from "@ant-design/icons";
-import { Flex, Table, Tag, Tooltip, Typography } from "antd";
-import { useState } from "react";
+import { Descriptions, Flex, Table, Tag, Tooltip, Typography } from "antd";
 import type { AbatementOption, Co2TrendPoint, SupplierBasePoint, SupplierQuadrant } from "@scc/shared";
 import { formatMonth, formatNumber, formatEur } from "@/lib/labels";
 import { BRAND } from "@/lib/theme";
@@ -41,6 +40,26 @@ const QUADRANT_TEXT: Record<SupplierQuadrant, string> = {
   Fine: "Lower spend, less CO₂ per € than the category",
 };
 
+/** The chart's facts for one supplier, shown at the top of the supplier side panel (no hover tooltip, 19 Nov 2026). */
+export function SupplierBaseFacts({ point }: { point: SupplierBasePoint }) {
+  const sign = point.versusAveragePercent > 0 ? "+" : "";
+  return (
+    <Descriptions
+      size="small"
+      column={1}
+      bordered
+      title={`Against the category ${point.category} · last 12 months`}
+      items={[
+        { label: "Spend", children: `${formatEur(point.spendEur, 0)} (client ERP)` },
+        { label: "CO₂ per €", children: `${formatNumber(point.intensityKgPerEur, 3)} kg CO₂e (rating partner)` },
+        { label: "Category average", children: `${formatNumber(point.categoryAverageKgPerEur, 3)} kg CO₂e per € (${sign}${point.versusAveragePercent} %)` },
+        { label: "CO₂ bought", children: `about ${formatNumber(point.co2Tonnes, 0)} t CO₂e` },
+        { label: "Position", children: <><strong>{point.quadrant}</strong>: {QUADRANT_TEXT[point.quadrant]}</> },
+      ]}
+    />
+  );
+}
+
 /**
  * Current suppliers: spend (x) against CO₂ intensity versus the category average (y).
  * Bubble area = estimated CO₂ bought. Quadrants split at the median spend and at the average.
@@ -56,7 +75,6 @@ export function SupplierBaseMap({
   name: (supplierId: string) => string;
   onOpen?: (supplierId: string) => void;
 }) {
-  const [hover, setHover] = useState<SupplierBasePoint | null>(null);
   const W = 1200;
   const H = 300;
   const M = { l: 60, r: 16, t: 14, b: 36 };
@@ -116,9 +134,13 @@ export function SupplierBaseMap({
             stroke={BRAND.white}
             strokeWidth="1"
             style={{ cursor: onOpen ? "pointer" : "default" }}
-            onMouseEnter={() => setHover(p)}
-            onMouseLeave={() => setHover(null)}
             onClick={() => onOpen?.(p.supplierId)}
+            onKeyDown={(e) => {
+              if (onOpen && (e.key === "Enter" || e.key === " ")) {
+                e.preventDefault();
+                onOpen(p.supplierId);
+              }
+            }}
             tabIndex={0}
             aria-label={`${name(p.supplierId)}: ${formatEur(p.spendEur, 0)}, ${p.versusAveragePercent > 0 ? "+" : ""}${p.versusAveragePercent} % vs category, ${p.quadrant}`}
           />
@@ -142,16 +164,6 @@ export function SupplierBaseMap({
             </text>
           ))}
       </svg>
-      {hover && (
-        <div className="chart-tooltip" style={{ left: `${(x(hover.spendEur) / W) * 100}%` }}>
-          <strong>{name(hover.supplierId)}</strong> · {hover.category}
-          <div>
-            {formatEur(hover.spendEur, 0)} · {formatNumber(hover.intensityKgPerEur, 3)} kg CO₂e per € ({hover.versusAveragePercent > 0 ? "+" : ""}
-            {hover.versusAveragePercent} % vs category {formatNumber(hover.categoryAverageKgPerEur, 3)})
-          </div>
-          <div>about {formatNumber(hover.co2Tonnes, 0)} t CO₂e bought · {QUADRANT_TEXT[hover.quadrant]}</div>
-        </div>
-      )}
     </div>
   );
 }

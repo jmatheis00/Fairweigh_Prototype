@@ -27,7 +27,7 @@ import { InfoTip } from "./info-tip";
 import { PageHeader } from "./page-header";
 import { RiskAlertsCard } from "./risk-alerts-card";
 import { DataRequestsCard } from "./data-requests-card";
-import { Co2TargetChart, SupplierBaseMap } from "./analytics-charts";
+import { Co2TargetChart, SupplierBaseFacts, SupplierBaseMap } from "./analytics-charts";
 import { usePartnerData } from "@/lib/partner-data";
 import { FilterBar, defaultFilter, type StatsFilter } from "./filter-bar";
 import { Co2Source, ExplainedTitle, Relationship, relationshipLabel } from "@/lib/supplier-labels";
@@ -89,7 +89,14 @@ function SupplierListPopover({ title, ids, name, children }: { title: string; id
 }
 
 /** Sarah's view: Scope 3 hotspots, data quality, data requests, risk and rules. */
-export function SustainabilityPage({ settings }: { settings: DemoSettings }) {
+export function SustainabilityPage({
+  settings,
+  onOpenSupplier,
+}: {
+  settings: DemoSettings;
+  /** Opens the supplier side panel; `context` is shown at its top. */
+  onOpenSupplier?: (supplierId: string, context?: React.ReactNode) => void;
+}) {
   const [data, setData] = useState<Data | null>(null);
   const [error, setError] = useState<string | null>(null);
   // Filters: period and product for the whole page (top bar); relationship and flag sit on the supplier
@@ -279,7 +286,7 @@ export function SustainabilityPage({ settings }: { settings: DemoSettings }) {
                 title={
                   <span>
                     Current suppliers against their category{" "}
-                    <Tooltip title="Bubble = CO₂ bought: spend × the supplier's CO₂ per € (rating partner). Benchmark = average of all suppliers in the category. Last 12 months. Switch candidates: high spend and more CO₂ per € than the category.">
+                    <Tooltip title="Bubble = CO₂ bought: spend × the supplier's CO₂ per € (rating partner). Benchmark = average of all suppliers in the category. Last 12 months. Switch candidates: high spend and more CO₂ per € than the category. Click a bubble to open the supplier.">
                       <InfoCircleOutlined aria-label="How this chart works" style={{ color: BRAND.textSecondary }} />
                     </Tooltip>
                   </span>
@@ -291,7 +298,19 @@ export function SustainabilityPage({ settings }: { settings: DemoSettings }) {
                   </Typography.Text>
                 }
               >
-                <SupplierBaseMap points={base.points} medianSpendEur={base.medianSpendEur} name={name} />
+                <SupplierBaseMap
+                  points={base.points}
+                  medianSpendEur={base.medianSpendEur}
+                  name={name}
+                  onOpen={
+                    onOpenSupplier
+                      ? (id) => {
+                          const point = base.points.find((p) => p.supplierId === id);
+                          onOpenSupplier(id, point ? <SupplierBaseFacts point={point} /> : undefined);
+                        }
+                      : undefined
+                  }
+                />
                 <Typography.Text type="secondary" style={{ fontSize: 12, display: "block" }}>
                   {candidates.length
                     ? `Switch candidates: ${candidates.map((c) => `${name(c.supplierId)} (+${formatNumber(c.versusAveragePercent, 0)} %)`).join(", ")}. `
