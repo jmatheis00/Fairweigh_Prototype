@@ -91,9 +91,15 @@ export function ImpactPage({ settings, log, supplierNames, onOpenDecision, onOpe
     purchased.previous && purchased.previous.co2Tonnes > 0
       ? Math.round(((purchased.co2Tonnes - purchased.previous.co2Tonnes) / purchased.previous.co2Tonnes) * 1000) / 10
       : null;
-  const path = co2TargetPath(productOrders);
-  // The chart always shows every month (a trend needs the history); the chosen period is shaded and its gap to the
-  // path is shown on top, so the chart follows the period filter too (20 Nov 2026).
+  // The target path is built from the whole history (it starts from the 2025 average); the chart shows the 12 months
+  // up to the end of the chosen period, or the whole period if longer, with the period shaded (20 Nov 2026). So both
+  // filters apply and a quarter still shows a trend.
+  const windowStart = (() => {
+    const [y, m] = active.period.to.split("-").map(Number) as [number, number];
+    const back = new Date(Date.UTC(y, m - 1 - 11, 1)).toISOString().slice(0, 7);
+    return back < active.period.from ? back : active.period.from;
+  })();
+  const path = co2TargetPath(productOrders).filter((p) => p.month >= windowStart && p.month <= active.period.to);
   const inPeriodPoints = path.filter((p) => p.month >= active.period.from && p.month <= active.period.to);
   const pathGap = inPeriodPoints.length
     ? (inPeriodPoints.reduce((a, p) => a + p.actualTonnes, 0) / inPeriodPoints.reduce((a, p) => a + p.targetTonnes, 0) - 1) * 100
@@ -199,7 +205,7 @@ export function ImpactPage({ settings, log, supplierNames, onOpenDecision, onOpe
             <span>
               CO₂ per month vs target path, {formatMonth(`${path[0]!.month}-01`)} – {formatMonth(`${path.at(-1)!.month}-01`)}
               {active.partId ? ", one product" : ""}{" "}
-              <Tooltip title="t CO₂e per month from purchase orders × CO₂ per piece. Dashed: the 2025 average reduced by 4.2 % per year (SBTi 1.5 °C cross-sector rate). Always shows all months; the chosen period is shaded.">
+              <Tooltip title="t CO₂e per month from purchase orders × CO₂ per piece. Dashed: the 2025 average reduced by 4.2 % per year (SBTi 1.5 °C cross-sector rate). Shows the 12 months up to the end of the chosen period (a longer period in full); the chosen period is shaded.">
                 <InfoCircleOutlined aria-label="How this chart works" style={{ color: BRAND.textSecondary }} />
               </Tooltip>
             </span>

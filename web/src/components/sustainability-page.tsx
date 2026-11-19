@@ -245,8 +245,9 @@ export function SustainabilityPage({
             pagination={false}
             rowKey="supplierId"
             dataSource={flagged}
+            className="table-top"
             locale={{ emptyText: "No supplier with these flags." }}
-            scroll={{ y: 220, x: 620 }}
+            scroll={{ y: 220, x: 640 }}
             columns={[
               {
                 title: "Supplier",
@@ -264,7 +265,7 @@ export function SustainabilityPage({
               {
                 title: "Flags",
                 key: "f",
-                width: 160,
+                width: 200,
                 // Next step per flag under the tags (19 Nov 2026): SA8000 audit for LkSG High, a statement for a
                 // controversy. A proven violation gets no button: the rule already excludes the supplier.
                 render: (_, f) => {

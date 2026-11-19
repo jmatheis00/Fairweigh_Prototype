@@ -841,6 +841,12 @@ body .ant-tag.ant-tag-success.ant-tag-filled:not(.ant-tag-disabled) {
 body .sus-grid.sus-grid-stretch > .ant-card {
   display: flex;
   flex-direction: column;
+  /* A table that reaches the bottom must not paint over the rounded corners. */
+  overflow: hidden;
+}
+/* Rows with several lines (tags, alert and date) start on one line instead of floating in the middle. */
+body .table-top .ant-table-tbody > tr > td {
+  vertical-align: top;
 }
 body .sus-grid.sus-grid-stretch > .ant-card > .ant-card-body {
   flex: 1;
