@@ -20,14 +20,13 @@ const RELATIONSHIP: Record<string, { label: string; meaning: string }> = {
 };
 
 const CO2_SOURCE: Record<string, { label: string; meaning: string }> = {
-  "Sustainability report": { label: "Sustainability report", meaning: "From the supplier's published sustainability report." },
-  "Supplier self-assessment": { label: "Supplier's own statement", meaning: "Questionnaire answered by the supplier, not checked by a third party." },
-  "Supplier PCF declaration": { label: "Supplier's product footprint", meaning: "Product carbon footprint declared by the supplier for the part." },
-  "Estimate (industry average)": { label: "Industry average", meaning: "No figures from the supplier: an average for the industry is used instead." },
+  "Sustainability report": { label: "Sustainability report", meaning: "Published by the supplier." },
+  "Supplier self-assessment": { label: "Supplier's own statement", meaning: "Questionnaire, not checked by a third party." },
+  "Supplier PCF declaration": { label: "Supplier's product footprint", meaning: "Footprint the supplier declared for the part." },
+  "Estimate (industry average)": { label: "Industry average", meaning: "No supplier figures; an industry average instead." },
   "Web search (AI agent)": {
     label: "Public web, unconfirmed",
-    meaning:
-      "The rating partner says these CO₂ figures come from public web sources; the supplier has not confirmed them.",
+    meaning: "Found online, not confirmed by the supplier.",
   },
 };
 
@@ -77,15 +76,17 @@ export function ExplainedTitle({ title, kind }: { title: string; kind: "relation
   const entries = Object.values(kind === "relationship" ? RELATIONSHIP : CO2_SOURCE);
   return (
     <Tooltip
+      // Wider than the default, so each entry fits on about one line and the box stays short (20 Nov 2026).
+      styles={{ root: { maxWidth: 400 } }}
       title={
         <div>
           {kind === "co2Source" && (
-            <div style={{ marginBottom: 6 }}>
-              Where the rating partner got the supplier&apos;s company-wide CO₂ figures.
+            <div style={{ marginBottom: 4 }}>
+              Source of the supplier&apos;s company CO₂ figures:
             </div>
           )}
           {entries.map((e) => (
-            <div key={e.label} style={{ marginBottom: 4 }}>
+            <div key={e.label} style={{ marginBottom: 2 }}>
               <strong>{e.label}:</strong> {e.meaning}
             </div>
           ))}

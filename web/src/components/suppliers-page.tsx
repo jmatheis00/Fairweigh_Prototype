@@ -20,7 +20,8 @@ import {
   hasNoOrders,
   relationshipLabel,
 } from "@/lib/supplier-labels";
-import { complaintLevel, ratingLevel, type RiskLevel } from "@/lib/risk-levels";
+import { RATING_THRESHOLDS, complaintLevel, ratingLevel, type RiskLevel } from "@/lib/risk-levels";
+import { InfoTip } from "./info-tip";
 import { RiskTag, SupplierInfoPanel } from "./supplier-info-panel";
 
 interface Row {
@@ -199,7 +200,7 @@ export function SuppliersPage({
         dataSource={shown}
         // Fits a 1280 px laptop (16 Nov 2026): country under the name, spend and contract end in one column.
         // Data and flags added 19 Nov 2026: the full lists behind the two tables on CO₂ and risks.
-        scroll={{ y: "calc(100vh - 260px)", x: user.seesCommercials ? 1528 : 1398 }}
+        scroll={{ y: "calc(100vh - 260px)", x: user.seesCommercials ? 1606 : 1476 }}
         className="table-clickable"
         onRow={(r) => ({ onClick: () => setOpenId(r.key) })}
         rowClassName={(r) => (r.key === openId ? "cell-selected" : "")}
@@ -248,9 +249,18 @@ export function SuppliersPage({
               ),
           },
           {
-            title: "Rating",
+            // Named and explained (20 Nov 2026): "Rating" alone was unclear, and the column cut "medium risk".
+            title: (
+              <span>
+                Sustainability rating{" "}
+                <InfoTip
+                  label="the sustainability rating"
+                  title={`Score 0–100 from the rating partner (EcoVadis style), higher is better. Below ${RATING_THRESHOLDS.high} is marked high risk, below ${RATING_THRESHOLDS.medium} medium. One of the two things that make a supplier's sustainability data sufficient (with its own CO₂ data); it never changes the ranking of an offer.`}
+                />
+              </span>
+            ),
             key: "score",
-            width: 112,
+            width: 190,
             align: "right",
             sorter: (a, b) => (a.rating?.sustainabilityScore ?? -1) - (b.rating?.sustainabilityScore ?? -1),
             // A low rating means a high risk: "25 · high risk", so it cannot be read as a good score (review 16 Nov 2026).
