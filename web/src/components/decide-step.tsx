@@ -152,7 +152,13 @@ export function DecideStep({
                 showIcon
                 style={{ marginBottom: 12 }}
                 title="You changed the company default weights."
-                description={CRITERIA.map((c) => `${TOPIC_LABEL[c]} ${defaultWeights[c]} → ${weights[c]} %`).join(" · ")}
+                description={CRITERIA.filter((c) => weights[c] !== defaultWeights[c]).map((c, i) => (
+                  // Only the changed weights; each one stays on one line, so "%" never wraps alone.
+                  <span key={c} style={{ whiteSpace: "nowrap" }}>
+                    {i > 0 && " · "}
+                    {TOPIC_LABEL[c]} {defaultWeights[c]} → {weights[c]} %
+                  </span>
+                ))}
               />
               <Form.Item
                 label="Why did you change the weights? (saved in the Decision Log)"
