@@ -74,7 +74,7 @@ export function decisionSummaryParts({ run, result, supplierNames, currentSuppli
     parts.push(gapText);
   }
   for (const c of rec?.couldLead ?? []) {
-    const t = `${name(c.supplierId)} could be ahead at its best (up to ${formatVsToday(c.high).replace(/^Same/, "the same")}) but has never delivered: request a sample delivery first.`;
+    const t = couldLeadSentence(name(c.supplierId), c.high);
     couldLeadText = [couldLeadText, t].filter(Boolean).join(" ");
     parts.push(t);
   }
@@ -82,6 +82,12 @@ export function decisionSummaryParts({ run, result, supplierNames, currentSuppli
 }
 
 /** A signed number; values that round to zero show as "±0", never "-0.0". */
+/** Sentence for a supplier that never delivered but could lead at its best; "could match today" when its best is today (19 Nov 2026). */
+function couldLeadSentence(supplier: string, high: number): string {
+  const best = formatVsTodayShort(high) === AS_TODAY ? "could match today at its best" : `could be ahead at its best (up to ${formatVsToday(high)})`;
+  return `${supplier} ${best} but has never delivered: request a sample delivery first.`;
+}
+
 export const signed = (n: number, digits: number, unit = "") => {
   const r = Number(n.toFixed(digits));
   return `${r > 0 ? "+" : r < 0 ? "-" : "±"}${formatNumber(Math.abs(r), digits)}${unit}`;
@@ -178,7 +184,7 @@ export function RecommendationBlock(props: BlockProps) {
               </Tooltip>
               <Tooltip title={`${formatVsToday(rec.score)}: weighted average of how many % better or worse the offer is than today on each criterion (up to 50 % either way). ${SCORE_BAND_LABEL[scoreBand(rec.score)]}.`}>
                 <span tabIndex={0} className={`score-pill score-${scoreBand(rec.score)}`} aria-label={formatVsToday(rec.score)}>
-                  {formatVsTodayShort(rec.score) === AS_TODAY ? "Same as today" : formatVsTodayShort(rec.score)}
+                  {formatVsTodayShort(rec.score)}
                 </span>
               </Tooltip>
             </div>
@@ -206,7 +212,7 @@ export function RecommendationBlock(props: BlockProps) {
             {couldLead.map((c) => (
               <Tooltip
                 key={c.supplierId}
-                title={`${name(c.supplierId)} could be ahead at its best (up to ${formatVsToday(c.high).replace(/^Same/, "the same")}) but has never delivered: request a sample delivery first.`}
+                title={couldLeadSentence(name(c.supplierId), c.high)}
               >
                 <Tag
                   icon={<WarningOutlined />}
@@ -214,7 +220,7 @@ export function RecommendationBlock(props: BlockProps) {
                   className="rec-could-lead"
                   style={{ marginInlineEnd: 0, marginTop: 4 }}
                 >
-                  {name(c.supplierId)} could be ahead (up to {formatVsTodayShort(c.high) === AS_TODAY ? "the same as today" : formatVsTodayShort(c.high)}) · request a sample
+                  {name(c.supplierId)} {formatVsTodayShort(c.high) === AS_TODAY ? "could match today" : `could be ahead (up to ${formatVsTodayShort(c.high)})`} · request a sample
                 </Tag>
               </Tooltip>
             ))}

@@ -187,9 +187,9 @@ export function RecommendationDetails({
             </div>
             <div style={{ textAlign: "right", flex: "none" }}>
               <div style={{ fontSize: 32, fontWeight: 600, lineHeight: 1 }}>
-                {formatVsTodayShort(rec.score) === AS_TODAY ? "Same" : formatVsTodayShort(rec.score)}
+                {formatVsTodayShort(rec.score)}
                 <Typography.Text type="secondary" style={{ fontSize: 14, fontWeight: 400 }}>
-                  {formatVsTodayShort(rec.score) === AS_TODAY ? " as today" : " than today"}
+                  {formatVsTodayShort(rec.score) === AS_TODAY ? " vs today" : " than today"}
                 </Typography.Text>
               </div>
               <Typography.Text type="secondary" style={{ fontSize: 12 }}>
@@ -224,7 +224,7 @@ export function RecommendationDetails({
 
       {first && (
         <>
-          {section(<CheckCircleOutlined />, `How the result comes together: ${formatVsToday(first.score)}`)}
+          {section(<CheckCircleOutlined />, `How the result comes together: ${formatVsTodayShort(first.score) === AS_TODAY ? `${AS_TODAY} vs today` : formatVsToday(first.score)}`)}
           <Table
             size="small"
             pagination={false}
