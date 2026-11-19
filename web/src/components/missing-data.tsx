@@ -4,7 +4,7 @@ import { MailOutlined } from "@ant-design/icons";
 import { Button, Flex, Tooltip, Typography } from "antd";
 import { CRITERIA, type AgentRun, type Criterion, type DecisionResult, type LeadRequirement } from "@scc/shared";
 import { dataRequestText, requestItems, requestMailto } from "@/lib/data-request";
-import { TOPIC_LABEL, formatNumber, formatEur } from "@/lib/labels";
+import { TOPIC_LABEL, formatNumber, formatEur, formatVsToday } from "@/lib/labels";
 import { pcfBadgeTooltip } from "./pcf-badge-tag";
 
 interface Props {
@@ -37,7 +37,7 @@ function impact(r: LeadRequirement | null, name: string): string | null {
   if (r.canLead && r.needed) {
     return `${name} would take first place with verified ${list(r.needed.map((n) => condition(n.criterion, n.value)))}. Closing these gaps can change the recommendation.`;
   }
-  return `Even with the best values among the offers, ${name} would reach ${formatNumber(r.bestCaseScore, 0)} points and rank ${r.bestCaseRank}. Closing these gaps would not change the recommendation.`;
+  return `Even with the best values among the offers, ${name} would reach ${formatVsToday(r.bestCaseScore).replace(/^Same/, "the same")} and rank ${r.bestCaseRank}. Closing these gaps would not change the recommendation.`;
 }
 
 const list = (items: string[]) => (items.length <= 1 ? items.join("") : `${items.slice(0, -1).join(", ")} and ${items.at(-1)}`);
@@ -74,7 +74,7 @@ export function MissingData({ run, result, supplierNames, requirements, partName
   return (
     <Flex vertical gap={16}>
       <Typography.Text type="secondary">
-        Gaps get 0 points, so closing them can change the ranking. Each offer has a data request that opens as an e-mail draft in
+        Gaps count as 50 % worse than today, so closing them can change the ranking. Each offer has a data request that opens as an e-mail draft in
         your own mail program; nothing is sent from here. Excluded offers are not listed.
       </Typography.Text>
       {items.map((i) => (

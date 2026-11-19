@@ -9,7 +9,6 @@ import {
   totalCo2Tonnes,
   totalCostEur,
   verifiedEvidence,
-  percentBetter,
   type AgentRun,
   type Criterion,
   type DecisionRecord,
@@ -19,7 +18,7 @@ import {
 } from "@scc/shared";
 import { DRAWER_WIDTH } from "@/lib/layout";
 import { priceRequestMailto } from "@/lib/price-request";
-import { TOPIC_LABEL, formatNumber, formatEur } from "@/lib/labels";
+import { TOPIC_LABEL, formatNumber, formatEur, formatCriterionVsToday, formatCriterionRange, formatVsToday } from "@/lib/labels";
 import { FavouriteButton, PreviousDecisions } from "./previous-decisions";
 import { SupplierHistory } from "./supplier-history";
 
@@ -102,8 +101,8 @@ export function SupplierProfile({
   const gap =
     ranked && compare
       ? supplierId === recommendedId
-        ? `${formatNumber(ranked.score - compare.score, 1)} points ahead of ${name(compare.supplierId)}`
-        : `${formatNumber(compare.score - ranked.score, 1)} points behind the recommendation, ${name(compare.supplierId)}`
+        ? `${formatNumber(ranked.score - compare.score, 1)} percentage points ahead of ${name(compare.supplierId)}`
+        : `${formatNumber(compare.score - ranked.score, 1)} percentage points behind the recommendation, ${name(compare.supplierId)}`
       : null;
 
   return (
@@ -134,7 +133,7 @@ export function SupplierProfile({
       {supplierId && ranked && (
         <Flex vertical gap={12} className="viz-root">
           <Typography.Text>
-            Rank {ranked.rank} · <Typography.Text strong>{formatNumber(ranked.score, 0)} points</Typography.Text> ·{" "}
+            Rank {ranked.rank} · <Typography.Text strong>{formatVsToday(ranked.score)}</Typography.Text> ·{" "}
             {ranked.verifiedCount} of {CRITERIA.length} criteria verified
             {gap ? ` · ${gap}` : ""}
           </Typography.Text>
@@ -172,15 +171,15 @@ export function SupplierProfile({
                   ),
                 },
                 {
-                  title: "Points",
+                  title: "vs today",
                   key: "p",
                   align: "right",
                   render: (_, r) =>
                     r.value === null
                       ? ranked.assumed.includes(r.c)
-                        ? `${formatNumber(r.points, 0)}–${formatNumber(ranked.pointsHigh?.[r.c] ?? r.points, 0)}`
-                        : "0"
-                      : `${formatNumber(r.points, 0)} (${Math.round(percentBetter(r.c, r.value, benchmarks[r.c].value)) >= 0 ? "+" : "-"}${Math.abs(Math.round(percentBetter(r.c, r.value, benchmarks[r.c].value)))} %)`,
+                        ? formatCriterionRange(r.points, ranked.pointsHigh?.[r.c] ?? r.points)
+                        : "50 % worse (missing)"
+                      : formatCriterionVsToday(r.points),
                 },
               ]}
             />
@@ -222,9 +221,10 @@ export function SupplierProfile({
                     return (
                       <g key={b.key}>
                         <rect x={LABEL_W} y={by} width={PLOT_W} height={BAR_H} className="viz-track" />
+                        <line x1={LABEL_W + PLOT_W / 2} x2={LABEL_W + PLOT_W / 2} y1={by - 1} y2={by + BAR_H + 1} className="viz-today" />
                         {w > 0 && <rect x={LABEL_W} y={by} width={w} height={BAR_H} rx={2} className={b.cls} />}
                         <text x={LABEL_W + Math.max(w, 0) + 6} y={by + BAR_H - 2} className="viz-tick">
-                          {b.missing ? "missing · 0" : formatNumber(b.points, 0)}
+                          {b.missing ? "missing · 50 % worse" : formatCriterionVsToday(b.points)}
                         </text>
                       </g>
                     );
@@ -234,7 +234,8 @@ export function SupplierProfile({
             })}
           </svg>
           <Typography.Text type="secondary" style={{ fontSize: 12 }}>
-            Points 0–100 per criterion: 50 = the same as today (average of the last 3 purchases), +1 per 1 % better. Missing or unverified values get 0.
+            Bars from 50 % worse (left edge) to 50 % better (right edge) than today; the middle is today (average of the last 3
+            purchases). Missing or unverified values count as 50 % worse.
           </Typography.Text>
         </Flex>
       )}

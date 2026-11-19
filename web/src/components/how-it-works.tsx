@@ -10,7 +10,7 @@ const STEPS: { title: string; actor: Actor; text: string }[] = [
   { title: "Collect evidence", actor: "AI agent", text: "Gathers price, quality, CO₂ and delivery for every offer from ERP, ratings, CO₂ data and documents." },
   { title: "Check sources", actor: "Code", text: "Checks every value against its source. A missing or unverified value counts as 0 points." },
   { title: "Apply knock-outs", actor: "Code", text: "Excludes offers with a proven violation, LkSG risk High without a social audit, or child or forced labour." },
-  { title: "Score and rank", actor: "Code", text: "Each value against today, the average of our last three purchases (50 points = the same as today), weighted by your weights. Same input, same ranking." },
+  { title: "Score and rank", actor: "Code", text: "Each value in % better or worse than today, the average of our last three purchases, weighted by your weights. Same input, same ranking." },
   { title: "Decide", actor: "You", text: "Pick an offer and record the reason. Every decision goes into the decision log." },
 ];
 

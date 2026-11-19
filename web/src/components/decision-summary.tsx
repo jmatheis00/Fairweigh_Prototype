@@ -3,10 +3,9 @@
 import { ArrowDownOutlined, ArrowUpOutlined, FileSearchOutlined, MailOutlined, MinusOutlined, SafetyCertificateOutlined, WarningOutlined } from "@ant-design/icons";
 import { Button, Flex, Tag, Tooltip, Typography } from "antd";
 import { CRITERIA, compareWithBaseline, formatDay, totalCo2Tonnes, totalCostEur, verifiedEvidence, type AgentRun, type DecisionResult } from "@scc/shared";
-import { formatEur, formatNumber, knockOutLabel } from "@/lib/labels";
+import { SCORE_BAND_LABEL, formatEur, formatNumber, formatVsToday, formatVsTodayShort, knockOutLabel, scoreBand } from "@/lib/labels";
 import { shortName } from "@/lib/names";
 import { priceRequestMailto } from "@/lib/price-request";
-import { BRAND } from "@/lib/theme";
 
 interface Props {
   run: AgentRun;
@@ -53,7 +52,7 @@ export function decisionSummaryParts({ run, result, supplierNames, currentSuppli
     parts.push(`Compared with your current supplier ${name(currentSupplierId)} it ${pricePhrase(cmp.pricePercent)} and ${co2Phrase(cmp.co2Percent)}.`);
   } else {
     headline = name(rec.supplierId);
-    parts.push(`${formatNumber(rec.score, 0)} of 100 points.`);
+    parts.push(`${formatVsToday(rec.score)}.`);
   }
   let exclusions = "";
   let gapText = "";
@@ -69,18 +68,24 @@ export function decisionSummaryParts({ run, result, supplierNames, currentSuppli
   if (gaps > 0) {
     gapText =
       `${gaps} ${gaps === 1 ? "offer has" : "offers have"} data gaps` +
-      (assumed > 0 ? `; suppliers without deliveries get a score range and are ranked by its low end.` : "; a missing value counts as 0 points.");
+      (assumed > 0
+        ? `; suppliers without deliveries get a range and are ranked after all offers with real data.`
+        : "; a missing value counts as 50 % worse than today.");
     parts.push(gapText);
   }
   for (const c of rec?.couldLead ?? []) {
-    const t = `${name(c.supplierId)} could lead at its best (up to ${formatNumber(c.high, 0)} points) but has never delivered: request a sample delivery first.`;
+    const t = `${name(c.supplierId)} could be ahead at its best (up to ${formatVsToday(c.high).replace(/^Same/, "the same")}) but has never delivered: request a sample delivery first.`;
     couldLeadText = [couldLeadText, t].filter(Boolean).join(" ");
     parts.push(t);
   }
   return { headline, text: parts.join(" "), exclusions, gaps: gapText, couldLead: couldLeadText };
 }
 
-export const signed = (n: number, digits: number, unit = "") => `${n > 0 ? "+" : n < 0 ? "-" : "±"}${formatNumber(Math.abs(n), digits)}${unit}`;
+/** A signed number; values that round to zero show as "±0", never "-0.0". */
+export const signed = (n: number, digits: number, unit = "") => {
+  const r = Number(n.toFixed(digits));
+  return `${r > 0 ? "+" : r < 0 ? "-" : "±"}${formatNumber(Math.abs(r), digits)}${unit}`;
+};
 
 /** A difference as text plus a word, so meaning never depends on colour. */
 export function Delta({ value, digits, unit, lowerIsBetter }: { value: number | null; digits: number; unit: string; lowerIsBetter: boolean }) {
@@ -160,13 +165,24 @@ export function RecommendationBlock(props: BlockProps) {
         <div className="rec-label">Recommended</div>
         {rec ? (
           <>
-            <Typography.Title level={4} style={{ margin: 0, lineHeight: 1.25 }}>
-              {name(rec.supplierId)}
-            </Typography.Title>
-            <Flex gap={8} align="center" wrap style={{ marginTop: 4 }}>
-              <Tag bordered style={{ marginInlineEnd: 0, color: BRAND.text, background: BRAND.white, borderColor: BRAND.textTertiary }}>
-                {formatNumber(rec.score, 0)} / 100
-              </Tag>
+            {/* Name and result on one line (feedback 18 Nov 2026): the result is the same soft pill as in the
+                offer table, in words ("9 % better than today"), coloured by band; never colour alone. */}
+            {/* Same three rows as the figure tiles (18 Nov 2026): label, value line, small line. The value line
+                holds the name and the same pill as the offer table ("9 % better"); a long name is cut with "…"
+                and shown in full in its tooltip, so the box never grows a row. */}
+            <div className="rec-name-line">
+              <Tooltip title={name(rec.supplierId)}>
+                <Typography.Title level={4} className="rec-name" tabIndex={0}>
+                  {name(rec.supplierId)}
+                </Typography.Title>
+              </Tooltip>
+              <Tooltip title={`${formatVsToday(rec.score)}: weighted average of how many % better or worse the offer is than today on each criterion (up to 50 % either way). ${SCORE_BAND_LABEL[scoreBand(rec.score)]}.`}>
+                <span tabIndex={0} className={`score-pill score-${scoreBand(rec.score)}`} aria-label={formatVsToday(rec.score)}>
+                  {formatVsTodayShort(rec.score) === "same" ? "Same as today" : formatVsTodayShort(rec.score)}
+                </span>
+              </Tooltip>
+            </div>
+            <Flex gap={8} align="center" wrap className="rec-actions">
               <Button type="primary" size="small" icon={<FileSearchOutlined />} onClick={onWhy}>
                 View details
               </Button>
@@ -186,10 +202,21 @@ export function RecommendationBlock(props: BlockProps) {
                 </Button>
               </Tooltip>
             </Flex>
+            {/* One short line (feedback 18 Nov 2026); the full sentence is in the tooltip and in "View details". */}
             {couldLead.map((c) => (
-              <Tag key={c.supplierId} icon={<WarningOutlined />} style={{ marginInlineEnd: 0, marginTop: 4, whiteSpace: "normal" }}>
-                {name(c.supplierId)} could lead at its best (up to {formatNumber(c.high, 0)} points) but has never delivered: request a sample delivery first
-              </Tag>
+              <Tooltip
+                key={c.supplierId}
+                title={`${name(c.supplierId)} could be ahead at its best (up to ${formatVsToday(c.high).replace(/^Same/, "the same")}) but has never delivered: request a sample delivery first.`}
+              >
+                <Tag
+                  icon={<WarningOutlined />}
+                  tabIndex={0}
+                  className="rec-could-lead"
+                  style={{ marginInlineEnd: 0, marginTop: 4 }}
+                >
+                  {name(c.supplierId)} could be ahead (up to {formatVsTodayShort(c.high)}) · request a sample
+                </Tag>
+              </Tooltip>
             ))}
           </>
         ) : (

@@ -69,23 +69,85 @@ export function formatDateTime(iso: string): string {
 }
 
 /**
- * Score bands for the matrix. Colour always comes with the band word
- * (tooltip and screen-reader label), never alone.
+ * The score shown against today (decision of 18 Nov 2026): score − 50 is the weighted average of how
+ * many percent better or worse an offer is than today on each criterion, so the buyer reads
+ * "9 % better than today" instead of "59 / 100".
  */
-export type ScoreBand = "strong" | "medium" | "weak";
+export const vsToday = (score: number): number => score - 50;
 
-export const SCORE_BANDS = { strong: 70, medium: 40 } as const;
+/**
+ * Better/worse in words, never with a sign (feedback 18 Nov 2026): "+9 %" could be read as
+ * "9 % more price or CO₂", so signs are kept only for raw changes such as "+0.85 €/pc".
+ * d is the difference in % against today (positive = better): "9 % better", "0.2 % worse", "same".
+ */
+export function formatDiff(d: number, digits = 0, zero = "same"): string {
+  const r = Number(d.toFixed(digits));
+  if (r === 0) return zero;
+  return `${formatNumber(Math.abs(r), digits)} % ${r > 0 ? "better" : "worse"}`;
+}
+
+/** A range in words: "2–3 % better", "7–9 % worse", "3 % worse to 2 % better", "same to 2 % better". */
+export function formatDiffRange(low: number, high: number, digits = 0): string {
+  const lo = Number(low.toFixed(digits));
+  const hi = Number(high.toFixed(digits));
+  if (lo === hi) return formatDiff(lo, digits);
+  if (lo > 0 && hi > 0) return `${formatNumber(lo, digits)}–${formatNumber(hi, digits)} % better`;
+  if (lo < 0 && hi < 0) return `${formatNumber(-hi, digits)}–${formatNumber(-lo, digits)} % worse`;
+  return `${formatDiff(lo, digits)} to ${formatDiff(hi, digits)}`;
+}
+
+/** Digits for one criterion: one decimal below 10 %, so 0.2 % does not round away. */
+const criterionDigits = (d: number) => (Math.abs(d) < 10 ? 1 : 0);
+
+/** Points of one criterion against today in words: "41 % better", "0.2 % worse", "same". */
+export function formatCriterionVsToday(points: number): string {
+  const d = points - 50;
+  return formatDiff(d, criterionDigits(d));
+}
+
+/** Range of one criterion (supplier that never delivered): "0.4 % worse to 0.4 % better". */
+export function formatCriterionRange(lowPoints: number, highPoints: number): string {
+  const lo = lowPoints - 50;
+  const hi = highPoints - 50;
+  return formatDiffRange(lo, hi, Math.max(criterionDigits(lo), criterionDigits(hi)));
+}
+
+/** Short form for tables and lists: "9 % better", "19 % worse", "same". */
+export function formatVsTodayShort(score: number, digits = 0): string {
+  return formatDiff(vsToday(score), digits);
+}
+
+/** Range of a supplier that never delivered: "2–3 % better". */
+export function formatVsTodayRange(low: number, high: number, digits = 0): string {
+  return formatDiffRange(vsToday(low), vsToday(high), digits);
+}
+
+/** Long form: "9 % better than today", "19 % worse than today", "Same as today". */
+export function formatVsToday(score: number, digits = 0): string {
+  const short = formatVsTodayShort(score, digits);
+  return short === "same" ? "Same as today" : `${short} than today`;
+}
+
+/**
+ * Score bands against today (18 Nov 2026): 5 % or more better, about the same (within ±5 %), 5 % or
+ * more worse; the same limit as the arrows per criterion. Colour always comes with the word (tooltip
+ * and screen-reader label), never alone.
+ */
+export type ScoreBand = "better" | "same" | "worse";
+
+export const SCORE_BAND_LIMIT = 5;
 
 export function scoreBand(score: number): ScoreBand {
-  if (score >= SCORE_BANDS.strong) return "strong";
-  if (score >= SCORE_BANDS.medium) return "medium";
-  return "weak";
+  const d = vsToday(score);
+  if (d >= SCORE_BAND_LIMIT) return "better";
+  if (d <= -SCORE_BAND_LIMIT) return "worse";
+  return "same";
 }
 
 export const SCORE_BAND_LABEL: Record<ScoreBand, string> = {
-  strong: `Strong (${SCORE_BANDS.strong}–100)`,
-  medium: `Medium (${SCORE_BANDS.medium}–${SCORE_BANDS.strong - 1})`,
-  weak: `Weak (below ${SCORE_BANDS.medium})`,
+  better: `Better than today (${SCORE_BAND_LIMIT} % or more)`,
+  same: `About the same as today (within ±${SCORE_BAND_LIMIT} %)`,
+  worse: `Worse than today (${SCORE_BAND_LIMIT} % or more)`,
 };
 
 /** Short product names for filter chips; the full name is in the tooltip. */

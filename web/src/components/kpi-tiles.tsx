@@ -4,7 +4,7 @@ import { CheckCircleOutlined, CloudOutlined, EuroOutlined, InfoCircleOutlined, R
 import type { ReactNode } from "react";
 import { Button, Card, Flex, Table, Tag, Tooltip, Typography } from "antd";
 import { CRITERIA, cellEvidence, compareWithBaseline, isSupplierSpecific, percentBetter, type Benchmark, type Criterion, type AgentRun, type DecisionResult, type Weights, type WeightSensitivity } from "@scc/shared";
-import { TOPIC_LABEL, formatNumber, formatEur } from "@/lib/labels";
+import { TOPIC_LABEL, formatNumber, formatEur, formatCriterionVsToday, formatDiff, formatVsToday, formatVsTodayShort } from "@/lib/labels";
 import { shortName } from "@/lib/names";
 import { Delta, decisionSummaryParts, signed } from "./decision-summary";
 
@@ -30,6 +30,8 @@ interface Props {
   weights: Weights;
   /** Published industry average CO₂ per piece: context only, not scored (17 Nov 2026). */
   industryCo2?: Benchmark | null;
+  /** Complaint rate today (% of deliveries), to explain the quality points in plain numbers; null if unknown. */
+  qualityToday?: number | null;
 }
 
 /** Criterion inside a sentence: lower case, except the chemical formula CO₂. */
@@ -68,6 +70,7 @@ export function RecommendationDetails({
   onShowLog,
   weights,
   industryCo2 = null,
+  qualityToday = null,
 }: Props) {
   const rec = result.recommendation;
   const first = result.ranked[0];
@@ -125,7 +128,7 @@ export function RecommendationDetails({
     </Typography.Title>
   );
 
-  // How the score adds up: points × weight ÷ 100 per criterion; the four rows sum to the score.
+  // How the result adds up (18 Nov 2026): % against today × weight per criterion; the four rows sum to the weighted average.
   const rows = first
     ? CRITERIA.map((c) => {
         const v = value(first.supplierId, c);
@@ -133,11 +136,18 @@ export function RecommendationDetails({
           c,
           value: v !== null ? valueText(c, v) : first.assumed.includes(c) ? "range: never delivered" : "missing",
           points: first.points[c],
-          adds: (first.points[c] * weights[c]) / 100,
-          runnerUpAdds: runnerUp ? (runnerUp.points[c] * weights[c]) / 100 : null,
+          adds: ((first.points[c] - 50) * weights[c]) / 100,
+          runnerUpAdds: runnerUp ? ((runnerUp.points[c] - 50) * weights[c]) / 100 : null,
         };
       })
     : [];
+
+  // Quality in plain numbers (18 Nov 2026): it counts deliveries without a complaint, so the ERP complaint rate is turned round.
+  const qualityValue = first ? value(first.supplierId, "quality") : null;
+  const qualityNote =
+    qualityValue !== null && qualityToday !== null && qualityValue !== qualityToday
+      ? `Product quality: ${formatNumber(100 - qualityValue, 1)} % vs ${formatNumber(100 - qualityToday, 1)} % today of deliveries without a complaint (${formatNumber(qualityValue, 1)} % vs ${formatNumber(qualityToday, 1)} % with one) = ${formatNumber(Math.abs(percentBetter("quality", qualityValue, qualityToday)), 1)} % ${percentBetter("quality", qualityValue, qualityToday) > 0 ? "better" : "worse"}.`
+      : null;
 
   const figure = (title: ReactNode, delta: ReactNode, lines: ReactNode) => (
     <Card size="small" style={{ flex: "1 1 240px" }} title={title}>
@@ -177,14 +187,15 @@ export function RecommendationDetails({
             </div>
             <div style={{ textAlign: "right", flex: "none" }}>
               <div style={{ fontSize: 32, fontWeight: 600, lineHeight: 1 }}>
-                {formatNumber(rec.score, 0)}
+                {formatVsTodayShort(rec.score) === "same" ? "Same" : formatVsTodayShort(rec.score)}
                 <Typography.Text type="secondary" style={{ fontSize: 14, fontWeight: 400 }}>
-                  {" "}
-                  / 100
+                  {formatVsTodayShort(rec.score) === "same" ? " as today" : " than today"}
                 </Typography.Text>
               </div>
               <Typography.Text type="secondary" style={{ fontSize: 12 }}>
-                {runnerUp ? `${formatNumber(rec.score - runnerUp.score, 1)} points ahead of ${name(runnerUp.supplierId)}` : "only offer with a score"}
+                {runnerUp
+                  ? `${formatNumber(rec.score - runnerUp.score, 1)} percentage points ahead of ${name(runnerUp.supplierId)}`
+                  : "only offer with a score"}
               </Typography.Text>
               <div>
                 <Button type="link" size="small" className="inline-link" onClick={() => onOpenSupplier(rec.supplierId)}>
@@ -213,41 +224,48 @@ export function RecommendationDetails({
 
       {first && (
         <>
-          {section(<CheckCircleOutlined />, `How the ${formatNumber(first.score, 0)} points come together`)}
+          {section(<CheckCircleOutlined />, `How the result comes together: ${formatVsToday(first.score)}`)}
           <Table
             size="small"
             pagination={false}
             rowKey="c"
             dataSource={rows}
-            aria-label="Points and weight per criterion"
+            aria-label="Percent against today and weight per criterion"
             columns={[
               { title: "Criterion", key: "c", render: (_, r) => TOPIC_LABEL[r.c] },
               { title: "Value", key: "v", render: (_, r) => r.value },
-              { title: "Points", key: "p", align: "right", render: (_, r) => formatNumber(r.points, 0) },
+              { title: "vs today", key: "p", align: "right", render: (_, r) => formatCriterionVsToday(r.points) },
               { title: "Weight", key: "w", align: "right", render: (_, r) => `${weights[r.c]} %` },
-              { title: "Adds", key: "a", align: "right", render: (_, r) => <strong>{formatNumber(r.adds, 1)}</strong> },
+              { title: "Adds", key: "a", align: "right", render: (_, r) => <strong>{formatDiff(r.adds, 1, "0 %")}</strong> },
               ...(runnerUp
-                ? [{ title: name(runnerUp.supplierId), key: "r", align: "right" as const, render: (_: unknown, r: (typeof rows)[number]) => formatNumber(r.runnerUpAdds ?? 0, 1) }]
+                ? [{ title: name(runnerUp.supplierId), key: "r", align: "right" as const, render: (_: unknown, r: (typeof rows)[number]) => formatDiff(r.runnerUpAdds ?? 0, 1, "0 %") }]
                 : []),
             ]}
             summary={() => (
               <Table.Summary.Row>
                 <Table.Summary.Cell index={0} colSpan={4}>
-                  <strong>Score</strong>
+                  <strong>Weighted average vs today</strong>
                 </Table.Summary.Cell>
                 <Table.Summary.Cell index={4} align="right">
-                  <strong>{formatNumber(first.score, 1)}</strong>
+                  <strong>{formatVsTodayShort(first.score, 1)}</strong>
                 </Table.Summary.Cell>
                 {runnerUp && (
                   <Table.Summary.Cell index={5} align="right">
-                    {formatNumber(runnerUp.score, 1)}
+                    {formatVsTodayShort(runnerUp.score, 1)}
                   </Table.Summary.Cell>
                 )}
               </Table.Summary.Row>
             )}
           />
+          {qualityNote && (
+            <Typography.Text type="secondary" style={{ fontSize: 12, display: "block", marginTop: 4 }}>
+              {qualityNote}
+            </Typography.Text>
+          )}
           <Typography.Text type="secondary" style={{ fontSize: 12 }}>
-            Points 0–100: 50 = the same as today (average of the last 3 purchases), +1 per 1 % better. Adds = points × weight.
+            Per criterion: % better or worse than today (average of the last 3 purchases). Quality counts deliveries without a
+            complaint, delivery the deliveries on time, price and CO₂ less money and less CO₂; capped at ±50 %. Adds = % × weight; the
+            sum is the weighted average.
           </Typography.Text>
         </>
       )}
