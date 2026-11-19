@@ -76,43 +76,68 @@ export function formatDateTime(iso: string): string {
 export const vsToday = (score: number): number => score - 50;
 
 /**
+ * Short label for a result that matches today (19 Nov 2026): "today" instead of the word "same",
+ * which repeated in every cell of the current supplier and in every range. In the offer table only
+ * the "vs today" pill says it; the cells under the values stay empty. Tooltips and screen-reader
+ * labels still say "same as today".
+ */
+export const AS_TODAY = "today";
+
+/**
  * Better/worse in words, never with a sign (feedback 18 Nov 2026): "+9 %" could be read as
  * "9 % more price or CO₂", so signs are kept only for raw changes such as "+0.85 €/pc".
- * d is the difference in % against today (positive = better): "9 % better", "0.2 % worse", "same".
+ * d is the difference in % against today (positive = better): "9 % better", "0.2 % worse", "today".
  */
-export function formatDiff(d: number, digits = 0, zero = "same"): string {
+export function formatDiff(d: number, digits = 0, zero = AS_TODAY): string {
   const r = Number(d.toFixed(digits));
   if (r === 0) return zero;
   return `${formatNumber(Math.abs(r), digits)} % ${r > 0 ? "better" : "worse"}`;
 }
 
-/** A range in words: "2–3 % better", "7–9 % worse", "3 % worse to 2 % better", "same to 2 % better". */
+/**
+ * A range in words: "2–3 % better", "7–9 % worse", "3 % worse to 2 % better". A range that starts or
+ * ends at today says "up to 2 % better" / "up to 3 % worse" (19 Nov 2026, instead of "same to 2 % better").
+ */
 export function formatDiffRange(low: number, high: number, digits = 0): string {
   const lo = Number(low.toFixed(digits));
   const hi = Number(high.toFixed(digits));
   if (lo === hi) return formatDiff(lo, digits);
+  if (lo === 0 && hi > 0) return `up to ${formatNumber(hi, digits)} % better`;
+  if (hi === 0 && lo < 0) return `up to ${formatNumber(-lo, digits)} % worse`;
   if (lo > 0 && hi > 0) return `${formatNumber(lo, digits)}–${formatNumber(hi, digits)} % better`;
   if (lo < 0 && hi < 0) return `${formatNumber(-hi, digits)}–${formatNumber(-lo, digits)} % worse`;
   return `${formatDiff(lo, digits)} to ${formatDiff(hi, digits)}`;
 }
 
-/** Digits for one criterion: one decimal below 10 %, so 0.2 % does not round away. */
-const criterionDigits = (d: number) => (Math.abs(d) < 10 ? 1 : 0);
+/**
+ * Digits for one criterion: always one decimal (feedback 19 Nov 2026), so every value in the table
+ * reads the same way ("40.5 % better", "9.2 % worse", "0.2 % worse") and 0.2 % does not round away.
+ */
+const CRITERION_DIGITS = 1;
 
-/** Points of one criterion against today in words: "41 % better", "0.2 % worse", "same". */
+/**
+ * A change in % in words with the table's rounding (19 Nov 2026), so the recommendation tiles and the
+ * offer table always show the same number: "40.5 % better", "1.04 %" worse -> "1.0 % worse".
+ * d is positive when better.
+ */
+export function formatPercentDiff(d: number): string {
+  return formatDiff(d, CRITERION_DIGITS);
+}
+
+/** Points of one criterion against today in words: "40.5 % better", "0.2 % worse", "today". */
 export function formatCriterionVsToday(points: number): string {
   const d = points - 50;
-  return formatDiff(d, criterionDigits(d));
+  return formatDiff(d, CRITERION_DIGITS);
 }
 
 /** Range of one criterion (supplier that never delivered): "0.4 % worse to 0.4 % better". */
 export function formatCriterionRange(lowPoints: number, highPoints: number): string {
   const lo = lowPoints - 50;
   const hi = highPoints - 50;
-  return formatDiffRange(lo, hi, Math.max(criterionDigits(lo), criterionDigits(hi)));
+  return formatDiffRange(lo, hi, CRITERION_DIGITS);
 }
 
-/** Short form for tables and lists: "9 % better", "19 % worse", "same". */
+/** Short form for tables and lists: "9 % better", "19 % worse", "today". */
 export function formatVsTodayShort(score: number, digits = 0): string {
   return formatDiff(vsToday(score), digits);
 }
@@ -125,7 +150,7 @@ export function formatVsTodayRange(low: number, high: number, digits = 0): strin
 /** Long form: "9 % better than today", "19 % worse than today", "Same as today". */
 export function formatVsToday(score: number, digits = 0): string {
   const short = formatVsTodayShort(score, digits);
-  return short === "same" ? "Same as today" : `${short} than today`;
+  return short === AS_TODAY ? "Same as today" : `${short} than today`;
 }
 
 /**
@@ -142,6 +167,11 @@ export function scoreBand(score: number): ScoreBand {
   if (d >= SCORE_BAND_LIMIT) return "better";
   if (d <= -SCORE_BAND_LIMIT) return "worse";
   return "same";
+}
+
+/** Pill colour class: grey for a result that matches today (19 Nov 2026), otherwise the band colour. */
+export function scorePillClass(score: number): string {
+  return formatVsTodayShort(score) === AS_TODAY ? "score-today" : `score-${scoreBand(score)}`;
 }
 
 export const SCORE_BAND_LABEL: Record<ScoreBand, string> = {

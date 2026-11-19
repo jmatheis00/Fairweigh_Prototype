@@ -3,7 +3,7 @@
 import { ArrowDownOutlined, ArrowUpOutlined, FileSearchOutlined, MailOutlined, MinusOutlined, SafetyCertificateOutlined, WarningOutlined } from "@ant-design/icons";
 import { Button, Flex, Tag, Tooltip, Typography } from "antd";
 import { CRITERIA, compareWithBaseline, formatDay, totalCo2Tonnes, totalCostEur, verifiedEvidence, type AgentRun, type DecisionResult } from "@scc/shared";
-import { SCORE_BAND_LABEL, formatEur, formatNumber, formatVsToday, formatVsTodayShort, knockOutLabel, scoreBand } from "@/lib/labels";
+import { SCORE_BAND_LABEL, formatEur, formatNumber, formatVsToday, formatVsTodayShort, AS_TODAY, formatPercentDiff, scorePillClass, knockOutLabel, scoreBand } from "@/lib/labels";
 import { shortName } from "@/lib/names";
 import { priceRequestMailto } from "@/lib/price-request";
 
@@ -74,7 +74,7 @@ export function decisionSummaryParts({ run, result, supplierNames, currentSuppli
     parts.push(gapText);
   }
   for (const c of rec?.couldLead ?? []) {
-    const t = `${name(c.supplierId)} could be ahead at its best (up to ${formatVsToday(c.high).replace(/^Same/, "the same")}) but has never delivered: request a sample delivery first.`;
+    const t = couldLeadSentence(name(c.supplierId), c.high);
     couldLeadText = [couldLeadText, t].filter(Boolean).join(" ");
     parts.push(t);
   }
@@ -82,6 +82,12 @@ export function decisionSummaryParts({ run, result, supplierNames, currentSuppli
 }
 
 /** A signed number; values that round to zero show as "±0", never "-0.0". */
+/** Sentence for a supplier that never delivered but could lead at its best; "could match today" when its best is today (19 Nov 2026). */
+function couldLeadSentence(supplier: string, high: number): string {
+  const best = formatVsTodayShort(high) === AS_TODAY ? "could match today at its best" : `could be ahead at its best (up to ${formatVsToday(high)})`;
+  return `${supplier} ${best} but has never delivered: request a sample delivery first.`;
+}
+
 export const signed = (n: number, digits: number, unit = "") => {
   const r = Number(n.toFixed(digits));
   return `${r > 0 ? "+" : r < 0 ? "-" : "±"}${formatNumber(Math.abs(r), digits)}${unit}`;
@@ -132,13 +138,16 @@ export function RecommendationBlock(props: BlockProps) {
   const { run, result, supplierNames, currentSupplierId, co2PricePerTonneEur, partName, onWhy, onShowMissing, onShowEvidence } = props;
   const rec = result.recommendation;
   const name = (id: string) => shortName(supplierNames[id] ?? id);
+  const fullName = (id: string) => supplierNames[id] ?? id;
   const hasCurrent = !!currentSupplierId && run.request.supplierIds.includes(currentSupplierId);
   const isCurrent = !!rec && rec.supplierId === currentSupplierId;
   const cmp = rec && hasCurrent && !isCurrent ? compareWithBaseline(run, rec.supplierId, currentSupplierId!, co2PricePerTonneEur) : null;
   // Evidence of the recommended offer only (feedback 18 Nov 2026): the count over all offers said little.
   const recVerified = result.ranked.find((r) => r.supplierId === rec?.supplierId)?.verifiedCount ?? 0;
   const couldLead = rec?.couldLead ?? [];
-  const pct = (p: number | null) => (p === null ? "" : p === 0 ? "" : ` · ${p > 0 ? "+" : "-"}${percent(p)} per piece`);
+  // Words, not signs, and the table's rounding (19 Nov 2026): "1.0 % worse per piece", "41 % better per piece".
+  // p is the change in % (positive = more money or CO₂ = worse).
+  const perPiece = (p: number | null, word: string) => (p === null || p === 0 ? word : `${formatPercentDiff(-p)} per piece`);
 
   // Whole order of the recommended offer (feedback 17 Nov 2026): what the buyer commits to, from verified values only.
   const q = run.request.quantity;
@@ -171,14 +180,15 @@ export function RecommendationBlock(props: BlockProps) {
                 holds the name and the same pill as the offer table ("9 % better"); a long name is cut with "…"
                 and shown in full in its tooltip, so the box never grows a row. */}
             <div className="rec-name-line">
-              <Tooltip title={name(rec.supplierId)}>
+              {/* Full company name (feedback 19 Nov 2026), as in the offer table; "…" only as a safety net. */}
+              <Tooltip title={fullName(rec.supplierId)}>
                 <Typography.Title level={4} className="rec-name" tabIndex={0}>
-                  {name(rec.supplierId)}
+                  {fullName(rec.supplierId)}
                 </Typography.Title>
               </Tooltip>
               <Tooltip title={`${formatVsToday(rec.score)}: weighted average of how many % better or worse the offer is than today on each criterion (up to 50 % either way). ${SCORE_BAND_LABEL[scoreBand(rec.score)]}.`}>
-                <span tabIndex={0} className={`score-pill score-${scoreBand(rec.score)}`} aria-label={formatVsToday(rec.score)}>
-                  {formatVsTodayShort(rec.score) === "same" ? "Same as today" : formatVsTodayShort(rec.score)}
+                <span tabIndex={0} className={`score-pill ${scorePillClass(rec.score)}`} aria-label={formatVsToday(rec.score)}>
+                  {formatVsTodayShort(rec.score)}
                 </span>
               </Tooltip>
             </div>
@@ -206,7 +216,7 @@ export function RecommendationBlock(props: BlockProps) {
             {couldLead.map((c) => (
               <Tooltip
                 key={c.supplierId}
-                title={`${name(c.supplierId)} could be ahead at its best (up to ${formatVsToday(c.high).replace(/^Same/, "the same")}) but has never delivered: request a sample delivery first.`}
+                title={couldLeadSentence(name(c.supplierId), c.high)}
               >
                 <Tag
                   icon={<WarningOutlined />}
@@ -214,7 +224,7 @@ export function RecommendationBlock(props: BlockProps) {
                   className="rec-could-lead"
                   style={{ marginInlineEnd: 0, marginTop: 4 }}
                 >
-                  {name(c.supplierId)} could be ahead (up to {formatVsTodayShort(c.high)}) · request a sample
+                  {name(c.supplierId)} {formatVsTodayShort(c.high) === AS_TODAY ? "could match today" : `could be ahead (up to ${formatVsTodayShort(c.high)})`} · request a sample
                 </Tag>
               </Tooltip>
             ))}
@@ -240,8 +250,7 @@ export function RecommendationBlock(props: BlockProps) {
             }
             line={
               <>
-                {priceJ.word}
-                {pct(cmp.pricePercent)}
+                {perPiece(cmp.pricePercent, priceJ.word)}
                 {orderPrice && (
                   <>
                     <br />
@@ -262,8 +271,7 @@ export function RecommendationBlock(props: BlockProps) {
             }
             line={
               <>
-                {co2J.word}
-                {pct(cmp.co2Percent)}
+                {perPiece(cmp.co2Percent, co2J.word)}
                 {orderCo2 && (
                   <>
                     <br />

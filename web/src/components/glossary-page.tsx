@@ -21,13 +21,13 @@ function terms(rules: BuyerRules | null): Term[] {
   return [
     {
       term: "Result vs today",
-      means: "Overall result of an offer, e.g. “9 % better than today”: the weighted average of how many % better or worse it is than today on the four criteria (at most 50 % either way). Green from 5 % better, red from 5 % worse, yellow in between. Calculated by fixed rules, not by AI.",
+      means: "Overall result of an offer, e.g. “9 % better than today”: the weighted average of how many % better or worse it is than today on the four criteria (at most 50 % either way). Green from 5 % better, red from 5 % worse, yellow in between, grey for the same as today. Calculated by fixed rules, not by AI.",
       helps: "Ranks the offers. The best result with real data is the recommendation.",
       where: "Compare step: “vs today” column and recommendation",
     },
     {
       term: "% against today",
-      means: "Per criterion, how many % better or worse a value is than today (our last three purchases), capped at ±50 %. Quality counts deliveries without a complaint, delivery the deliveries on time, price and CO₂ less money and less CO₂. An arrow shows better or worse.",
+      means: "Per criterion, how many % better or worse a value is than today (our last three purchases), capped at ±50 %. Quality counts deliveries without a complaint, delivery the deliveries on time, price and CO₂ less money and less CO₂. An arrow shows better or worse; a result that matches today says \"today\".",
       helps: "Shows how good a value really is, not only how it compares with the other offers.",
       where: "Compare step: under each value",
     },

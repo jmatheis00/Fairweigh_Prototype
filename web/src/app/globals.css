@@ -194,6 +194,8 @@ body {
 .score-better { --score-color: var(--good); }
 .score-same { --score-color: var(--warn); }
 .score-worse { --score-color: var(--bad); }
+/* A result that matches today (19 Nov 2026): neutral grey, the pill says "today". */
+.score-today { --score-color: var(--text-secondary); }
 .score-number { color: var(--score-color, inherit); }
 .score-pill {
   display: inline-block;
@@ -1274,4 +1276,17 @@ body .ant-tag.ant-tag-success.ant-tag-filled:not(.ant-tag-disabled) {
   .offer-criteria {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
+
+/* Text for screen readers only, e.g. "Same as today" under a value that matches today (19 Nov 2026). */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

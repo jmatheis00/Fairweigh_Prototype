@@ -16,7 +16,7 @@ import {
   type DecisionResult,
   type Evidence,
 } from "@scc/shared";
-import { AGE_NOTE, SCORE_BAND_LABEL, knockOutLabel, TOPIC_LABEL, formatNumber, scoreBand, formatEur, formatVsToday, formatVsTodayShort, formatVsTodayRange, formatCriterionVsToday, formatCriterionRange } from "@/lib/labels";
+import { AGE_NOTE, SCORE_BAND_LABEL, knockOutLabel, TOPIC_LABEL, formatNumber, scoreBand, formatEur, formatVsToday, formatVsTodayShort, formatVsTodayRange, formatCriterionVsToday, formatCriterionRange, AS_TODAY, scorePillClass } from "@/lib/labels";
 import { shortNote } from "@/lib/notes";
 import { priceRequestMailto } from "@/lib/price-request";
 import { PcfBadgeTag } from "./pcf-badge-tag";
@@ -116,15 +116,22 @@ function mainValue(c: Criterion, value: number): string {
 
 /**
  * Points with a status: above 55 better than today (arrow up), below 45 worse (arrow down),
- * otherwise about the same as today. Colour always comes with the arrow and the number.
+ * otherwise about the same as today (dash). Colour always comes with the arrow and the number.
+ * A value that rounds to today shows nothing (19 Nov 2026): the "vs today" pill of the row says it once;
+ * screen readers still hear "same as today".
  */
 function PointsLine({ points, hint }: { points: number; hint: string | null }) {
   const tone = points >= 55 ? "better" : points <= 45 ? "worse" : "same";
   const icon = tone === "better" ? <ArrowUpOutlined /> : tone === "worse" ? <ArrowDownOutlined /> : <MinusOutlined />;
+  const text = formatCriterionVsToday(points);
+  if (text === AS_TODAY) return <span className="sr-only">Same as today</span>;
   return (
     <Tooltip title={hint}>
-      <span className={`points-line delta-${tone}`} aria-label={`${formatCriterionVsToday(points)}, ${tone === "same" ? "about the same as" : `${tone} than`} today`}>
-        {icon} {formatCriterionVsToday(points)}
+      <span
+        className={`points-line delta-${tone}`}
+        aria-label={`${text}, ${tone === "same" ? "about the same as" : `${tone} than`} today`}
+      >
+        {icon} {text}
       </span>
     </Tooltip>
   );
@@ -233,9 +240,9 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
               <span>
                 ≈ {formatNumber(Math.min(weak, best), decimals)}–{formatNumber(Math.max(weak, best), decimals)} %
               </span>
-              {/* "0.4 % worse to 0.4 % better" is too wide for the column: one line per end. */}
+              {/* "0.4 % worse to 0.4 % better" is too wide for the column: one line per end ("up to 2 % better" stays one line). */}
               {formatCriterionRange(lo, hi)
-                .split(/ (?=to )/)
+                .split(/(?<!^up) (?=to )/)
                 .map((part) => (
                   <span key={part} className="points-line delta-same">
                     {part}
@@ -389,7 +396,7 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
         },
         {
           // Score against today (18 Nov 2026): the number on a soft background in its band colour.
-          title: <Tooltip title="Weighted average of how many % better or worse the offer is than today on each criterion, up to 50 % either way. Green from 5 % better, red from 5 % worse, yellow in between.">vs today</Tooltip>,
+          title: <Tooltip title="Weighted average of how many % better or worse the offer is than today on each criterion, up to 50 % either way. Green from 5 % better, red from 5 % worse, yellow in between, grey for the same as today.">vs today</Tooltip>,
           key: "score",
           align: "right",
           width: 124,
@@ -412,7 +419,7 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
             ) : (
               <Tooltip title={`${formatVsToday(row.score, 1)} · ${SCORE_BAND_LABEL[scoreBand(row.score)]}`}>
                 <span
-                  className={`score-pill score-${scoreBand(row.score)}`}
+                  className={`score-pill ${scorePillClass(row.score)}`}
                   role="img"
                   tabIndex={0}
                   aria-label={`${formatVsToday(row.score)}, ${SCORE_BAND_LABEL[scoreBand(row.score)]}`}
