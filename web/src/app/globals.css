@@ -1290,3 +1290,13 @@ body .ant-tag.ant-tag-success.ant-tag-filled:not(.ant-tag-disabled) {
   white-space: nowrap;
   border: 0;
 }
+
+/* Recommendation drawer (19 Nov 2026): the recommended offer has the same teal tint as its row in the
+   offer table (inline style on the card); "Best in" tags in the brand colour. Neutral tags get a white background on the tint. */
+.rec-card .ant-tag:not(.ant-tag-success):not(.ant-tag-warning) {
+  background: #fff;
+}
+.tag-brand {
+  color: var(--brand);
+  border-color: var(--brand-tint-strong);
+}

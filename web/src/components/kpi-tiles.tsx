@@ -1,11 +1,10 @@
 "use client";
 
-import { CheckCircleOutlined, CloudOutlined, EuroOutlined, InfoCircleOutlined, RobotOutlined, StopOutlined, WarningOutlined } from "@ant-design/icons";
+import { CheckCircleOutlined, CloudOutlined, EuroOutlined, InfoCircleOutlined, RobotOutlined, StopOutlined, TrophyOutlined, WarningOutlined } from "@ant-design/icons";
 import type { ReactNode } from "react";
 import { Button, Card, Flex, Table, Tag, Tooltip, Typography } from "antd";
 import { CRITERIA, cellEvidence, compareWithBaseline, isSupplierSpecific, percentBetter, type Benchmark, type Criterion, type AgentRun, type DecisionResult, type Weights, type WeightSensitivity } from "@scc/shared";
 import { TOPIC_LABEL, formatNumber, formatEur, formatCriterionVsToday, formatDiff, formatVsToday, formatVsTodayShort, AS_TODAY } from "@/lib/labels";
-import { shortName } from "@/lib/names";
 import { Delta, decisionSummaryParts, signed } from "./decision-summary";
 
 interface Props {
@@ -75,7 +74,8 @@ export function RecommendationDetails({
   const rec = result.recommendation;
   const first = result.ranked[0];
   const runnerUp = rec?.runnerUpId ? result.ranked.find((r) => r.supplierId === rec.runnerUpId) : undefined;
-  const name = (id: string) => shortName(supplierNames[id] ?? id);
+  // Full company names in the drawer (feedback 19 Nov 2026): it has the room, and the legal name is what the buyer signs with.
+  const name = (id: string) => supplierNames[id] ?? id;
   const cmp = rec && currentSupplierId ? compareWithBaseline(run, rec.supplierId, currentSupplierId, co2PricePerTonneEur) : null;
   const isCurrent = rec?.supplierId === currentSupplierId;
   const verified = run.evidence.filter((e) => e.status === "verified").length;
@@ -172,7 +172,7 @@ export function RecommendationDetails({
     <div>
       <Typography.Text type="secondary">{requestLabel}</Typography.Text>
       {rec && first ? (
-        <Card size="small" style={{ marginTop: 8, background: "var(--surface-muted, #f5f5f5)" }}>
+        <Card size="small" className="rec-card" style={{ marginTop: 8, background: "var(--brand-tint)", borderColor: "var(--brand-tint-strong)" }}>
           <Flex justify="space-between" align="flex-start" gap={16}>
             <div style={{ minWidth: 0, flex: 1 }}>
               <Typography.Text type="secondary" style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.04em", textTransform: "uppercase" }}>
@@ -182,14 +182,22 @@ export function RecommendationDetails({
                 {name(rec.supplierId)}
               </Typography.Title>
               <Flex gap={6} wrap align="center">
-                <Tag icon={<CheckCircleOutlined />} style={{ marginInlineEnd: 0 }}>
+                <Tag
+                  icon={first.verifiedCount === CRITERIA.length ? <CheckCircleOutlined /> : <WarningOutlined />}
+                  color={first.verifiedCount === CRITERIA.length ? "success" : "warning"}
+                  style={{ marginInlineEnd: 0 }}
+                >
                   {first.verifiedCount}/{CRITERIA.length} criteria verified
                 </Tag>
-                <Tag icon={<CloudOutlined />} style={{ marginInlineEnd: 0 }}>
+                <Tag
+                  icon={<CloudOutlined />}
+                  color={recBadge === "Verified" ? "success" : recBadge === null ? "warning" : undefined}
+                  style={{ marginInlineEnd: 0 }}
+                >
                   CO₂ value: {recBadge ?? "not verified"}
                 </Tag>
                 {rec.bestIn.map((c) => (
-                  <Tag key={c} style={{ marginInlineEnd: 0 }}>
+                  <Tag key={c} icon={<TrophyOutlined />} className="tag-brand" style={{ marginInlineEnd: 0 }}>
                     Best in {criterionWord(c)}
                   </Tag>
                 ))}
@@ -217,11 +225,11 @@ export function RecommendationDetails({
           <div style={{ marginTop: 10, paddingTop: 8, borderTop: "1px solid var(--border)" }}>
             {flipText ? (
               <>
-                <WarningOutlined /> {flipText}
+                <WarningOutlined style={{ color: "var(--warn)" }} /> {flipText}
               </>
             ) : (
               <>
-                <CheckCircleOutlined /> Robust: stays first for every allowed weight
+                <CheckCircleOutlined style={{ color: "var(--good)" }} /> Robust: stays first for every allowed weight
               </>
             )}
           </div>
