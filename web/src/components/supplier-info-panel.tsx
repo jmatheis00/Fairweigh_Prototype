@@ -34,13 +34,15 @@ interface Props {
   onOpenDecision: (record: DecisionRecord) => void;
   /** Extra header buttons, e.g. "Open in Compare". */
   extra?: ReactNode;
+  /** Facts from where the panel was opened (e.g. the chart on the sustainability page), shown first. */
+  context?: ReactNode;
 }
 
 /**
  * Supplier info in a side panel: ERP, rating partner, CO₂ per part, previous decisions and history.
  * Used on the suppliers page and on Results, so a supplier link opens this panel and the page stays (feedback 17 Nov 2026).
  */
-export function SupplierInfoPanel({ supplierId, onClose, user, favourites, onToggleFavourite, decisions, partNames, onOpenDecision, extra }: Props) {
+export function SupplierInfoPanel({ supplierId, onClose, user, favourites, onToggleFavourite, decisions, partNames, onOpenDecision, extra, context }: Props) {
   const [erpList, setErpList] = useState<ErpRecord[]>([]);
   const [ratings, setRatings] = useState<RatingRecord[]>([]);
   const [pcf, setPcf] = useState<PcfRecord[]>([]);
@@ -76,6 +78,7 @@ export function SupplierInfoPanel({ supplierId, onClose, user, favourites, onTog
     >
       {supplierId && erp && (
         <Flex vertical gap={16}>
+          {context}
           <Descriptions
             size="small"
             column={1}

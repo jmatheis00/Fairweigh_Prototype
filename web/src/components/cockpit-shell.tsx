@@ -2,7 +2,7 @@
 
 import dayjs from "dayjs";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
 import { Alert, Button, Card, ConfigProvider, Flex, Form, Layout, Tag, Tooltip } from "antd";
 import { SidePanel } from "./side-panel";
 import {
@@ -133,6 +133,12 @@ export function CockpitShell() {
   const [openSupplierId, setOpenSupplierId] = useState<string | null>(null);
   // Supplier info over the current page, e.g. from a link on Results (feedback 17 Nov 2026).
   const [infoSupplierId, setInfoSupplierId] = useState<string | null>(null);
+  // Facts from where the supplier panel was opened (chart on the sustainability page); empty elsewhere.
+  const [infoContext, setInfoContext] = useState<ReactNode>(null);
+  const openSupplierInfo = useCallback((supplierId: string, context: ReactNode = null) => {
+    setInfoSupplierId(supplierId);
+    setInfoContext(context);
+  }, []);
   const [decisions, setDecisions] = useState<DecisionRecord[]>([]);
   // Example decisions from the source data, shown before the recorded ones.
   const [examples, setExamples] = useState<DecisionRecord[]>([]);
@@ -848,13 +854,13 @@ export function CockpitShell() {
                 log={log}
                 supplierNames={{ ...allNames, ...supplierNames }}
                 onOpenDecision={openDecision}
-                onOpenSupplier={setInfoSupplierId}
+                onOpenSupplier={openSupplierInfo}
               />
             )
           ) : shownPage === "rules" ? (
             settings && rules && <RulesPage rules={rules} user={user} onSaved={setRules} />
           ) : shownPage === "sustainability" ? (
-            settings && <SustainabilityPage settings={settings} />
+            settings && <SustainabilityPage settings={settings} onOpenSupplier={openSupplierInfo} />
           ) : shownPage === "targets" ? (
             settings && rules && (
               <TargetsPage rules={rules} inputs={targetInputs} buyers={settings.buyers ?? []} user={user} onSaved={setRules} />
@@ -933,6 +939,7 @@ export function CockpitShell() {
         />
         <SupplierInfoPanel
           supplierId={infoSupplierId}
+          context={infoContext}
           onClose={() => setInfoSupplierId(null)}
           user={user}
           favourites={favourites}

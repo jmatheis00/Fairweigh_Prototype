@@ -85,7 +85,7 @@ export function DataRequestsCard({ erp, dataQuality, dataGaps, name }: Props) {
           { title: "Supplier", key: "s", width: 220, render: (_, r) => (
             <span>
               {name(r.supplierId)}
-              {r.priority === 0 && <Tag color="processing" style={{ marginInlineStart: 6 }}>in our purchases</Tag>}
+              {r.priority === 0 && <Tag style={{ marginInlineStart: 6 }}>in our purchases</Tag>}
             </span>
           ) },
           { title: "Why", key: "w", render: (_, r) => r.reasons.map((x) => <Tag key={x} color="warning" style={{ marginBottom: 2 }}>{x}</Tag>) },
