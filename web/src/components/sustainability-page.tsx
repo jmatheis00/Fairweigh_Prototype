@@ -1,14 +1,12 @@
 "use client";
 
-import { AuditOutlined, CheckCircleOutlined, CloudOutlined, MailOutlined, ExclamationCircleOutlined, InfoCircleOutlined, SafetyCertificateOutlined, TeamOutlined, WarningOutlined } from "@ant-design/icons";
+import { AuditOutlined, CheckCircleOutlined, MailOutlined, ExclamationCircleOutlined, InfoCircleOutlined, TeamOutlined } from "@ant-design/icons";
 import { Alert, Button, Card, Flex, Select, Table, Tooltip, Typography } from "antd";
 import { useEffect, useMemo, useState } from "react";
 import dayjs from "dayjs";
 import {
   formatDay,
   RISK_MONITORING,
-  co2TargetPath,
-  periodOptions,
   supplierBaseStats,
   sustainabilityStats,
   type DemoSettings,
@@ -21,15 +19,14 @@ import {
 } from "@scc/shared";
 import { api } from "@/lib/api";
 import { requestMailto, riskRequest, riskRequestText } from "@/lib/data-request";
-import { formatMonth, formatNumber, shortPartName } from "@/lib/labels";
+import { formatNumber } from "@/lib/labels";
 import { shortName } from "@/lib/names";
 import { InfoTip } from "./info-tip";
 import { PageHeader } from "./page-header";
 import { RiskLevelTag } from "./risk-level-tag";
 import { DataRequestsCard, type SupplierDataView } from "./data-requests-card";
-import { Co2TargetChart, SupplierBaseFacts, SupplierBaseMap } from "./analytics-charts";
+import { SupplierBaseFacts, SupplierBaseMap } from "./analytics-charts";
 import { usePartnerData } from "@/lib/partner-data";
-import { FilterBar, defaultFilter, type StatsFilter } from "./filter-bar";
 import { FLAG_NAMES, FlagTags, SupplierNameLink, relationshipLabel } from "@/lib/supplier-labels";
 import { ANY_FLAG, type SupplierFilter } from "./suppliers-page";
 import { BRAND } from "@/lib/theme";
@@ -50,7 +47,10 @@ function toneOf(value: number | null, good: number, warn: number): string {
   return value >= good ? "kpi-good" : value >= warn ? "kpi-warn" : "kpi-bad";
 }
 
-/** Sarah's view: Scope 3 hotspots, data quality, data requests, risk and rules. */
+/**
+ * Sarah's view of today (decision 20 Nov 2026): which suppliers lack data, which carry risks, and how current suppliers
+ * compare with their category. No period filter: everything over time (purchased CO₂, target path) is on Results.
+ */
 export function SustainabilityPage({
   settings,
   onOpenSupplier,
@@ -64,9 +64,7 @@ export function SustainabilityPage({
 }) {
   const [data, setData] = useState<Data | null>(null);
   const [error, setError] = useState<string | null>(null);
-  // Filters: period and product for the whole page (top bar); relationship and flag sit on the supplier
-  // lists they filter (feedback 17 Nov 2026: in the top bar the relationship filter seemed to do nothing).
-  const [filter, setFilter] = useState<StatsFilter | null>(null);
+  // Filters sit on the supplier lists they filter (feedback 17 Nov 2026); no period filter (20 Nov 2026).
   const [dataRelationship, setDataRelationship] = useState<string | null>(null);
   const [riskRelationship, setRiskRelationship] = useState<string | null>(null);
   const [flagFilter, setFlagFilter] = useState<string | null>(null);
@@ -80,14 +78,12 @@ export function SustainabilityPage({
       .catch((e: unknown) => setError(e instanceof Error ? e.message : String(e)));
   }, []);
 
-  const options = useMemo(() => (data ? periodOptions(data.orders.map((o) => o.orderDate)) : null), [data]);
-  const active = filter ?? (options ? defaultFilter(options) : null);
+  // The latest quarter of purchases only feeds "Needs update" (CO₂ values behind what we buy now).
   const stats = useMemo(
     () =>
-      data && active
+      data
         ? sustainabilityStats({
-            orders: active.partId ? data.orders.filter((o) => o.partId === active.partId) : data.orders,
-            period: active.period,
+            orders: data.orders,
             erp: data.erp,
             ratings: data.ratings,
             pcf: data.pcf,
@@ -96,16 +92,15 @@ export function SustainabilityPage({
             co2MaxAgeDays: settings.co2MaxAgeDays,
           })
         : null,
-    [data, active, settings.co2MaxAgeDays],
+    [data, settings.co2MaxAgeDays],
   );
 
   if (error) return <Alert type="error" showIcon title={`Sustainability data not available: ${error}`} />;
-  if (!data || !stats || !options || !active) return null;
+  if (!data || !stats) return null;
 
   const erpOf = (id: string) => data.erp.find((e) => e.supplierId === id);
   const ratingOf = (id: string) => data.ratings.find((r) => r.supplierId === id);
   const name = (id: string) => shortName(erpOf(id)?.supplierName ?? id);
-  const outdated = stats.dataQuality.filter((d) => d.outdated);
   // Who is behind the risk counts (active suppliers), so the tile can list them on click.
   const activeIds = new Set(data.erp.filter((e) => e.relationshipStatus === "Active contract").map((e) => e.supplierId));
   const activeRatings = data.ratings.filter((r) => activeIds.has(r.supplierId));
@@ -114,9 +109,6 @@ export function SustainabilityPage({
     controversies: activeRatings.filter((r) => r.controversies && r.controversies !== "None known").map((r) => r.supplierId),
     violations: [...new Set(data.fines.map((d) => d.supplierId))].filter((id) => activeIds.has(id)),
   };
-  const products = settings.catalog
-    .filter((p) => data.orders.some((o) => o.partId === p.partId))
-    .map((p) => ({ partId: p.partId, label: shortPartName(p.partId, p.partName), name: p.partName }));
   const relationships = [...new Set(data.erp.map((e) => e.relationshipStatus).filter(Boolean))].sort();
   const hasRelationship = (id: string, wanted: string | null) => !wanted || erpOf(id)?.relationshipStatus === wanted;
   const isActive = (id: string) => erpOf(id)?.relationshipStatus === "Active contract";
@@ -147,11 +139,6 @@ export function SustainabilityPage({
       options={relationships.map((r) => ({ value: r, label: relationshipLabel(r) }))}
     />
   );
-  const trend =
-    stats.previous && stats.previous.co2Tonnes > 0
-      ? Math.round(((stats.co2Tonnes - stats.previous.co2Tonnes) / stats.previous.co2Tonnes) * 1000) / 10
-      : null;
-
   const lv = stats.dataLevels;
 
   return (
@@ -162,51 +149,16 @@ export function SustainabilityPage({
             CO₂ and risks{" "}
             <InfoTip
               label="what matters most on this page"
-              title="Most important for decisions: purchased CO₂ against the target path, suppliers with missing or outdated data (“Supplier data”), and suppliers with LkSG risk High. Each card says the time span it covers; the period filter changes the cards marked with a quarter. Every term is explained in the Glossary (? menu)."
+              title="The state today: suppliers with missing or outdated data (“Supplier data”), suppliers with risks, and current suppliers against their category. Purchased CO₂ over time and against the target path is on Results. Every term is explained in the Glossary (? menu)."
             />
           </>
         }
-        subtitle="Where your purchased CO₂ comes from (Scope 3), how good the CO₂ data is, and which suppliers carry risks."
+        subtitle="Which suppliers lack sustainability data, which carry risks, and where a switch would cut the most CO₂: the state today."
         source={`Sources: client ERP, rating partner, PCF exchange · active suppliers = active contract (${stats.activeSuppliers})`}
       />
-      <FilterBar
-        options={options}
-        value={active}
-        onChange={setFilter}
-        products={products}
-      />
 
-      <div className="kpi-grid kpi-grid-4">
-        <Card className="dash-card" size="small">
-          <div className="kpi-label"><CloudOutlined /> Purchased CO₂e, {stats.period.label} (Scope 3, cat. 1)</div>
-          <div className="kpi-value">{formatNumber(stats.co2Tonnes, 1)} t</div>
-          <div className="kpi-sub">
-            {trend !== null && stats.previous && (
-              <span className={trend <= 0 ? "delta delta-better" : "delta delta-worse"}>
-                {trend <= 0 ? "↓" : "↑"} {formatNumber(Math.abs(trend), 1)} % {trend <= 0 ? "lower" : "higher"} vs {stats.previous.period.label}
-                <br />
-              </span>
-            )}
-            {stats.hotspots[0]
-              ? `Largest hotspot: ${name(stats.hotspots[0].supplierId)}, ${formatNumber(stats.hotspots[0].sharePercent, 0)} %`
-              : "No purchases in this period"}
-          </div>
-        </Card>
-        <Card className="dash-card" size="small">
-          <div className="kpi-label"><SafetyCertificateOutlined /> Spend with supplier-specific CO₂ data, {stats.period.label}</div>
-          <div className={`kpi-value ${toneOf(stats.supplierSpecificSpendPercent, 80, 50)}`}>
-            {stats.supplierSpecificSpendPercent === null ? "—" : `${formatNumber(stats.supplierSpecificSpendPercent, 0)} %`}
-          </div>
-          <div className="kpi-sub">
-            {outdated.length > 0 ? (
-              <button type="button" className="link-button" onClick={() => setDataView("update")}>
-                <WarningOutlined /> {outdated.length} of {stats.dataQuality.length} values older than 1 year
-              </button>
-            ) : (
-              "All values younger than 1 year"
-            )}
-          </div>
-        </Card>
+      {/* One tile above each list it filters (20 Nov 2026). */}
+      <div className="sus-grid">
         <Card className="dash-card" size="small">
           <div className="kpi-label"><TeamOutlined /> Suppliers with sufficient sustainability data, today</div>
           <div className={`kpi-value ${toneOf((100 * lv.sufficient) / stats.allSuppliers, 80, 50)}`}>
@@ -378,15 +330,10 @@ export function SustainabilityPage({
 
       {partner && (() => {
         const base = supplierBaseStats(data.erp, partner.performance, partner.emissions);
-        const trend = co2TargetPath(active.partId ? data.orders.filter((o) => o.partId === active.partId) : data.orders);
-        const lastQuarter = trend.slice(-3);
-        const gap = lastQuarter.length
-          ? (lastQuarter.reduce((a, p) => a + p.actualTonnes, 0) / lastQuarter.reduce((a, p) => a + p.targetTonnes, 0) - 1) * 100
-          : null;
         const candidates = base ? [...base.points].filter((p) => p.quadrant === "Switch candidate").sort((a, b) => b.co2Tonnes - a.co2Tonnes) : [];
         return (
-          // The two charts side by side (feedback 19 Nov 2026), cards stretched to the same height.
-          <div className="sus-grid sus-grid-stretch">
+          // Full width since the target path moved to Results (20 Nov 2026).
+          <>
             {base && (
               <Card
                 className="dash-card"
@@ -404,6 +351,8 @@ export function SustainabilityPage({
                   points={base.points}
                   medianSpendEur={base.medianSpendEur}
                   name={name}
+                  width={1360}
+                  height={340}
                   onOpen={
                     onOpenSupplier
                       ? (id) => {
@@ -433,34 +382,7 @@ export function SustainabilityPage({
                 </Typography.Text>
               </Card>
             )}
-            <Card
-              className="dash-card"
-              size="small"
-              title={
-                <span>
-                  CO₂ per month vs target path
-                  {trend.length > 1 && `, ${formatMonth(`${trend[0]!.month}-01`)} – ${formatMonth(`${trend.at(-1)!.month}-01`)}`}{" "}
-                  <Tooltip title="t CO₂e per month from purchase orders × CO₂ per piece. Dashed: the 2025 average reduced by 4.2 % per year (SBTi 1.5 °C cross-sector rate).">
-                    <InfoCircleOutlined aria-label="How this chart works" style={{ color: BRAND.textSecondary }} />
-                  </Tooltip>
-                </span>
-              }
-              extra={
-                gap !== null ? (
-                  <Typography.Text style={{ fontSize: 12 }}>
-                    Last quarter: {formatNumber(Math.abs(gap), 0)} % {gap <= 0 ? "below" : "above"} the path
-                  </Typography.Text>
-                ) : null
-              }
-            >
-              <Co2TargetChart points={trend} />
-              {active.partId && (
-                <Typography.Text type="secondary" style={{ fontSize: 12, display: "block" }}>
-                  Filtered to one product.
-                </Typography.Text>
-              )}
-            </Card>
-          </div>
+          </>
         );
       })()}
 

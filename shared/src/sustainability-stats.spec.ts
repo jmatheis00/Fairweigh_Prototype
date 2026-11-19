@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { DocumentRecord, ErpRecord, PcfRecord, PurchaseOrderRecord, RatingRecord } from './sources.js';
-import { supplierFlags, sustainabilityStats } from './sustainability-stats.js';
+import { purchasedCo2, supplierFlags, sustainabilityStats } from './sustainability-stats.js';
 
 const prov = { file: 'x', sheet: 'x', row: 1, assumedFields: [] };
 const erp = (supplierId: string, relationshipStatus = 'Active contract') => ({ supplierId, relationshipStatus }) as ErpRecord;
@@ -100,6 +100,18 @@ describe('sustainabilityStats', () => {
     expect(flags).toEqual(sustainabilityStats(input)!.flagged);
     expect(flags.find((f) => f.supplierId === 'X')?.flags).toEqual(['Proven violation', 'LkSG risk High']);
     expect(flags.some((f) => f.supplierId === 'A')).toBe(false);
+  });
+
+  it('sums purchased CO2 and the supplier-specific share for a period and the one before, like the stats', () => {
+    const q3 = { from: '2026-07', to: '2026-09', label: 'Q3 2026' };
+    const orders = [...input.orders, { ...po('B', 'P2', '2026-09-01', 1, 5000), pcfBadge: 'Industry average' as const }];
+    const p = purchasedCo2(orders, q3);
+    // 30 t + 10 t + 5 t; spend 3,000 + 2,000 supplier-specific of 10,000 in total.
+    expect([p.co2Tonnes, p.supplierSpecificSpendPercent]).toEqual([45, 50]);
+    expect(p.previous).toEqual({ period: { from: '2026-04', to: '2026-06', label: 'Q2 2026' }, co2Tonnes: 99, supplierSpecificSpendPercent: 100 });
+    const s = sustainabilityStats({ ...input, orders })!;
+    expect([s.co2Tonnes, s.supplierSpecificSpendPercent, s.previous?.co2Tonnes]).toEqual([p.co2Tonnes, p.supplierSpecificSpendPercent, 99]);
+    expect(purchasedCo2(orders, { from: '2026-04', to: '2026-06', label: 'Q2 2026' }).previous).toBeNull();
   });
 
   it('returns nothing without purchase orders', () => {

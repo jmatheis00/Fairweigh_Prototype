@@ -69,15 +69,19 @@ export function SupplierBaseMap({
   medianSpendEur,
   name,
   onOpen,
+  width = 680,
+  height = 320,
 }: {
   points: SupplierBasePoint[];
   medianSpendEur: number;
   name: (supplierId: string) => string;
   onOpen?: (supplierId: string) => void;
+  /** Drawing width: 680 for a half-width card, about 1360 for a full-width one, so the text stays at its real size. */
+  width?: number;
+  height?: number;
 }) {
-  // Drawn for a half-width card (19 Nov 2026), so the text stays at its real size.
-  const W = 680;
-  const H = 320;
+  const W = width;
+  const H = height;
   const M = { l: 60, r: 16, t: 14, b: 36 };
   const maxSpend = Math.max(...points.map((p) => p.spendEur)) * 1.08;
   const yMax = Math.max(60, Math.ceil(Math.max(...points.map((p) => p.versusAveragePercent)) / 20) * 20);
@@ -172,12 +176,14 @@ export function SupplierBaseMap({
 /* ------------------------------------------------------------------ */
 
 /** Purchased CO₂ per month against the target path (dashed). */
-export function Co2TargetChart({ points }: { points: Co2TrendPoint[] }) {
+export function Co2TargetChart({ points, width = 680, height = 320 }: { points: Co2TrendPoint[]; width?: number; height?: number }) {
   if (points.length < 2) return null;
-  // Drawn for a half-width card next to the category chart (19 Nov 2026).
-  const W = 680;
-  const H = 320;
-  const M = { l: 44, r: 12, t: 12, b: 26 };
+  // Drawing width: 680 for a half-width card, about 1360 for a full-width one, so the text stays at its real size.
+  const W = width;
+  const H = height;
+  // Month labels: every month when there is room (then centred, with room on the right), otherwise every third.
+  const step = W >= 1000 ? 1 : 3;
+  const M = { l: 44, r: step === 1 ? 30 : 12, t: 12, b: 26 };
   const max = Math.max(...points.flatMap((p) => [p.actualTonnes, p.targetTonnes])) * 1.1;
   const x = (i: number) => M.l + (i / (points.length - 1)) * (W - M.l - M.r);
   const y = (v: number) => M.t + (1 - v / max) * (H - M.t - M.b);
@@ -201,9 +207,9 @@ export function Co2TargetChart({ points }: { points: Co2TrendPoint[] }) {
         </Tooltip>
       ))}
       {points.map((p, i) =>
-        // Every third month plus the last one; a quarter label too close to the last one is left out.
-        (i % 3 === 0 && i < points.length - 3) || i === points.length - 1 ? (
-          <text key={`m-${p.month}`} x={x(i)} y={H - 6} fontSize="11" textAnchor={i === points.length - 1 ? "end" : "middle"} fill={MUTED}>
+        // Every step-th month plus the last one; a label too close to the last one is left out.
+        (i % step === 0 && i < points.length - step) || i === points.length - 1 ? (
+          <text key={`m-${p.month}`} x={x(i)} y={H - 6} fontSize="11" textAnchor={i === points.length - 1 && step > 1 ? "end" : "middle"} fill={MUTED}>
             {formatMonth(`${p.month}-01`)}
           </text>
         ) : null,

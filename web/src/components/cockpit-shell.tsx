@@ -871,6 +871,7 @@ export function CockpitShell() {
                 supplierNames={{ ...allNames, ...supplierNames }}
                 onOpenDecision={openDecision}
                 onOpenSupplier={openSupplierInfo}
+                forSustainability={user.role === "scope3-manager"}
               />
             )
           ) : shownPage === "rules" ? (

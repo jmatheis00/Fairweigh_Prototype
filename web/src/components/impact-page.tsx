@@ -1,14 +1,15 @@
 "use client";
 
-import { ArrowDownOutlined, ArrowRightOutlined, CalculatorOutlined, CheckCircleOutlined, CloudOutlined, EuroOutlined, SwapOutlined } from "@ant-design/icons";
-import { Alert, Button, Card, Flex, Table, Tag, Typography } from "antd";
+import { ArrowDownOutlined, ArrowRightOutlined, CalculatorOutlined, CheckCircleOutlined, CloudOutlined, EuroOutlined, InfoCircleOutlined, SafetyCertificateOutlined, SwapOutlined } from "@ant-design/icons";
+import { Alert, Button, Card, Flex, Table, Tag, Tooltip, Typography } from "antd";
 import { useEffect, useMemo, useState } from "react";
-import { abatementOptions, formatDay, impactStats, type AbatementOption, periodOptions, type DecisionRecord, type DemoSettings, type PurchaseOrderRecord } from "@scc/shared";
+import { abatementOptions, co2TargetPath, formatDay, impactStats, purchasedCo2, type AbatementOption, periodOptions, type DecisionRecord, type DemoSettings, type PurchaseOrderRecord } from "@scc/shared";
 import { api } from "@/lib/api";
-import { formatNumber, shortPartName, formatEur, formatSignedEur } from "@/lib/labels";
+import { formatMonth, formatNumber, shortPartName, formatEur, formatSignedEur } from "@/lib/labels";
 import { shortName } from "@/lib/names";
 import { PageHeader } from "./page-header";
-import { AbatementTable } from "./analytics-charts";
+import { AbatementTable, Co2TargetChart } from "./analytics-charts";
+import { BRAND } from "@/lib/theme";
 import { FilterBar, defaultFilter, type StatsFilter } from "./filter-bar";
 
 const eur = (n: number, digits = 0) => formatEur(n, digits);
@@ -24,10 +25,15 @@ interface Props {
   /** Decision log: examples plus the recorded decisions. */
   log: DecisionRecord[];
   supplierNames: Record<string, string>;
+  /**
+   * Sarah's single Results page (decision 20 Nov 2026): purchased CO₂ against the target path plus what the decisions
+   * changed, in one page instead of two tabs. The category manager keeps the two tabs.
+   */
+  forSustainability?: boolean;
 }
 
-/** Katrin's view (CPO): what the Fairweigh decisions cost and what they avoided. */
-export function ImpactPage({ settings, log, supplierNames, onOpenDecision, onOpenSupplier }: Props) {
+/** What the Fairweigh decisions cost and what they avoided; for Sarah also purchased CO₂ against the target path. */
+export function ImpactPage({ settings, log, supplierNames, onOpenDecision, onOpenSupplier, forSustainability = false }: Props) {
   const [orders, setOrders] = useState<PurchaseOrderRecord[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [filter, setFilter] = useState<StatsFilter | null>(null);
@@ -75,17 +81,87 @@ export function ImpactPage({ settings, log, supplierNames, onOpenDecision, onOpe
     .filter((p) => orders.some((o) => o.partId === p.partId))
     .map((p) => ({ partId: p.partId, label: shortPartName(p.partId, p.partName), name: p.partName }));
   const recent = [...productLog].sort((a, b) => b.recordedAt.localeCompare(a.recordedAt)).slice(0, 6);
+  const productOrders = active.partId ? orders.filter((o) => o.partId === active.partId) : orders;
+  const purchased = purchasedCo2(productOrders, active.period);
+  const trend =
+    purchased.previous && purchased.previous.co2Tonnes > 0
+      ? Math.round(((purchased.co2Tonnes - purchased.previous.co2Tonnes) / purchased.previous.co2Tonnes) * 1000) / 10
+      : null;
+  const path = co2TargetPath(productOrders);
+  const lastQuarter = path.slice(-3);
+  const pathGap = lastQuarter.length
+    ? (lastQuarter.reduce((a, p) => a + p.actualTonnes, 0) / lastQuarter.reduce((a, p) => a + p.targetTonnes, 0) - 1) * 100
+    : null;
+  const share = purchased.supplierSpecificSpendPercent;
+
+  const avoidedCard = (
+    <Card className="dash-card" size="small">
+      <div className="kpi-label"><CloudOutlined /> CO₂e avoided, {stats.period.label}</div>
+      <div className={`kpi-value ${stats.avoidedTonnes > 0 ? "kpi-good" : ""}`}>
+        {stats.avoidedTonnes > 0 && <ArrowDownOutlined />} {formatNumber(stats.avoidedTonnes, 1)} t
+      </div>
+      {/* Orders only; CO₂ targets counts the whole year plus decisions not ordered yet (20 Nov 2026). */}
+      <div className="kpi-sub">
+        orders only, vs the replaced suppliers{forSustainability ? " · year incl. open decisions: CO₂ targets" : ", same quantities"}
+      </div>
+    </Card>
+  );
+  const costCard = (
+    <Card className="dash-card" size="small">
+      <div className="kpi-label"><EuroOutlined /> {stats.extraCostEur < 0 ? "Savings from these decisions" : "Extra cost of these decisions"}</div>
+      <div className={`kpi-value ${stats.extraCostEur < 0 ? "kpi-good" : stats.extraCostEur > 0 ? "kpi-warn" : ""}`}>
+        {stats.extraCostEur < 0 ? <CheckCircleOutlined /> : null} {eur(Math.abs(stats.extraCostEur))}
+      </div>
+      <div className="kpi-sub">
+        {stats.decisions.map((d) => `${part(d.partId).toLowerCase()} ${costChange(d.extraCostEur)}`).join(" · ")}
+      </div>
+    </Card>
+  );
 
   return (
     <Flex vertical gap={12}>
       <PageHeader
-        title={`Results of Fairweigh decisions, ${stats.period.label}`}
-        subtitle="What the supplier switches decided in Fairweigh changed in CO₂ and in cost."
+        title={forSustainability ? `Results, ${stats.period.label}` : `Results of Fairweigh decisions, ${stats.period.label}`}
+        subtitle={
+          forSustainability
+            ? "How much CO₂ you bought against the target path, and what the supplier switches decided in Fairweigh changed."
+            : "What the supplier switches decided in Fairweigh changed in CO₂ and in cost."
+        }
         source="Sources: purchase orders in the client ERP, decision log"
       />
 
       <FilterBar options={options} value={active} onChange={setFilter} products={products} />
 
+      {forSustainability ? (
+        <div className="kpi-grid kpi-grid-4">
+          <Card className="dash-card" size="small">
+            <div className="kpi-label"><CloudOutlined /> CO₂e purchased, {stats.period.label} (Scope 3, cat. 1)</div>
+            <div className="kpi-value">{formatNumber(purchased.co2Tonnes, 1)} t</div>
+            <div className="kpi-sub">
+              {trend !== null && purchased.previous ? (
+                <span className={trend <= 0 ? "delta delta-better" : "delta delta-worse"}>
+                  {trend <= 0 ? "↓" : "↑"} {formatNumber(Math.abs(trend), 1)} % {trend <= 0 ? "lower" : "higher"} vs {purchased.previous.period.label} (
+                  {formatNumber(purchased.previous.co2Tonnes, 1)} t)
+                </span>
+              ) : (
+                "No orders in the period before"
+              )}
+            </div>
+          </Card>
+          {avoidedCard}
+          <Card className="dash-card" size="small">
+            <div className="kpi-label"><SafetyCertificateOutlined /> Spend with supplier-specific CO₂ data, {stats.period.label}</div>
+            <div className={`kpi-value ${share === null ? "" : share >= 80 ? "kpi-good" : share >= 50 ? "kpi-warn" : "kpi-bad"}`}>
+              {share === null ? "—" : `${formatNumber(share, 0)} %`}
+            </div>
+            <div className="kpi-sub">
+              {purchased.previous?.supplierSpecificSpendPercent != null ? `${purchased.previous.period.label}: ${formatNumber(purchased.previous.supplierSpecificSpendPercent, 0)} % · ` : ""}
+              rest estimated or industry average
+            </div>
+          </Card>
+          {costCard}
+        </div>
+      ) : (
       <div className="kpi-grid kpi-grid-4">
         <Card className="dash-card" size="small">
           <div className="kpi-label"><SwapOutlined /> Supplier switches decided in Fairweigh</div>
@@ -95,22 +171,8 @@ export function ImpactPage({ settings, log, supplierNames, onOpenDecision, onOpe
             {stats.followsRecommendationPercent !== null ? ` · ${formatNumber(stats.followsRecommendationPercent, 0)} % follow the recommendation` : ""}
           </div>
         </Card>
-        <Card className="dash-card" size="small">
-          <div className="kpi-label"><CloudOutlined /> CO₂e avoided</div>
-          <div className={`kpi-value ${stats.avoidedTonnes > 0 ? "kpi-good" : ""}`}>
-            {stats.avoidedTonnes > 0 && <ArrowDownOutlined />} {formatNumber(stats.avoidedTonnes, 1)} t
-          </div>
-          <div className="kpi-sub">compared with the replaced suppliers, same quantities</div>
-        </Card>
-        <Card className="dash-card" size="small">
-          <div className="kpi-label"><EuroOutlined /> {stats.extraCostEur < 0 ? "Savings from these decisions" : "Extra cost of these decisions"}</div>
-          <div className={`kpi-value ${stats.extraCostEur < 0 ? "kpi-good" : stats.extraCostEur > 0 ? "kpi-warn" : ""}`}>
-            {stats.extraCostEur < 0 ? <CheckCircleOutlined /> : null} {eur(Math.abs(stats.extraCostEur))}
-          </div>
-          <div className="kpi-sub">
-            {stats.decisions.map((d) => `${part(d.partId).toLowerCase()} ${costChange(d.extraCostEur)}`).join(" · ")}
-          </div>
-        </Card>
+        {avoidedCard}
+        {costCard}
         <Card className="dash-card kpi-main" size="small">
           <div className="kpi-label"><CalculatorOutlined /> {stats.costPerTonneEur !== null && stats.costPerTonneEur < 0 ? "Saved per tonne CO₂e avoided" : "Cost per tonne CO₂e avoided"}</div>
           <div className={`kpi-value ${stats.costPerTonneEur !== null && stats.costPerTonneEur < 0 ? "kpi-good" : ""}`}>
@@ -121,6 +183,32 @@ export function ImpactPage({ settings, log, supplierNames, onOpenDecision, onOpe
           </div>
         </Card>
       </div>
+      )}
+
+      {forSustainability && path.length > 1 && (
+        <Card
+          className="dash-card"
+          size="small"
+          title={
+            <span>
+              CO₂ per month vs target path, {formatMonth(`${path[0]!.month}-01`)} – {formatMonth(`${path.at(-1)!.month}-01`)}
+              {active.partId ? ", one product" : ""}{" "}
+              <Tooltip title="t CO₂e per month from purchase orders × CO₂ per piece. Dashed: the 2025 average reduced by 4.2 % per year (SBTi 1.5 °C cross-sector rate). Follows the product filter; shows all months.">
+                <InfoCircleOutlined aria-label="How this chart works" style={{ color: BRAND.textSecondary }} />
+              </Tooltip>
+            </span>
+          }
+          extra={
+            pathGap !== null ? (
+              <Typography.Text style={{ fontSize: 12 }}>
+                Last quarter: {formatNumber(Math.abs(pathGap), 0)} % {pathGap <= 0 ? "below" : "above"} the path
+              </Typography.Text>
+            ) : null
+          }
+        >
+          <Co2TargetChart points={path} width={1360} height={260} />
+        </Card>
+      )}
 
       <Card
         className="dash-card"
