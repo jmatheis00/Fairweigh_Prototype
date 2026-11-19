@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowDownOutlined, ArrowUpOutlined, CloseCircleOutlined, MailOutlined, MinusCircleOutlined, MinusOutlined, QuestionCircleOutlined, StopOutlined, WarningOutlined } from "@ant-design/icons";
+import { CloseCircleOutlined, MailOutlined, MinusCircleOutlined, QuestionCircleOutlined, StopOutlined, WarningOutlined } from "@ant-design/icons";
 import { Button, Flex, Table, Tooltip, Typography, type TableColumnsType } from "antd";
 import type { ReactNode } from "react";
 import { useIsBelowLaptop } from "@/lib/use-phone";
@@ -9,7 +9,6 @@ import {
   cellEvidence,
   percentBetter,
   type AgentRun,
-  type Benchmark,
   type Benchmarks,
   type NewSupplierAssumption,
   type Criterion,
@@ -49,8 +48,6 @@ interface Props {
   onOpenSupplier: (supplierId: string) => void;
   /** Reference values of the product (today: average of the last three purchases); null falls back to the ranking among the offers. */
   benchmarks: Benchmarks | null;
-  /** Published industry average CO₂ per piece: context only, not scored. */
-  industryCo2?: Benchmark | null;
   /** Suppliers that never delivered to us (quote or new candidate): no ERP delivery or complaint figures can exist. */
   noDeliveries?: Set<string>;
   /** Weakest values of our current suppliers in the category, used for suppliers that never delivered. */
@@ -59,9 +56,7 @@ interface Props {
   partName: string;
 }
 
-/** What the points under each value mean (PLAN.md section 3, decision of 17 Nov 2026: against today). */
-const POINTS_HELP =
-  "Below each value: % better or worse than today, capped at 50 %. A missing or unverified value counts as 50 % worse.";
+/** Without "today" values: what the points mean (the cap and missing-value rule are in "View details"). */
 const POINTS_HELP_RELATIVE =
   "Points 0–100 among the scored offers: the best verified value gets 100, the worst 0, the others in between. Missing or unverified values get 0.";
 
@@ -115,29 +110,28 @@ function mainValue(c: Criterion, value: number): string {
 }
 
 /**
- * Points with a status: above 55 better than today (arrow up), below 45 worse (arrow down),
- * otherwise about the same as today (dash). Colour always comes with the arrow and the number.
+ * Change against today in the band colours of the "vs today" pill (19 Nov 2026, no icons): green from
+ * 5 % better, red from 5 % worse, amber in between. The words "better"/"worse" always carry the meaning.
  * A value that rounds to today shows nothing (19 Nov 2026): the "vs today" pill of the row says it once;
  * screen readers still hear "same as today".
  */
 function PointsLine({ points, hint }: { points: number; hint: string | null }) {
   const tone = points >= 55 ? "better" : points <= 45 ? "worse" : "same";
-  const icon = tone === "better" ? <ArrowUpOutlined /> : tone === "worse" ? <ArrowDownOutlined /> : <MinusOutlined />;
   const text = formatCriterionVsToday(points);
   if (text === AS_TODAY) return <span className="sr-only">Same as today</span>;
   return (
     <Tooltip title={hint}>
       <span
-        className={`points-line delta-${tone}`}
+        className={`points-line score-number score-${tone}`}
         aria-label={`${text}, ${tone === "same" ? "about the same as" : `${tone} than`} today`}
       >
-        {icon} {text}
+        {text}
       </span>
     </Tooltip>
   );
 }
 
-export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen, onOpenSupplier, benchmarks, industryCo2, noDeliveries, assumption, partName }: Props) {
+export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen, onOpenSupplier, benchmarks, noDeliveries, assumption, partName }: Props) {
   // Cards on phones and tablets: the eight-column table only fits from laptop width on (review 16 Nov 2026).
   const isPhone = useIsBelowLaptop();
   const rows: Row[] = [
@@ -188,26 +182,17 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
           title={
             <div>
               <div style={{ marginBottom: 4 }}>{MEASURE[c]}</div>
-              {benchmarks && (
-                <div style={{ marginBottom: 4 }}>
-                  <strong>Today {benchmarkValue(c, benchmarks[c].value)}:</strong> {benchmarks[c].basis}.{" "}
+              {benchmarks ? (
+                <div>
+                  <strong>Today {benchmarkValue(c, benchmarks[c].value)}:</strong> {benchmarks[c].basis.split(":")[0]}.{" "}
                   {benchmarks[c].sourceUrl && (
                     <a href={benchmarks[c].sourceUrl!} target="_blank" rel="noreferrer" style={{ color: BRAND.onDark }}>
                       Open source
                     </a>
                   )}
                 </div>
-              )}
-              <div>{benchmarks ? POINTS_HELP : POINTS_HELP_RELATIVE}</div>
-              {c === "co2" && industryCo2 && (
-                <div style={{ marginTop: 4 }}>
-                  <strong>Industry average {benchmarkValue(c, industryCo2.value)}</strong> (context only, not scored): {industryCo2.basis}.{" "}
-                  {industryCo2.sourceUrl && (
-                    <a href={industryCo2.sourceUrl} target="_blank" rel="noreferrer" style={{ color: BRAND.onDark }}>
-                      Open source
-                    </a>
-                  )}
-                </div>
+              ) : (
+                <div>{POINTS_HELP_RELATIVE}</div>
               )}
             </div>
           }
@@ -402,7 +387,7 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
           width: 124,
           render: (_, row) =>
             row.score === null ? (
-              "—"
+              <span className="sr-only">No score</span>
             ) : row.scoreRange ? (
               <Tooltip
                 title={`No delivery experience yet. Quality and delivery are estimated from current suppliers: ${formatVsToday(row.scoreRange.low).replace(/^Same/, "the same")} (weakest) to ${formatVsTodayShort(row.scoreRange.high) === AS_TODAY ? "the same as today" : formatVsTodayShort(row.scoreRange.high)} (best). Ranked below offers with real data.`}

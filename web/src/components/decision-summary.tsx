@@ -177,14 +177,12 @@ export function RecommendationBlock(props: BlockProps) {
                 offer table, in words ("9 % better than today"), coloured by band; never colour alone. */}
             {/* Same three rows as the figure tiles (18 Nov 2026): label, value line, small line. The value line
                 holds the name and the same pill as the offer table ("9 % better"); a long name is cut with "…"
-                and shown in full in its tooltip, so the box never grows a row. */}
+                and shown in full in a tooltip only then, so the box never grows a row. */}
             <div className="rec-name-line">
               {/* Full company name (feedback 19 Nov 2026), as in the offer table; "…" only as a safety net. */}
-              <Tooltip title={fullName(rec.supplierId)}>
-                <Typography.Title level={4} className="rec-name" tabIndex={0}>
-                  {fullName(rec.supplierId)}
-                </Typography.Title>
-              </Tooltip>
+              <Typography.Title level={4} className="rec-name" ellipsis={{ tooltip: fullName(rec.supplierId) }}>
+                {fullName(rec.supplierId)}
+              </Typography.Title>
               <Tooltip title={formatVsToday(rec.score, 1)}>
                 <span tabIndex={0} className={`score-pill ${scorePillClass(rec.score)}`} aria-label={formatVsToday(rec.score)}>
                   {formatVsTodayShort(rec.score)}
