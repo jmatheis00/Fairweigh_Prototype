@@ -115,6 +115,25 @@ describe('decide: points against benchmarks (decision of 8 Nov 2026)', () => {
     expect(r.missing).toEqual(['quality', 'delivery']);
   });
 
+  it('lets an estimated value hurt but never help: at most 50 points (19 Nov 2026)', () => {
+    const better = offer('E', { quality: 1, price: 18, co2: 2.5, delivery: 95 }, { estimated: ['co2'] }); // 50 % less CO₂
+    const worse = offer('F', { quality: 1, price: 18, co2: 7.5, delivery: 95 }, { estimated: ['co2'] }); // 50 % more CO₂
+    const real = offer('G', { quality: 1, price: 18, co2: 2.5, delivery: 95 });
+    const r = decide([better, worse, real], DEFAULT_WEIGHTS, bench(1, 18, 5, 95)).ranked;
+    const by = (id: string) => r.find((x) => x.supplierId === id)!;
+    expect(by('E').points.co2).toBe(50);
+    expect(by('E').capped).toEqual(['co2']);
+    expect(by('F').points.co2).toBe(0);
+    expect(by('F').capped).toEqual([]);
+    expect(by('G').points.co2).toBe(100);
+    expect(r[0]!.supplierId).toBe('G');
+  });
+
+  it('also caps an estimate at the middle without benchmarks', () => {
+    const r = decide([offer('E', { co2: 1 }, { estimated: ['co2'] }), offer('F', { co2: 9 })]).ranked;
+    expect(r.find((x) => x.supplierId === 'E')!.points.co2).toBe(50);
+  });
+
   it('gives a supplier that never delivered a score range and ranks it by the low end', () => {
     const b = bench(1, 18, 5, 95);
     const range = { quality: 2, delivery: 90, qualityBest: 0.5, deliveryBest: 99, peers: 5 };

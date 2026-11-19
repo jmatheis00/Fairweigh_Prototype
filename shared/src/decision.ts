@@ -11,6 +11,8 @@
  * 3. Missing or unverified value: 0 points and a notice. Exception (8 Nov 2026): a supplier that
  *    never delivered gets a score range: low = the weakest quality and delivery of our current suppliers
  *    in the category (used for the ranking), high = their best values (see DecisionOffer.assumed).
+ *    Estimated value (19 Nov 2026, see DecisionOffer.estimated): it can hurt but never help, so it gets
+ *    at most 50 points (the same as today; at most the middle without benchmarks).
  * 4. Weighting; the weights always add up to 100 %.
  * 5. Sorting: offers with real data before suppliers that never delivered (18 Nov 2026), then
  *    higher score, then more verified criteria, then lower price.
@@ -100,6 +102,12 @@ export interface DecisionOffer {
   assumed?: Partial<Record<Criterion, number>>;
   /** The same criteria with the best values of our current suppliers: the high end of the score range. */
   assumedBest?: Partial<Record<Criterion, number>>;
+  /**
+   * Criteria whose value is only an estimate, not the supplier's figure for this part (19 Nov 2026):
+   * CO₂ as a company estimate or an industry average. Such a value can hurt but never help: it gets
+   * at most 50 points, so it never counts better than today.
+   */
+  estimated?: Criterion[];
 }
 
 export interface RankedOffer {
@@ -120,6 +128,8 @@ export interface RankedOffer {
   scoreRange: { low: number; high: number } | null;
   /** Points per criterion at the high end of the range (only for assumed criteria). */
   pointsHigh: Partial<Record<Criterion, number>> | null;
+  /** Estimated criteria that would have scored better than today and were held at today (50 points). */
+  capped: Criterion[];
   warnings: string[];
 }
 
@@ -161,6 +171,9 @@ export function assertWeights(weights: Weights): void {
   if (sum !== 100) throw new Error(`Weights must add up to 100 %, got ${sum} %`);
 }
 
+/** An estimated value never scores better than today: at most 50 points (see DecisionOffer.estimated). */
+export const ESTIMATE_MAX_POINTS = 50;
+
 /** Min-max points for one criterion. Missing values get 0 and do not shift min or max. */
 function normalise(values: (number | null)[], lowerIsBetter: boolean): number[] {
   const present = values.filter((v): v is number => v !== null && Number.isFinite(v));
@@ -186,7 +199,7 @@ export function decide(offers: DecisionOffer[], weights: Weights = DEFAULT_WEIGH
   const remaining = offers.filter((o) => o.knockOut === null);
 
   // 2. + 3. Points against the benchmark (or min-max without one); missing values get 0.
-  const pointsByCriterion = Object.fromEntries(
+  const rawPointsByCriterion = Object.fromEntries(
     CRITERIA.map((c) => [
       c,
       benchmarks
@@ -196,6 +209,12 @@ export function decide(offers: DecisionOffer[], weights: Weights = DEFAULT_WEIGH
           })
         : normalise(remaining.map((o) => o.values[c] ?? o.assumed?.[c] ?? null), LOWER_IS_BETTER[c]),
     ]),
+  ) as Record<Criterion, number[]>;
+  // An estimate can hurt but never help (19 Nov 2026).
+  const isCapped = (o: DecisionOffer, c: Criterion, points: number) =>
+    o.values[c] !== null && (o.estimated?.includes(c) ?? false) && points > ESTIMATE_MAX_POINTS;
+  const pointsByCriterion = Object.fromEntries(
+    CRITERIA.map((c) => [c, rawPointsByCriterion[c].map((p, i) => (isCapped(remaining[i]!, c, p) ? ESTIMATE_MAX_POINTS : p))]),
   ) as Record<Criterion, number[]>;
 
   // 4. Weight.
@@ -222,6 +241,7 @@ export function decide(offers: DecisionOffer[], weights: Weights = DEFAULT_WEIGH
       assumed,
       rawHigh,
       pointsHigh: pointsHigh ? (Object.fromEntries(Object.entries(pointsHigh).map(([c, v]) => [c, round1(v)])) as Partial<Record<Criterion, number>>) : null,
+      capped: CRITERIA.filter((c) => isCapped(offer, c, rawPointsByCriterion[c][i]!)),
       warnings: offer.warnings,
       price: offer.values.price,
     };
@@ -249,6 +269,7 @@ export function decide(offers: DecisionOffer[], weights: Weights = DEFAULT_WEIGH
     assumed: o.assumed,
     scoreRange: o.rawHigh !== null ? { low: round1(o.raw), high: round1(o.rawHigh) } : null,
     pointsHigh: o.pointsHigh,
+    capped: o.capped,
     warnings: o.warnings,
   }));
 

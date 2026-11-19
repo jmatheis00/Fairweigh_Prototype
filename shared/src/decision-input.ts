@@ -139,9 +139,13 @@ export function buildDecisionInput(run: AgentRun, options: DecisionInputOptions)
         return [c, e && typeof e.value === 'number' ? e.value : null];
       }),
     ) as Record<Criterion, number | null>;
+    // CO₂ that is not the supplier's own figure for this part counts at most as today (19 Nov 2026).
+    const co2 = verifiedEvidence(run, supplierId, 'co2');
+    const estimated: Criterion[] = co2?.sourceBadge && !isSupplierSpecific(co2.sourceBadge) ? ['co2'] : [];
     return {
       supplierId,
       values,
+      estimated,
       knockOut: knockOutOf(run, supplierId),
       warnings: warningsOf(run, supplierId, options),
     };

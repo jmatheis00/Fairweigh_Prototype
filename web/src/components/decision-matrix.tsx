@@ -8,6 +8,7 @@ import {
   CRITERIA,
   cellEvidence,
   percentBetter,
+  benchmarkPoints,
   type AgentRun,
   type Benchmarks,
   type NewSupplierAssumption,
@@ -37,6 +38,7 @@ interface Row {
   /** Score range of a supplier without deliveries (low = ranking score). */
   scoreRange?: { low: number; high: number } | null;
   pointsHigh?: Partial<Record<Criterion, number>> | null;
+  capped?: Criterion[];
 }
 
 interface Props {
@@ -145,6 +147,7 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
       assumed: r.assumed,
       scoreRange: r.scoreRange,
       pointsHigh: r.pointsHigh,
+      capped: r.capped,
       notes: [
         ...(r.verifiedCount < CRITERIA.length
           ? [`${r.verifiedCount} of ${CRITERIA.length} verified${r.assumed.length ? ` · ${r.assumed.length} as range` : ""}`]
@@ -296,9 +299,22 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
               {mainValue(c, evidence.value)}
               {oldIcon}
             </span>
-            {second && pointsValue !== null && (benchmarks ? <PointsLine points={pointsValue} hint={secondHint} /> : (
-              <Typography.Text type="secondary" style={{ fontSize: 12, whiteSpace: "nowrap" }}>{second}</Typography.Text>
-            ))}
+            {row.capped?.includes(c) ? (
+              // An estimate never counts better than today (19 Nov 2026): say so where the advantage would have been.
+              <Tooltip
+                title={`An estimate, not the supplier's figure for this part${
+                  benchmarks ? `: ${formatCriterionVsToday(benchmarkPoints(c, evidence.value, benchmarks[c].value))} than today` : ""
+                }, but it never counts better than today. Request the supplier's own footprint.`}
+              >
+                <span className="points-line" style={{ color: "var(--text-secondary)" }}>
+                  counts as today
+                </span>
+              </Tooltip>
+            ) : (
+              second && pointsValue !== null && (benchmarks ? <PointsLine points={pointsValue} hint={secondHint} /> : (
+                <Typography.Text type="secondary" style={{ fontSize: 12, whiteSpace: "nowrap" }}>{second}</Typography.Text>
+              ))
+            )}
             {c === "co2" && evidence.sourceBadge && <PcfBadgeTag badge={evidence.sourceBadge} style={{ marginTop: 2, marginInlineEnd: 0 }} />}
           </Flex>
         </Button>

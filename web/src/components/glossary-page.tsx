@@ -93,7 +93,7 @@ function terms(rules: BuyerRules | null): Term[] {
     },
     {
       term: "CO₂ data quality",
-      means: "Four levels: Verified (third-party checked), Supplier-specific, Company estimate, Industry average. Levels 1 and 2 count as supplier-specific data.",
+      means: "Four levels: Audited (the supplier's footprint for the part, checked by an auditor), Supplier calc. (the supplier's own, unchecked), Estimate (from the supplier's company-wide CO₂ intensity), Industry avg. (offer price × an industry factor). Levels 1 and 2 are supplier-specific data. An estimate or industry average never counts better than today.",
       helps: "Shows how far a CO₂ value can be trusted.",
       where: "Tag next to every CO₂ value; coverage on the recommendation",
     },
