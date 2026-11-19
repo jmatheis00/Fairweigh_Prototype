@@ -264,6 +264,19 @@ body {
   border-radius: 12px;
 }
 
+/* Help popup in two columns (19 Nov 2026): process left, score details and rules right; one column below laptop width. */
+.help-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+  gap: 32px;
+}
+@media (max-width: 1023px) {
+  .help-columns {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+}
+
 .how-steps {
   list-style: none;
   margin: 0;
