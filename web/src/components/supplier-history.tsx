@@ -185,15 +185,17 @@ export function SupplierHistory({ supplierId }: { supplierId: string }) {
         ) : (
           <Flex vertical gap={6}>
             {alerts.map((a) => (
-              <div key={a.alertId} className="alert-row">
-                <RiskLevelTag level={a.severity} style={{ marginInlineEnd: 6 }} />
-                <strong>{a.title}</strong>
-                <Typography.Text type="secondary" style={{ fontSize: 12 }}>
-                  {" "}
-                  · {a.category} · {formatDay(a.date)}
-                </Typography.Text>
-                <div style={{ fontSize: 12, color: BRAND.textSecondary }}>{a.detail}</div>
-              </div>
+              // Tag in its own column, the text aligned next to it; category and date on their own line (19 Nov 2026).
+              <Flex key={a.alertId} className="alert-row" gap={8} align="flex-start">
+                <RiskLevelTag level={a.severity} style={{ marginInlineEnd: 0, flex: "none" }} />
+                <div style={{ minWidth: 0 }}>
+                  <strong>{a.title}</strong>
+                  <div style={{ fontSize: 12, color: BRAND.textSecondary }}>
+                    {a.category} · {formatDay(a.date)}
+                  </div>
+                  <div style={{ fontSize: 12, color: BRAND.textSecondary, marginTop: 2 }}>{a.detail}</div>
+                </div>
+              </Flex>
             ))}
           </Flex>
         )}
