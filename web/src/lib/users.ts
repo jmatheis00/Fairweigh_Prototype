@@ -99,7 +99,7 @@ export const START_PAGE: Record<Role, NavPage> = {
   cpo: "dashboard",
 };
 
-export const VIEW_ONLY_HINT = "View only: in this demo only the category manager starts runs and records decisions.";
+export const VIEW_ONLY_HINT = "View only: only the category manager starts runs and records decisions.";
 
 const KEY = "scc-demo-user-v2";
 

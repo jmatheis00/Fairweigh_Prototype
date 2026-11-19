@@ -72,11 +72,11 @@ export function CollectStep({ partId, partName, slot, favourites, savedRun, onUs
           <Typography.Text>
             {offers === null
               ? "Loading quotations…"
-              : `${rows.length} suppliers quoted${fromAgent > 0 ? `, ${fromAgent} found by the AI agent` : ""}`}
+              : `${rows.length} suppliers quoted${fromAgent > 0 ? `, ${fromAgent} of them new candidates` : ""}`}
           </Typography.Text>
           <InfoTip
             label="evidence collection"
-            title="The agent collects price, quality, CO₂ and delivery for each supplier from the ERP, the rating partner, the CO₂ exchange and the supplier documents. Code checks every value against its source."
+            title="The AI agent collects price, quality, CO₂ and delivery from the ERP, rating partner, CO₂ exchange and supplier documents. Code checks every value at its source."
           />
         </Flex>
         {/* Placeholder rows while the quotations load, never an empty "No data" table (16 Nov 2026). */}
@@ -148,7 +148,7 @@ export function CollectStep({ partId, partName, slot, favourites, savedRun, onUs
             <Typography.Text>
               {run.evidence.filter((e) => e.status === "verified").length} values verified · {run.gaps.length} gap{run.gaps.length === 1 ? "" : "s"}
             </Typography.Text>
-            {run.gaps.length > 0 && <InfoTip label="gaps" title="Gaps count as 0 points until the data is requested." />}
+            {run.gaps.length > 0 && <InfoTip label="gaps" title="A gap counts as 50 % worse than today until a verified value arrives." />}
           </Flex>
         )}
         <Flex justify="space-between" align="center" gap={8} wrap>

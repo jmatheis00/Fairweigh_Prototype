@@ -186,7 +186,7 @@ export function WorkQueuePage({
               To procure ({open.length}){" "}
               <InfoTip
                 label="the work queue"
-                title="Open purchase requisitions of your purchasing groups that have no contract or fixed supplier yet, earliest required date first. Start one to collect offers, compare and decide."
+                title="Open requisitions in your purchasing groups without a contract or fixed supplier. Earliest required date first."
               />
             </span>
           }
@@ -226,7 +226,7 @@ export function WorkQueuePage({
               <AimOutlined /> Your CO₂ target {progress ? progress.year : ""}{" "}
               <InfoTip
                 label="the CO₂ target"
-                title="Set by the Scope 3 manager. Achieved = CO₂ avoided by your Fairweigh decisions this year: ordered after a supplier switch, plus decisions recorded here that have no orders yet."
+                title="Set by the Scope 3 manager. Achieved = CO₂ avoided this year by Fairweigh decisions in your commodity groups, from orders placed or, if not ordered yet, from the decision."
               />
             </span>
           }

@@ -176,7 +176,7 @@ export function DecideStep({
                 What this choice means{" "}
                 <InfoTip
                   label="What this choice means"
-                  title={`The recommendation is calculated by fixed rules from evidence the AI collected. You decide: the record is saved with your name (${decidedBy.name}), your justification, the weights and the evidence of the chosen offer.`}
+                  title={`Fixed rules calculate the recommendation from verified evidence. You decide. The record saves your name (${decidedBy.name}), justification, weights and the evidence of the chosen offer.`}
                 />
               </span>
             }
@@ -220,7 +220,7 @@ export function DecideStep({
                                 CO₂ in euros{" "}
                                 <InfoTip
                                   label="CO₂ in euros"
-                                  title={`The CO₂ difference at the CO₂ price set in the rules (${money(co2PricePerTonneEur)} per tonne). Information only: it does not change the score or the ranking.`}
+                                  title={`CO₂ difference at the internal CO₂ price (${money(co2PricePerTonneEur)} per tonne). Display only: not in the score.`}
                                 />
                               </span>
                             ),

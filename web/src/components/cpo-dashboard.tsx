@@ -346,7 +346,7 @@ export function CpoDashboard({ settings, orders, log, overview, onOpenSupplier }
         <Tile
           icon={<LineChartOutlined />}
           label={`CO₂ intensity, ${active.period.label}`}
-          info="kg CO₂e per euro spent: shows whether CO₂ falls because of better suppliers or only because less was bought. Data quality: share of spend whose CO₂ value is supplier-specific (verified or supplier's own), as needed for Scope 3 reporting."
+          info="kg CO₂e per euro spent: shows whether CO₂ falls through better suppliers or only through lower volume. Data quality: share of spend with supplier-specific CO₂ values, needed for Scope 3 reporting."
           onOpen={() => setDrill("intensity")}
         >
           <div className="kpi-value">{intensity.kgPerEur === null ? "—" : `${formatNumber(intensity.kgPerEur, 2)} kg / €`}</div>

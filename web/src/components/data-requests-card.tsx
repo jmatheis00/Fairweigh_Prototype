@@ -1,7 +1,7 @@
 "use client";
 
 import { MailOutlined } from "@ant-design/icons";
-import { Button, Card, Table, Tag, Tooltip, Typography } from "antd";
+import { Button, Card, Table, Tag, Typography } from "antd";
 import type { Co2DataQuality, ErpRecord, SupplierFlag } from "@scc/shared";
 import { requestMailto, sustainabilityRequestText } from "@/lib/data-request";
 import { usePartnerData } from "@/lib/partner-data";
@@ -90,16 +90,14 @@ export function DataRequestsCard({ erp, dataQuality, dataGaps, name }: Props) {
           ) },
           { title: "Why", key: "w", render: (_, r) => r.reasons.map((x) => <Tag key={x} color="warning" style={{ marginBottom: 2 }}>{x}</Tag>) },
           { title: "", key: "c", width: 200, align: "right", render: (_, r) => (
-            <Tooltip title="Opens an e-mail draft in your mail program. Nothing is sent automatically.">
-              <Button
-                size="small"
-                icon={<MailOutlined />}
-                href={requestMailto(sustainabilityRequestText(name(r.supplierId), r.items))}
-                aria-label={`Request data from ${name(r.supplierId)}`}
-              >
-                Request data ({r.items.length})
-              </Button>
-            </Tooltip>
+            <Button
+              size="small"
+              icon={<MailOutlined />}
+              href={requestMailto(sustainabilityRequestText(name(r.supplierId), r.items))}
+              aria-label={`Request data from ${name(r.supplierId)}`}
+            >
+              Request data ({r.items.length})
+            </Button>
           ) },
         ]}
       />

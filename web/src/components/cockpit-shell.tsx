@@ -616,7 +616,6 @@ export function CockpitShell() {
               onOpen={openEvidence}
               onOpenSupplier={openProfile}
               benchmarks={benchmarks}
-              industryCo2={catalogPart?.industryCo2 ?? null}
               noDeliveries={neverDelivered}
               assumption={assumption}
               partName={process?.requisition.partName ?? run.request.partId}
