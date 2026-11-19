@@ -837,6 +837,19 @@ body .ant-tag.ant-tag-success.ant-tag-filled:not(.ant-tag-disabled) {
 .sus-grid.sus-grid-stretch {
   align-items: stretch;
 }
+/* Stretched cards: the note under a table sits at the bottom, so both notes end on one line (20 Nov 2026). */
+body .sus-grid.sus-grid-stretch > .ant-card {
+  display: flex;
+  flex-direction: column;
+}
+body .sus-grid.sus-grid-stretch > .ant-card > .ant-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+body .sus-grid.sus-grid-stretch > .ant-card > .ant-card-body > .ant-table-wrapper ~ :last-child {
+  margin-top: auto;
+}
 
 /* Horizontal bar for CO₂ hotspots: thin, rounded data end. */
 .hbar-track {

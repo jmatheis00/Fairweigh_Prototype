@@ -176,7 +176,18 @@ export function SupplierBaseMap({
 /* ------------------------------------------------------------------ */
 
 /** Purchased CO₂ per month against the target path (dashed). */
-export function Co2TargetChart({ points, width = 680, height = 320 }: { points: Co2TrendPoint[]; width?: number; height?: number }) {
+export function Co2TargetChart({
+  points,
+  width = 680,
+  height = 320,
+  highlight,
+}: {
+  points: Co2TrendPoint[];
+  width?: number;
+  height?: number;
+  /** A period to shade (months "YYYY-MM"), e.g. the period filter; not shaded when it covers every month. */
+  highlight?: { from: string; to: string; label: string };
+}) {
   if (points.length < 2) return null;
   // Drawing width: 680 for a half-width card, about 1360 for a full-width one, so the text stays at its real size.
   const W = width;
@@ -189,8 +200,21 @@ export function Co2TargetChart({ points, width = 680, height = 320 }: { points: 
   const y = (v: number) => M.t + (1 - v / max) * (H - M.t - M.b);
   const line = (key: "actualTonnes" | "targetTonnes") => points.map((p, i) => `${x(i)},${y(p[key])}`).join(" ");
   const ticks = [0, 0.25, 0.5, 0.75, 1].map((f) => f * max);
+  const shown = highlight ? points.map((p, i) => (p.month >= highlight.from && p.month <= highlight.to ? i : -1)).filter((i) => i >= 0) : [];
+  const shade = shown.length > 0 && shown.length < points.length;
+  const half = (W - M.l - M.r) / (points.length - 1) / 2;
+  const x0 = shade ? Math.max(M.l, x(shown[0]!) - half) : 0;
+  const x1 = shade ? Math.min(W - M.r, x(shown.at(-1)!) + half) : 0;
   return (
     <svg className="chart-wide" viewBox={`0 0 ${W} ${H}`} width="100%" role="img" aria-label="Purchased CO₂ per month against the target path">
+      {shade && highlight && (
+        <g>
+          <rect x={x0} y={M.t} width={x1 - x0} height={H - M.t - M.b} fill={BRAND.tint} />
+          <text x={(x0 + x1) / 2} y={M.t + 12} fontSize="11" textAnchor="middle" fill={PETROL} fontWeight={600}>
+            {highlight.label}
+          </text>
+        </g>
+      )}
       {ticks.map((v, i) => (
         <g key={i}>
           <line x1={M.l} x2={W - M.r} y1={y(v)} y2={y(v)} stroke={GRID} />
@@ -236,7 +260,7 @@ export function AbatementTable({ options, name, part }: { options: AbatementOpti
       rowKey={(o) => `${o.partId}-${o.toSupplierId}`}
       dataSource={options}
       locale={{ emptyText: "No switch avoids CO₂ against today's suppliers." }}
-      scroll={{ x: 720 }}
+      scroll={{ x: 560 }}
       aria-label="Supplier switches by cost per tonne CO₂ avoided"
       columns={[
         {
@@ -254,10 +278,10 @@ export function AbatementTable({ options, name, part }: { options: AbatementOpti
           ),
         },
         {
-          title: "Cost per t CO₂ avoided",
+          title: "Cost per t CO₂",
           key: "pt",
           align: "right",
-          width: 180,
+          width: 110,
           render: (_, o) =>
             Math.round(o.costPerTonneEur) === 0 ? (
               "no extra cost"
@@ -269,12 +293,12 @@ export function AbatementTable({ options, name, part }: { options: AbatementOpti
               formatEur(o.costPerTonneEur, 0)
             ),
         },
-        { title: "CO₂ avoided per year", key: "t", align: "right", width: 160, render: (_, o) => `${formatNumber(o.avoidedTonnes, 1)} t` },
+        { title: "Avoided per year", key: "t", align: "right", width: 110, render: (_, o) => `${formatNumber(o.avoidedTonnes, 1)} t` },
         {
-          title: "Extra cost per year",
+          title: "Cost per year",
           key: "c",
           align: "right",
-          width: 150,
+          width: 110,
           render: (_, o) => (o.extraCostEur === 0 ? "same price" : o.extraCostEur < 0 ? `saves ${formatEur(-o.extraCostEur, 0)}` : formatEur(o.extraCostEur, 0)),
         },
       ]}

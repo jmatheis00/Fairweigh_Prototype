@@ -1,13 +1,14 @@
 "use client";
 
 import { ArrowDownOutlined, ArrowRightOutlined, CalculatorOutlined, CheckCircleOutlined, CloudOutlined, EuroOutlined, InfoCircleOutlined, SafetyCertificateOutlined, SwapOutlined } from "@ant-design/icons";
-import { Alert, Button, Card, Flex, Table, Tag, Tooltip, Typography } from "antd";
+import { Alert, Button, Card, Flex, Table, Tooltip, Typography } from "antd";
 import { useEffect, useMemo, useState } from "react";
 import { abatementOptions, co2TargetPath, formatDay, impactStats, purchasedCo2, type AbatementOption, periodOptions, type DecisionRecord, type DemoSettings, type PurchaseOrderRecord } from "@scc/shared";
 import { api } from "@/lib/api";
-import { formatMonth, formatNumber, shortPartName, formatEur, formatSignedEur } from "@/lib/labels";
+import { formatMonth, formatNumber, shortPartName, formatEur } from "@/lib/labels";
 import { shortName } from "@/lib/names";
 import { PageHeader } from "./page-header";
+import { InfoTip } from "./info-tip";
 import { AbatementTable, Co2TargetChart } from "./analytics-charts";
 import { BRAND } from "@/lib/theme";
 import { FilterBar, defaultFilter, type StatsFilter } from "./filter-bar";
@@ -15,7 +16,6 @@ import { FilterBar, defaultFilter, type StatsFilter } from "./filter-bar";
 const eur = (n: number, digits = 0) => formatEur(n, digits);
 /** A cost change in words, so a saving never reads as a negative cost. */
 const costChange = (n: number) => (n < 0 ? `saves ${formatEur(-n, 0)}` : n > 0 ? `costs ${formatEur(n, 0)} more` : "same cost");
-const signedEur = (n: number) => formatSignedEur(n, 0);
 
 interface Props {
   /** Opens a decision in the Decision Log, or a supplier's details in a side panel (the page stays). */
@@ -80,7 +80,11 @@ export function ImpactPage({ settings, log, supplierNames, onOpenDecision, onOpe
   const products = settings.catalog
     .filter((p) => orders.some((o) => o.partId === p.partId))
     .map((p) => ({ partId: p.partId, label: shortPartName(p.partId, p.partName), name: p.partName }));
-  const recent = [...productLog].sort((a, b) => b.recordedAt.localeCompare(a.recordedAt)).slice(0, 6);
+  // The latest six decisions plus every decision with orders in the period, newest first.
+  const impactOf = (recordId: string) => stats.decisions.find((d) => d.decisionId === recordId);
+  const decisionRows = [...productLog]
+    .sort((a, b) => b.recordedAt.localeCompare(a.recordedAt))
+    .filter((r, i) => i < 6 || impactOf(r.recordId) !== undefined);
   const productOrders = active.partId ? orders.filter((o) => o.partId === active.partId) : orders;
   const purchased = purchasedCo2(productOrders, active.period);
   const trend =
@@ -88,9 +92,11 @@ export function ImpactPage({ settings, log, supplierNames, onOpenDecision, onOpe
       ? Math.round(((purchased.co2Tonnes - purchased.previous.co2Tonnes) / purchased.previous.co2Tonnes) * 1000) / 10
       : null;
   const path = co2TargetPath(productOrders);
-  const lastQuarter = path.slice(-3);
-  const pathGap = lastQuarter.length
-    ? (lastQuarter.reduce((a, p) => a + p.actualTonnes, 0) / lastQuarter.reduce((a, p) => a + p.targetTonnes, 0) - 1) * 100
+  // The chart always shows every month (a trend needs the history); the chosen period is shaded and its gap to the
+  // path is shown on top, so the chart follows the period filter too (20 Nov 2026).
+  const inPeriodPoints = path.filter((p) => p.month >= active.period.from && p.month <= active.period.to);
+  const pathGap = inPeriodPoints.length
+    ? (inPeriodPoints.reduce((a, p) => a + p.actualTonnes, 0) / inPeriodPoints.reduce((a, p) => a + p.targetTonnes, 0) - 1) * 100
     : null;
   const share = purchased.supplierSpecificSpendPercent;
 
@@ -193,7 +199,7 @@ export function ImpactPage({ settings, log, supplierNames, onOpenDecision, onOpe
             <span>
               CO₂ per month vs target path, {formatMonth(`${path[0]!.month}-01`)} – {formatMonth(`${path.at(-1)!.month}-01`)}
               {active.partId ? ", one product" : ""}{" "}
-              <Tooltip title="t CO₂e per month from purchase orders × CO₂ per piece. Dashed: the 2025 average reduced by 4.2 % per year (SBTi 1.5 °C cross-sector rate). Follows the product filter; shows all months.">
+              <Tooltip title="t CO₂e per month from purchase orders × CO₂ per piece. Dashed: the 2025 average reduced by 4.2 % per year (SBTi 1.5 °C cross-sector rate). Always shows all months; the chosen period is shaded.">
                 <InfoCircleOutlined aria-label="How this chart works" style={{ color: BRAND.textSecondary }} />
               </Tooltip>
             </span>
@@ -201,144 +207,134 @@ export function ImpactPage({ settings, log, supplierNames, onOpenDecision, onOpe
           extra={
             pathGap !== null ? (
               <Typography.Text style={{ fontSize: 12 }}>
-                Last quarter: {formatNumber(Math.abs(pathGap), 0)} % {pathGap <= 0 ? "below" : "above"} the path
+                {stats.period.label}: {formatNumber(Math.abs(pathGap), 0)} % {pathGap <= 0 ? "below" : "above"} the path
               </Typography.Text>
             ) : null
           }
         >
-          <Co2TargetChart points={path} width={1360} height={260} />
+          <Co2TargetChart points={path} width={1360} height={260} highlight={active.period} />
         </Card>
       )}
 
-      <Card
-        className="dash-card"
-        size="small"
-        title="Next best actions: supplier switches by cost per tonne CO₂ avoided"
-        styles={{ body: { padding: 0 } }}
-        extra={
-          <Typography.Text type="secondary" style={{ fontSize: 12 }}>
-            Today&apos;s quotations vs today&apos;s suppliers · cheapest CO₂ first · excluded offers left out
-          </Typography.Text>
-        }
-      >
-        {options2 === null ? null : (
-          <AbatementTable
-            options={active.partId ? options2.filter((o) => o.partId === active.partId) : options2}
-            name={name}
-            part={part}
-          />
-        )}
-      </Card>
-
-      <div className="sus-grid">
+      {/* Next best actions and the decisions side by side (20 Nov 2026): what to do next, what was done. */}
+      <div className="sus-grid sus-grid-stretch">
         <Card
           className="dash-card"
           size="small"
-          title={`Decisions behind the purchases, ${stats.period.label}`}
-          extra={
-            <Typography.Text type="secondary" style={{ fontSize: 12 }}>
-              Click a row for the full record
-            </Typography.Text>
+          title={
+            <span>
+              Next best actions, cheapest CO₂ first{" "}
+              <InfoTip
+                label="next best actions"
+                title="Supplier switches ranked by cost per tonne CO₂ avoided: today's quotations against today's suppliers, at last year's quantities. Excluded offers are left out."
+              />
+            </span>
           }
           styles={{ body: { padding: 0 } }}
         >
-          <Table
-            size="small"
-            pagination={false}
-            rowKey="decisionId"
-            dataSource={stats.decisions}
-            className="table-clickable"
-            onRow={(d) => {
-              // The decision id in the purchase orders is the record id in the decision log.
-              const record = log.find((r) => r.recordId === d.decisionId);
-              return record ? { onClick: () => onOpenDecision(record) } : {};
-            }}
-            locale={{ emptyText: "No supplier switches decided in Fairweigh in this period" }}
-            scroll={{ x: 620 }}
-            columns={[
-              {
-                title: "Product",
-                key: "p",
-                render: (_, d) => (
-                  <Flex vertical>
-                    <span>{part(d.partId)}</span>
-                    <Typography.Text type="secondary" style={{ fontSize: 12 }}>
-                      {d.decisionId}
-                    </Typography.Text>
-                  </Flex>
-                ),
-              },
-              {
-                title: "Switch",
-                key: "s",
-                render: (_, d) => (
-                  <span>
-                    {name(d.replacedSupplierId)} <ArrowRightOutlined aria-label="to" /> {name(d.supplierId)}
-                  </span>
-                ),
-              },
-              { title: "Cost change", key: "c", align: "right", width: 110, render: (_, d) => signedEur(d.extraCostEur) },
-              { title: "CO₂e avoided", key: "t", align: "right", width: 110, render: (_, d) => `${formatNumber(d.avoidedTonnes, 1)} t` },
-              {
-                title: "Per tonne",
-                key: "pt",
-                align: "right",
-                width: 120,
-                render: (_, d) =>
-                  d.costPerTonneEur === null ? "—" : d.costPerTonneEur < 0 ? <Tag color="success" icon={<CheckCircleOutlined />} style={{ marginInlineEnd: 0 }}>saves money</Tag> : eur(d.costPerTonneEur),
-              },
-            ]}
-          />
-          <Typography.Text type="secondary" style={{ fontSize: 12, display: "block", padding: "8px 12px 10px" }}>
-            Cost change = (new - old unit price) × quantity ordered; CO₂e avoided = (old - new CO₂ per piece) × quantity. Old values come from
-            the replaced supplier&apos;s price and CO₂ record.
-          </Typography.Text>
+          {options2 === null ? null : (
+            <AbatementTable
+              options={active.partId ? options2.filter((o) => o.partId === active.partId) : options2}
+              name={name}
+              part={part}
+            />
+          )}
         </Card>
 
+        {/* One table instead of "Decisions behind the purchases" and "Latest recorded decisions" (20 Nov 2026),
+            which listed the same decisions twice. */}
         <Card
           className="dash-card"
           size="small"
-          title="Latest recorded decisions (all dates)"
+          title={
+            <span>
+              Decisions in Fairweigh{" "}
+              <InfoTip
+                label="the decisions"
+                title={`Latest decisions from the decision log. CO₂e avoided = (old - new CO₂ per piece) × quantity ordered in ${stats.period.label}; cost change = (new - old unit price) × quantity. Old values come from the replaced supplier's price and CO₂ record. Every decision keeps its reason, weights, ranking and sources, so it can be explained in an audit.`}
+              />
+            </span>
+          }
           extra={
             <Typography.Text type="secondary" style={{ fontSize: 12 }}>
-              Click a row for the full record
+              Avoided and cost: orders in {stats.period.label} · click a row for the record
             </Typography.Text>
           }
           styles={{ body: { padding: 0 } }}
         >
-          <Table
+          <Table<DecisionRecord>
             size="small"
             pagination={false}
             rowKey="recordId"
-            dataSource={recent}
-            scroll={{ x: 560 }}
+            dataSource={decisionRows}
+            scroll={{ x: 600 }}
             className="table-clickable"
             onRow={(r) => ({ onClick: () => onOpenDecision(r) })}
+            locale={{ emptyText: "No decisions recorded yet" }}
             columns={[
-              { title: "Date", key: "d", width: 110, render: (_, r) => formatDay(r.recordedAt) },
-              { title: "Product", key: "p", render: (_, r) => part(r.partId) },
+              { title: "Date", key: "d", width: 104, render: (_, r) => formatDay(r.recordedAt) },
               {
-                title: "Chosen",
+                title: "Switch",
+                key: "s",
+                render: (_, r) => {
+                  const impact = impactOf(r.recordId);
+                  const from = impact?.replacedSupplierId ?? r.vsCurrent?.supplierId ?? null;
+                  return (
+                    <Flex vertical align="start">
+                      <strong>{part(r.partId)}</strong>
+                      <span>
+                        {from && from !== r.chosenSupplierId && (
+                          <>
+                            {name(from)} <ArrowRightOutlined aria-label="to" />{" "}
+                          </>
+                        )}
+                        <Button
+                          type="link"
+                          size="small"
+                          className="inline-link"
+                          style={{ fontSize: "inherit" }}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            onOpenSupplier(r.chosenSupplierId);
+                          }}
+                        >
+                          {name(r.chosenSupplierId)}
+                        </Button>
+                      </span>
+                    </Flex>
+                  );
+                },
+              },
+              {
+                title: "CO₂e avoided",
+                key: "t",
+                align: "right",
+                width: 100,
+                render: (_, r) => {
+                  const impact = impactOf(r.recordId);
+                  return impact ? (
+                    `${formatNumber(impact.avoidedTonnes, 1)} t`
+                  ) : (
+                    <Typography.Text type="secondary" style={{ fontSize: 12 }}>
+                      no orders
+                    </Typography.Text>
+                  );
+                },
+              },
+              {
+                title: "Cost change",
                 key: "c",
-                render: (_, r) => (
-                  <Button
-                    type="link"
-                    size="small"
-                    className="inline-link"
-                    style={{ fontSize: "inherit" }}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      onOpenSupplier(r.chosenSupplierId);
-                    }}
-                  >
-                    {name(r.chosenSupplierId)}
-                  </Button>
-                ),
+                align: "right",
+                width: 105,
+                render: (_, r) => {
+                  const impact = impactOf(r.recordId);
+                  return impact ? costChange(impact.extraCostEur) : "—";
+                },
               },
               {
                 title: "Recommendation",
                 key: "r",
-                width: 150,
+                width: 120,
                 render: (_, r) =>
                   r.followsRecommendation ? (
                     <span>
@@ -350,12 +346,8 @@ export function ImpactPage({ settings, log, supplierNames, onOpenDecision, onOpe
                     </span>
                   ),
               },
-              { title: "By", key: "b", width: 90, render: (_, r) => r.decidedBy?.name ?? "—" },
             ]}
           />
-          <Typography.Text type="secondary" style={{ fontSize: 12, display: "block", padding: "8px 12px 10px" }}>
-            Every decision keeps its reason, weights, ranking and sources in the decision log, so it can be explained in an audit.
-          </Typography.Text>
         </Card>
       </div>
     </Flex>

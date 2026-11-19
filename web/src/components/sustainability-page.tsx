@@ -157,8 +157,8 @@ export function SustainabilityPage({
         source={`Sources: client ERP, rating partner, PCF exchange · active suppliers = active contract (${stats.activeSuppliers})`}
       />
 
-      {/* One tile above each list it filters (20 Nov 2026). */}
-      <div className="sus-grid">
+      {/* One tile above each list it filters, both the same height (20 Nov 2026). */}
+      <div className="sus-grid sus-grid-stretch">
         <Card className="dash-card" size="small">
           <div className="kpi-label"><TeamOutlined /> Suppliers with sufficient sustainability data, today</div>
           <div className={`kpi-value ${toneOf((100 * lv.sufficient) / stats.allSuppliers, 80, 50)}`}>
