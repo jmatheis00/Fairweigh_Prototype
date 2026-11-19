@@ -49,7 +49,8 @@ export function formatMonth(isoDate: string): string {
 
 /** Short label for a knock-out reason (decision engine, rules K2/K3 and fine notices). */
 export function knockOutLabel(reason: string): string {
-  if (reason.startsWith("LkSG")) return "Excluded: LkSG, no audit";
+  // Says it all, so it needs no tooltip (19 Nov 2026); the other two keep the finding in a tooltip.
+  if (reason.startsWith("LkSG")) return "Excluded: LkSG High, no SA8000";
   if (reason.startsWith("Child or forced labour")) return "Excluded: child or forced labour";
   return "Excluded: proven violation";
 }

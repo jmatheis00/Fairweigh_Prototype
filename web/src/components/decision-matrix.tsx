@@ -334,13 +334,17 @@ export function DecisionMatrix({ run, result, supplierNames, selectedId, onOpen,
   const renderNotes = (row: Row) => (
             // Notes as small text lines with an icon instead of grey boxes (16 Nov 2026): lighter under the name.
             <Flex vertical gap={2} align="flex-start">
-              {row.exclusion && (
-                <Tooltip title={`${row.exclusion.replace(/^EXCLUDED: /, "")}.`}>
-                  <span className="matrix-note note-bad" tabIndex={0}>
-                    <StopOutlined aria-hidden /> {knockOutLabel(row.exclusion.replace(/^EXCLUDED: /, ""))}
+              {row.exclusion && (() => {
+                const reason = row.exclusion.replace(/^EXCLUDED: /, "");
+                // The LkSG label says it all; proven violations and labour reports keep the finding in a tooltip.
+                const hasMore = !reason.startsWith("LkSG");
+                const note = (
+                  <span className="matrix-note note-bad" tabIndex={hasMore ? 0 : undefined}>
+                    <StopOutlined aria-hidden /> {knockOutLabel(reason)}
                   </span>
-                </Tooltip>
-              )}
+                );
+                return hasMore ? <Tooltip title={`${reason}.`}>{note}</Tooltip> : note;
+              })()}
               {/* An excluded offer shows only its knock-out reason; its other warnings are in the offer side panel. */}
               {!row.exclusion && (() => {
                 const max = 3;
