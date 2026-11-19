@@ -3,7 +3,7 @@
 import { ArrowDownOutlined, ArrowUpOutlined, FileSearchOutlined, MailOutlined, MinusOutlined, SafetyCertificateOutlined, WarningOutlined } from "@ant-design/icons";
 import { Button, Flex, Tag, Tooltip, Typography } from "antd";
 import { CRITERIA, compareWithBaseline, formatDay, totalCo2Tonnes, totalCostEur, verifiedEvidence, type AgentRun, type DecisionResult } from "@scc/shared";
-import { SCORE_BAND_LABEL, formatEur, formatNumber, formatVsToday, formatVsTodayShort, knockOutLabel, scoreBand } from "@/lib/labels";
+import { SCORE_BAND_LABEL, formatEur, formatNumber, formatVsToday, formatVsTodayShort, AS_TODAY, knockOutLabel, scoreBand } from "@/lib/labels";
 import { shortName } from "@/lib/names";
 import { priceRequestMailto } from "@/lib/price-request";
 
@@ -178,7 +178,7 @@ export function RecommendationBlock(props: BlockProps) {
               </Tooltip>
               <Tooltip title={`${formatVsToday(rec.score)}: weighted average of how many % better or worse the offer is than today on each criterion (up to 50 % either way). ${SCORE_BAND_LABEL[scoreBand(rec.score)]}.`}>
                 <span tabIndex={0} className={`score-pill score-${scoreBand(rec.score)}`} aria-label={formatVsToday(rec.score)}>
-                  {formatVsTodayShort(rec.score) === "same" ? "Same as today" : formatVsTodayShort(rec.score)}
+                  {formatVsTodayShort(rec.score) === AS_TODAY ? "Same as today" : formatVsTodayShort(rec.score)}
                 </span>
               </Tooltip>
             </div>
@@ -214,7 +214,7 @@ export function RecommendationBlock(props: BlockProps) {
                   className="rec-could-lead"
                   style={{ marginInlineEnd: 0, marginTop: 4 }}
                 >
-                  {name(c.supplierId)} could be ahead (up to {formatVsTodayShort(c.high)}) · request a sample
+                  {name(c.supplierId)} could be ahead (up to {formatVsTodayShort(c.high) === AS_TODAY ? "the same as today" : formatVsTodayShort(c.high)}) · request a sample
                 </Tag>
               </Tooltip>
             ))}

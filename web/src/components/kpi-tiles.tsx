@@ -4,7 +4,7 @@ import { CheckCircleOutlined, CloudOutlined, EuroOutlined, InfoCircleOutlined, R
 import type { ReactNode } from "react";
 import { Button, Card, Flex, Table, Tag, Tooltip, Typography } from "antd";
 import { CRITERIA, cellEvidence, compareWithBaseline, isSupplierSpecific, percentBetter, type Benchmark, type Criterion, type AgentRun, type DecisionResult, type Weights, type WeightSensitivity } from "@scc/shared";
-import { TOPIC_LABEL, formatNumber, formatEur, formatCriterionVsToday, formatDiff, formatVsToday, formatVsTodayShort } from "@/lib/labels";
+import { TOPIC_LABEL, formatNumber, formatEur, formatCriterionVsToday, formatDiff, formatVsToday, formatVsTodayShort, AS_TODAY } from "@/lib/labels";
 import { shortName } from "@/lib/names";
 import { Delta, decisionSummaryParts, signed } from "./decision-summary";
 
@@ -187,9 +187,9 @@ export function RecommendationDetails({
             </div>
             <div style={{ textAlign: "right", flex: "none" }}>
               <div style={{ fontSize: 32, fontWeight: 600, lineHeight: 1 }}>
-                {formatVsTodayShort(rec.score) === "same" ? "Same" : formatVsTodayShort(rec.score)}
+                {formatVsTodayShort(rec.score) === AS_TODAY ? "Same" : formatVsTodayShort(rec.score)}
                 <Typography.Text type="secondary" style={{ fontSize: 14, fontWeight: 400 }}>
-                  {formatVsTodayShort(rec.score) === "same" ? " as today" : " than today"}
+                  {formatVsTodayShort(rec.score) === AS_TODAY ? " as today" : " than today"}
                 </Typography.Text>
               </div>
               <Typography.Text type="secondary" style={{ fontSize: 12 }}>
