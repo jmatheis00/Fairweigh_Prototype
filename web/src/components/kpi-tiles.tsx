@@ -366,7 +366,7 @@ export function RecommendationDetails({
       </ul>
 
       <div className="kpi-ai-note" style={{ marginTop: 16 }}>
-        <RobotOutlined aria-hidden /> AI suggestion: AI collects the evidence, fixed rules rank it. You decide.{" "}
+        <RobotOutlined aria-hidden /> AI collects the evidence, fixed rules rank it. You decide.{" "}
         <Button type="link" size="small" className="inline-link" onClick={onExplainScore}>
           How is the score calculated?
         </Button>

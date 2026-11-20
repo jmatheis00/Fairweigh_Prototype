@@ -198,6 +198,17 @@ export function abatementOptions(input: {
   return out.sort((a, b) => a.costPerTonneEur - b.costPerTonneEur);
 }
 
+/**
+ * Leaves out switches the Decision Log already holds (20 Nov 2026): once a buyer has awarded a part to a supplier,
+ * that switch is done, not a next action, even before the first order reaches the ERP.
+ */
+export function withoutDecidedSwitches(
+  options: AbatementOption[],
+  decisions: ReadonlyArray<{ partId: string; chosenSupplierId: string }>,
+): AbatementOption[] {
+  return options.filter((o) => !decisions.some((d) => d.partId === o.partId && d.chosenSupplierId === o.toSupplierId));
+}
+
 /* ------------------------------------------------------------------ */
 /* Purchased CO₂ per month against a target path                        */
 /* ------------------------------------------------------------------ */
