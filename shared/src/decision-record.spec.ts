@@ -63,6 +63,12 @@ describe('buildDecisionRecord', () => {
 
   it('needs a reason only when the choice differs from the recommendation', () => {
     expect(buildDecisionRecord({ ...base, chosenSupplierId: 'A', reason: '' }).reason).toBe('Follows the recommendation.');
+  });
+
+  it('says whether the buyer kept the current supplier', () => {
+    expect(buildDecisionRecord({ ...base, chosenSupplierId: 'A', reason: '', currentSupplierId: 'A' }).keptCurrentSupplier).toBe(true);
+    expect(buildDecisionRecord({ ...base, chosenSupplierId: 'A', reason: '', currentSupplierId: 'B' }).keptCurrentSupplier).toBe(false);
+    expect(buildDecisionRecord({ ...base, chosenSupplierId: 'A', reason: '' }).keptCurrentSupplier).toBe(false);
     expect(() => buildDecisionRecord({ ...base, chosenSupplierId: 'B', reason: '' })).toThrow('reason');
   });
 

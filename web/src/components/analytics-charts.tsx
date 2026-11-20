@@ -272,7 +272,7 @@ export function AbatementTable({
       dataSource={options}
       className={onOpenSupplier ? "table-clickable" : undefined}
       onRow={(o) => (onOpenSupplier ? { onClick: () => onOpenSupplier(o.toSupplierId) } : {})}
-      locale={{ emptyText: "No switch avoids CO₂ against today's suppliers." }}
+      locale={{ emptyText: "No open switch: none avoids CO₂, or it is already decided or declined in Fairweigh." }}
       scroll={{ x: 560 }}
       aria-label="Supplier switches by cost per tonne CO₂ avoided"
       columns={[

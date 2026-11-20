@@ -227,7 +227,7 @@ export function ImpactPage({ settings, log, supplierNames, onOpenDecision, onOpe
               Next best actions, cheapest CO₂ first{" "}
               <InfoTip
                 label="next best actions"
-                title="Supplier switches ranked by cost per tonne CO₂ avoided: today's quotations against today's suppliers, at last year's quantities. Excluded offers and switches already decided in Fairweigh are left out."
+                title="Supplier switches ranked by cost per tonne CO₂ avoided: today's quotations against today's suppliers, at last year's quantities. Left out: excluded offers, switches already decided in Fairweigh, and all switches for a product whose latest decision kept the current supplier."
               />
             </span>
           }

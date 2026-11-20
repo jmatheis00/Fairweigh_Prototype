@@ -67,6 +67,15 @@ describe('abatementOptions', () => {
     expect(decided.map((o) => o.toSupplierId)).toEqual(['B']);
     expect(withoutDecidedSwitches(options, [])).toEqual(options);
   });
+
+  it('leaves out every switch for a part whose latest decision kept the current supplier', () => {
+    // An earlier switch to A (as in the July examples) does not count as "kept": the switches stay listed.
+    expect(withoutDecidedSwitches(options, [{ partId: 'P', chosenSupplierId: 'A', recordedAt: '2026-07-03' }])).toEqual(options);
+    const kept = { partId: 'P', chosenSupplierId: 'A', recordedAt: '2026-11-20', keptCurrentSupplier: true };
+    expect(withoutDecidedSwitches(options, [{ partId: 'P', chosenSupplierId: 'A', recordedAt: '2026-07-03' }, kept])).toEqual([]);
+    // A later switch decision replaces the "kept" one: only the switch it decided leaves the list.
+    expect(withoutDecidedSwitches(options, [kept, { partId: 'P', chosenSupplierId: 'C', recordedAt: '2026-11-21' }]).map((o) => o.toSupplierId)).toEqual(['B']);
+  });
 });
 
 describe('co2TargetPath', () => {

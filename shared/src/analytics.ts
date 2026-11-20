@@ -199,14 +199,24 @@ export function abatementOptions(input: {
 }
 
 /**
- * Leaves out switches the Decision Log already holds (20 Nov 2026): once a buyer has awarded a part to a supplier,
- * that switch is done, not a next action, even before the first order reaches the ERP.
+ * Leaves out switches the Decision Log already settles (20 Nov 2026):
+ * - decided: a buyer awarded the part to that supplier, even before the first order reaches the ERP;
+ * - declined: the latest decision for the part kept today's supplier, so every switch for that part was turned down.
  */
 export function withoutDecidedSwitches(
   options: AbatementOption[],
-  decisions: ReadonlyArray<{ partId: string; chosenSupplierId: string }>,
+  decisions: ReadonlyArray<{ partId: string; chosenSupplierId: string; recordedAt?: string; keptCurrentSupplier?: boolean }>,
 ): AbatementOption[] {
-  return options.filter((o) => !decisions.some((d) => d.partId === o.partId && d.chosenSupplierId === o.toSupplierId));
+  const latest = new Map<string, (typeof decisions)[number]>();
+  for (const d of decisions) {
+    const seen = latest.get(d.partId);
+    if (!seen || (d.recordedAt ?? '') > (seen.recordedAt ?? '')) latest.set(d.partId, d);
+  }
+  return options.filter((o) => {
+    if (decisions.some((d) => d.partId === o.partId && d.chosenSupplierId === o.toSupplierId)) return false;
+    const last = latest.get(o.partId);
+    return !(last?.keptCurrentSupplier === true && last.chosenSupplierId === o.fromSupplierId);
+  });
 }
 
 /* ------------------------------------------------------------------ */
