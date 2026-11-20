@@ -231,6 +231,11 @@ export function ImpactPage({ settings, log, supplierNames, onOpenDecision, onOpe
               />
             </span>
           }
+          extra={
+            <Typography.Text type="secondary" style={{ fontSize: 12 }}>
+              Click a row for the new supplier
+            </Typography.Text>
+          }
           styles={{ body: { padding: 0 } }}
         >
           {options2 === null ? null : (
@@ -238,6 +243,7 @@ export function ImpactPage({ settings, log, supplierNames, onOpenDecision, onOpe
               options={withoutDecidedSwitches(active.partId ? options2.filter((o) => o.partId === active.partId) : options2, log)}
               name={name}
               part={part}
+              onOpenSupplier={onOpenSupplier}
             />
           )}
         </Card>

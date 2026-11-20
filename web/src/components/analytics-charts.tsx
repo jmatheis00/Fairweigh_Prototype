@@ -252,13 +252,26 @@ export function Co2TargetChart({
  * Next best actions as a table (feedback 17 Nov 2026): one row per switch, cheapest CO₂ first.
  * A table instead of bars, because a switch at the same price has 0 € per tonne and its bar looked empty.
  */
-export function AbatementTable({ options, name, part }: { options: AbatementOption[]; name: (id: string) => string; part: (id: string) => string }) {
+export function AbatementTable({
+  options,
+  name,
+  part,
+  onOpenSupplier,
+}: {
+  options: AbatementOption[];
+  name: (id: string) => string;
+  part: (id: string) => string;
+  /** A click on a row opens the suggested new supplier in the side panel (20 Nov 2026). */
+  onOpenSupplier?: (supplierId: string) => void;
+}) {
   return (
     <Table<AbatementOption>
       size="small"
       pagination={false}
       rowKey={(o) => `${o.partId}-${o.toSupplierId}`}
       dataSource={options}
+      className={onOpenSupplier ? "table-clickable" : undefined}
+      onRow={(o) => (onOpenSupplier ? { onClick: () => onOpenSupplier(o.toSupplierId) } : {})}
       locale={{ emptyText: "No switch avoids CO₂ against today's suppliers." }}
       scroll={{ x: 560 }}
       aria-label="Supplier switches by cost per tonne CO₂ avoided"
