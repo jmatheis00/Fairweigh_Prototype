@@ -65,6 +65,15 @@ describe('buildDecisionRecord', () => {
     expect(buildDecisionRecord({ ...base, chosenSupplierId: 'A', reason: '' }).reason).toBe('Follows the recommendation.');
   });
 
+  it('keeps the score range of a supplier that never delivered, as in the offer table', () => {
+    const withRange: DecisionResult = {
+      ...result,
+      ranked: [result.ranked[0]!, { ...result.ranked[1]!, scoreRange: { low: 52, high: 53.4 } }],
+    };
+    const record = buildDecisionRecord({ ...base, result: withRange, chosenSupplierId: 'A', reason: '' });
+    expect(record.ranking.map((r) => r.scoreRange ?? null)).toEqual([null, { low: 52, high: 53.4 }, null]);
+  });
+
   it('says whether the buyer kept the current supplier', () => {
     expect(buildDecisionRecord({ ...base, chosenSupplierId: 'A', reason: '', currentSupplierId: 'A' }).keptCurrentSupplier).toBe(true);
     expect(buildDecisionRecord({ ...base, chosenSupplierId: 'A', reason: '', currentSupplierId: 'B' }).keptCurrentSupplier).toBe(false);

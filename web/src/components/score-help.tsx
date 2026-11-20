@@ -86,7 +86,7 @@ export function ScoreHelp({ open, title, onClose, rules, weights, defaults }: Pr
           the material only, so it does not count towards the score.
         </li>
         <li>
-          <strong>Gaps never help.</strong> A missing or unverified value counts as 50 % worse and gets a visible notice. A supplier
+          <strong>Gaps never help.</strong> A missing or unverified value counts as 50 % worse (0 points) and gets a visible notice. A supplier
           that never delivered gets a range for quality and delivery and is ranked after all offers with real data.
         </li>
         <li>

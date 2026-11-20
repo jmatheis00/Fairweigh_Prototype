@@ -8,7 +8,7 @@ type Actor = "You" | "AI agent" | "Code";
 const STEPS: { title: string; actor: Actor; text: string }[] = [
   { title: "Request", actor: "You", text: "Choose product, quantity and needed-by date." },
   { title: "Collect evidence", actor: "AI agent", text: "Gathers price, quality, CO₂ and delivery for every offer from ERP, ratings, CO₂ data and documents." },
-  { title: "Check sources", actor: "Code", text: "Checks every value against its source. A missing or unverified value counts as 0 points; a supplier that never delivered gets a range and ranks after real data." },
+  { title: "Check sources", actor: "Code", text: "Checks every value against its source. A missing or unverified value counts as 50 % worse than today (0 points); a supplier that never delivered gets a range and ranks after real data." },
   { title: "Apply knock-outs", actor: "Code", text: "Excludes offers with a proven violation, LkSG risk High without a social audit, or child or forced labour." },
   { title: "Score and rank", actor: "Code", text: "Each value in % better or worse than today, the average of our last three purchases, weighted by your weights. Same input, same ranking." },
   { title: "Decide", actor: "You", text: "Pick an offer and record the reason. Every decision goes into the decision log." },
