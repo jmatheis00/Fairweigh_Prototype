@@ -1,9 +1,7 @@
 "use client";
 
-import { Tabs } from "antd";
 import type { DecisionRecord, DemoSettings } from "@scc/shared";
 import { ImpactPage } from "./impact-page";
-import { PurchaseOverview } from "./purchase-overview";
 
 interface Props {
   settings: DemoSettings;
@@ -11,25 +9,15 @@ interface Props {
   supplierNames: Record<string, string>;
   onOpenDecision: (record: DecisionRecord) => void;
   onOpenSupplier: (supplierId: string) => void;
-  /** Sarah gets one page instead of two tabs (decision 20 Nov 2026). */
+  /** The sustainability manager sees the share of supplier-specific CO₂ data instead of spend, and no order list. */
   forSustainability?: boolean;
 }
 
 /**
- * Results and reports (expert interviews, 10 Nov 2026): the overall analyses live here,
- * apart from the individual purchase. Two tabs, so overview and single decisions are not mixed. The sustainability
- * manager gets one page with the CO₂ figures and the decisions, without the purchase order list (20 Nov 2026).
+ * Results and reports (expert interviews, 10 Nov 2026): the overall analyses live here, apart from the individual
+ * purchase. One page for every role since 20 Nov 2026 (before: two tabs for the category manager): purchased CO₂
+ * against the target path, the next best actions and the decisions; the buyer also sees the purchase orders.
  */
-export function ResultsPage({ forSustainability = false, ...props }: Props) {
-  if (forSustainability) return <ImpactPage {...props} forSustainability />;
-  return (
-    <Tabs
-      className="results-tabs"
-      defaultActiveKey="decisions"
-      items={[
-        { key: "decisions", label: "Results of Fairweigh decisions", children: <ImpactPage {...props} /> },
-        { key: "purchasing", label: "Purchasing report", children: <PurchaseOverview catalog={props.settings.catalog} /> },
-      ]}
-    />
-  );
+export function ResultsPage(props: Props) {
+  return <ImpactPage {...props} />;
 }

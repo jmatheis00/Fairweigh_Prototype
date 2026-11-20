@@ -107,8 +107,8 @@ describe('sustainabilityStats', () => {
     const orders = [...input.orders, { ...po('B', 'P2', '2026-09-01', 1, 5000), pcfBadge: 'Industry average' as const }];
     const p = purchasedCo2(orders, q3);
     // 30 t + 10 t + 5 t; spend 3,000 + 2,000 supplier-specific of 10,000 in total.
-    expect([p.co2Tonnes, p.supplierSpecificSpendPercent]).toEqual([45, 50]);
-    expect(p.previous).toEqual({ period: { from: '2026-04', to: '2026-06', label: 'Q2 2026' }, co2Tonnes: 99, supplierSpecificSpendPercent: 100 });
+    expect([p.co2Tonnes, p.spendEur, p.supplierSpecificSpendPercent]).toEqual([45, 10000, 50]);
+    expect(p.previous).toEqual({ period: { from: '2026-04', to: '2026-06', label: 'Q2 2026' }, co2Tonnes: 99, spendEur: 1000, supplierSpecificSpendPercent: 100 });
     const s = sustainabilityStats({ ...input, orders })!;
     expect([s.co2Tonnes, s.supplierSpecificSpendPercent, s.previous?.co2Tonnes]).toEqual([p.co2Tonnes, p.supplierSpecificSpendPercent, 99]);
     expect(purchasedCo2(orders, { from: '2026-04', to: '2026-06', label: 'Q2 2026' }).previous).toBeNull();

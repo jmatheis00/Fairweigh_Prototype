@@ -91,14 +91,16 @@ const percent = (part: number, whole: number) => (whole > 0 ? round1((part / who
 export interface PurchasedCo2 {
   period: Period;
   co2Tonnes: number;
+  /** Order value: quantity × unit price, in EUR. */
+  spendEur: number;
   /** Share of spend whose CO₂ value comes from the supplier (not an estimate or industry average), 0–100. */
   supplierSpecificSpendPercent: number | null;
   /** The period before, or null without orders there. */
-  previous: { period: Period; co2Tonnes: number; supplierSpecificSpendPercent: number | null } | null;
+  previous: { period: Period; co2Tonnes: number; spendEur: number; supplierSpecificSpendPercent: number | null } | null;
 }
 
 /**
- * Purchased CO₂e (Scope 3, cat. 1) of a period and the period before: order quantity × CO₂ per piece.
+ * Purchased CO₂e (Scope 3, cat. 1) and spend of a period and the period before: order quantity × CO₂ per piece and × unit price.
  * One function for the Results page and the sustainability stats, so both show the same numbers (20 Nov 2026).
  */
 export function purchasedCo2(orders: PurchaseOrderRecord[], period: Period): PurchasedCo2 {
@@ -107,6 +109,7 @@ export function purchasedCo2(orders: PurchaseOrderRecord[], period: Period): Pur
     const specific = list.filter((o) => isSupplierSpecific(o.pcfBadge)).reduce((a, o) => a + o.unitPriceEur * o.quantity, 0);
     return {
       co2Tonnes: round1(list.reduce((a, o) => a + (o.pcfKgPerPiece * o.quantity) / 1000, 0)),
+      spendEur: Math.round(spend * 100) / 100,
       supplierSpecificSpendPercent: percent(specific, spend),
     };
   };

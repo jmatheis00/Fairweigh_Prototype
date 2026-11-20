@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowDownOutlined, ArrowRightOutlined, CalculatorOutlined, CheckCircleOutlined, CloudOutlined, EuroOutlined, InfoCircleOutlined, SafetyCertificateOutlined, SwapOutlined } from "@ant-design/icons";
+import { ArrowDownOutlined, ArrowRightOutlined, CheckCircleOutlined, CloudOutlined, EuroOutlined, InfoCircleOutlined, SafetyCertificateOutlined, SwapOutlined } from "@ant-design/icons";
 import { Alert, Button, Card, Flex, Table, Tooltip, Typography } from "antd";
 import { useEffect, useMemo, useState } from "react";
 import { abatementOptions, co2TargetPath, formatDay, impactStats, purchasedCo2, type AbatementOption, periodOptions, type DecisionRecord, type DemoSettings, type PurchaseOrderRecord } from "@scc/shared";
@@ -12,6 +12,7 @@ import { InfoTip } from "./info-tip";
 import { AbatementTable, Co2TargetChart } from "./analytics-charts";
 import { BRAND } from "@/lib/theme";
 import { FilterBar, defaultFilter, type StatsFilter } from "./filter-bar";
+import { PurchaseOrdersCard } from "./purchase-orders-card";
 
 const eur = (n: number, digits = 0) => formatEur(n, digits);
 /** A cost change in words, so a saving never reads as a negative cost. */
@@ -26,13 +27,13 @@ interface Props {
   log: DecisionRecord[];
   supplierNames: Record<string, string>;
   /**
-   * Sarah's single Results page (decision 20 Nov 2026): purchased CO₂ against the target path plus what the decisions
-   * changed, in one page instead of two tabs. The category manager keeps the two tabs.
+   * One Results page for every role (decisions 20 Nov 2026). The sustainability manager sees the share of
+   * supplier-specific CO₂ data as third tile; a buyer sees spend there and the purchase orders at the bottom.
    */
   forSustainability?: boolean;
 }
 
-/** What the Fairweigh decisions cost and what they avoided; for Sarah also purchased CO₂ against the target path. */
+/** Results: purchased CO₂ against the target path, and what the Fairweigh decisions cost and avoided. */
 export function ImpactPage({ settings, log, supplierNames, onOpenDecision, onOpenSupplier, forSustainability = false }: Props) {
   const [orders, setOrders] = useState<PurchaseOrderRecord[] | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -105,6 +106,14 @@ export function ImpactPage({ settings, log, supplierNames, onOpenDecision, onOpe
     ? (inPeriodPoints.reduce((a, p) => a + p.actualTonnes, 0) / inPeriodPoints.reduce((a, p) => a + p.targetTonnes, 0) - 1) * 100
     : null;
   const share = purchased.supplierSpecificSpendPercent;
+  const spendTrend =
+    purchased.previous && purchased.previous.spendEur > 0
+      ? Math.round(((purchased.spendEur - purchased.previous.spendEur) / purchased.previous.spendEur) * 1000) / 10
+      : null;
+  // Orders of the chosen period and product, newest first, for the buyer's order list.
+  const periodOrders = productOrders
+    .filter((o) => o.orderDate.slice(0, 7) >= active.period.from && o.orderDate.slice(0, 7) <= active.period.to)
+    .sort((a, b) => b.orderDate.localeCompare(a.orderDate));
 
   const avoidedCard = (
     <Card className="dash-card" size="small">
@@ -133,34 +142,31 @@ export function ImpactPage({ settings, log, supplierNames, onOpenDecision, onOpe
   return (
     <Flex vertical gap={12}>
       <PageHeader
-        title={forSustainability ? `Results, ${stats.period.label}` : `Results of Fairweigh decisions, ${stats.period.label}`}
-        subtitle={
-          forSustainability
-            ? "How much CO₂ you bought against the target path, and what the supplier switches decided in Fairweigh changed."
-            : "What the supplier switches decided in Fairweigh changed in CO₂ and in cost."
-        }
+        title={`Results, ${stats.period.label}`}
+        subtitle="How much CO₂ you bought against the target path, and what the supplier switches decided in Fairweigh changed."
         source="Sources: purchase orders in the client ERP, decision log"
       />
 
       <FilterBar options={options} value={active} onChange={setFilter} products={products} />
 
-      {forSustainability ? (
-        <div className="kpi-grid kpi-grid-4">
-          <Card className="dash-card" size="small">
-            <div className="kpi-label"><CloudOutlined /> CO₂e purchased, {stats.period.label} (Scope 3, cat. 1)</div>
-            <div className="kpi-value">{formatNumber(purchased.co2Tonnes, 1)} t</div>
-            <div className="kpi-sub">
-              {trend !== null && purchased.previous ? (
-                <span className={trend <= 0 ? "delta delta-better" : "delta delta-worse"}>
-                  {trend <= 0 ? "↓" : "↑"} {formatNumber(Math.abs(trend), 1)} % {trend <= 0 ? "lower" : "higher"} vs {purchased.previous.period.label} (
-                  {formatNumber(purchased.previous.co2Tonnes, 1)} t)
-                </span>
-              ) : (
-                "No orders in the period before"
-              )}
-            </div>
-          </Card>
-          {avoidedCard}
+      {/* One page for every role (20 Nov 2026); only the third tile differs: data quality for Sarah, spend for buyers. */}
+      <div className="kpi-grid kpi-grid-4">
+        <Card className="dash-card" size="small">
+          <div className="kpi-label"><CloudOutlined /> CO₂e purchased, {stats.period.label} (Scope 3, cat. 1)</div>
+          <div className="kpi-value">{formatNumber(purchased.co2Tonnes, 1)} t</div>
+          <div className="kpi-sub">
+            {trend !== null && purchased.previous ? (
+              <span className={trend <= 0 ? "delta delta-better" : "delta delta-worse"}>
+                {trend <= 0 ? "↓" : "↑"} {formatNumber(Math.abs(trend), 1)} % {trend <= 0 ? "lower" : "higher"} vs {purchased.previous.period.label} (
+                {formatNumber(purchased.previous.co2Tonnes, 1)} t)
+              </span>
+            ) : (
+              "No orders in the period before"
+            )}
+          </div>
+        </Card>
+        {avoidedCard}
+        {forSustainability ? (
           <Card className="dash-card" size="small">
             <div className="kpi-label"><SafetyCertificateOutlined /> Spend with supplier-specific CO₂ data, {stats.period.label}</div>
             <div className={`kpi-value ${share === null ? "" : share >= 80 ? "kpi-good" : share >= 50 ? "kpi-warn" : "kpi-bad"}`}>
@@ -171,33 +177,22 @@ export function ImpactPage({ settings, log, supplierNames, onOpenDecision, onOpe
               rest estimated or industry average
             </div>
           </Card>
-          {costCard}
-        </div>
-      ) : (
-      <div className="kpi-grid kpi-grid-4">
-        <Card className="dash-card" size="small">
-          <div className="kpi-label"><SwapOutlined /> Supplier switches decided in Fairweigh</div>
-          <div className="kpi-value">{stats.decisions.length}</div>
-          <div className="kpi-sub">
-            {stats.recordedDecisions} decisions in the log
-            {stats.followsRecommendationPercent !== null ? ` · ${formatNumber(stats.followsRecommendationPercent, 0)} % follow the recommendation` : ""}
-          </div>
-        </Card>
-        {avoidedCard}
+        ) : (
+          <Card className="dash-card" size="small">
+            <div className="kpi-label"><EuroOutlined /> Spend, {stats.period.label}</div>
+            <div className="kpi-value">{eur(purchased.spendEur)}</div>
+            {/* No good or bad colour: more spend can simply mean more orders. */}
+            <div className="kpi-sub">
+              {spendTrend !== null && purchased.previous
+                ? `${spendTrend <= 0 ? "↓" : "↑"} ${formatNumber(Math.abs(spendTrend), 1)} % ${spendTrend <= 0 ? "lower" : "higher"} vs ${purchased.previous.period.label} (${eur(purchased.previous.spendEur)})`
+                : "No orders in the period before"}
+            </div>
+          </Card>
+        )}
         {costCard}
-        <Card className="dash-card kpi-main" size="small">
-          <div className="kpi-label"><CalculatorOutlined /> {stats.costPerTonneEur !== null && stats.costPerTonneEur < 0 ? "Saved per tonne CO₂e avoided" : "Cost per tonne CO₂e avoided"}</div>
-          <div className={`kpi-value ${stats.costPerTonneEur !== null && stats.costPerTonneEur < 0 ? "kpi-good" : ""}`}>
-            {stats.costPerTonneEur === null ? "—" : eur(Math.abs(stats.costPerTonneEur))}
-          </div>
-          <div className="kpi-sub">
-            At the CO₂ price of the rules ({settings.co2PricePerTonneEur} €/t) the avoided CO₂ is worth {eur(stats.co2ValueEur)} · information only
-          </div>
-        </Card>
       </div>
-      )}
 
-      {forSustainability && path.length > 1 && (
+      {path.length > 1 && (
         <Card
           className="dash-card"
           size="small"
@@ -356,6 +351,8 @@ export function ImpactPage({ settings, log, supplierNames, onOpenDecision, onOpe
           />
         </Card>
       </div>
+
+      {!forSustainability && <PurchaseOrdersCard orders={periodOrders} periodLabel={stats.period.label} name={(id) => supplierNames[id] ?? id} part={part} />}
     </Flex>
   );
 }

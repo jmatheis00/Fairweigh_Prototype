@@ -200,7 +200,7 @@ export function SuppliersPage({
         dataSource={shown}
         // Fits a 1440 px laptop without sideways scrolling for every role (20 Nov 2026): country under the name,
         // spend and contract end in one column, short flag labels, headers may wrap. Narrower screens scroll.
-        scroll={{ y: "calc(100vh - 260px)", x: user.seesCommercials ? 1340 : 1225 }}
+        scroll={{ y: "calc(100vh - 232px)", x: user.seesCommercials ? 1340 : 1225 }}
         className="table-clickable"
         onRow={(r) => ({ onClick: () => setOpenId(r.key) })}
         rowClassName={(r) => (r.key === openId ? "cell-selected" : "")}
