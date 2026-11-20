@@ -5,7 +5,7 @@ import { Button, Collapse, Descriptions, Empty, Flex, Table, Tag, Typography } f
 import { CRITERIA, decisionsToCsv, formatDay, type Criterion, type DecisionRecord } from "@scc/shared";
 import { STATIC_PREVIEW } from "@/lib/api";
 import { downloadCsv } from "@/lib/decision-log";
-import { TOPIC_LABEL, formatDateTime, formatNumber, displayUnit, formatSignedEur, formatCriterionVsToday, formatVsToday, formatVsTodayShort } from "@/lib/labels";
+import { TOPIC_LABEL, formatDateTime, formatNumber, displayUnit, formatSignedEur, formatCriterionVsToday, formatVsToday, formatVsTodayShort, formatVsTodayRange, formatDiff } from "@/lib/labels";
 
 interface Props {
   records: DecisionRecord[];
@@ -105,7 +105,7 @@ export function DecisionLog({ records, supplierNames, partNames, storageAvailabl
                           {r.ranking.map((x) => (
                             <li key={x.supplierId}>
                               {supplier(x.supplierId)}{" "}
-                              {x.excluded ? "· excluded" : `· ${x.score === null ? "—" : formatVsToday(x.score)}${x.supplierId === r.recommendedSupplierId ? " · recommended" : ""}`}
+                              {x.excluded ? "· excluded" : `· ${x.score === null ? "—" : x.scoreRange ? `${formatVsTodayRange(x.scoreRange.low, x.scoreRange.high)} than today` : formatVsToday(x.score)}${x.supplierId === r.recommendedSupplierId ? " · recommended" : ""}`}
                             </li>
                           ))}
                         </ol>
@@ -219,7 +219,7 @@ function CalculationTable({ record: r, name }: { record: DecisionRecord; name: (
             render: (_, x) => (x.reference ? <span title={x.reference.basis}>{referenceText(x.c, x.reference.value)}</span> : "—"),
           },
           { title: "vs today", key: "p", align: "right", render: (_, x) => formatCriterionVsToday(x.points, x.missing) },
-          { title: "Adds", key: "a", align: "right", render: (_, x) => `${x.adds > 0 ? "+" : x.adds < 0 ? "-" : "±"}${formatNumber(Math.abs(x.adds), 1)} %` },
+          { title: "Adds", key: "a", align: "right", render: (_, x) => formatDiff(x.adds, 1, "0 %") },
         ]}
         summary={() => (
           <Table.Summary.Row>

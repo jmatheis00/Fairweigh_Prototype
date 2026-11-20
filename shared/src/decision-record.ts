@@ -30,7 +30,15 @@ export interface DecisionRecord {
   reason: string;
   weights: Weights;
   /** Points per criterion (0–100) are saved since 17 Nov 2026, so the calculation can be followed later. */
-  ranking: { rank: number | null; supplierId: string; score: number | null; excluded: boolean; points?: Record<Criterion, number> | null }[];
+  ranking: {
+    rank: number | null;
+    supplierId: string;
+    score: number | null;
+    excluded: boolean;
+    points?: Record<Criterion, number> | null;
+    /** Weakest to best score of a supplier that never delivered, as in the offer table (20 Nov 2026). */
+    scoreRange?: { low: number; high: number } | null;
+  }[];
   /** Reference values "today" the points were measured against (17 Nov 2026); null in older records. */
   reference?: Record<Criterion, { value: number; basis: string }> | null;
   /** Company default weights of the commodity group when the decision was made (10 Nov 2026). */
@@ -126,7 +134,14 @@ export function buildDecisionRecord(input: DecisionInput): DecisionRecord {
       ? (Object.fromEntries(CRITERIA.map((c) => [c, { value: input.reference![c].value, basis: input.reference![c].basis }])) as DecisionRecord['reference'])
       : null,
     ranking: [
-      ...result.ranked.map((r) => ({ rank: r.rank, supplierId: r.supplierId, score: r.score, excluded: false, points: { ...r.points } })),
+      ...result.ranked.map((r) => ({
+        rank: r.rank,
+        supplierId: r.supplierId,
+        score: r.score,
+        excluded: false,
+        points: { ...r.points },
+        scoreRange: r.scoreRange ? { ...r.scoreRange } : null,
+      })),
       ...result.excluded.map((x) => ({ rank: null, supplierId: x.supplierId, score: null, excluded: true, points: null })),
     ],
     evidence: run.evidence

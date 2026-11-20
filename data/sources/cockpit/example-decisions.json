@@ -21,7 +21,7 @@
       "chosenSupplierId": "S-0007",
       "recommendedSupplierId": "S-0007",
       "followsRecommendation": true,
-      "reason": "Switch from S-0001: 13.8 instead of 24.6 kg CO₂e per piece (supplier-specific vs supplier-specific) at EUR 46.92 instead of 48.30 (−2.9 %).",
+      "reason": "Switch from Mustermann Steel Castings GmbH: 13.8 instead of 24.6 kg CO₂e per piece (both supplier-specific) at 46.92 € instead of 48.30 € (2.9 % cheaper).",
       "weights": {
         "quality": 25,
         "price": 25,
@@ -62,7 +62,8 @@
             "price": 50,
             "co2": 50,
             "delivery": 50
-          }
+          },
+          "scoreRange": null
         },
         {
           "rank": 2,
@@ -74,7 +75,8 @@
             "price": 50,
             "co2": 0,
             "delivery": 51
-          }
+          },
+          "scoreRange": null
         },
         {
           "rank": 3,
@@ -86,7 +88,8 @@
             "price": 47.1,
             "co2": 0,
             "delivery": 42.9
-          }
+          },
+          "scoreRange": null
         },
         {
           "rank": 4,
@@ -98,6 +101,10 @@
             "price": 50,
             "co2": 51.4,
             "delivery": 42.9
+          },
+          "scoreRange": {
+            "low": 48.9,
+            "high": 50.5
           }
         },
         {
@@ -110,6 +117,10 @@
             "price": 58.8,
             "co2": 0,
             "delivery": 42.9
+          },
+          "scoreRange": {
+            "low": 35.7,
+            "high": 37.3
           }
         }
       ],
@@ -178,7 +189,7 @@
       "chosenSupplierId": "S-0021",
       "recommendedSupplierId": "S-0021",
       "followsRecommendation": true,
-      "reason": "Switch from S-0023: 10.9 instead of 16.4 kg CO₂e per piece (supplier-specific vs company estimate) at EUR 63.24 instead of 63.86 (−1.0 %).",
+      "reason": "Switch from Nordwick Magnet Wire GmbH: 10.9 instead of 16.4 kg CO₂e per piece (supplier-specific vs company estimate) at 63.24 € instead of 63.86 € (1.0 % cheaper).",
       "weights": {
         "quality": 20,
         "price": 20,
@@ -219,7 +230,8 @@
             "price": 50,
             "co2": 50,
             "delivery": 50
-          }
+          },
+          "scoreRange": null
         },
         {
           "rank": 2,
@@ -231,7 +243,8 @@
             "price": 53.9,
             "co2": 0,
             "delivery": 51.1
-          }
+          },
+          "scoreRange": null
         },
         {
           "rank": 3,
@@ -243,7 +256,8 @@
             "price": 48,
             "co2": 0,
             "delivery": 42.6
-          }
+          },
+          "scoreRange": null
         },
         {
           "rank": 4,
@@ -255,6 +269,10 @@
             "price": 53.9,
             "co2": 0,
             "delivery": 42.6
+          },
+          "scoreRange": {
+            "low": 29.2,
+            "high": 31.1
           }
         },
         {

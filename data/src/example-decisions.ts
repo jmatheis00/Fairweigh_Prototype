@@ -25,10 +25,11 @@ function generatedReason(dataset: DemoDataset, assumptions: Assumptions, partId:
   }
   const oldPrice = unitPriceFromIndex(part.basePriceEurAtIndex100.value, oldErp.priceIndex);
   const change = ((offer.unitPriceEur - oldPrice) / oldPrice) * 100;
-  const pct = `${change > 0 ? '+' : change < 0 ? '−' : '±'}${n(Math.abs(change), 1)} %`;
+  // In words, never with a + or − sign (20 Nov 2026), and with the supplier's name instead of its ID.
+  const pct = Math.abs(change) < 0.05 ? 'same price' : `${n(Math.abs(change), 1)} % ${change > 0 ? 'more expensive' : 'cheaper'}`;
   return (
-    `Switch from ${replacedId}: ${n(newPcf.pcfKgPerPiece, 1)} instead of ${n(oldPcf.pcfKgPerPiece, 1)} kg CO₂e per piece ` +
-    `(${newPcf.badge.toLowerCase()} vs ${oldPcf.badge.toLowerCase()}) at EUR ${n(offer.unitPriceEur, 2)} instead of ${n(oldPrice, 2)} (${pct}).`
+    `Switch from ${oldErp.supplierName}: ${n(newPcf.pcfKgPerPiece, 1)} instead of ${n(oldPcf.pcfKgPerPiece, 1)} kg CO₂e per piece ` +
+    `(${newPcf.badge === oldPcf.badge ? `both ${newPcf.badge.toLowerCase()}` : `${newPcf.badge.toLowerCase()} vs ${oldPcf.badge.toLowerCase()}`}) at ${n(offer.unitPriceEur, 2)} € instead of ${n(oldPrice, 2)} € (${pct}).`
   );
 }
 
