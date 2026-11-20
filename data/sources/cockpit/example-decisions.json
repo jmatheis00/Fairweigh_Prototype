@@ -32,6 +32,7 @@
       "weightsReason": null,
       "requisitionId": "PR-10038112",
       "vsCurrent": null,
+      "keptCurrentSupplier": false,
       "reference": {
         "quality": {
           "value": 0.7,
@@ -188,6 +189,7 @@
       "weightsReason": null,
       "requisitionId": "PR-10038120",
       "vsCurrent": null,
+      "keptCurrentSupplier": false,
       "reference": {
         "quality": {
           "value": 0.7,

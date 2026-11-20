@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { abatementOptions, co2TargetPath, isExcludedSupplier, supplierBaseStats } from './analytics.js';
+import { abatementOptions, co2TargetPath, isExcludedSupplier, supplierBaseStats, withoutDecidedSwitches } from './analytics.js';
 import type { CatalogPart, CompanyEmissionsRecord, DocumentRecord, ErpRecord, Offer, PcfRecord, PurchaseOrderRecord, RatingRecord, SupplierPerformanceMonth } from './sources.js';
 
 const erp = (supplierId: string, category: string, relationshipStatus = 'Active contract') => ({ supplierId, category, relationshipStatus }) as ErpRecord;
@@ -57,6 +57,24 @@ describe('abatementOptions', () => {
     expect(isExcludedSupplier('D', [{ supplierId: 'D', lksgCountryRisk: 'High', certifications: 'ISO 9001', controversies: null } as RatingRecord], [])).toBe(true);
     expect(isExcludedSupplier('E', [], [{ supplierId: 'E', documentType: 'fine_notice' } as DocumentRecord])).toBe(true);
     expect(options.some((o) => o.toSupplierId === 'D')).toBe(false);
+  });
+
+  it('leaves out a switch the Decision Log already holds, only for that part and supplier', () => {
+    const decided = withoutDecidedSwitches(options, [
+      { partId: 'P', chosenSupplierId: 'C' },
+      { partId: 'OTHER', chosenSupplierId: 'B' },
+    ]);
+    expect(decided.map((o) => o.toSupplierId)).toEqual(['B']);
+    expect(withoutDecidedSwitches(options, [])).toEqual(options);
+  });
+
+  it('leaves out every switch for a part whose latest decision kept the current supplier', () => {
+    // An earlier switch to A (as in the July examples) does not count as "kept": the switches stay listed.
+    expect(withoutDecidedSwitches(options, [{ partId: 'P', chosenSupplierId: 'A', recordedAt: '2026-07-03' }])).toEqual(options);
+    const kept = { partId: 'P', chosenSupplierId: 'A', recordedAt: '2026-11-20', keptCurrentSupplier: true };
+    expect(withoutDecidedSwitches(options, [{ partId: 'P', chosenSupplierId: 'A', recordedAt: '2026-07-03' }, kept])).toEqual([]);
+    // A later switch decision replaces the "kept" one: only the switch it decided leaves the list.
+    expect(withoutDecidedSwitches(options, [kept, { partId: 'P', chosenSupplierId: 'C', recordedAt: '2026-11-21' }]).map((o) => o.toSupplierId)).toEqual(['B']);
   });
 });
 

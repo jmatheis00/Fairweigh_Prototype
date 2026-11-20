@@ -101,7 +101,12 @@ export function EvidenceTable({ run, supplierNames, selectedId, onOpen, result =
                 </Button>
               )}
             </Flex>
-            <SupplierTable rows={own} selectedId={selectedId} onOpen={onOpen} />
+            <SupplierTable
+              rows={own}
+              selectedId={selectedId}
+              onOpen={onOpen}
+              gapStatus={(topic) => gapStatus(topic, ranked?.assumed ?? [], excluded && (neverDelivered?.has(id) ?? false))}
+            />
           </section>
         );
       })}
@@ -109,7 +114,29 @@ export function EvidenceTable({ run, supplierNames, selectedId, onOpen, result =
   );
 }
 
-function SupplierTable({ rows, selectedId, onOpen }: { rows: Row[]; selectedId: string | null; onOpen: (evidence: Evidence) => void }) {
+type GapStatus = "missing" | "range" | "no_deliveries";
+
+/**
+ * What a gap means for the score (20 Nov 2026): a supplier that never delivered gets a range for quality and
+ * delivery instead of 0 points, as in the offer table; for an excluded offer it is only "No deliveries".
+ */
+function gapStatus(topic: EvidenceTopic, assumed: readonly string[], excludedWithoutDeliveries: boolean): GapStatus {
+  if (assumed.includes(topic)) return "range";
+  if (excludedWithoutDeliveries && (topic === "quality" || topic === "delivery")) return "no_deliveries";
+  return "missing";
+}
+
+function SupplierTable({
+  rows,
+  selectedId,
+  onOpen,
+  gapStatus: statusOfGap,
+}: {
+  rows: Row[];
+  selectedId: string | null;
+  onOpen: (evidence: Evidence) => void;
+  gapStatus: (topic: EvidenceTopic) => GapStatus;
+}) {
   return (
     <Table<Row>
       size="small"
@@ -131,7 +158,7 @@ function SupplierTable({ rows, selectedId, onOpen }: { rows: Row[]; selectedId: 
         {
           title: "Status",
           width: 170,
-          render: (_, row) => <StatusTag status={row.evidence ? row.evidence.status : "missing"} />,
+          render: (_, row) => <StatusTag status={row.evidence ? row.evidence.status : statusOfGap(row.topic)} />,
         },
         {
           title: "Source or reason",

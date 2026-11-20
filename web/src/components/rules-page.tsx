@@ -159,7 +159,7 @@ export function RulesPage({ rules, user, onSaved }: Props) {
           <Flex vertical gap={10}>
             {[
               "An offer is excluded for a proven legal violation (final fine notice), LkSG risk High without a social audit (SA8000), or a known child or forced labour controversy. Other allegations, medium risk and long lead times are warnings.",
-              "A missing or unverified value gets 0 points and a visible note. Gaps never improve an offer.",
+              "A missing or unverified value gets 0 points and a visible note. Only exception: a supplier that never delivered gets a range for quality and delivery (weakest to best of our current suppliers) and always ranks after all offers with real data. Gaps never improve an offer.",
               "The ranking is fixed code, not AI: % better or worse than today per criterion, then the weights.",
               `Weights start at the company default of the commodity group. A buyer may set each weight between ${WEIGHT_MIN} % and ${WEIGHT_MAX} % and must justify the change in the Decision Log.`,
               "Every value needs a verified source the buyer can open.",

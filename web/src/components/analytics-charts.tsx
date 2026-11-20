@@ -1,10 +1,11 @@
 "use client";
 
-import { CheckCircleOutlined } from "@ant-design/icons";
+import { ArrowRightOutlined, CheckCircleOutlined } from "@ant-design/icons";
 import { Descriptions, Flex, Table, Tag, Tooltip, Typography } from "antd";
 import type { AbatementOption, Co2TrendPoint, SupplierBasePoint, SupplierQuadrant } from "@scc/shared";
 import { formatMonth, formatNumber, formatEur } from "@/lib/labels";
 import { BRAND } from "@/lib/theme";
+import { SupplierNameLink } from "@/lib/supplier-labels";
 
 const TEAL = BRAND.secondary;
 const PETROL = BRAND.primary;
@@ -252,14 +253,25 @@ export function Co2TargetChart({
  * Next best actions as a table (feedback 17 Nov 2026): one row per switch, cheapest CO₂ first.
  * A table instead of bars, because a switch at the same price has 0 € per tonne and its bar looked empty.
  */
-export function AbatementTable({ options, name, part }: { options: AbatementOption[]; name: (id: string) => string; part: (id: string) => string }) {
+export function AbatementTable({
+  options,
+  name,
+  part,
+  onOpenSupplier,
+}: {
+  options: AbatementOption[];
+  name: (id: string) => string;
+  part: (id: string) => string;
+  /** Both supplier names are links that open the supplier in the side panel (20 Nov 2026). */
+  onOpenSupplier?: (supplierId: string) => void;
+}) {
   return (
     <Table<AbatementOption>
       size="small"
       pagination={false}
       rowKey={(o) => `${o.partId}-${o.toSupplierId}`}
       dataSource={options}
-      locale={{ emptyText: "No switch avoids CO₂ against today's suppliers." }}
+      locale={{ emptyText: "No open switch: none avoids CO₂, or it is already decided or declined in Fairweigh." }}
       scroll={{ x: 560 }}
       aria-label="Supplier switches by cost per tonne CO₂ avoided"
       columns={[
@@ -269,7 +281,8 @@ export function AbatementTable({ options, name, part }: { options: AbatementOpti
           render: (_, o) => (
             <Flex vertical>
               <span>
-                <strong>{part(o.partId)}</strong>: {name(o.fromSupplierId)} → {name(o.toSupplierId)}
+                <strong>{part(o.partId)}</strong>: <SupplierNameLink supplierId={o.fromSupplierId} name={name(o.fromSupplierId)} onOpen={onOpenSupplier} />{" "}
+                <ArrowRightOutlined aria-label="to" /> <SupplierNameLink supplierId={o.toSupplierId} name={name(o.toSupplierId)} onOpen={onOpenSupplier} />
               </span>
               <Typography.Text type="secondary" style={{ fontSize: 12 }}>
                 at {formatNumber(o.annualQuantity, 0)} pcs per year · CO₂ data: {o.badge}

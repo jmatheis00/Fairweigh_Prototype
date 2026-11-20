@@ -3,7 +3,7 @@
 import { ArrowDownOutlined, ArrowRightOutlined, CheckCircleOutlined, CloudOutlined, EuroOutlined, InfoCircleOutlined, SafetyCertificateOutlined, SwapOutlined } from "@ant-design/icons";
 import { Alert, Button, Card, Flex, Table, Tooltip, Typography } from "antd";
 import { useEffect, useMemo, useState } from "react";
-import { abatementOptions, co2TargetPath, formatDay, impactStats, purchasedCo2, type AbatementOption, periodOptions, type DecisionRecord, type DemoSettings, type PurchaseOrderRecord } from "@scc/shared";
+import { abatementOptions, withoutDecidedSwitches, co2TargetPath, formatDay, impactStats, purchasedCo2, type AbatementOption, periodOptions, type DecisionRecord, type DemoSettings, type PurchaseOrderRecord } from "@scc/shared";
 import { api } from "@/lib/api";
 import { formatMonth, formatNumber, shortPartName, formatEur } from "@/lib/labels";
 import { shortName } from "@/lib/names";
@@ -227,17 +227,23 @@ export function ImpactPage({ settings, log, supplierNames, onOpenDecision, onOpe
               Next best actions, cheapest CO₂ first{" "}
               <InfoTip
                 label="next best actions"
-                title="Supplier switches ranked by cost per tonne CO₂ avoided: today's quotations against today's suppliers, at last year's quantities. Excluded offers are left out."
+                title="Supplier switches ranked by cost per tonne CO₂ avoided: today's quotations against today's suppliers, at last year's quantities. Left out: excluded offers, switches already decided in Fairweigh, and all switches for a product whose latest decision kept the current supplier."
               />
             </span>
+          }
+          extra={
+            <Typography.Text type="secondary" style={{ fontSize: 12 }}>
+              Click a supplier for its details
+            </Typography.Text>
           }
           styles={{ body: { padding: 0 } }}
         >
           {options2 === null ? null : (
             <AbatementTable
-              options={active.partId ? options2.filter((o) => o.partId === active.partId) : options2}
+              options={withoutDecidedSwitches(active.partId ? options2.filter((o) => o.partId === active.partId) : options2, log)}
               name={name}
               part={part}
+              onOpenSupplier={onOpenSupplier}
             />
           )}
         </Card>

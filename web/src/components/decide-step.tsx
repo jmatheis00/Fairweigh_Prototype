@@ -100,6 +100,7 @@ export function DecideStep({
             decidedBy,
             requisitionId,
             reference,
+            currentSupplierId,
             vsCurrent: cmp && currentSupplierId ? { supplierId: currentSupplierId, totalDeltaEur: cmp.totalDeltaEur, co2TotalDeltaT: cmp.co2TotalDeltaT } : null,
           }),
         );

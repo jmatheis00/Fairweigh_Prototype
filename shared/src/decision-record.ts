@@ -41,6 +41,8 @@ export interface DecisionRecord {
   requisitionId?: string | null;
   /** Chosen offer against the current supplier of the part, for the requested quantity (display only). */
   vsCurrent?: { supplierId: string; totalDeltaEur: number | null; co2TotalDeltaT: number | null } | null;
+  /** True when the buyer kept the part's current supplier (20 Nov 2026); missing in older records. */
+  keptCurrentSupplier?: boolean;
   evidence: {
     topic: EvidenceTopic;
     value: number | string;
@@ -67,6 +69,8 @@ export interface DecisionInput {
   weightsReason?: string;
   requisitionId?: string | null;
   vsCurrent?: DecisionRecord['vsCurrent'];
+  /** The part's current supplier, so the record can say whether the buyer kept it. */
+  currentSupplierId?: string | null;
   /** Reference values of the part, saved with the record (17 Nov 2026). */
   reference?: Benchmarks | null;
 }
@@ -117,6 +121,7 @@ export function buildDecisionRecord(input: DecisionInput): DecisionRecord {
     weightsReason: changedWeights ? weightsReason : null,
     requisitionId: input.requisitionId ?? null,
     vsCurrent: input.vsCurrent ? { ...input.vsCurrent } : null,
+    keptCurrentSupplier: input.currentSupplierId != null && input.currentSupplierId === chosenSupplierId,
     reference: input.reference
       ? (Object.fromEntries(CRITERIA.map((c) => [c, { value: input.reference![c].value, basis: input.reference![c].basis }])) as DecisionRecord['reference'])
       : null,
