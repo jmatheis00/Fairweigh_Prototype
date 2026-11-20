@@ -1,7 +1,8 @@
 "use client";
 
-import { InfoCircleOutlined } from "@ant-design/icons";
-import { Tooltip, Typography } from "antd";
+import { CheckCircleOutlined, CloseCircleOutlined, ExclamationCircleOutlined, InfoCircleOutlined, MinusCircleOutlined, StopOutlined, WarningOutlined } from "@ant-design/icons";
+import { Button, Flex, Tag, Tooltip, Typography } from "antd";
+import { CHILD_OR_FORCED_LABOUR, type DataLevel } from "@scc/shared";
 
 /**
  * Plain words for the coded values of the source systems (Excel dropdowns).
@@ -19,14 +20,13 @@ const RELATIONSHIP: Record<string, { label: string; meaning: string }> = {
 };
 
 const CO2_SOURCE: Record<string, { label: string; meaning: string }> = {
-  "Sustainability report": { label: "Sustainability report", meaning: "From the supplier's published sustainability report." },
-  "Supplier self-assessment": { label: "Supplier's own statement", meaning: "Questionnaire answered by the supplier, not checked by a third party." },
-  "Supplier PCF declaration": { label: "Supplier's product footprint", meaning: "Product carbon footprint declared by the supplier for the part." },
-  "Estimate (industry average)": { label: "Industry average", meaning: "No figures from the supplier: an average for the industry is used instead." },
+  "Sustainability report": { label: "Sustainability report", meaning: "Published by the supplier." },
+  "Supplier self-assessment": { label: "Supplier's own statement", meaning: "Questionnaire, not checked by a third party." },
+  "Supplier PCF declaration": { label: "Supplier's product footprint", meaning: "Footprint the supplier declared for the part." },
+  "Estimate (industry average)": { label: "Industry average", meaning: "No supplier figures; an industry average instead." },
   "Web search (AI agent)": {
     label: "Public web, unconfirmed",
-    meaning:
-      "The rating partner says these CO₂ figures come from public web sources; the supplier has not confirmed them.",
+    meaning: "Found online, not confirmed by the supplier.",
   },
 };
 
@@ -76,15 +76,17 @@ export function ExplainedTitle({ title, kind }: { title: string; kind: "relation
   const entries = Object.values(kind === "relationship" ? RELATIONSHIP : CO2_SOURCE);
   return (
     <Tooltip
+      // Wider than the default, so each entry fits on about one line and the box stays short (20 Nov 2026).
+      styles={{ root: { maxWidth: 400 } }}
       title={
         <div>
           {kind === "co2Source" && (
-            <div style={{ marginBottom: 6 }}>
-              Where the rating partner got the supplier&apos;s company-wide CO₂ figures.
+            <div style={{ marginBottom: 4 }}>
+              Source of the supplier&apos;s company CO₂ figures:
             </div>
           )}
           {entries.map((e) => (
-            <div key={e.label} style={{ marginBottom: 4 }}>
+            <div key={e.label} style={{ marginBottom: 2 }}>
               <strong>{e.label}:</strong> {e.meaning}
             </div>
           ))}
@@ -99,3 +101,90 @@ export function ExplainedTitle({ title, kind }: { title: string; kind: "relation
 }
 
 export const RELATIONSHIP_OPTIONS = Object.entries(RELATIONSHIP).map(([value, e]) => ({ value, label: e.label }));
+
+/**
+ * A supplier name that opens the supplier side panel (Sarah's view, 19 Nov 2026).
+ * Without `onOpen` it is plain text, so the same list works where no panel is available.
+ */
+export function SupplierNameLink({
+  supplierId,
+  name,
+  onOpen,
+  ellipsis = false,
+}: {
+  supplierId: string;
+  name: string;
+  onOpen?: (supplierId: string) => void;
+  /** One line, cut with "…" (full name on hover), so rows in short lists keep the same height (20 Nov 2026). */
+  ellipsis?: boolean;
+}) {
+  const oneLine = { overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", display: "block", maxWidth: "100%" } as const;
+  if (!onOpen) return ellipsis ? <span style={oneLine} title={name}>{name}</span> : <>{name}</>;
+  return (
+    // Same petrol link as the supplier names on Results and in the Decision log.
+    <Button
+      type="link"
+      size="small"
+      className="inline-link"
+      title={ellipsis ? name : undefined}
+      style={{ fontSize: "inherit", textAlign: "left", whiteSpace: ellipsis ? "nowrap" : "normal", maxWidth: "100%" }}
+      onClick={() => onOpen(supplierId)}
+    >
+      {ellipsis ? <span style={oneLine}>{name}</span> : name}
+    </Button>
+  );
+}
+
+/** Data level as icon plus word (never colour alone). */
+export function DataLevelLabel({ level }: { level: DataLevel }) {
+  if (level === "sufficient") return <span className="tone-good"><CheckCircleOutlined /> Sufficient</span>;
+  if (level === "partial") return <span className="tone-warn"><MinusCircleOutlined /> Partly</span>;
+  return <span className="tone-bad"><CloseCircleOutlined /> Insufficient</span>;
+}
+
+export const DATA_LEVEL_OPTIONS: { value: DataLevel; label: string }[] = [
+  { value: "insufficient", label: "Insufficient" },
+  { value: "partial", label: "Partly" },
+  { value: "sufficient", label: "Sufficient" },
+];
+
+const FLAG_ICON: Record<string, React.ReactNode> = {
+  "Proven violation": <StopOutlined />,
+  "LkSG risk High": <ExclamationCircleOutlined />,
+  "Controversy reported": <WarningOutlined />,
+};
+
+/** The risk flags of the team rule set, in the order of the filters. */
+export const FLAG_NAMES = Object.keys(FLAG_ICON);
+
+const SHORT_FLAG: Record<string, string> = { "Proven violation": "Violation", "LkSG risk High": "LkSG High", "Controversy reported": "Controversy" };
+
+/**
+ * Risk flags as tags with icon and word: violation and LkSG High red, controversy yellow. A child or forced labour
+ * controversy is a knock-out (K3), so it shows as its own red tag instead of a yellow "Controversy" (20 Nov 2026);
+ * the controversy text is on hover. `short` gives one-word labels for narrow lists.
+ */
+export function FlagTags({ flags, controversy, short = false }: { flags: string[]; controversy?: string | null; short?: boolean }) {
+  if (!flags.length) return <Typography.Text type="secondary">—</Typography.Text>;
+  return (
+    <Flex wrap gap={4}>
+      {flags.map((flag) => {
+        const isControversy = flag === "Controversy reported";
+        const labour = isControversy && controversy ? CHILD_OR_FORCED_LABOUR.exec(controversy) : null;
+        const label = labour ? (/child/i.test(labour[0]) ? "Child labour" : "Forced labour") : short ? (SHORT_FLAG[flag] ?? flag) : flag;
+        const tag = (
+          <Tag key={flag} icon={labour ? <StopOutlined /> : FLAG_ICON[flag]} color={isControversy && !labour ? "warning" : "error"} style={{ marginInlineEnd: 0 }}>
+            {label}
+          </Tag>
+        );
+        return isControversy && controversy ? (
+          <Tooltip key={flag} title={controversy}>
+            {tag}
+          </Tooltip>
+        ) : (
+          tag
+        );
+      })}
+    </Flex>
+  );
+}

@@ -1,4 +1,4 @@
-import { formatDay, isSupplierSpecific, type AgentRun, type Criterion, type DecisionResult, type PcfBadge } from "@scc/shared";
+import { CHILD_OR_FORCED_LABOUR, formatDay, isSupplierSpecific, type AgentRun, type Criterion, type DecisionResult, type PcfBadge } from "@scc/shared";
 
 /** What we ask a supplier for, per gap. Plain wording a supplier understands. */
 const ASK: Record<Criterion, string> = {
@@ -126,4 +126,54 @@ export function sustainabilityRequestText(supplierName: string, items: string[])
     "",
     "Kind regards",
   ].join("\n");
+}
+
+/**
+ * A due diligence request from the risk table (19 Nov 2026): an SA8000 audit for LkSG country risk High,
+ * a statement for a reported controversy. Nothing is sent; it opens as an e-mail draft.
+ */
+export function riskRequestText(supplierName: string, items: string[]): string {
+  return [
+    "Subject: Supply chain due diligence: information request",
+    "",
+    `Dear ${supplierName} team,`,
+    "",
+    "as part of our risk analysis under the German Supply Chain Act (LkSG), please send us:",
+    "",
+    ...items.map((t) => `- ${t}`),
+    "",
+    "Please add the source for every document (certificate, audit report or statement).",
+    "",
+    "Kind regards",
+  ].join("\n");
+}
+
+/**
+ * What to ask a flagged supplier for, following the knock-out rules (19 Nov 2026): a proven violation (K1) or a
+ * child or forced labour controversy (K3) excludes the supplier, so nothing is asked. LkSG High without SA8000 (K2)
+ * asks for the audit that would lift the exclusion; any other controversy asks for a statement.
+ */
+export function riskRequest(
+  flags: string[],
+  rating: { controversies: string | null; certifications: string | null } | undefined,
+  country: string | null,
+): { excluded: string | null; untilAudit: boolean; items: string[] } {
+  const controversy = rating?.controversies ?? null;
+  if (flags.includes("Proven violation")) return { excluded: "Excluded: proven violation", untilAudit: false, items: [] };
+  if (controversy && CHILD_OR_FORCED_LABOUR.test(controversy)) return { excluded: "Excluded: child or forced labour", untilAudit: false, items: [] };
+  const hasSa8000 = /SA\s?8000/i.test(rating?.certifications ?? "");
+  // K2: excluded as well, but only until a valid SA8000 audit arrives (20 Nov 2026: said in the risk list).
+  const untilAudit = flags.includes("LkSG risk High") && !hasSa8000;
+  return {
+    excluded: null,
+    untilAudit,
+    items: [
+      ...(untilAudit
+        ? [`A valid SA8000 certificate or a recent social audit report for your production sites${country ? ` in ${country}` : ""}`]
+        : []),
+      ...(flags.includes("Controversy reported")
+        ? [`Your statement on the reported controversy${controversy ? ` (${controversy})` : ""} and the measures taken`]
+        : []),
+    ],
+  };
 }

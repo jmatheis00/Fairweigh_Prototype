@@ -833,6 +833,27 @@ body .ant-tag.ant-tag-success.ant-tag-filled:not(.ant-tag-disabled) {
   gap: 12px;
   align-items: start;
 }
+/* Cards side by side end at the same line, so no gap opens under the shorter one (19 Nov 2026). */
+.sus-grid.sus-grid-stretch {
+  align-items: stretch;
+}
+/* Stretched cards: the note under a table sits at the bottom, so both notes end on one line (20 Nov 2026). */
+body .sus-grid.sus-grid-stretch > .ant-card {
+  display: flex;
+  flex-direction: column;
+}
+/* Rows with several lines (tags, alert and date) start on one line instead of floating in the middle. */
+body .table-top .ant-table-tbody > tr > td {
+  vertical-align: top;
+}
+body .sus-grid.sus-grid-stretch > .ant-card > .ant-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+body .sus-grid.sus-grid-stretch > .ant-card > .ant-card-body > .ant-table-wrapper ~ :last-child {
+  margin-top: auto;
+}
 
 /* Horizontal bar for CO₂ hotspots: thin, rounded data end. */
 .hbar-track {
@@ -1322,4 +1343,15 @@ body .ant-drawer .ant-descriptions .ant-descriptions-title {
 .tag-brand {
   color: var(--brand);
   border-color: var(--brand-tint-strong);
+}
+
+/* One corner style on every page (20 Nov 2026): a card clips what it holds to its rounded corners, and a table inside
+   a card has square corners, so no table paints over a card corner or shows its own rounded header mid-card. */
+body .ant-card {
+  overflow: hidden;
+}
+body .ant-card .ant-table-wrapper .ant-table,
+body .ant-card .ant-table-wrapper .ant-table-container,
+body .ant-card .ant-table-wrapper .ant-table-header {
+  border-radius: 0;
 }

@@ -142,8 +142,13 @@ export function TargetsPage({ rules, inputs, buyers, user, onSaved }: Props) {
         <Flex gap={24} align="center" wrap>
           <Flex vertical gap={4} style={{ flex: "1 1 300px", minWidth: 0 }}>
             <Typography.Text>
-              <strong>{t(overview.company.achievedTonnes)}</strong> of {formatNumber(draft.company, 0)} t CO₂e avoided ({overview.company.percent} %) ·{" "}
+              <strong>{t(overview.company.achievedTonnes)}</strong> of {formatNumber(draft.company, 0)} t CO₂e avoided in {overview.year} ({overview.company.percent} %) ·{" "}
               {t(overview.company.remainingTonnes)} remaining
+            </Typography.Text>
+            {/* The split, so this year's figure is not confused with the quarter on Results (orders only), 20 Nov 2026. */}
+            <Typography.Text type="secondary" style={{ fontSize: 12 }}>
+              {t(overview.company.orderedTonnes)} from orders after Fairweigh decisions + {t(overview.company.decidedTonnes)} from decisions not ordered yet ·
+              Results shows the orders of one quarter
             </Typography.Text>
             <Progress
               percent={overview.company.percent}

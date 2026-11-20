@@ -45,7 +45,7 @@ import { DEMO_USERS, NAV_BY_ROLE, START_PAGE, VIEW_ONLY_HINT, loadUser, saveUser
 import { AppHeader, HeaderTag, type AppPage } from "./app-header";
 import { ScoreHelp } from "./score-help";
 import { SignedOut } from "./signed-out";
-import { SuppliersPage } from "./suppliers-page";
+import { SuppliersPage, type SupplierFilter } from "./suppliers-page";
 import { SupplierInfoPanel } from "./supplier-info-panel";
 import { SustainabilityPage } from "./sustainability-page";
 import { RulesPage } from "./rules-page";
@@ -131,6 +131,8 @@ export function CockpitShell() {
   const [logRecordId, setLogRecordId] = useState<string | null>(null);
   // Supplier to open on the suppliers page (links from the Decision Log and Results).
   const [openSupplierId, setOpenSupplierId] = useState<string | null>(null);
+  // Filters the suppliers page opens with, from "Show all in Suppliers" on CO₂ and risks (19 Nov 2026).
+  const [supplierFilter, setSupplierFilter] = useState<SupplierFilter | null>(null);
   // Supplier info over the current page, e.g. from a link on Results (feedback 17 Nov 2026).
   const [infoSupplierId, setInfoSupplierId] = useState<string | null>(null);
   // Facts from where the supplier panel was opened (chart on the sustainability page); empty elsewhere.
@@ -502,6 +504,17 @@ export function CockpitShell() {
     setProfileId(null);
     setSelected(null);
     setOpenSupplierId(supplierId);
+    setSupplierFilter(null);
+    setPage("suppliers");
+  }, []);
+  // "Show all in Suppliers": the full list, already filtered.
+  const showSupplierList = useCallback((filter: SupplierFilter) => {
+    setPanel(null);
+    setProfileId(null);
+    setSelected(null);
+    setInfoSupplierId(null);
+    setOpenSupplierId(null);
+    setSupplierFilter(filter);
     setPage("suppliers");
   }, []);
 
@@ -553,6 +566,7 @@ export function CockpitShell() {
       if (kind && allowed.includes(kind) && kind !== "process") {
         closePanels();
         if (kind !== "suppliers") setOpenSupplierId(null);
+        setSupplierFilter(null);
         setPage(kind as AppPage);
       }
     },
@@ -790,11 +804,13 @@ export function CockpitShell() {
           onNavigate={(p) => {
             closePanels();
             if (p !== "suppliers") setOpenSupplierId(null);
+            setSupplierFilter(null);
             setPage(p);
           }}
           onHome={() => {
             closePanels();
             setOpenSupplierId(null);
+            setSupplierFilter(null);
             setPage(START_PAGE[user.role] as AppPage);
           }}
           processOpen={process !== null}
@@ -855,12 +871,13 @@ export function CockpitShell() {
                 supplierNames={{ ...allNames, ...supplierNames }}
                 onOpenDecision={openDecision}
                 onOpenSupplier={openSupplierInfo}
+                forSustainability={user.role === "scope3-manager"}
               />
             )
           ) : shownPage === "rules" ? (
             settings && rules && <RulesPage rules={rules} user={user} onSaved={setRules} />
           ) : shownPage === "sustainability" ? (
-            settings && <SustainabilityPage settings={settings} onOpenSupplier={openSupplierInfo} />
+            settings && <SustainabilityPage settings={settings} onOpenSupplier={openSupplierInfo} onShowSuppliers={showSupplierList} />
           ) : shownPage === "targets" ? (
             settings && rules && (
               <TargetsPage rules={rules} inputs={targetInputs} buyers={settings.buyers ?? []} user={user} onSaved={setRules} />
@@ -872,7 +889,7 @@ export function CockpitShell() {
             <GlossaryPage rules={rules} />
           ) : shownPage === "suppliers" ? (
             <SuppliersPage
-              key={openSupplierId ?? "list"}
+              key={openSupplierId ?? (supplierFilter ? JSON.stringify(supplierFilter) : "list")}
               user={user}
               inCurrentRun={run && result && process ? run.request.supplierIds : []}
               onOpenInCockpit={(id) => {
@@ -887,6 +904,7 @@ export function CockpitShell() {
               partNames={partNames}
               onOpenDecision={openDecision}
               openSupplierId={openSupplierId}
+              initialFilter={supplierFilter}
             />
           ) : shownPage === "process" ? (
             processView

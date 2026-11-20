@@ -88,6 +88,62 @@ export interface SustainabilityStats {
 const round1 = (n: number) => Math.round(n * 10) / 10;
 const percent = (part: number, whole: number) => (whole > 0 ? round1((part / whole) * 100) : null);
 
+export interface PurchasedCo2 {
+  period: Period;
+  co2Tonnes: number;
+  /** Order value: quantity × unit price, in EUR. */
+  spendEur: number;
+  /** Share of spend whose CO₂ value comes from the supplier (not an estimate or industry average), 0–100. */
+  supplierSpecificSpendPercent: number | null;
+  /** The period before, or null without orders there. */
+  previous: { period: Period; co2Tonnes: number; spendEur: number; supplierSpecificSpendPercent: number | null } | null;
+}
+
+/**
+ * Purchased CO₂e (Scope 3, cat. 1) and spend of a period and the period before: order quantity × CO₂ per piece and × unit price.
+ * One function for the Results page and the sustainability stats, so both show the same numbers (20 Nov 2026).
+ */
+export function purchasedCo2(orders: PurchaseOrderRecord[], period: Period): PurchasedCo2 {
+  const sums = (list: PurchaseOrderRecord[]) => {
+    const spend = list.reduce((a, o) => a + o.unitPriceEur * o.quantity, 0);
+    const specific = list.filter((o) => isSupplierSpecific(o.pcfBadge)).reduce((a, o) => a + o.unitPriceEur * o.quantity, 0);
+    return {
+      co2Tonnes: round1(list.reduce((a, o) => a + (o.pcfKgPerPiece * o.quantity) / 1000, 0)),
+      spendEur: Math.round(spend * 100) / 100,
+      supplierSpecificSpendPercent: percent(specific, spend),
+    };
+  };
+  const before = previousPeriod(period);
+  const previousOrders = orders.filter((o) => inPeriod(o.orderDate, before));
+  return {
+    period,
+    ...sums(orders.filter((o) => inPeriod(o.orderDate, period))),
+    previous: previousOrders.length > 0 ? { period: before, ...sums(previousOrders) } : null,
+  };
+}
+
+const hasControversy = (r: RatingRecord) => r.controversies !== null && r.controversies !== 'None known';
+
+/**
+ * Risk flags per supplier (the team rule set): a proven violation (fine notice), LkSG country risk High,
+ * a reported controversy. Only suppliers with at least one flag, most flags first. Shared by the
+ * sustainability page and the suppliers page, so both flag the same suppliers (19 Nov 2026).
+ */
+export function supplierFlags(ratings: RatingRecord[], documents: DocumentRecord[]): SupplierFlag[] {
+  const violations = new Set(documents.filter((d) => d.documentType === 'fine_notice').map((d) => d.supplierId));
+  return ratings
+    .map((r) => ({
+      supplierId: r.supplierId,
+      flags: [
+        ...(violations.has(r.supplierId) ? ['Proven violation'] : []),
+        ...(r.lksgCountryRisk === 'High' ? ['LkSG risk High'] : []),
+        ...(hasControversy(r) ? ['Controversy reported'] : []),
+      ],
+    }))
+    .filter((f) => f.flags.length > 0)
+    .sort((a, b) => b.flags.length - a.flags.length || a.supplierId.localeCompare(b.supplierId));
+}
+
 export interface SustainabilityInput {
   orders: PurchaseOrderRecord[];
   erp: ErpRecord[];
@@ -106,8 +162,6 @@ export function sustainabilityStats(input: SustainabilityInput): SustainabilityS
   if (!options) return null;
   const period = input.period ?? options.latest;
   const current = orders.filter((o) => inPeriod(o.orderDate, period));
-  const before = previousPeriod(period);
-  const previousOrders = orders.filter((o) => inPeriod(o.orderDate, before));
 
   // Hotspots: purchased CO₂e per supplier and part in the period.
   const byKey = new Map<string, Hotspot>();
@@ -156,27 +210,14 @@ export function sustainabilityStats(input: SustainabilityInput): SustainabilityS
   const active = new Set(erp.filter((e) => e.relationshipStatus === 'Active contract').map((e) => e.supplierId));
   const activeRatings = ratings.filter((r) => active.has(r.supplierId));
   const violations = new Set(documents.filter((d) => d.documentType === 'fine_notice').map((d) => d.supplierId));
-  const hasControversy = (r: RatingRecord) => r.controversies !== null && r.controversies !== 'None known';
-  const flagged: SupplierFlag[] = ratings
-    .map((r) => ({
-      supplierId: r.supplierId,
-      flags: [
-        ...(violations.has(r.supplierId) ? ['Proven violation'] : []),
-        ...(r.lksgCountryRisk === 'High' ? ['LkSG risk High'] : []),
-        ...(hasControversy(r) ? ['Controversy reported'] : []),
-      ],
-    }))
-    .filter((f) => f.flags.length > 0)
-    .sort((a, b) => b.flags.length - a.flags.length || a.supplierId.localeCompare(b.supplierId));
+  const flagged = supplierFlags(ratings, documents);
 
-  const spend = current.reduce((a, o) => a + o.unitPriceEur * o.quantity, 0);
-  const specificSpend = current.filter((o) => isSupplierSpecific(o.pcfBadge)).reduce((a, o) => a + o.unitPriceEur * o.quantity, 0);
-  const previousTonnes = previousOrders.reduce((a, o) => a + (o.pcfKgPerPiece * o.quantity) / 1000, 0);
+  const purchased = purchasedCo2(orders, period);
   return {
     period,
-    co2Tonnes: round1(total),
-    supplierSpecificSpendPercent: percent(specificSpend, spend),
-    previous: previousOrders.length > 0 ? { period: before, co2Tonnes: round1(previousTonnes) } : null,
+    co2Tonnes: purchased.co2Tonnes,
+    supplierSpecificSpendPercent: purchased.supplierSpecificSpendPercent,
+    previous: purchased.previous ? { period: purchased.previous.period, co2Tonnes: purchased.previous.co2Tonnes } : null,
     hotspots,
     dataQuality,
     activeSuppliers: activeRatings.length,
