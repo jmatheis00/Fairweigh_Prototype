@@ -80,6 +80,9 @@ function knockOutOf(run: AgentRun, supplierId: string): KnockOut | null {
 /** Rule K3 of the team rule set. */
 export const CHILD_OR_FORCED_LABOUR = /\b(child|forced)\s+labou?r\b/i;
 
+/** A compliance value that says there is nothing to report, e.g. "None known". */
+const NO_FINDING = /^\s*none(\s+known)?\s*$/i;
+
 function warningsOf(run: AgentRun, supplierId: string, options: DecisionInputOptions): string[] {
   const warnings: string[] = [];
   for (const e of run.evidence) {
@@ -90,6 +93,8 @@ function warningsOf(run: AgentRun, supplierId: string, options: DecisionInputOpt
       if (String(e.value).toLowerCase() === 'low') continue;
       warnings.push(`LkSG country risk: ${String(e.value)}`);
     } else {
+      // The rating partner writes "None known" when there is nothing to report: no warning (20 Nov 2026).
+      if (NO_FINDING.test(String(e.value))) continue;
       warnings.push(`Reported: ${String(e.value)}`);
     }
   }

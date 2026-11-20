@@ -75,6 +75,14 @@ describe('knock-out', () => {
     expect(other.warnings).toEqual(['Reported: 2024: excessive overtime found in labour audit']);
   });
 
+  it('"None known" from the rating partner is no controversy and no warning', () => {
+    for (const value of ['None known', 'none known', ' None known ', 'None']) {
+      const result = input([controversy(value)]);
+      expect(result.knockOut).toBeNull();
+      expect(result.warnings).toEqual([]);
+    }
+  });
+
   it('never excludes because of an unverified rating finding', () => {
     expect(input([{ ...risk('High', false), status: 'not_verified' }]).knockOut).toBeNull();
   });
