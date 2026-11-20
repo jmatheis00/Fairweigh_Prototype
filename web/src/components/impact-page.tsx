@@ -233,7 +233,7 @@ export function ImpactPage({ settings, log, supplierNames, onOpenDecision, onOpe
           }
           extra={
             <Typography.Text type="secondary" style={{ fontSize: 12 }}>
-              Click a row for the new supplier
+              Click a supplier for its details
             </Typography.Text>
           }
           styles={{ body: { padding: 0 } }}
